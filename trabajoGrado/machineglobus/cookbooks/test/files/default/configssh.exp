@@ -1,13 +1,16 @@
 #!/usr/bin/expect
+	
+	
 
 	set username    ""
         set host        ""
         set pass        ""
-        set location    ""
+        set location    "~/.ssh/id_rsa"
         set phrase     	""
 	set sizeargv	[llength $argv]
+	set overwrite	"n"
 
-if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 } {
+if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 || $siseargv == 12} {
 	for {set i 0} {$i < [llength $argv]} {incr i 2} {
         	set argvtmp [lindex $argv $i];
 	        if {$argvtmp == "-u"} { #username
@@ -25,7 +28,10 @@ if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $si
 	        } elseif {$argvtmp == "-l"} {#location
 	                set index  [expr $i+1];
                 	set location  [lindex $argv $index];
-        	}
+        	} elseif {$argvtmp == "-o"} {#overwrite
+			set index [expr $i+1];
+			set overwrite [lindex $argv $index];
+		}
 	}
 } else {
 	send_user "Error parametros incompletos\n"
@@ -39,12 +45,35 @@ spawn ssh-keygen -t rsa
 expect "*.ssh/id_rsa):" {send "$location\r"}
 
 expect {
-	"Overwrite (y/n)?" {send "y\r"; exp_continue}
-	"*(empty for no passphrase):" {send "$phrase\r"}
+	"Overwrite (y/n)?" {
+		send "$overwrite\r"
+		exp_continue
 	}
-expect "*passphrase again:" {send "$phrase\r"}
+	"Enter passphrase" {
+		send "$phrase\r"
+		expect "Enter same passphrase again"
+		send "$phrase\r"
+		expect "$"
+		}
+	}
 
 
-expect "*.ssh/id_rsa.pub."
-#send "exit\r"
-send_user "realizado"
+send_user "\nrealizado creacion de llave publica\n"
+send_user "enviar llave a la maquina dada\n"
+
+spawn ssh-copy-id -i $location.pub $username@$host
+
+expect {
+	"*connecting (yes/no)?" {
+		send "yes\r"
+		exp_continue
+	} #primera vez
+	"*assword:" {		
+		send "$pass\r"
+		expect "expecting."
+		send "\n"	
+	}
+}
+
+expect "\$"
+send_user "\nse realiza correctamente\n"
