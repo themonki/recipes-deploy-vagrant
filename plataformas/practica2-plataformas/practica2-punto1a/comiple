@@ -1,0 +1,3 @@
+javac -cp ../pj20120620.jar:. Program1smp.java
+
+java -cp ../pj20120620.jar:. Program1smp

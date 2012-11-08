@@ -1,0 +1,4 @@
+127.0.0.1	localhost
+172.18.100.2	pj-master.cluster.org	pj-master
+172.18.100.3	pj-wn1.cluster.org	pj-wn1
+172.18.100.4	pj-wn2.cluster.org	pj-wn2
