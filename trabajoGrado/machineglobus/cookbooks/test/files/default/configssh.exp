@@ -1,4 +1,9 @@
 #!/usr/bin/expect
+
+#http://www.pantz.org/software/expect/expect_examples_and_tips.html
+#https://www.centos.org/modules/newbb/viewtopic.php?topic_id=28721
+#http://stackoverflow.com/questions/13199977/speed-of-expect-script
+#http://www.thegeekstuff.com/2011/01/expect-expressions-loops-conditions/
 	
 	
 
