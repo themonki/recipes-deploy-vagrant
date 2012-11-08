@@ -1,9 +1,9 @@
-execute "install expect" do
-	user "root"
-	cwd "/tmp"
-	command "yum install -y expect"
-	action :run
-end
+#execute "install expect" do
+#	user "root"
+#	cwd "/tmp"
+#	command "yum install -y expect"
+#	action :run
+#end
 
 ####################################################################
 #modificacion del hostname de la red

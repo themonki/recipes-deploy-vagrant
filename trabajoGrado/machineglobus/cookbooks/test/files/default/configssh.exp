@@ -10,7 +10,7 @@
 	set sizeargv	[llength $argv]
 	set overwrite	"n"
 
-if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 || $siseargv == 12} {
+if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 || $sizeargv == 12} {
 	for {set i 0} {$i < [llength $argv]} {incr i 2} {
         	set argvtmp [lindex $argv $i];
 	        if {$argvtmp == "-u"} { #username
@@ -59,6 +59,12 @@ expect {
 
 
 send_user "\nrealizado creacion de llave publica\n"
+
+if {$username  ==  "" && $host == ""} {
+	send_user "finalizado\n"
+	exit
+}
+
 send_user "enviar llave a la maquina dada\n"
 
 spawn ssh-copy-id -i $location.pub $username@$host
