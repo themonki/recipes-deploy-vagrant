@@ -5,6 +5,30 @@
 #	action :run
 #end
 
+cookbook_file "/tmp/expect-5.44.1.15-4.el6.x86_64.rpm" do
+	source "expect-5.44.1.15-4.el6.x86_64.rpm"
+	mode 0644
+	owner "root"
+end
+
+cookbook_file "/tmp/tcl-8.5.7-6.el6.x86_64.rpm" do
+	source "tcl-8.5.7-6.el6.x86_64.rpm"
+	mode 0644
+	owner "root"
+end
+
+execute "instal tcl" do
+	user "root"
+	cwd "/tmp"
+	command "yum install -y tcl*.rpm"
+end
+
+execute "instal expect" do
+	user "root"
+	cwd "/tmp"
+	command "yum install -y expect-*.rpm"
+end
+
 ####################################################################
 #modificacion del hostname de la red
 execute "backup /etc/sysconfig/network" do

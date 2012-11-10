@@ -4,13 +4,15 @@
 #https://www.centos.org/modules/newbb/viewtopic.php?topic_id=28721
 #http://stackoverflow.com/questions/13199977/speed-of-expect-script
 #http://www.thegeekstuff.com/2011/01/expect-expressions-loops-conditions/
+#http://pensamientosdeotromas.netii.net/2011/07/18/automatiza-todo-lo-que-puedas-con-expect/
 	
 	
-
+set timeout 100
 	set username    ""
         set host        ""
         set pass        ""
-        set location    "~/.ssh/id_rsa"
+        set location    ""
+	set locationdefault    ".ssh/id_rsa"
         set phrase     	""
 	set sizeargv	[llength $argv]
 	set overwrite	"n"
@@ -40,10 +42,11 @@ if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $si
 	}
 } else {
 	send_user "Error parametros incompletos\n"
-        send_user "Uso: configssh -u username -p pass -f phrase -h host -l location\n"
+        send_user "Uso: configssh -u username -p pass -f phrase -h host -l location -o overwrite(y/N)\n"
         exit 1
 }
 
+send_user "el pass es $pass"
 
 spawn ssh-keygen -t rsa
 
@@ -72,7 +75,14 @@ if {$username  ==  "" && $host == ""} {
 
 send_user "enviar llave a la maquina dada\n"
 
-spawn ssh-copy-id -i $location.pub $username@$host
+if { $location == "" } {
+	send_user "no ahi locacion\n"
+	set location $locationdefault
+}
+
+send_user "la locacion $HOME $location y $locationdefault\n"
+
+spawn ssh-copy-id  -i $location.pub $username@$host
 
 expect {
 	"*connecting (yes/no)?" {
@@ -82,9 +92,23 @@ expect {
 	"*assword:" {		
 		send "$pass\r"
 		expect "expecting."
-		send "\n"	
+		send_user "pass enviado\n"				
 	}
 }
 
-expect "\$"
+send_user "test conexion\n"
+spawn ssh  $username@$host
+expect {
+	"*connecting (yes/no)?" {
+		send "yes\r"
+		exp_continue
+	} #primera vez
+	"*assword:" {		
+		send "$pass\r"
+		expect "expecting."
+		send_user "pass enviado\n"				
+	}
+}
+expect "$"
+send "exit\r"
 send_user "\nse realiza correctamente\n"
