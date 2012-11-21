@@ -16,7 +16,7 @@
 *.tar
 *.tar.gz
 *.zip
-
+*.tgz
 
 # OS generated files #
 ######################
