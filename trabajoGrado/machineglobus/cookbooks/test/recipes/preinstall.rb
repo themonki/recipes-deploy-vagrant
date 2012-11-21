@@ -21,12 +21,14 @@ execute "instal tcl" do
 	user "root"
 	cwd "/tmp"
 	command "yum install -y tcl*.rpm"
+	action :run
 end
 
 execute "instal expect" do
 	user "root"
 	cwd "/tmp"
 	command "yum install -y expect-*.rpm"
+	action :run
 end
 
 ####################################################################
@@ -38,10 +40,26 @@ execute "backup /etc/sysconfig/network" do
 	action :run
 end
 
-cookbook_file "/etc/sysconfig/network" do
-	source "network"
-	mode 0644
+#cookbook_file "/etc/sysconfig/network" do
+#	source "network"
+#	mode 0644
+#	owner "root"
+#end
+
+template "/tmp/network" do
+        source "network.rb"
+        mode 0755
+        owner "root"
+        variables(
+                :host_name => "#{node[:host_name]}"
+        )
+end
+
+execute "move network" do
 	owner "root"
+	cwd "/tmp"
+	command "mv network /etc/sysconfig/network"
+	action :run
 end
 
 ###################################################################
