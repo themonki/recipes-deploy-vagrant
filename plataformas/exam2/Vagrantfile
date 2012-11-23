@@ -42,7 +42,7 @@ Vagrant::Config.run do |config|
                         chef.cookbooks_path = "cookbooks"
                         chef.add_recipe "crack::preinstall"
                         chef.json.merge!({
-                                :run_list => [ "recipe[crack::preinstall]"   "recipe[crack::hostname]", "recipe[crack::user]", "recipe[crack::mpichconfigureserver]" , "recipe[crack::installjohn]"],
+                                :run_list => [ "recipe[crack::preinstall]" ,  "recipe[crack::hostname]", "recipe[crack::user]", "recipe[crack::mpichconfigureserver]" ,  "recipe[crack::installjohn]" ],
 				:host_name => "wn2.cluster.org"
                         })
                 end
