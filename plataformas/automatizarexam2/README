@@ -6,3 +6,11 @@ Las siguientes son recetas para el levantamiento de una infraestructura para des
 Este ejercicio hace parte de la segunda seccion del examen practico de la asignatura Introducción de las Plataformas de Computación a Gran Escala
 
 http://www.petur.eu/blog/?p=59
+
+Se debe ajustar el Vagrantfile de acuerdo a los parametros de la maquina donde se corra
+
+Es importante crear el directorio tmp en cookbooks/crack/files/default
+
+se debe de eliminar el contenido de los archivos cookbooks/crack/files/default/hosts (dejando la primera linea localhost) y cookbooks/crack/files/default/mpd.hosts
+
+Se deben de iniciar las maquinas nodo o workers y por el ultimo el master
