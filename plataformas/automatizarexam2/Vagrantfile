@@ -1,0 +1,61 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant::Config.run do |config|
+	config.vm.define :master, :primary => true do |node_1|
+		node_1.vm.box = "lucid32"
+		#node_1.vm.network :hostonly, "10.0.0.2"
+		node_1.vm.network :bridged, "eth0"
+		node_1.vm.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 2, "--name", "master" ]
+		node_1.vm.provision :chef_solo do |chef|
+			chef.cookbooks_path = "cookbooks"
+			chef.add_recipe "crack::preinstall"
+			chef.json.merge!({
+				:run_list => [ "recipe[crack::preinstall]", "recipe[crack::hostname]" , "recipe[crack:getipadd]" , "recipe[crack::user]", "recipe[crack::mpichconfigureserver]" , "recipe[crack::installjohn]" ],
+				:host_name => "master.cluster.org" ,
+				:alias => "master" ,
+				:ip_host_machine => "192.168.0.22"  #representa la ip de la maquina host donde corren las vm
+			})
+		end
+	end
+
+	config.vm.define :wn1 do |node|
+		node.vm.box = "lucid32"
+		#node.vm.network :hostonly, "10.0.0.3"
+                node.vm.network :bridged, "eth0"
+		node.vm.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 2, "--name", "worker1"]
+                node.vm.provision :chef_solo do |chef|
+                        chef.cookbooks_path = "cookbooks"
+                        chef.add_recipe "crack::preinstall"
+                        chef.json.merge!({
+                                :run_list => [ "recipe[crack::preinstall]" ,  "recipe[crack::hostname]" , "recipe[crack:getipadd]" , "recipe[crack::user]", "recipe[crack::mpichconfigurenode]" ,  "recipe[crack::installjohn]" ],
+				:host_name => "wn1.cluster.org" ,
+				:alias => "wn1" ,
+				:ip_maquina_local => "" ,
+                                :pass_maquina_local => "" ,
+				:user_maquina_local => "" ,
+				:path_project_vagrant => ""				
+                        })
+                end
+	end
+
+	config.vm.define :wn2 do |node|
+                node.vm.box = "lucid32"
+                #node.vm.network :hostonly, "10.0.0.4"
+                node.vm.network :bridged, "eth0"
+                node.vm.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 2, "--name", "worker2" ]
+                node.vm.provision :chef_solo do |chef|
+                        chef.cookbooks_path = "cookbooks"
+                        chef.add_recipe "crack::preinstall"
+                        chef.json.merge!({
+                                :run_list => [ "recipe[crack::preinstall]" ,  "recipe[crack::hostname]" , "recipe[crack:getipadd]" , "recipe[crack::user]", "recipe[crack::mpichconfigurenode]" ,  "recipe[crack::installjohn]" , "recipe[crack::getipadd]" ],
+				:host_name => "wn2.cluster.org",
+                                :alias => "wn1" ,
+				:ip_maquina_local => "" ,
+                                :pass_maquina_local => "" ,
+                                :user_maquina_local => "" ,
+                                :path_project_vagrant => ""
+                        })
+                end
+        end
+end
