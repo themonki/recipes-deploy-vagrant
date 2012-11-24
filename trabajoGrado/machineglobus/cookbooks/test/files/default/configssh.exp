@@ -96,19 +96,19 @@ expect {
 	}
 }
 
-send_user "test conexion\n"
-spawn ssh  $username@$host
-expect {
-	"*connecting (yes/no)?" {
-		send "yes\r"
-		exp_continue
-	} #primera vez
-	"*assword:" {		
-		send "$pass\r"
-		expect "expecting."
-		send_user "pass enviado\n"				
-	}
-}
-expect "$"
-send "exit\r"
+#send_user "test conexion\n"
+#spawn ssh  $username@$host
+#expect {
+#	"*connecting (yes/no)?" {
+#		send "yes\r"
+#		exp_continue
+#	} #primera vez
+#	"*assword:" {		
+#		send "$pass\r"
+#		expect "expecting."
+#		send_user "pass enviado\n"				
+#	}
+#}
+#expect "$"
+#send "exit\r"
 send_user "\nse realiza correctamente\n"
