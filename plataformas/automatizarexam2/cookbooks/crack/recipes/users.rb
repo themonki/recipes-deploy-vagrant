@@ -1,3 +1,4 @@
+
 user "condor" do
 	not_if "id cluster"
 	comment "condor user"

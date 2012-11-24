@@ -23,11 +23,41 @@ end
 
 ##instalar expect
 
+#execute "install expect" do
+#        user "root"
+#        group "admin"
+#        cwd "/home/vagrant"
+#        command "apt-get install -y --force-yes expect"
+#        action :run
+#end
+
+cookbook_file "/home/vagrant/tcl8.5_8.5.8-2_i386.deb" do
+        source "tcl8.5_8.5.8-2_i386.deb"
+        mode 0644
+        owner "vagrant"
+        group "admin"
+end
+
+cookbook_file "/home/vagrant/expect_5.45-2_i386.deb" do
+        source "expect_5.45-2_i386.deb"
+        mode 0644
+        owner "vagrant"
+        group "admin"
+end
+
 execute "install expect" do
-        user "root"
+        user "vagrant"
         group "admin"
         cwd "/home/vagrant"
-        command "apt-get install -y --force-yes expect"
+        command "sudo dpkg -i tcl8.5_8.5.8-2_i386.deb"
+        action :run
+end
+
+execute "install expect" do
+        user "vagrant"
+        group "admin"
+        cwd "/home/vagrant"
+        command "sudo dpkg -i expect_5.45-2_i386.deb"
         action :run
 end
 
@@ -38,10 +68,10 @@ template "/home/condor/send_host_local.exp" do
 	owner "condor"
 	group "admin"
 	variables(
-		:host_name => "#{node[:host_name]}"
-		:ip_maquina_local => "#{node[:ip_maquina_local]}"
-		:pass_maquina_local => "#{node[:pass_maquina_local]}"
-		:user_maquina_local => "#{node[:user_maquina_local]}"
+		:host_name => "#{node[:host_name]}",
+		:ip_maquina_local => "#{node[:ip_maquina_local]}",
+		:pass_maquina_local => "#{node[:pass_maquina_local]}",
+		:user_maquina_local => "#{node[:user_maquina_local]}",
 		:path_project_vagrant => "#{node[:path_project_vagrant]}"
 	)
 end
@@ -49,7 +79,7 @@ end
 cookbook_file "/home/vagrant/configssh.exp" do
         source "configssh.exp"
         mode 0644
-        owner "vagrant"
+        owner "condor"
         group "admin"
 end
 

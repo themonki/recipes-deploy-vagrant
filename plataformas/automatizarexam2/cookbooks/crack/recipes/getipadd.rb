@@ -4,33 +4,59 @@
 
 ## se consulta la ip asignada
 execute "get ip from ifconfig" do
-	user condor
-	group admin
-	pwd "/home/condor"
-	command "ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}' >> ip"
+	user "condor"
+	group "admin"
+	cwd "/home/condor"
+	command "/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}' >> ip"
 	action :run
 end
 ## se crea un archivo que contendra ip hostname alias (como el /etc/hosts)
 execute "add ip" do
-        user condor
-        group admin
-        pwd "/home/condor"
+        user "condor"
+        group "admin"
+        cwd "/home/condor"
         command 'cat ip >> hosts_tmp'
         action :run
 end
 execute "add hostname alias" do
-        user condor
-        group admin
-        pwd "/home/condor"
-        command 'echo " #{node[:host_name]} #{node[:alias]} " >> hosts_tmp'
+        user "condor"
+        group "admin"
+        cwd "/home/condor"
+        command "echo  #{node[:host_name]} #{node[:alias]}  >> hosts_tmp"
         action :run
 end
 
 ## se quitan saltos de linea
 execute "quitar salos de linea" do
-        user condor
-        group admin
-        pwd "/home/condor"
-        command "sed -n -e '1x;1!H;${x;s-\n- -gp}' host_tmp > hosts"
+        user "condor"
+        group "admin"
+        cwd "/home/condor"
+        command "sed -n -e '1x;1!H;\${x;s-\\n- -gp}' hosts_tmp > hosts"
+        action :run
+end
+
+###se crea para el archivo mpd.host
+
+execute "get cores" do
+        user "condor"
+        group "admin"
+        cwd "/home/condor"
+        command "cat /proc/cpuinfo | grep processor | wc -l > core"
+        action :run
+end
+
+execute "combinar ip core" do
+        user "condor"
+        group "admin"
+        cwd "/home/condor"
+        command "cat ip > mpd_host_tmp; echo : >> mpd_host_tmp ; cat core >> mpd_host_tmp"
+        action :run
+end
+
+execute "quitar espacios y saltos de linea" do
+        user "condor"
+        group "admin"
+        cwd "/home/condor"
+        command "sed -n -e '1x;1!H;\${x;s-\\n- -gp}' mpd_host_tmp | sed -e 's: ::' | sed -e 's: ::' >> mpd.hosts"
         action :run
 end

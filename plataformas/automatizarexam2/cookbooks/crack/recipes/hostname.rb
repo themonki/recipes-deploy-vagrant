@@ -1,9 +1,9 @@
-cookbook_file "/etc/hosts" do
-	source "hosts"
-	mode 0755
-	owner "root"
-	group "admin"
-end
+#cookbook_file "/etc/hosts" do
+#	source "hosts"
+#	mode 0755
+#	owner "root"
+#	group "admin"
+#end
 
 execute "hostname-stop" do
 	user "root"
