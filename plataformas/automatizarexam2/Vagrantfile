@@ -21,7 +21,7 @@ Vagrant::Config.run do |config|
 
 	config.vm.define :wn1 do |node|
 		node.vm.box = "lucid32"
-		#node.vm.network :hostonly, "10.0.0.3"
+		node.vm.network :hostonly, "10.0.0.3"
             #    node.vm.network :bridged, :bridge => "eth2"
 		node.vm.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 1, "--name", "worker1" ]
                 node.vm.provision :chef_solo do |chef|
