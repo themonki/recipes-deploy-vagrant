@@ -1,7 +1,7 @@
 #!/usr/bin/expect
 
 	
-	set timeout 120
+	set timeout 300
 	set user    ""
         set host        ""
         set pass        ""
@@ -51,43 +51,27 @@ expect {
 	}
 }
 ##acceder como ssh
-spawn ssh $user@$host
+spawn ssh -q $user@$host
 
-expect {
-	"*assword:" {
-                send "$pass\r"
-                expect "$ "
-                send_user "acceso\n"
-        }
-        "$ "{ 
-                send_user "acceso\n"
+expect "*assword:"
+send "$pass\r"
+expect "$user@" 
+send "sudo cp /home/$user/hosts /etc/hosts\r"
+send_user "\nactualizando host\n"
+#expect {
+#	"*assword:"{
+ #       	send "$pass\r"
+#		exp_continue
+#	}
+#	"sudo: unable*"{
+#		exp_continue
+#	}
+#	"$user@"{
+#		send_user "realizado\n"
+#	}
+#}
+expect "$user@"
+send_user "\nrealizado\n"
+send "exit\r"        		
 
-        }	
-}
-
-##aceder como root
-spawn su
-
-expect {
-        "Contrase*"{
-                send "$pass\r"
-		expect "$ "
-                send_user "acceso root\n"
-	}
-	"*assword:" {
-                send "$pass\r"
-                expect "$ "
-                send_user "acceso root\n"
-        }
-        "$ "{
-                send_user "acceso root\n"
-
-        }  
-}
-
-spawn cp /home/$user/hosts /etc/hosts
-
-send_user "\nrealizado adicion de host\n"
-
-send "exit\r"
-send "exit\r"
+exit
