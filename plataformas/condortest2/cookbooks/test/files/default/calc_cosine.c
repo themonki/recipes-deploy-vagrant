@@ -1,11 +1,26 @@
 #include <stdio.h>
 #include <math.h>
 
-int main()
-{
-	freopen ("myfile.txt","w",stdout);
-	printf ("This sentence is redirected to a file.");
-	fclose (stdout);
+#define PI 3.14159265
 
-	return 0;
+int main ()
+{
+	//FILE *frIn = fopen("valor.txt", "r");
+	FILE *frOut = fopen("cosineresult.txt","w"); 
+	if(	frOut!=NULL 
+		//&&
+		 //frIn!=NULL
+		){
+		double param = PI / 45 , result;
+		//leer*****************************************************************
+		//fscanf(frIn, "%lf", &param);
+		result = cos (param);
+		result=result*result;
+		//escribir*************************************************************
+		fprintf(frOut, "%lf", result);
+		//cerrar***************************************************************
+		//close(frIn);
+		close(frOut);
+		return 0;
+	}else return 1;
 }

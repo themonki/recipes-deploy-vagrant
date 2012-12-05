@@ -1,0 +1,6 @@
+Executable      = cos
+Universe        = vanilla
+Output          = out.$(cluster)
+Error           = err.$(cluster)
+Log             = log.$(cluster)
+Queue

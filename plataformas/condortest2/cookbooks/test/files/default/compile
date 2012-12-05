@@ -1,0 +1,3 @@
+Con la libreria de math.h agregar -lm al final
+
+gcc -o nomprog nomfile.c -lm
