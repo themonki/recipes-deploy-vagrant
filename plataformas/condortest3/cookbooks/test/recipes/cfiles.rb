@@ -127,6 +127,13 @@ cookbook_file "/home/condor/collect" do
         group "admin"
 end
 
+cookbook_file "/home/condor/degree" do
+        source "degree"
+        mode 0755
+        owner "condor"
+        group "admin"
+end
+
 #dagman
 cookbook_file "/home/condor/composetask.dag" do
         source "composetask.dag"
