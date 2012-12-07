@@ -1,0 +1,4 @@
+127.0.0.1	localhost
+172.18.0.2	master.cluster.org	master
+172.18.0.3	wn1.cluster.org		wn1
+172.18.0.4	wn2.cluster.org		wn2

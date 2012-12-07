@@ -1,0 +1,20 @@
+Recetas donde se crea una infraestructuras con maquinas virtuales para un cluster con condor.
+
+Además antes de poder correr el cluster es necesario terminar de configurar condor:
+
+En el master, editar el archivo /etc/network/interfaces, cambiando la linea iface eth0 inet dhcp por iface eth0 inet manual
+	sudo nano /etc/network/interfaces
+Luego es necesario que se tome dicha configuración
+	sudo /etc/init.d/networking stop
+    	sudo /etc/init.d/networking start
+
+despues de ello se puede entrar al usuario condor:
+	sudo su - condor
+se corre el comando de estatus 
+	condor_status
+y se comprueba si ya se tienen las maquinas. En caso de que se tiren errores, puede ser necesario reiniciar los nodos.
+
+Una vez echo esto se pueden ejecutar los jobs con condor_submit, en el siguiente caso una tarea de prueba.
+	condor_submit /opt/condor/condor/tmp/condor/testTask.condor
+
+

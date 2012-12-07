@@ -1,0 +1,10 @@
+#http://research.cs.wisc.edu/htcondor/manual/v7.8/2_10DAGMan_Applications.html#SECTION003102000000000000000
+#se indican cada uno de los jobs que se quieren ejecutar
+Job degree degree.condor
+Job sin2 sin2.condor
+Job cos2 cos2.condor
+Job collect collect.condor
+#se realiza una dependencia donde collect debe de esperar a sine2 y cosine2 para ejecutar
+PARENT degree CHILD sin2 cos2
+PARENT sin2 cos2 CHILD collect
+Retry collect 3

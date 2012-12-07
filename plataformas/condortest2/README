@@ -1,0 +1,23 @@
+Recetas donde se crea una infraestructuras con maquinas virtuales para un cluster con condor y se suben unos jobs para enviar usando condor_submit y el archivo .condor con lo especificado.
+El archivo condor esta sin agregarle las lineas:
+
+	should_transfer_files   = YES
+	when_to_transfer_output = ON_EXIT
+
+Además antes de poder correr el cluster es necesario terminar de configurar condor:
+
+En el master, editar el archivo /etc/network/interfaces, cambiando la linea iface eth0 inet dhcp por iface eth0 inet manual
+	sudo nano /etc/network/interfaces
+Luego es necesario que se tome dicha configuración
+	sudo /etc/init.d/networking stop
+    	sudo /etc/init.d/networking start
+
+despues de ello se puede entrar al usuario condor:
+	sudo su - condor
+se corre el comando de estatus 
+	condor_status
+y se comprueba si ya se tienen las maquinas. En caso de que se tiren errores, puede ser necesario reiniciar los nodos.
+
+Una vez echo esto se pueden ejecutar los jobs con condor_submit.
+
+

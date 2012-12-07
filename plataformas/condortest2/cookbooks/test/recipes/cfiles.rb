@@ -14,8 +14,8 @@ cookbook_file "/home/condor/calc_cosine.c" do
         group "admin"
 end
 
-cookbook_file "/home/condor/sum.c" do
-        source "sum.c"
+cookbook_file "/home/condor/collect.c" do
+        source "collect.c"
         mode 0755
         owner "condor"
         group "admin"
@@ -37,8 +37,8 @@ cookbook_file "/home/condor/cos.condor" do
 end
 
 
-cookbook_file "/home/condor/sum.condor" do
-        source "sum.condor"
+cookbook_file "/home/condor/collect.condor" do
+        source "collect.condor"
         mode 0755
         owner "condor"
         group "admin"
@@ -60,8 +60,8 @@ cookbook_file "/home/condor/cos" do
 end
 
 
-cookbook_file "/home/condor/sum" do
-        source "sum"
+cookbook_file "/home/condor/collect" do
+        source "collect"
         mode 0755
         owner "condor"
         group "admin"

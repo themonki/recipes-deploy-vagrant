@@ -1,0 +1,29 @@
+Recetas donde se crea una infraestructuras con maquinas virtuales para un cluster con condor.
+
+Además antes de poder correr el cluster es necesario terminar de configurar condor:
+
+En el master, editar el archivo /etc/network/interfaces, cambiando la linea iface eth0 inet dhcp por iface eth0 inet manual
+	sudo nano /etc/network/interfaces
+Luego es necesario que se tome dicha configuración
+	sudo /etc/init.d/networking stop
+    	sudo /etc/init.d/networking start
+
+despues de ello se puede entrar al usuario condor:
+	sudo su - condor
+se corre el comando de estatus 
+	condor_status
+y se comprueba si ya se tienen las maquinas. En caso de que se tiren errores, puede ser necesario reiniciar los nodos.
+
+Una vez echo esto se pueden ejecutar los jobs con condor_submit, en el siguiente caso una tarea de prueba.
+
+En este caso, lo que se quiere es tomar los programas individuales de sen, cos y collect y crear un solo job que use dichos programas para cumplir con la identidad trigonometrica.
+
+Basicamente se construye un archivo dag y los jobs se envian usando condor_submit_dag.
+
+Se suben los archivos necesarios: los programas de sen, cos y collect, los archivos condor sen.condor, cos.condor y collect.condor y el archivo dag con la especificación del job composetask.dag.
+
+
+Se construye tambien una tercera tarea que guardara el valor de un grado especifico y este valor será leido por los programas sen y cos.
+Para ello se crean los archivos en c calc_degree.c, calc_sen2.c y calc_cosine2.c y se crearán los ejecutables sen2 y cos2 respectivamente.
+El collect será el mismo. Se agrega un nuevo archivo dag composetask2.dag y los archivos condor cos2.condor y sen2.condor.
+
