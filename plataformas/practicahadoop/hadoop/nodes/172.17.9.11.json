@@ -1,0 +1,10 @@
+{ 
+  "hostconf": {
+    "host_name": "master",
+    "master": "master"
+  },
+  "hadoop": {
+    "replication": "1"
+  },  
+  "run_list": []
+}

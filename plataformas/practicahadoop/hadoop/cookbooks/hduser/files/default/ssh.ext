@@ -1,0 +1,64 @@
+#!/usr/bin/expect -f
+# Code from:
+# 	http://ubuntuforums.org/showthread.php?t=220139
+#
+set timeout 30
+
+#example of getting arguments passed from command line..
+#not necessarily the best practice for passwords though...
+set server [lindex $argv 0]
+set user [lindex $argv 1]
+set pass [lindex $argv 2]
+
+# connect to server via ssh, login, and su to root
+send_user "connecting to $server\n"
+spawn ssh $user@$server
+
+#login handles cases:
+#   login with keys (no user/pass)
+#   user/pass
+#   login with keys (first time verification)
+expect {
+  "> " { }
+  "$ " { }
+  "assword: " { 
+        send "$pass\n" 
+        expect {
+          "> " { }
+          "$ " { }
+        }
+  }
+  "(yes/no)? " { 
+        send "yes\n"
+        expect "assword: " { 
+        	send "$pass\n" 
+        	expect {
+          		"> " { }
+          		"$ " { }
+        	}
+  	}
+  }
+  default {
+        send_user "Login failed\n"
+        exit
+  }
+}
+
+#example command
+send "ls /\n"
+
+expect {
+    "> " {}
+    "$ " {}
+    default {}
+}
+
+#login out
+send "exit\n"
+
+expect {
+    "> " {}
+    default {}
+}
+
+send_user "finished\n"

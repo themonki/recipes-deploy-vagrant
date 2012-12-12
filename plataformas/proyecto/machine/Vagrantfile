@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant::Config.run do |config|
+	config.vm .define :hadoopmaster do |node|
+		node.vm.box = "precise64"
+		node.vm.network :bridged, :bridge => "eth0"
+		node.vm.customize ["modifyvm", :id, "--memory", 300, "--cpus", 2, "--name", "hadoopmaster",  "--natdnshostresolver1", "on" ]
+	end
+	config.vm .define :hadoopslave01 do |node|
+                node.vm.box = "precise64"
+                node.vm.network :bridged, :bridge => "eth0"
+                node.vm.customize ["modifyvm", :id, "--memory", 300, "--cpus", 2, "--name", "hadoopslave01",  "--natdnshostresolver1", "on" ]
+        end
+	config.vm .define :hadoopslave02 do |node|
+                node.vm.box = "precise64"
+                node.vm.network :bridged, :bridge => "eth0"
+                node.vm.customize ["modifyvm", :id, "--memory", 300, "--cpus", 2, "--name", "hadoopslave02",  "--natdnshostresolver1", "on" ]
+        end
+	config.vm .define :hadoopslave03 do |node|
+                node.vm.box = "precise64"
+                node.vm.network :bridged, :bridge => "eth0"
+                node.vm.customize ["modifyvm", :id, "--memory", 300, "--cpus", 2, "--name", "hadoopslave03",  "--natdnshostresolver1", "on" ]
+        end
+	config.vm .define :hadoopslave04 do |node|
+                node.vm.box = "precise64"
+                node.vm.network :bridged, :bridge => "eth0"
+                node.vm.customize ["modifyvm", :id, "--memory", 300, "--cpus", 2, "--name", "hadoopslave04",  "--natdnshostresolver1", "on" ]
+        end
+end
