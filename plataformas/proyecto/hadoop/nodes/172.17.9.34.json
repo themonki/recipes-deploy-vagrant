@@ -1,0 +1,10 @@
+{ 
+  "hostconf": {
+    "host_name": "hadoopslave01",
+    "master": "hadoopmaster"
+  },  
+  "hadoop": {
+    "replication": "1"
+  },
+  "run_list": ["recipe[hduser::install-expect]","recipe[hostconf]", "recipe[jdk]","recipe[hduser]", "recipe[ipv6]", "recipe[hadoop]", "recipe[hdfs]"] 
+}
