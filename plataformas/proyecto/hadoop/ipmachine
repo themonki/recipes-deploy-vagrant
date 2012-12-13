@@ -1,7 +1,7 @@
 
 ##agregar las ips de las maquinas, solo informativo
-hadoopmaster	172.17.9.23
-hadoopslave01	172.17.9.34
-hadoopslave02	172.17.9.15
-hadoopslave03	172.17.9.39
+hadoopmaster	172.17.9.17
+hadoopslave01	172.17.9.27
+hadoopslave02	172.17.9.11
+hadoopslave03	172.17.9.29
 hadoopslvae04	172.17.9.
