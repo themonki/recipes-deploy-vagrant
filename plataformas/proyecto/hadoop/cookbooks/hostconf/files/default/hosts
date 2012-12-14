@@ -1,5 +1,5 @@
 127.0.0.1 localhost
-172.17.9.23  hadoopmaster
-172.17.9.34  hadoopslave01
-172.17.9.15  hadoopslave02
-172.17.9.39  hadoopslave03
+172.17.9.11  hadoopmaster
+172.17.9.23  hadoopslave01
+172.17.9.29  hadoopslave02
+172.17.9.12  hadoopslave03
