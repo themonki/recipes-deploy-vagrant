@@ -10,7 +10,7 @@
 # https://twiki.grid.iu.edu/bin/view/Documentation/Release3/YumRpmBasics#Install_the_Yum_Repositories_req
 #
 execute "EPEL repository" do
-  command "rpm -Uvh http://ftp-stud.hs-esslingen.de/pub/epel/6/x86_64/epel-release-6-7.noarch.rpm"
+  command "rpm -Uvh http://ftp-stud.hs-esslingen.de/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm"
   user "root"
   action :run
 end

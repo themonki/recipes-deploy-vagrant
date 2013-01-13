@@ -51,7 +51,8 @@ template "/tmp/network" do
         mode 0755
         owner "root"
         variables(
-                :host_name => "#{node[:host_name]}"
+                :host_name => "#{node[:host_name]}",
+		:ipgateway => "#{node[:ipgateway]}"
         )
 end
 

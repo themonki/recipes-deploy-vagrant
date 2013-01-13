@@ -39,7 +39,8 @@ Vagrant::Config.run do |config|
 			chef.json.merge!({
 				:run_list => [ "recipe[test::preinstall]" , "recipe[test::acces-ssh]" ],
 				:host_name => "mg.globustest.org",
-				:ipaddress => "172.18.0.11"
+				:ipaddress => "172.18.0.11",
+				:ipgateway => "192.138.0.1"
 			})
 		end
 	end
