@@ -5,7 +5,7 @@ Vagrant::Config.run do |config|
 	config.vm.define :master do |node_1|
 		node_1.vm.box = "precise64"
 		node_1.vm.network :hostonly, "172.18.0.2", :netmask => "255.255.0.0"
-		node_1.vm.network :bridged, "eth0"
+		node_1.vm.network :bridged, :bridge => "eth0"
 		node_1.vm.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 2, "--name", "master" ]
 		node_1.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
@@ -20,6 +20,7 @@ Vagrant::Config.run do |config|
 	config.vm.define :wn1 do |node|
 		node.vm.box = "precise64"
 		node.vm.network :hostonly, "172.18.0.3", :netmask => "255.255.0.0"
+                node.vm.network :bridged, :bridge => "eth0"
 		node.vm.customize [ "modifyvm", :id, "--memory", 839, "--cpus", 2, "--name", "worker1"]
                 node.vm.provision :chef_solo do |chef|
                         chef.cookbooks_path = "cookbooks"
@@ -34,6 +35,7 @@ Vagrant::Config.run do |config|
 	config.vm.define :wn2 do |node|
                 node.vm.box = "precise64"
                 node.vm.network :hostonly, "172.18.0.4", :netmask => "255.255.0.0"
+                node.vm.network :bridged, :bridge => "eth0"
                 node.vm.customize [ "modifyvm", :id, "--memory", 839, "--cpus", 2, "--name", "worker2" ]
                 node.vm.provision :chef_solo do |chef|
                         chef.cookbooks_path = "cookbooks"

@@ -56,7 +56,7 @@ template "/tmp/network" do
 end
 
 execute "move network" do
-	owner "root"
+	user "root"
 	cwd "/tmp"
 	command "mv network /etc/sysconfig/network"
 	action :run
@@ -94,7 +94,8 @@ template "/etc/hosts" do
 	mode 0755
 	owner "root"
 	variables(
-		:host_name => "#{node[:host_name]}"
+		:host_name => "#{node[:host_name]}",
+		:ipaddress => "#{node[:ipaddress]}"
 	)
 end
 
