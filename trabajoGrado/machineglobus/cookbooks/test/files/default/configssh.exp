@@ -80,7 +80,7 @@ if { $location == "" } {
 	set location $locationdefault
 }
 
-send_user "la locacion $HOME $location y $locationdefault\n"
+send_user "la locacion $location y $locationdefault\n"
 
 spawn ssh-copy-id  -i $location.pub $username@$host
 
