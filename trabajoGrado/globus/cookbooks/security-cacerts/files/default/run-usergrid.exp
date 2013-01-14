@@ -1,0 +1,51 @@
+#!/usr/bin/expect
+
+set sizeargv	[llength $argv]
+set passGrid "globus"
+set passUser "globus"
+set userName "vagrant"
+set name "Vagrant User"
+
+if { $sizeargv != 0} {
+
+	if{ $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 }
+	{
+		set argvtmp [lindex $argv $i];
+		if {$argvtmp == "-u"} { #userName
+		        set index [expr $i+1];
+			set userName [lindex $argv $index];
+		} elseif {$argvtmp == "-pu"} {#passUser
+		        set index  [expr $i+1];
+			set passUser  [lindex $argv $index];
+		} elseif {$argvtmp == "-pg"} {#passGrid
+		        set index  [expr $i+1];
+			set passGrid [lindex $argv $index];
+		} elseif {$argvtmp == "-n"} {#name
+		        set index  [expr $i+1];
+			set name [lindex $argv $index];
+		}
+	}else {
+		send_user "Error parametros incompletos\n"
+		send_user "Uso: run-usergrid -u username -pu passUser -pg passGrid -n name"
+		exit 1
+	}
+}
+
+spawn sudo -H -E -u myproxy myproxy-admin-adduser -c "$name" -l $userName
+
+expect {
+	"Enter PEM pass phrase:" {
+		send "$passUser\r"
+		exp_continue
+	}
+	"Verifying - Enter PEM pass phrase:" {
+		send "$passUser\r"		
+		exp_continue
+	}
+	"please enter the password for the CA key:" {
+		send "$passGrid\r"
+		send_user "\nusuario creado\n"		
+	}
+}
+
+send_user "\nse realiza correctamente\n"

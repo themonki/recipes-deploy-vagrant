@@ -17,6 +17,7 @@ execute "installing myproxy" do
   action :run  
 end
 
+#################################################################
 #falla el script
 #execute "get setup-simpleca" do
 #  command "wget http://globus.org/toolkit/docs/5.2/5.2.2/admin/quickstart/setup-simpleca"
@@ -38,6 +39,22 @@ end
 #  cwd "/tmp/"
 #  action :run  
 #end
+
+cookbook_file "/tmp/run-setupsimpleca.exp" do
+  source "run-setupsimpleca.exp"
+  owner "vagrant"
+end
+
+#se corre el script con valores por defecto:
+#pass globus
+#script setup-simpleca en /tmp/setup-simpleca
+execute "run setup-simpleca.exp" do
+  command "expect run-setupsimpleca.exp"
+  user "vagrant"
+  cwd "/tmp/"
+  action :run  
+end
+
 
 #################################################################
 #ejecutando el script uno por uno
@@ -78,6 +95,9 @@ end
 #  cwd "/tmp/"
 #  action :run  
 #end
+#################################################################
+
+
 
 
 
