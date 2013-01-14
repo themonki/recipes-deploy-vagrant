@@ -31,7 +31,7 @@ Vagrant::Config.run do |config|
 		node.vm.box = "centos64"
 		node.vm.boot_mode = :gui
 		node.vm.network :hostonly, "172.18.0.11"
-                node.vm.network :bridged, :bridge => "wlan0"
+                node.vm.network :bridged, :bridge => "eth0"
 		node.vm.customize ["modifyvm", :id, "--memory", 300, "--cpus", 2, "--name", "globus-grid" ]
 		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"

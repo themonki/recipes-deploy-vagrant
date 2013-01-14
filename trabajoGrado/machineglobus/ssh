@@ -1,0 +1,6 @@
+#para que desde vagrant se acceda a el host sin pedir pass
+expect configssh.exp -u student -p univale\ 2100 -h 172.18.0.1 -o n
+
+#para que desde el host se acceda a vagrant sin pedir pass
+expect configssh.exp -u vagrant -p vagrant -h 172.18.0.11 -o n
+
