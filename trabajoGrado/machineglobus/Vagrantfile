@@ -4,9 +4,9 @@
 Vagrant::Config.run do |config|
 	config.vm .define :machineglobus do |node|
 		node.vm.box = "centos64"
-		#node.vm.boot_mode = :gui
+		node.vm.boot_mode = :gui
 		node.vm.network :hostonly, "172.18.0.11"
-		node.vm.customize ["modifyvm", :id, "--memory", 600, "--cpus", 1, "--name", "globus-grid" ]
+		node.vm.customize ["modifyvm", :id, "--memory", 300, "--cpus", 1, "--name", "globus-grid" ]
 		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
 			chef.add_recipe "test::preinstall"
