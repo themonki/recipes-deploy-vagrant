@@ -1,3 +1,3 @@
 NETWORKING="yes"
-GATEWAY="10.1.1.1"
+GATEWAY="<%= node[:ipgateway] %>"
 HOSTNAME="<%= node[:host_name] %>"

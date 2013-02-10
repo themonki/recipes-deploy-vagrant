@@ -51,12 +51,13 @@ template "/tmp/network" do
         mode 0755
         owner "root"
         variables(
-                :host_name => "#{node[:host_name]}"
+                :host_name => "#{node[:host_name]}",
+		:ipgateway => "#{node[:ipgateway]}"
         )
 end
 
 execute "move network" do
-	owner "root"
+	user "root"
 	cwd "/tmp"
 	command "mv network /etc/sysconfig/network"
 	action :run
@@ -94,11 +95,12 @@ template "/etc/hosts" do
 	mode 0755
 	owner "root"
 	variables(
-		:host_name => "#{node[:host_name]}"
+		:host_name => "#{node[:host_name]}",
+		:ipaddress => "#{node[:ipaddress]}"
 	)
 end
 
-#######################################################3
+##################################################################
 
 execute "install rsync" do
 	user "root"
@@ -107,3 +109,19 @@ execute "install rsync" do
 	action :run
 
 end
+##################################################################
+##instalando chef para evitar el prepare
+
+cookbook_file "/tmp/chef-10.16.6-1.el6.x86_64.rpm" do
+	source "chef-10.16.6-1.el6.x86_64.rpm"
+	owner "root"
+end
+
+execute "install chef" do
+	user "root"
+	cwd "/tmp"
+	command "rpm -Uvh chef-10.16.6-1.el6.x86_64.rpm"
+	action :run
+
+end
+
