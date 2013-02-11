@@ -96,7 +96,77 @@ end
 #  action :run  
 #end
 #################################################################
+# Creating a MyProxy server
+#http://www.globus.org/toolkit/docs/5.2/5.2.2/admin/quickstart/#id2469373
+#
 
+#la configuración para permitir el envio de jobs
+cookbook_file "/etc/myproxy-server.config" do
+	source "myproxy-server.config"
+	owner "root"
+end
+
+#se copian los certificados de myproxy en la carpeta superior
+execute "cp cert /etc/grod-secutiry" do
+  command "cp /etc/grid-security/myproxy/host*.pem /etc/grid-security/"
+  user "root"
+  cwd "/tmp/"
+  action :run  
+end
+
+#se inicia el servidor myproxy
+execute "start myproxy-server" do
+	command "service myproxy-server start"
+	user "root"
+	action :run
+end
+
+
+#################################################################
+#dar acceso al usuario vagrant en vez del usuario quser
+
+#copiar el script de expect que permite al usuario vagrant probar los certificados
+cookbook_file "/tmp/run-usergrid.exp" do
+	source "run-usergrid.exp"
+	owner "vagrant"
+end
+
+
+execute "run run-usergrid.exp" do
+	command "expect run-usergrid.exp"
+	user "vagrant"
+	cwd "/tmp"
+	action :run
+end
+
+
+#################################################################
+# levantar el servidor GridFTP
+
+execute "start gridftp server" do
+	command "service globus-gridftp-server start"
+	user "root"
+	cwd "/etc/grid-security"
+	action :run
+end
+
+
+#levantar GRAM5
+
+execute "start gridftp server" do
+	command "service globus-gatekeeper start"
+	user "root"
+	cwd "/etc/grid-security"
+	action :run
+end
+
+##expect para acceder y hacer pruebas, NO ES NECESARIO POR AHORA
+cookbook_file "/tmp/run-accessgrid.exp" do
+	source "run-accessgrid.exp"
+	owner "vagrant"
+end
+
+	
 
 
 

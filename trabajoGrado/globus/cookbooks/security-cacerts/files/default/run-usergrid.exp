@@ -31,7 +31,7 @@ if { $sizeargv != 0} {
 	}
 }
 
-spawn sudo -H -E -u myproxy myproxy-admin-adduser -c "$name" -l $userName
+spawn sudo -H -E -u myproxy myproxy-admin-adduser -c \"$name\" -l $userName
 
 expect {
 	"Enter PEM pass phrase:" {
@@ -48,4 +48,7 @@ expect {
 	}
 }
 
+spawn grid-mapfile-add-entry -dn \"/O=Grid/OU=GlobusTest/OU=simpleCA-mg.globustest.org/OU=local/CN=$name\" -ln $userName
+
 send_user "\nse realiza correctamente\n"
+

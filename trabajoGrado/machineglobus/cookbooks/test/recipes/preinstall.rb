@@ -96,7 +96,17 @@ template "/etc/hosts" do
 	owner "root"
 	variables(
 		:host_name => "#{node[:host_name]}",
-		:ipaddress => "#{node[:ipaddress]}"
+		:ip => "#{node[:ip]}"
+	)
+end
+
+template "/etc/hosts2" do
+	source "hosts.rb"
+	mode 0755
+	owner "root"
+	variables(
+		:host_name => "#{node[:host_name]}",
+		:ip => "#{node[:ip]}"
 	)
 end
 
