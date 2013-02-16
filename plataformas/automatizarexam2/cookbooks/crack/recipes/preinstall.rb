@@ -38,7 +38,7 @@ cookbook_file "/home/vagrant/tcl8.5_8.5.11-1ubuntu1_amd64.deb" do
 #        source "tcl8.5_8.5.11-1ubuntu1_i386.deb"
         mode 0644
         owner "vagrant"
-        #group "admin"
+        #group "admin"				
 end
 
 cookbook_file "/home/vagrant/expect_5.45-2_i386.deb" do
@@ -57,6 +57,7 @@ execute "install expect" do
         #command "sudo dpkg -i tcl8.5_8.5.11-1ubuntu1_i386.deb"
 				command "sudo dpkg -i tcl8.5_8.5.11-1ubuntu1_amd64.deb"
         action :run
+				returns 1
 end
 
 execute "install expect" do
@@ -66,6 +67,7 @@ execute "install expect" do
         command "sudo dpkg -i expect_5.45-2_amd64.deb"
         #command "sudo dpkg -i expect_5.45-2_i386.deb"
         action :run
+				returns 1
 end
 
 ##enviando archivos de automatización de ips
