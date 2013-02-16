@@ -7,7 +7,7 @@ execute "get ip from ifconfig" do
 	user "vagrant"
 	#group "admin"
 	cwd "/home/vagrant"
-	command "/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}' >> ip"
+	command "/sbin/ifconfig eth1 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}' >> ip"
 	action :run
 end
 ## se crea un archivo que contendra ip hostname alias (como el /etc/hosts)
