@@ -1,1 +1,3 @@
 127.0.0.1	localhost
+172.17.9.29 wn1.cluster.org wn1
+172.17.9.26 wn2.cluster.org wn2

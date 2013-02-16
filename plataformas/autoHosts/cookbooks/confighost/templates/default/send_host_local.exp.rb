@@ -41,36 +41,3 @@ expect {
         }
 
 }
-
-#se toma el archivo con el mpdhost format
-spawn scp mpd.hosts $user@$ipmaquinalocal:$path/tmp
-
-expect {
-        "*connecting (yes/no)?" {
-                send "yes\r"
-                exp_continue
-        } #primera vez
-        "*assword:" {
-                send "$pass\r"
-                expect "expecting."
-                send_user "pass enviado\n"
-        }
-
-}
-
-
-#se agrega el el ip al archivo de configuracion de mpd para el server
-spawn ssh $user@$ipmaquinalocal cat $path/tmp/mpd.hosts  >> $path/mpd.hosts
-
-expect {
-        "*connecting (yes/no)?" {
-                send "yes\r"
-                exp_continue
-        } #primera vez
-        "*assword:" {
-                send "$pass\r"
-                expect "expecting."
-                send_user "pass enviado\n"
-        }
-
-}

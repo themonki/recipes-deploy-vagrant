@@ -50,7 +50,7 @@ Vagrant::Config.run do |config|
 			chef.json.merge!({
 				:run_list => [ "recipe[confighost::preinstall]" , "recipe[confighost::hostname]" , "recipe[confighost::hostconfiguremaster]" ],
 				:host_name => "master.cluster.org" ,
-				:hostslaves => ["wn1" , "wn1"],
+				:hostslaves => ["wn1" , "wn2"],
 				:alias => "master" ,
 				:ip_host_machine => "172.17.9.15"  #representa la ip de la maquina host donde corren las vm
 			})
