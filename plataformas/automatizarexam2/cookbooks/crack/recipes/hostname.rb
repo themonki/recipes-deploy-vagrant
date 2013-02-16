@@ -7,7 +7,7 @@
 
 execute "hostname-stop" do
 	user "root"
-	group "admin"
+	#group "admin"
 	command "service hostname stop"
 	action :run
         # http://help.opscode.com/discussions/problems/732-bash-non-zero-exit-status
@@ -18,7 +18,7 @@ template "/etc/hostname" do
 	source "hostname.rb"
 	mode 0644
 	owner "root"
-	group "admin"
+	#group "admin"
 	variables(
 		:host_name => "#{node[:host_name]}"
 	)
@@ -26,7 +26,7 @@ end
 
 execute "hostname-start" do
 	user "root"
-	group "admin"
+	#group "admin"
 	command "service hostname start"
 	action :run
 end

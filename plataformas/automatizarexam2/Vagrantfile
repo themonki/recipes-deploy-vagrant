@@ -13,12 +13,12 @@ Vagrant::Config.run do |config|
                         chef.json.merge!({
                                 #:run_list => [ "recipe[crack::users]", "recipe[crack::preinstall]" ,  "recipe[crack::hostname]" ,  "recipe[crack::mpichconfigurenode]" ,  "recipe[crack::installjohn]" ],
 																:run_list => [ "recipe[crack::preinstall]" , "recipe[crack::hostname]" , "recipe[crack::mpichconfigurenode]" ],
-				:host_name => "wn1.cluster.org" ,
-				:alias => "wn1" ,
-				:ip_maquina_local => "172.17.9.15" ,
-                                :pass_maquina_local => "0832294-3743" ,
-				:user_maquina_local => "monki" ,
-				:path_project_vagrant => "/home/monki/recipes/plataformas/automatizarexam2/cookbooks/crack/files/default"
+																:host_name => "wn1.cluster.org" ,
+																:alias => "wn1" ,
+																:ip_maquina_local => "172.17.9.15" ,
+																:pass_maquina_local => "0832294-3743" ,
+																:user_maquina_local => "monki" ,
+																:path_project_vagrant => "/home/monki/recipes/plataformas/automatizarexam2/cookbooks/crack/files/default"
                         })
                 end
 	end
@@ -32,13 +32,14 @@ Vagrant::Config.run do |config|
                         chef.cookbooks_path = "cookbooks"
                         chef.add_recipe "crack::users"
                         chef.json.merge!({
-                                :run_list => [ "recipe[crack::users]", "recipe[crack::preinstall]" ,  "recipe[crack::hostname]" ,  "recipe[crack::mpichconfigurenode]" ,  "recipe[crack::installjohn]" , "recipe[crack::getipadd]" ],
-				:host_name => "wn2.cluster.org",
-                                :alias => "wn2" ,
-				:ip_maquina_local => "192.168.0.22" ,
-                                :pass_maquina_local => "Gweniter29" ,
-                                :user_maquina_local => "monki" ,
-                                :path_project_vagrant => "/home/monki/recipes/plataformas/automatizarexam2/cookbooks/crack/files/default"
+                                #:run_list => [ "recipe[crack::users]", "recipe[crack::preinstall]" ,  "recipe[crack::hostname]" ,  "recipe[crack::mpichconfigurenode]" ,  "recipe[crack::installjohn]" ],
+																:run_list => [ "recipe[crack::preinstall]" , "recipe[crack::hostname]" , "recipe[crack::mpichconfigurenode]" ],
+																:host_name => "wn2.cluster.org",
+																:alias => "wn2" ,
+																:ip_maquina_local => "192.168.0.22" ,
+																:pass_maquina_local => "Gweniter29" ,
+																:user_maquina_local => "monki" ,
+																:path_project_vagrant => "/home/monki/recipes/plataformas/automatizarexam2/cookbooks/crack/files/default"
                         })
                 end
         end
@@ -50,11 +51,12 @@ Vagrant::Config.run do |config|
 		node_1.vm.customize [ "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "master" ]
 		node_1.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
-			chef.add_recipe "crack::users"
+			chef.add_recipe "crack::preinstall"
 			chef.json.merge!({
 				#:run_list => [ "recipe[crack::users]" , "recipe[crack::preinstall]", "recipe[crack::hostname]" ,  "recipe[crack::mpichconfigureserver]" , "recipe[crack::installjohn]" ],
 				:run_list => [ "recipe[crack::preinstall]" , "recipe[crack::hostname]" , "recipe[crack::mpichconfigureserver]" ],
 				:host_name => "master.cluster.org" ,
+				:hostslaves => ["wn1" , "wn1"],
 				:alias => "master" ,
 				:ip_host_machine => "172.17.9.15"  #representa la ip de la maquina host donde corren las vm
 			})

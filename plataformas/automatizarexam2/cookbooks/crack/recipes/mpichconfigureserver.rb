@@ -47,11 +47,19 @@ end
 
 
 ## enviar los archivos de hosts a los nodos 
+template "/home/vagrant/sendhostsssh.exp" do
+	source "sendhostsssh.exp.rb"
+	mode 0700
+	owner "vagrant"
+	variables(		
+	)
+end
 
-#execute "send hosts" do
-#        user "root"
-#        #group "admin"
-#        cwd "/home/vagrant"
-#        command ""
-#        action :run
-#end
+node[:hostslaves].each do |slave|
+execute "send hosts" do
+        user "root"
+        #group "admin"
+        cwd "/home/vagrant"
+        command "expect sendhostsssh.exp -u vagrant -p vagrant -h #{slave}"
+        action :run
+end

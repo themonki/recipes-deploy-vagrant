@@ -51,13 +51,13 @@ expect {
 	}
 }
 ##acceder como ssh
-spawn ssh -q $user@$host
+spawn ssh $user@$host
 
 expect "*assword:"
 send "$pass\r"
 expect "$user@" 
 send "sudo cp /home/$user/hosts /etc/hosts\r"
-send_user "\nactualizando host\n"
+send_user "\n/home/$user/hosts /etc/hosts\nactualizando host\n"
 #expect {
 #	"*assword:"{
  #       	send "$pass\r"
