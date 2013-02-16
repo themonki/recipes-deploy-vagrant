@@ -2,37 +2,21 @@
 # vi: set ft=ruby :
 
 Vagrant::Config.run do |config|
-	config.vm.define :master, :primary => true do |node_1|
-		node_1.vm.box = "lucid32"
-		#node_1.vm.network :hostonly, "10.0.0.2"
-		#node_1.vm.network :bridged, :bridge => "eth2"
-		node_1.vm.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 1, "--name", "master" ]
-		node_1.vm.provision :chef_solo do |chef|
-			chef.cookbooks_path = "cookbooks"
-			chef.add_recipe "crack::users"
-			chef.json.merge!({
-				:run_list => [ "recipe[crack::users]" , "recipe[crack::preinstall]", "recipe[crack::hostname]" ,  "recipe[crack::mpichconfigureserver]" , "recipe[crack::installjohn]" ],
-				:host_name => "master.cluster.org" ,
-				:alias => "master" ,
-				:ip_host_machine => "192.168.0.22"  #representa la ip de la maquina host donde corren las vm
-			})
-		end
-	end
-
 	config.vm.define :wn1 do |node|
-		node.vm.box = "lucid32"
-		node.vm.network :hostonly, "10.0.0.3"
-            #    node.vm.network :bridged, :bridge => "eth2"
-		node.vm.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 1, "--name", "worker1" ]
+		node.vm.box = "precise64"
+		#node.vm.network :hostonly, "10.0.0.3"
+    node.vm.network :bridged, :bridge => "eth0"
+		node.vm.customize [ "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "worker1" ]
                 node.vm.provision :chef_solo do |chef|
                         chef.cookbooks_path = "cookbooks"
-                        chef.add_recipe "crack::users"
+                        chef.add_recipe "crack::preinstall"
                         chef.json.merge!({
-                                :run_list => [ "recipe[crack::users]", "recipe[crack::preinstall]" ,  "recipe[crack::hostname]" ,  "recipe[crack::mpichconfigurenode]" ,  "recipe[crack::installjohn]" ],
+                                #:run_list => [ "recipe[crack::users]", "recipe[crack::preinstall]" ,  "recipe[crack::hostname]" ,  "recipe[crack::mpichconfigurenode]" ,  "recipe[crack::installjohn]" ],
+																:run_list => [ "recipe[crack::preinstall]" , "recipe[crack::hostname]" , "recipe[crack::mpichconfigurenode]" ],
 				:host_name => "wn1.cluster.org" ,
 				:alias => "wn1" ,
-				:ip_maquina_local => "192.168.0.22" ,
-                                :pass_maquina_local => "Gweniter29" ,
+				:ip_maquina_local => "172.17.9.15" ,
+                                :pass_maquina_local => "0832294-3743" ,
 				:user_maquina_local => "monki" ,
 				:path_project_vagrant => "/home/monki/recipes/plataformas/automatizarexam2/cookbooks/crack/files/default"
                         })
@@ -40,10 +24,10 @@ Vagrant::Config.run do |config|
 	end
 
 	config.vm.define :wn2 do |node|
-                node.vm.box = "lucid32"
+                node.vm.box = "precise64"
                 #node.vm.network :hostonly, "10.0.0.4"
 #                node.vm.network :bridged, :bridge => "eth0"
-                node.vm.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 1, "--name", "worker2" ]
+                node.vm.customize [ "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "worker2" ]
                 node.vm.provision :chef_solo do |chef|
                         chef.cookbooks_path = "cookbooks"
                         chef.add_recipe "crack::users"
@@ -58,4 +42,22 @@ Vagrant::Config.run do |config|
                         })
                 end
         end
+
+	config.vm.define :master, :primary => true do |node_1|
+		node_1.vm.box = "precise64"
+		#node_1.vm.network :hostonly, "10.0.0.2"
+		node_1.vm.network :bridged, :bridge => "eth0"
+		node_1.vm.customize [ "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "master" ]
+		node_1.vm.provision :chef_solo do |chef|
+			chef.cookbooks_path = "cookbooks"
+			chef.add_recipe "crack::users"
+			chef.json.merge!({
+				#:run_list => [ "recipe[crack::users]" , "recipe[crack::preinstall]", "recipe[crack::hostname]" ,  "recipe[crack::mpichconfigureserver]" , "recipe[crack::installjohn]" ],
+				:run_list => [ "recipe[crack::preinstall]" , "recipe[crack::hostname]" , "recipe[crack::mpichconfigureserver]" ],
+				:host_name => "master.cluster.org" ,
+				:alias => "master" ,
+				:ip_host_machine => "172.17.9.15"  #representa la ip de la maquina host donde corren las vm
+			})
+		end
+	end
 end

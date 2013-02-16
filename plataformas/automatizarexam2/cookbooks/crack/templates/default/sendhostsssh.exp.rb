@@ -3,14 +3,14 @@
 	
 	set timeout 300
 	set user    ""
-        set host        ""
-        set pass        ""
+  set host        ""
+  set pass        ""
 	set sizeargv	[llength $argv]
 
 if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6} {
 	for {set i 0} {$i < [llength $argv]} {incr i 2} {
         	set argvtmp [lindex $argv $i];
-	        if {$argvtmp == "-u"} { #username
+	        if {$argvtmp == "-u"} { #user
                 	set index [expr $i+1];
         	        set user [lindex $argv $index];
 	        } elseif {$argvtmp == "-p"} {#pass
@@ -23,7 +23,7 @@ if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6} {
 	}
 } else {
 	#send_user "Error parametros incompletos\n"
-        send_user "Uso: expect sendhostsssh.exp -u username -p pass -h host\n"
+        send_user "Uso: expect sendhostsssh.exp -u user -p pass -h host\n"
         #exit 1
 }
 

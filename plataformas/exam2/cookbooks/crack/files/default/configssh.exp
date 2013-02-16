@@ -46,7 +46,7 @@ if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $si
         exit 1
 }
 
-send_user "el pass es $pass"
+
 
 spawn ssh-keygen -t rsa
 
@@ -79,8 +79,6 @@ if { $location == "" } {
 	send_user "no ahi locacion\n"
 	set location $locationdefault
 }
-
-send_user "la locacion $HOME $location y $locationdefault\n"
 
 spawn ssh-copy-id  -i $location.pub $username@$host
 

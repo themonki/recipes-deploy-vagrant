@@ -1,3 +1,4 @@
+#red hat centos
 #execute "install expect" do
 #	user "root"
 #	cwd "/tmp"
@@ -44,3 +45,45 @@ end
 #	cwd "/home/condor"
 #	command	"expect configssh.exp -o y -h ip -u user -p pass"
 #end
+
+##instalar expect
+
+#ubuntu
+#execute "install expect" do
+#        user "root"
+#        group "admin"
+#        cwd "/home/vagrant"
+#        command "apt-get install -y --force-yes expect"
+#        action :run
+#end
+
+#cookbook_file "/home/vagrant/tcl8.5_8.5.8-2_i386.deb" do
+#        source "tcl8.5_8.5.8-2_i386.deb"
+#        mode 0644
+#        owner "vagrant"
+#        group "admin"
+#end
+
+#cookbook_file "/home/vagrant/expect_5.45-2_i386.deb" do
+#        source "expect_5.45-2_i386.deb"
+#        mode 0644
+#        owner "vagrant"
+#        group "admin"
+#end
+
+#execute "install expect" do
+#        user "vagrant"
+#        group "admin"
+#        cwd "/home/vagrant"
+#        command "sudo dpkg -i tcl8.5_8.5.8-2_i386.deb"
+#        action :run
+#end
+
+#execute "install expect" do
+#        user "vagrant"
+#        group "admin"
+#        cwd "/home/vagrant"
+#        command "sudo dpkg -i expect_5.45-2_i386.deb"
+#        action :run
+#end
+
