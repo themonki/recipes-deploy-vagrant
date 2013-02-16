@@ -52,7 +52,7 @@ template "/tmp/network" do
         owner "root"
         variables(
                 :host_name => "#{node[:host_name]}",
-		:ipgateway => "#{node[:ipgateway]}"
+								:ipgateway => "#{node[:ipgateway]}"
         )
 end
 

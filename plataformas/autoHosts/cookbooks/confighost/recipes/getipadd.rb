@@ -35,7 +35,7 @@ execute "quitar salos de linea" do
         action :run
 end
 
-###se crea para el archivo mpd.host
+###se crea para el archivo mpd.host, jhon
 
 #execute "get cores" do
 #        user "vagrant"

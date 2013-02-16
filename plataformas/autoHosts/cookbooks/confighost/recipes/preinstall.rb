@@ -1,0 +1,129 @@
+#http://wiki.opscode.com/display/chef/Recipes
+#http://www.ruby-doc.org/gems/docs/c/chef-extensions-0.4.0/Chef/Extensions/Platform.html
+#http://docs.opscode.com/chef/dsl_recipe.html
+#http://wiki.opscode.com/display/chef/Libraries
+
+class Chef
+ 	include Extensions::Platform
+end
+
+if platform?("ubuntu")
+	if Extensions::Platform.i386?
+		cookbook_file "/home/vagrant/tcl8.5_8.5.11-1ubuntu1_i386.deb" do
+			      source "tcl8.5_8.5.11-1ubuntu1_i386.deb"
+				    mode 0644
+				    owner "vagrant"
+				    #group "admin"				
+		end
+		
+		cookbook_file "/home/vagrant/expect_5.45-2_i386.deb" do
+				source "expect_5.45-2_i386.deb"
+      	mode 0644
+        owner "vagrant"
+        #group "admin"
+		end
+	end
+
+	if Extensions::Platform.amd64?
+		cookbook_file "/home/vagrant/tcl8.5_8.5.11-1ubuntu1_amd64.deb" do
+				    source "tcl8.5_8.5.11-1ubuntu1_amd64.deb"
+				    mode 0644
+				    owner "vagrant"
+				    #group "admin"				
+		end
+
+		cookbook_file "/home/vagrant/expect_5.45-2_amd64.deb" do
+        source "expect_5.45-2_amd64.deb"
+        mode 0644
+        owner "vagrant"
+        #group "admin"
+		end	
+	end
+
+		execute "install tlc" do
+				    user "root"
+				    #group "admin"
+				    cwd "/home/vagrant"
+						command "dpkg -i tcl*.deb"
+				    action :run
+		end
+		execute "install expect" do
+				    user "root"
+				    #group "admin"
+				    cwd "/home/vagrant"
+				    command "dpkg -i expect*.deb"
+				    action :run
+		end
+end
+
+if platform?("redhat", "centos", "fedora")
+	
+  execute "install rsync" do
+	  user "root"
+	  cwd "/tmp"
+	  command "yum install -y rsync"
+	  action :run
+
+  end
+	
+	if Extensions::Platform.i386?
+		
+
+	end
+
+	if Extensions::Platform.amd64?
+		cookbook_file "/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm" do
+				    source "tcl-8.5.7-6.el6.x86_64.rpm"
+				    mode 0644
+				    owner "vagrant"
+				    #group "admin"				
+		end
+
+		cookbook_file "/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm" do
+        source "expect-5.44.1.15-4.el6.x86_64.rpm"
+        mode 0644
+        owner "vagrant"
+        #group "admin"
+		end
+
+	end
+
+		execute "install tlc" do
+				    user "root"
+				    #group "admin"
+				    cwd "/home/vagrant"
+						command "yum install -y tcl*.rpm"
+				    action :run
+		end
+		execute "install expect" do
+				    user "root"
+				    #group "admin"
+				    cwd "/home/vagrant"
+				    command "yum install -y expect-*.rpm"
+				    action :run
+		end
+end
+
+
+##enviando archivos de automatización de ips
+template "/home/vagrant/send_host_local.exp" do
+	source "send_host_local.exp.rb"
+	mode 0644
+	owner "vagrant"
+	#group "admin"
+	variables(
+		:host_name => "#{node[:host_name]}",
+		:ip_maquina_local => "#{node[:ip_maquina_local]}",
+		:pass_maquina_local => "#{node[:pass_maquina_local]}",
+		:user_maquina_local => "#{node[:user_maquina_local]}",
+		:path_project_vagrant => "#{node[:path_project_vagrant]}"
+	)
+end
+
+cookbook_file "/home/vagrant/configssh.exp" do
+        source "configssh.exp"
+        mode 0644
+        owner "vagrant"
+        #group "admin"
+end
+

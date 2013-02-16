@@ -1,4 +1,4 @@
-include_recipe "crack::getipadd"
+include_recipe "confighost::getipadd"
 
 #enviar los host a la maquina local
 execute "install package" do

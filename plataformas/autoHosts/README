@@ -1,0 +1,11 @@
+Edgar Andrés Moncada
+
+Estas recetas permiten crear una infraestructura usando maquinas de ubuntu o de
+ redhat en el que se envia automaticamente la configuracion de las ips que 
+ pueden ser asignadas de manera dinamica. 
+ 
+ Es necesario iniciar los esclavos y luego  iniciar el master.
+ 
+ Es necesario conocer el ip de la maquina donde se corren las recetas, además
+ del usuario y la contraseña, o por lo menos del servidor donde se guardará
+ temporalmente las ips asignadas de las maquinas. Ver el archivo de Vagrantfile.
