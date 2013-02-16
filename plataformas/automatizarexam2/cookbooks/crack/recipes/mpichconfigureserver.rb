@@ -56,10 +56,11 @@ template "/home/vagrant/sendhostsssh.exp" do
 end
 
 node[:hostslaves].each do |slave|
-execute "send hosts" do
-        user "root"
-        #group "admin"
-        cwd "/home/vagrant"
-        command "expect sendhostsssh.exp -u vagrant -p vagrant -h #{slave}"
-        action :run
+		execute "send hosts" do
+				    user "root"
+				    #group "admin"
+				    cwd "/home/vagrant"
+				    command "expect sendhostsssh.exp -u vagrant -p vagrant -h #{slave}"
+				    action :run
+		end
 end

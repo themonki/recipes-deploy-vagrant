@@ -32,13 +32,29 @@
 #        action :run
 #end
 
-cookbook_file "/home/vagrant/tcl8.5_8.5.11-1ubuntu1_amd64.deb" do
-        source "tcl8.5_8.5.11-1ubuntu1_amd64.deb"
-#cookbook_file "/home/vagrant/tcl8.5_8.5.11-1ubuntu1_i386.deb" do
-#        source "tcl8.5_8.5.11-1ubuntu1_i386.deb"
-        mode 0644
-        owner "vagrant"
-        #group "admin"				
+
+#http://wiki.opscode.com/display/chef/Recipes
+#http://www.ruby-doc.org/gems/docs/c/chef-extensions-0.4.0/Chef/Extensions/Platform.html
+
+if plataform?("ubuntu")
+	if i386?()	
+		cookbook_file "/home/vagrant/tcl8.5_8.5.11-1ubuntu1_i386.deb" do
+			      source "tcl8.5_8.5.11-1ubuntu1_i386.deb"
+				    mode 0644
+				    owner "vagrant"
+				    #group "admin"				
+		end
+	end
+
+	if amd64?()
+		cookbook_file "/home/vagrant/tcl8.5_8.5.11-1ubuntu1_amd64.deb" do
+				    source "tcl8.5_8.5.11-1ubuntu1_amd64.deb"
+				    mode 0644
+				    owner "vagrant"
+				    #group "admin"				
+		end
+
+	end
 end
 
 cookbook_file "/home/vagrant/expect_5.45-2_amd64.deb" do
