@@ -41,8 +41,8 @@ cookbook_file "/home/vagrant/tcl8.5_8.5.11-1ubuntu1_amd64.deb" do
         #group "admin"				
 end
 
-cookbook_file "/home/vagrant/expect_5.45-2_i386.deb" do
-        source "expect_5.45-2_i386.deb"
+cookbook_file "/home/vagrant/expect_5.45-2_amd64.deb" do
+        source "expect_5.45-2_amd64.deb"
 #cookbook_file "/home/vagrant/expect_5.45-2_i386.deb" do
 #        source "expect_5.45-2_i386.deb"
         mode 0644
