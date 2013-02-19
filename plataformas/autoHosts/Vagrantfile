@@ -13,10 +13,10 @@ Vagrant::Config.run do |config|
 																:run_list => [ "recipe[confighost::preinstall]" , "recipe[confighost::hostname]" , "recipe[confighost::hostconfigurenode]" ],
 																:host_name => "wn1.cluster.org" ,
 																:alias => "wn1" ,
-																:ip_maquina_local => "172.17.9.15" ,
-																:pass_maquina_local => "0832294-3743" ,
-																:user_maquina_local => "monki" ,
-																:path_project_vagrant => "/home/monki/recipes/plataformas/autoHosts/cookbooks/confighost/files/default"
+																:ip_maquina_local => "172.17.9.15" ,#representa la ip de la maquina host donde corren las vm o donde se guarden los archivos temporales
+																:pass_maquina_local => "0832294-3743" ,#el pass de la maquina
+																:user_maquina_local => "monki" ,# el usuario de la manquina
+																:path_project_vagrant => "/home/monki/recipes/plataformas/autoHosts/cookbooks/confighost/files/default"#el path donde se guardan los temporales
                         })
                 end
 	end
@@ -52,7 +52,7 @@ Vagrant::Config.run do |config|
 				:host_name => "master.cluster.org" ,
 				:hostslaves => ["wn1" , "wn2"],
 				:alias => "master" ,
-				:ip_host_machine => "172.17.9.15"  #representa la ip de la maquina host donde corren las vm
+				:ip_host_machine => "172.17.9.15"  #representa la ip de la maquina host donde corren las vm o donde se guarden los archivos temporales
 			})
 		end
 	end
