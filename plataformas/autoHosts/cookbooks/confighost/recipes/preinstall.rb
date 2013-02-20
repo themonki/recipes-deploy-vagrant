@@ -57,14 +57,7 @@ if platform?("ubuntu")
 end
 
 if platform?("redhat", "centos", "fedora")
-	
-  execute "install rsync" do
-	  user "root"
-	  cwd "/tmp"
-	  command "yum install -y rsync"
-	  action :run
-
-  end
+ 
 	
 	if Extensions::Platform.i386?
 		
@@ -81,6 +74,13 @@ if platform?("redhat", "centos", "fedora")
 
 		cookbook_file "/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm" do
         source "expect-5.44.1.15-4.el6.x86_64.rpm"
+        mode 0644
+        owner "vagrant"
+        #group "admin"
+		end
+		
+		cookbook_file "/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm" do
+        source "rsync-3.0.6-9.el6.x86_64.rpm"
         mode 0644
         owner "vagrant"
         #group "admin"
@@ -102,6 +102,13 @@ if platform?("redhat", "centos", "fedora")
 				    command "yum install -y expect-*.rpm"
 				    action :run
 		end
+		execute "install rsync" do
+	          user "root"
+	          cwd "/home/vagrant"
+	          command "yum install -y rsync*.rpm"
+	          action :run
+
+    end 
 end
 
 cookbook_file "/home/vagrant/configssh.exp" do
