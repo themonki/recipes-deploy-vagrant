@@ -1,4 +1,5 @@
-Los siguientes links contienen archivos que son necesarios para la ejecución de recetas utilizando vagrant y chef-solo
+Los siguientes links contienen archivos que son necesarios para la ejecución de 
+recetas utilizando vagrant y chef-solo
 
 Las recetas las encuentra en el repositorio: 
 
@@ -56,6 +57,6 @@ https://mega.co.nz/#!GNtDyAiB!W2g1fgcHfqZoIR9utYILUjg0n144KHavI1SkkYIfXTM
   
 
 rsync-3.0.6-9.el6.x86_64.rpm (334 KB)
-https://mega.co.nz/#!jI1GXDaD!fOyYJ0pTN9d6_7mMfTHigkgoOdoxfU4MKEaVNntLkP8
+  https://mega.co.nz/#!jI1GXDaD!fOyYJ0pTN9d6_7mMfTHigkgoOdoxfU4MKEaVNntLkP8
 
 
