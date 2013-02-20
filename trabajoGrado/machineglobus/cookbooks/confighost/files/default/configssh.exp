@@ -8,14 +8,14 @@
 	
 	
 set timeout 100
-	set username    ""
-        set host        ""
-        set pass        ""
-        set location    ""
-	set locationdefault    ".ssh/id_rsa"
-        set phrase     	""
-	set sizeargv	[llength $argv]
-	set overwrite	"n"
+set username    ""
+set host        ""
+set pass        ""
+set location    ""
+set locationdefault    ".ssh/id_rsa"
+set phrase     	""
+set sizeargv	[llength $argv]
+set overwrite	"n"
 
 if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 || $sizeargv == 12} {
 	for {set i 0} {$i < [llength $argv]} {incr i 2} {
@@ -45,8 +45,6 @@ if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $si
         send_user "Uso: configssh -u username -p pass -f phrase -h host -l location -o overwrite(y/N)\n"
         exit 1
 }
-
-
 
 spawn ssh-keygen -t rsa
 
@@ -97,20 +95,4 @@ expect {
 		send_user "pass enviado\n"				
 	}
 }
-
-#send_user "test conexion\n"
-#spawn ssh  $username@$host
-#expect {
-#	"*connecting (yes/no)?" {
-#		send "yes\r"
-#		exp_continue
-#	} #primera vez
-#	"*assword:" {		
-#		send "$pass\r"
-#		expect "expecting."
-#		send_user "pass enviado\n"				
-#	}
-#}
-#expect "$"
-#send "exit\r"
 send_user "\nse realiza correctamente\n"

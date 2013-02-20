@@ -43,7 +43,7 @@ Vagrant::Config.run do |config|
 				:run_list => [ "recipe[confighost::preinstall]" , "recipe[confighost::hostname]" , "recipe[confighost::hostconfiguremaster]" ],
 				:host_name => "master.cluster.org" ,				
 				:alias => "master" ,
-				:hostslaves => ["wn1" ]#lista de todos los nodos
+				:hostslaves => ["wn1", "wn2" ]#lista de todos los nodos
 			})
 		end
 	end

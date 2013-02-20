@@ -31,8 +31,8 @@ Vagrant::Config.run do |config|
 	config.vm .define :mgwn1 do |node|
 		node.vm.box = "centos64"
 		#node.vm.boot_mode = :gui
-		node.vm.network :bridged, :bridge => "eth0"
-		#node.vm.network :hostonly, "172.18.0.12"
+		#node.vm.network :bridged, :bridge => "eth0"
+		node.vm.network :hostonly, "172.18.0.12"
 		node.vm.customize ["modifyvm", :id, "--memory", 300, "--cpus", 2, "--name", "globus-slave" ]
 		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
@@ -41,20 +41,16 @@ Vagrant::Config.run do |config|
 				:run_list => [ "recipe[confighost::preinstall]" , "recipe[confighost::hostname]" , "recipe[confighost::hostconfigurenode]" ,
 				"recipe[chefInstall::install]" ],
 				:host_name => "mgwn1.globustest.org",
-				:alias => "mgwn1" ,
-				:ip_maquina_local => "172.17.9.15" ,#representa la ip de la maquina host donde corren las vm o donde se guarden los archivos temporales
-				:pass_maquina_local => "0832294-3743" ,#el pass de la maquina
-				:user_maquina_local => "monki" ,# el usuario de la manquina
-				:path_project_vagrant => "/home/monki/recipes/trabajoGrado/machineglobus/cookbooks/confighost/files/default"#el path donde se guardan los temporales
-			})
+				:alias => "mgwn1" 
+				})
 		end
 	end
 	
 	config.vm .define :mg do |node|
 		node.vm.box = "centos64"
 		#node.vm.boot_mode = :gui		
-		node.vm.network :bridged, :bridge => "eth0"
-		#node.vm.network :hostonly, "172.18.0.11"
+		#node.vm.network :bridged, :bridge => "eth0"
+		node.vm.network :hostonly, "172.18.0.11"
 		node.vm.customize ["modifyvm", :id, "--memory", 300, "--cpus", 2, "--name", "globus-master" ]
 		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
@@ -64,8 +60,7 @@ Vagrant::Config.run do |config|
 				"recipe[chefInstall::install]" ],
 				:host_name => "mg.globustest.org",
 				:hostslaves => ["mgwn1"], #lista de todos los nodos
-				:alias => "master" ,
-				:ip_host_machine => "172.17.9.15"  #representa la ip de la maquina host donde corren las vm o donde se guarden los archivos temporales
+				:alias => "master" 
 			})
 		end
 	end
