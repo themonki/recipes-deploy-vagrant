@@ -59,11 +59,15 @@ expect {
 	}
 	"Enter passphrase" {
 		send "$phrase\r"
-		expect "Enter same passphrase again"
-		send "$phrase\r"
-		expect "$"
+		expect "Enter same passphrase again" {
+	      send "$phrase\r"
+	      exp_continue
 		}
 	}
+	"$"{
+	  send_user "Vacio frase\n"
+	}
+}
 
 
 send_user "\nrealizado creacion de llave publica\n"
