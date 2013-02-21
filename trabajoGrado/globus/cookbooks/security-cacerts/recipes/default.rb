@@ -107,7 +107,7 @@ cookbook_file "/etc/myproxy-server.config" do
 end
 
 #se copian los certificados de myproxy en la carpeta superior
-execute "cp cert /etc/grod-secutiry" do
+execute "cp cert /etc/grid-secutiry" do
   command "cp /etc/grid-security/myproxy/host*.pem /etc/grid-security/"
   user "root"
   cwd "/tmp/"

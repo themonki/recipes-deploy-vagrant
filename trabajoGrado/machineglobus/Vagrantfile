@@ -60,7 +60,7 @@ Vagrant::Config.run do |config|
 				"recipe[chefInstall::install]" ],
 				:host_name => "mg.globustest.org",
 				:hostslaves => ["mgwn1"], #lista de todos los nodos
-				:alias => "master" 
+				:alias => "mg" 
 			})
 		end
 	end

@@ -1,5 +1,6 @@
 #!/usr/bin/expect
 
+set timeout 50
 set sizeargv	[llength $argv]
 set pass "globus"
 set pathsetupsimpleca "/tmp/"
@@ -38,9 +39,9 @@ expect {
 		send "$pass\r"		
 		exp_continue
 	}
-	"hostcert.pem" {
-		send_user "certificado creado\n"		
-	}
+	"The hostcert is located at /etc/grid-security/myproxy/hostcert.pem" {
+	  send_user "certificado creado\n"
+	}	
 }
-
+expect eof
 send_user "\nse realiza correctamente\n"

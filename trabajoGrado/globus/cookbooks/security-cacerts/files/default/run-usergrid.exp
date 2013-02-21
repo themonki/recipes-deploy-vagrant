@@ -4,34 +4,38 @@ set sizeargv	[llength $argv]
 set passGrid "globus"
 set passUser "globus"
 set userName "vagrant"
-set name "Vagrant User"
+set name "VagrantUser"
+set hostname "mg.globustest.org"
 
 if { $sizeargv != 0} {
 
-	if{ $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 }
+	if{ $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 }
 	{
 		set argvtmp [lindex $argv $i];
 		if {$argvtmp == "-u"} { #userName
 		        set index [expr $i+1];
-			set userName [lindex $argv $index];
+			      set userName [lindex $argv $index];
 		} elseif {$argvtmp == "-pu"} {#passUser
 		        set index  [expr $i+1];
-			set passUser  [lindex $argv $index];
+			      set passUser  [lindex $argv $index];
 		} elseif {$argvtmp == "-pg"} {#passGrid
 		        set index  [expr $i+1];
-			set passGrid [lindex $argv $index];
+			      set passGrid [lindex $argv $index];
 		} elseif {$argvtmp == "-n"} {#name
 		        set index  [expr $i+1];
-			set name [lindex $argv $index];
+			      set name [lindex $argv $index];
+		}elseif {$argvtmp == "-h"} {#hostname FQDN
+		        set index  [expr $i+1];
+			      set hostname [lindex $argv $index];
 		}
 	}else {
 		send_user "Error parametros incompletos\n"
-		send_user "Uso: run-usergrid -u username -pu passUser -pg passGrid -n name"
+		send_user "Uso: run-usergrid -u username -pu passUser -pg passGrid -n name -h hostname_FQDN"
 		exit 1
 	}
 }
 
-spawn sudo -H -E -u myproxy myproxy-admin-adduser -c \"$name\" -l $userName
+spawn sudo -H -E -u myproxy myproxy-admin-adduser -c $name -l $userName
 
 expect {
 	"Enter PEM pass phrase:" {
@@ -44,11 +48,12 @@ expect {
 	}
 	"please enter the password for the CA key:" {
 		send "$passGrid\r"
+		expect "/O=Grid/"
 		send_user "\nusuario creado\n"		
 	}
 }
-
-spawn grid-mapfile-add-entry -dn \"/O=Grid/OU=GlobusTest/OU=simpleCA-mg.globustest.org/OU=local/CN=$name\" -ln $userName
-
+#/O=Grid/OU=GlobusTest/OU=simpleCA-mg.globustest.org/CN=host/mg.globustest.org           el que genera el simple-ca
+#/O=Grid/OU=GlobusTest/OU=simpleCA-mg.globustest.org/OU=local/CN=Vagrant User           el que se debe de usar
+spawn sudo grid-mapfile-add-entry -dn /O=Grid/OU=GlobusTest/OU=simpleCA-$hostname/OU=local/CN=$name -ln $userName
+expect "entry added"
 send_user "\nse realiza correctamente\n"
-
