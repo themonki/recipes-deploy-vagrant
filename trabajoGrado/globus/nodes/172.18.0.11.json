@@ -1,1 +1,1 @@
-{ "run_list": [ ] }
+{ "run_list": ["recipe[repositories]","recipe[globususer]","recipe[globuspackages]", "recipe[osgcacerts]" , "recipe[security-cacerts]" ] }

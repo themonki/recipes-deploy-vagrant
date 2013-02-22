@@ -13,8 +13,8 @@ cd ..
 
 cd globus
 
-expect configssh.exp -u vagrant -p vagrant -h 172.18.0.11 -${pathSSH} 
-expect configssh.exp -u vagrant -p vagrant -h 172.18.0.12 -${pathSSH} 
+expect configssh.exp -u vagrant -p vagrant -h 172.18.0.11 -l ${pathSSH} 
+expect configssh.exp -u vagrant -p vagrant -h 172.18.0.12 -l ${pathSSH} 
 
 echo "garantizado acceso ssh a las maquinas virtuales"
 
