@@ -33,7 +33,7 @@ Vagrant::Config.run do |config|
 		#node.vm.boot_mode = :gui
 		#node.vm.network :bridged, :bridge => "eth0"
 		node.vm.network :hostonly, "172.18.0.12"
-		node.vm.customize ["modifyvm", :id, "--memory", 300, "--cpus", 2, "--name", "globus-slave" ]
+		node.vm.customize ["modifyvm", :id, "--memory", 300, "--cpus", 2, "--name", "globus-client" ]
 		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
 			chef.add_recipe "confighost::preinstall"
