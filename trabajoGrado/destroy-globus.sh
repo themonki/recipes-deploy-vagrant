@@ -7,7 +7,7 @@ cd machineglobus
 vagrant destroy -f
 
 rm -rf ~/VirtualBox\ VMs/globus-master/
-rm -rf ~/VirtualBox\ VMs/globus-slave/
+rm -rf ~/VirtualBox\ VMs/globus-client/
 
 echo "maquinas Destruidas"
 

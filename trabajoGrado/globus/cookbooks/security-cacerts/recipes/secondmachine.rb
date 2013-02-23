@@ -61,11 +61,8 @@ end
 
 #/O=Grid/OU=GlobusTest/OU=simpleCA-mg.globustest.org/OU=local/CN=mgwn1.globustest.org
 
-
-
 #problemas al ejecutar
-
-#
+#myproxy-retrieve -s mg -k mgwn1.globustest.org -l mgwn1
 
 #http://www.globus.org/toolkit/docs/5.2/5.2.2/gridftp/admin/#gridftp-config-security-firewalls
 
