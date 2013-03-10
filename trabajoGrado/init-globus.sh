@@ -1,7 +1,7 @@
 #!/bin/bash
 
-pathSSH= echo ~/.ssh/id_sra
-
+pathSSH=$HOME/.ssh/id_rsa
+echo $pathSSH
 
 cd machineglobus
 

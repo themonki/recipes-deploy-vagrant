@@ -29,11 +29,11 @@ if platform?("redhat", "centos", "fedora")
 			source "chef-10.16.6-1.el6.i686.rpm"
 			owner "root"
 		end
-	end	
+	end
 	execute "install chef" do
 		user "root"
 		cwd "/tmp"
-		command "yum install -y chef_*.rpm"
+		command "yum install -y chef-*.rpm"
 		action :run
 	end
 end
