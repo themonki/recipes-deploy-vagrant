@@ -1,6 +1,6 @@
 #!/bin/bash
 
-path=/home/monki/recipes/trabajoGrado/machineglobus/cookbooks/confighost/files/default
+path=cookbooks/confighost/files/default
 
 rm -rf ${path}/hosts
 rm -rf ${path}/tmp

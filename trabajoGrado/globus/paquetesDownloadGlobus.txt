@@ -1,0 +1,18 @@
+install
+
+cups poppler-data foomatic-db-ppds gtk2 iso-codes mesa-dri-drivers mesa-dri1-drivers  qt qt3 urw-fonts ghostscript qt-x11
+
+
+cups-1.4.2-50.el6_4.4.x86_64.rpm poppler-data-0.4.0-1.el6.noarch.rpm \
+foomatic-db-ppds-4.0-7.20091126.el6.noarch.rpm gtk2-2.18.9-12.el6.x86_64.rpm\
+iso-codes-3.16-2.el6.noarch.rpm mesa-dri-drivers-9.0-0.7.el6.x86_64.rpm\
+mesa-dri1-drivers-7.11-8.el6.x86_64.rpm qt-4.6.2-25.el6.x86_64.rpm\
+qt3-3.3.8b-30.el6.x86_64.rpm urw-fonts-2.4-10.el6.noarch.rpm\
+ghostscript-8.70-14.el6_3.1.x86_64.rpm qt-x11-4.6.2-25.el6.x86_64.rpm\
+urw-fonts-2.4-10.el6.noarch.rpm
+
+update 
+
+perl
+
+perl-5.10.1-129.el6.x86_64.rpm

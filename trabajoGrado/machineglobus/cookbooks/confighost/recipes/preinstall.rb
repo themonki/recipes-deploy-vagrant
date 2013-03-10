@@ -60,7 +60,26 @@ if platform?("redhat", "centos", "fedora")
  
 	
 	if Extensions::Platform.i386?
+		cookbook_file "/home/vagrant/tcl-8.5.7-6.el6.i686.rpm" do
+				    source "tcl-8.5.7-6.el6.i686.rpm"
+				    mode 0644
+				    owner "vagrant"
+				    #group "admin"				
+		end
+
+		cookbook_file "/home/vagrant/expect-5.44.1.15-4.el6.i686.rpm" do
+        source "expect-5.44.1.15-4.el6.i686.rpm"
+        mode 0644
+        owner "vagrant"
+        #group "admin"
+		end
 		
+		cookbook_file "/home/vagrant/rsync-3.0.6-9.el6.i686.rpm" do
+        source "rsync-3.0.6-9.el6.i686.rpm"
+        mode 0644
+        owner "vagrant"
+        #group "admin"
+		end		
 
 	end
 

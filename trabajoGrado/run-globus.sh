@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pathSSH=/home/monki/.ssh/id_sra
+pathSSH= echo ~/.ssh/id_sra
 
 
 cd machineglobus
