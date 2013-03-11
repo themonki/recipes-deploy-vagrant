@@ -21,5 +21,5 @@ echo "garantizado acceso ssh a las maquinas virtuales"
 knife cook vagrant@172.18.0.11
 knife cook vagrant@172.18.0.12
 
-
 echo "globus instalado"
+

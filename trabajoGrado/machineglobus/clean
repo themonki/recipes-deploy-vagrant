@@ -7,6 +7,4 @@ rm -rf ${path}/tmp
 
 touch ${path}/hosts
 
-cat ${path}/hostsTemplate >> ${path}/hosts
-
 echo "clean"
