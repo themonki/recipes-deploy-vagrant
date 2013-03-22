@@ -39,7 +39,7 @@ Vagrant::Config.run do |config|
 			chef.add_recipe "confighost::preinstall"
 			chef.json.merge!({
 				:run_list => [ "recipe[confighost::preinstall]" , "recipe[confighost::hostname]" , "recipe[confighost::hostconfigurenode]" ,
-				"recipe[chefInstall::install]"  ],
+				"recipe[chefInstall::install]" , "recipe[preinstall]"  ],
 				:host_name => "mgwn1.globustest.org",
 				:alias => "mgwn1" 
 				})

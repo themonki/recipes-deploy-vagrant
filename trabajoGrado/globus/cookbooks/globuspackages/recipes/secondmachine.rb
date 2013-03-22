@@ -19,3 +19,5 @@ execute "osg-ca-certs" do
   user "root"
   action :run  
 end
+
+#YA NO SE UTILIZA SE NECESITA EL GRAM5 PARA LA SEGUNDA MAQUINA
