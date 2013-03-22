@@ -77,5 +77,17 @@
 ##DONE
 
 
+cookbook_file "/tmp/run-setupsecondmachine.exp" do
+	source "run-setupsecondmachine.exp"
+	owner "vagrant"
+end
+
+execute "expect run-setupsecondmachine" do
+	command "expect run-setupsecondmachine"
+	user "vagrant"
+	cwd "/tmp/"
+	action :run
+end
+
 
 
