@@ -21,5 +21,13 @@ echo "garantizado acceso ssh a las maquinas virtuales"
 knife cook vagrant@172.18.0.11
 knife cook vagrant@172.18.0.12
 
+echo "addservice"
+
+knife cook vagrant@172.18.0.11 nodes/addservice.json
+
+echo "setupsecondmachine"
+
+knife cook vagrant@172.18.0.12 nodes/setupsecondmachine.json
+
 echo "globus instalado"
 

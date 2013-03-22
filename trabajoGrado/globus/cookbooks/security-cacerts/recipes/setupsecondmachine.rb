@@ -77,17 +77,63 @@
 ##DONE
 
 
+#################################################################
 cookbook_file "/tmp/run-setupsecondmachine.exp" do
 	source "run-setupsecondmachine.exp"
 	owner "vagrant"
 end
 
 execute "expect run-setupsecondmachine" do
-	command "expect run-setupsecondmachine"
+	command "expect run-setupsecondmachine.exp"
 	user "vagrant"
 	cwd "/tmp/"
 	action :run
 end
+
+###################################################
+
+
+
+# levantar el servidor GridFTP
+
+execute "start gridftp server" do
+	command "service globus-gridftp-server start"
+	user "root"
+	cwd "/etc/grid-security"
+	action :run
+end
+
+
+#levantar GRAM5
+
+execute "start GRAM5" do
+	command "service globus-gatekeeper start"
+	user "root"
+	cwd "/etc/grid-security"
+	action :run
+end
+
+#################################################################
+#mantener los servicios levantados
+#http://rm-rf.es/anadir-quitar-servicios-al-inicio-del-sistema-red-hat-centos/
+# ver el archivo /etc/inittab
+
+execute "chkconfig gram5" do
+	command "chkconfig globus-gatekeeper on"
+	user "root"
+	cwd "/etc/grid-security"
+	action :run
+end	
+
+execute "chkconfig globus-gridftp-server" do
+	command "chkconfig globus-gridftp-server on"
+	user "root"
+	cwd "/etc/grid-security"
+	action :run
+end	
+
+
+
 
 
 
