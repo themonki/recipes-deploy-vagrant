@@ -3,14 +3,14 @@
 set sizeargv	[llength $argv]
 set passGrid "globus"
 set passUser "globus"
-set userName "mgwn1"
+set userName "vagrant"
 set hostnameClient "mgwn1.globustest.org"
 set hostnameServer "mg.globustest.org"
 set name "VagrantUser"
 
 if { $sizeargv != 0} {
 
-	if{ $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 }
+	if{ $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 || $sizeargv == 12 }
 	{
 		set argvtmp [lindex $argv $i];
 		if {$argvtmp == "-u"} { #userName
@@ -56,14 +56,13 @@ expect {
 	}	
 }
 
-spawn myproxy-destroy -s $hostnameServer -k $hostnameClient -l $userName
+spawn sudo myproxy-destroy -s $hostnameServer -k $hostnameClient -l $userName
 
 expect {
   "successfully removed."{
     send_user  "Se removio la credencial\n"
   }
 }
-
 
 #Modifying /etc/grid-security/grid-mapfile ...
 #/etc/grid-security/grid-mapfile does not exist... Attempting to create /etc/grid-security/grid-mapfile

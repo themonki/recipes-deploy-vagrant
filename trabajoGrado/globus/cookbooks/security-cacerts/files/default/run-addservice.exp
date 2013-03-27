@@ -3,7 +3,7 @@
 set sizeargv	[llength $argv]
 set passGrid "globus"
 set passUser "globus"
-set userName "mgwn1"
+set userName "vagrant"
 set hostname "mgwn1.globustest.org"
 
 if { $sizeargv != 0} {

@@ -9,7 +9,7 @@
 # https://twiki.grid.iu.edu/bin/view/Documentation/Release3/YumRpmBasics#Installation
 #
 execute "osg-ca-certs" do
-  command "yum -y install osg-ca-certs"
+  command "yum -y -q install osg-ca-certs"
   user "root"
   action :run  
 end

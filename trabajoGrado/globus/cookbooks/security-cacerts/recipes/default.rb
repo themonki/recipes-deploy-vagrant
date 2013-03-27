@@ -12,7 +12,7 @@
 #
 
 execute "installing myproxy" do
-  command "yum install -y myproxy myproxy-server myproxy-admin "
+  command "yum install -y -q myproxy myproxy-server myproxy-admin "
   user "root"
   action :run  
 end

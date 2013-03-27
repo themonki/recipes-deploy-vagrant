@@ -9,13 +9,13 @@
 # http://www.globus.org/toolkit/docs/5.2/5.2.2/admin/install/#id2530418
 #
 execute "gridftp" do
-  command "yum -y install globus-gridftp"
+  command "yum -y -q install globus-gridftp"
   user "root"
   action :run  
 end
 
 execute "osg-ca-certs" do
-  command "yum -y install globus-gsi"
+  command "yum -y -q install globus-gsi"
   user "root"
   action :run  
 end

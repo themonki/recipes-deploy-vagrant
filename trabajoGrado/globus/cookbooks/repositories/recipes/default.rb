@@ -32,7 +32,7 @@ end
 
 execute "EPEL repository" do
   #command "rpm -Uvh http://ftp-stud.hs-esslingen.de/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm"
-  command "rpm -Uvh epel-release-6-8.noarch.rpm"
+  command "rpm -Uvh --quiet epel-release-6-8.noarch.rpm"
   user "root"
   cwd "/tmp"
   action :run
@@ -40,7 +40,7 @@ end
 
 execute "yum-priorities" do
   #command "yum -y install yum-priorities"
-  command "yum -y install yum-plugin-priorities-1.1.30-14.el6.noarch.rpm"
+  command "yum -y -q install yum-plugin-priorities-1.1.30-14.el6.noarch.rpm"
   user "root"
   cwd "/tmp"
   action :run
@@ -50,7 +50,7 @@ end
 
 execute "OSG repository" do
   #command "rpm -Uvh http://repo.grid.iu.edu/osg-el6-release-latest.rpm"
-  command "rpm -Uvh osg-el6-release-latest.rpm"
+  command "rpm -Uvh --quiet osg-el6-release-latest.rpm"
   cwd "/tmp"
   user "root"
   action :run
@@ -63,7 +63,7 @@ end
 
 execute "Globus repository" do
   #command "rpm -i http://www.globus.org/ftppub/gt5/5.2/stable/packages/rpm/centos/6/x86_64/Globus-repo-config.centos-6-1.noarch.rpm"
-  command "rpm -i Globus-repo-config.centos-6-1.noarch.rpm"
+  command "rpm -i --quiet Globus-repo-config.centos-6-1.noarch.rpm"
   cwd "/tmp"
   user "root"
   action :run
