@@ -19,25 +19,12 @@ if platform?("redhat", "centos", "fedora")
 			user "vagrant"
 			cwd "/tmp"
 			action :run  
-		end
-
-		execute "update dependencies" do
-			command "yum update -y perl-*.rpm"
-			user "root"
-			cwd "/tmp/reposPreinstall/Pglobus-gram5-x86_64"
-			action :run  
-		end
+		end		
 
 		execute "install dependencies" do
-			command "yum install -y cups-*.rpm poppler-*.rpm \
-		foomatic-*.rpm gtk2*.rpm\
-		iso-codes-*.rpm mesa-dri-drivers-*.rpm\
-		mesa-dri1-drivers-*.rpm qt-*.rpm\
-		qt3-*.rpm urw-fonts-*.rpm\
-		ghostscript-*.rpm qt-*.rpm\
-		urw-fonts-*.rpm"
+			command "rpm -Uvh *.rpm"
 			user "root"
-			cwd "/tmp/reposPreinstall/Pglobus-gram5-x86_64"
+			cwd "/tmp/reposPreinstall/Pglobus-x86_64"
 			action :run  
 		end
 	end

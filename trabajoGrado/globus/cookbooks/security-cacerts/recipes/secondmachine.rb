@@ -11,9 +11,28 @@
 # http://www.globus.org/toolkit/docs/5.2/5.2.2/admin/quickstart/#q-security
 #
 
-execute "installing myproxy" do
-  command "yum install -y -q myproxy"
+#execute "installing myproxy" do
+#  command "yum install -y -q myproxy"
+#  user "root"
+#  action :run  
+#end
+
+cookbook_file "/tmp/security-cacerts.tar.gz" do
+  source "security-cacerts.tar.gz"
+  owner "vagrant"
+end
+
+execute "descomprimir security-cacerts" do
+  command "tar -xvzf security-cacerts.tar.gz"
+  user "vagrant"
+  cwd "/tmp/"
+  action :run  
+end
+
+execute "install myproxy" do
+  command "rpm -Uvh --quiet *.rpm"
   user "root"
+  cwd "/tmp/security-cacerts/myproxy"
   action :run  
 end
 

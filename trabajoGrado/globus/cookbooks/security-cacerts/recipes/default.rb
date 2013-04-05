@@ -11,9 +11,35 @@
 # http://www.globus.org/toolkit/docs/5.2/5.2.2/admin/quickstart/#q-security
 #
 
-execute "installing myproxy" do
-  command "yum install -y -q myproxy myproxy-server myproxy-admin "
+#execute "installing myproxy" do
+#  command "yum install -y -q myproxy myproxy-server myproxy-admin "
+#  user "root"
+#  action :run  
+#end
+
+cookbook_file "/tmp/security-cacerts.tar.gz" do
+  source "security-cacerts.tar.gz"
+  owner "vagrant"
+end
+
+execute "descomprimir security-cacerts" do
+  command "tar -xvzf security-cacerts.tar.gz"
+  user "vagrant"
+  cwd "/tmp/"
+  action :run  
+end
+
+execute "install myproxy" do
+  command "rpm -Uvh --quiet *.rpm"
   user "root"
+  cwd "/tmp/security-cacerts/myproxy"
+  action :run  
+end
+
+execute "install myproxy-server myproxy-admin" do
+  command "rpm -Uvh --quiet *.rpm"
+  user "root"
+  cwd "/tmp/security-cacerts/server"
   action :run  
 end
 
@@ -45,6 +71,21 @@ cookbook_file "/tmp/run-setupsimpleca.exp" do
   owner "vagrant"
 end
 
+cookbook_file "/tmp/run_1st_as_myproxy" do
+  source "run_1st_as_myproxy"
+  owner "vagrant"
+end
+
+cookbook_file "/tmp/run_2nd_as_root" do
+  source "run_2nd_as_root"
+  owner "vagrant"
+end
+
+cookbook_file "/tmp/run_3rd_as_myproxy" do
+  source "run_3rd_as_myproxy"
+  owner "vagrant"
+end
+
 #se corre el script con valores por defecto:
 #pass globus
 #script setup-simpleca en /tmp/setup-simpleca
@@ -59,22 +100,6 @@ end
 #################################################################
 #ejecutando el script uno por uno
 
-#cookbook_file "/tmp/run_1st_as_myproxy" do
-#  source "run_1st_as_myproxy"
-#  owner "vagrant"
-#end
-
-#cookbook_file "/tmp/run_2nd_as_root" do
-#  source "run_2nd_as_root"
-#  owner "vagrant"
-#end
-
-#cookbook_file "/tmp/run_3rd_as_myproxy" do
-#  source "run_3rd_as_myproxy"
-#  owner "vagrant"
-#end
-
-##ejecutar con expect
 #execute "run run_1st_as_myproxy" do
 #  command "sudo -H -E -u myproxy perl run_1st_as_myproxy -y"
 #  user "vagrant"

@@ -40,7 +40,7 @@ end
 
 execute "yum-priorities" do
   #command "yum -y install yum-priorities"
-  command "yum -y -q install yum-plugin-priorities-1.1.30-14.el6.noarch.rpm"
+  command "rpm -Uvh --quiet yum-plugin-priorities-1.1.30-14.el6.noarch.rpm"
   user "root"
   cwd "/tmp"
   action :run

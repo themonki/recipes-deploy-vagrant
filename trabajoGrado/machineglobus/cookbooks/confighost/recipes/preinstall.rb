@@ -111,20 +111,20 @@ if platform?("redhat", "centos", "fedora")
 				    user "root"
 				    #group "admin"
 				    cwd "/home/vagrant"
-						command "yum install -y tcl*.rpm"
+						command "rpm -Uvh --quiet tcl*.rpm"
 				    action :run
 		end
 		execute "install expect" do
 				    user "root"
 				    #group "admin"
 				    cwd "/home/vagrant"
-				    command "yum install -y expect-*.rpm"
+				    command "rpm -Uvh --quiet expect-*.rpm"
 				    action :run
 		end
 		execute "install rsync" do
 	          user "root"
 	          cwd "/home/vagrant"
-	          command "yum install -y rsync*.rpm"
+	          command "rpm -Uvh --quiet rsync*.rpm"
 	          action :run
 
     end 

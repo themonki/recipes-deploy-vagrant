@@ -33,7 +33,7 @@ if platform?("redhat", "centos", "fedora")
 	execute "install chef" do
 		user "root"
 		cwd "/tmp"
-		command "yum install -y chef-*.rpm"
+		command "rpm -Uvh --quiet chef-*.rpm"
 		action :run
 	end
 end
