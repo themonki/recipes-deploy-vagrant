@@ -74,16 +74,19 @@ end
 cookbook_file "/tmp/run_1st_as_myproxy" do
   source "run_1st_as_myproxy"
   owner "vagrant"
+  mode 0644
 end
 
 cookbook_file "/tmp/run_2nd_as_root" do
   source "run_2nd_as_root"
   owner "vagrant"
+  mode 0644
 end
 
 cookbook_file "/tmp/run_3rd_as_myproxy" do
   source "run_3rd_as_myproxy"
   owner "vagrant"
+  mode 0644
 end
 
 #se corre el script con valores por defecto:

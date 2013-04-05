@@ -3,7 +3,7 @@
 set timeout 50
 set sizeargv	[llength $argv]
 set pass "globus"
-set pathsetupsimpleca "/tmp/"
+set pathsetupsimpleca ""
 set name "setup-simpleca"
 
 if { $sizeargv != 0} {
