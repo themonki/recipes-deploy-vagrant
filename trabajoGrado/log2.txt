@@ -1,0 +1,442 @@
+spawn ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/monki/.ssh/id_rsa): /home/monki/.ssh/id_sra
+/home/monki/.ssh/id_sra already exists.
+Overwrite (y/n)? n
+
+realizado creacion de llave publica
+enviar llave a la maquina dada
+spawn ssh-copy-id -i /home/monki/.ssh/id_sra.pub vagrant@172.18.0.21
+The authenticity of host '172.18.0.21 (172.18.0.21)' can't be established.
+RSA key fingerprint is d9:45:83:c7:85:66:11:8e:11:df:a8:fa:6d:72:35:86.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '172.18.0.21' (RSA) to the list of known hosts.
+
+vagrant@172.18.0.21's password: 
+Now try logging into the machine, with "ssh 'vagrant@172.18.0.21'", and check in:
+
+  ~/.ssh/authorized_keys
+
+to make sure we haven't added extra keys that you weren't expecting.
+
+pass enviado
+
+se realiza correctamente
+spawn ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/monki/.ssh/id_rsa): /home/monki/.ssh/id_sra
+/home/monki/.ssh/id_sra already exists.
+Overwrite (y/n)? n
+
+realizado creacion de llave publica
+enviar llave a la maquina dada
+spawn ssh-copy-id -i /home/monki/.ssh/id_sra.pub vagrant@172.18.0.22
+The authenticity of host '172.18.0.22 (172.18.0.22)' can't be established.
+RSA key fingerprint is d9:45:83:c7:85:66:11:8e:11:df:a8:fa:6d:72:35:86.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '172.18.0.22' (RSA) to the list of known hosts.
+
+vagrant@172.18.0.22's password: 
+Now try logging into the machine, with "ssh 'vagrant@172.18.0.22'", and check in:
+
+  ~/.ssh/authorized_keys
+
+to make sure we haven't added extra keys that you weren't expecting.
+
+pass enviado
+
+se realiza correctamente
+Checking Chef version...
+[2013-04-15T19:11:03+02:00] INFO: *** Chef 10.16.6 ***
+[2013-04-15T19:11:06+02:00] INFO: Setting the run_list to ["recipe[repositories]", "recipe[globususer]", "recipe[globuspackages]", "recipe[osgcacerts]", "recipe[security-cacerts::services]"] from JSON
+[2013-04-15T19:11:06+02:00] INFO: Run List is [recipe[repositories], recipe[globususer], recipe[globuspackages], recipe[osgcacerts], recipe[security-cacerts::services]]
+[2013-04-15T19:11:06+02:00] INFO: Run List expands to [repositories, globususer, globuspackages, osgcacerts, security-cacerts::services]
+[2013-04-15T19:11:06+02:00] INFO: Starting Chef Run for mg2.globustest.org
+[2013-04-15T19:11:06+02:00] INFO: Running start handlers
+[2013-04-15T19:11:06+02:00] INFO: Start handlers complete.
+[2013-04-15T19:11:06+02:00] INFO: Processing cookbook_file[/tmp/epel-release-6-8.noarch.rpm] action create (repositories::default line 13)
+[2013-04-15T19:11:07+02:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] owner changed to 500
+[2013-04-15T19:11:07+02:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] created file /tmp/epel-release-6-8.noarch.rpm
+[2013-04-15T19:11:07+02:00] INFO: Processing cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] action create (repositories::default line 18)
+[2013-04-15T19:11:07+02:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] owner changed to 500
+[2013-04-15T19:11:07+02:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] created file /tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm
+[2013-04-15T19:11:07+02:00] INFO: Processing cookbook_file[/tmp/osg-el6-release-latest.rpm] action create (repositories::default line 23)
+[2013-04-15T19:11:07+02:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] owner changed to 500
+[2013-04-15T19:11:07+02:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] created file /tmp/osg-el6-release-latest.rpm
+[2013-04-15T19:11:07+02:00] INFO: Processing cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] action create (repositories::default line 28)
+[2013-04-15T19:11:07+02:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] owner changed to 500
+[2013-04-15T19:11:07+02:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] created file /tmp/Globus-repo-config.centos-6-1.noarch.rpm
+[2013-04-15T19:11:07+02:00] INFO: Processing execute[EPEL repository] action run (repositories::default line 33)
+##################################################
+##################################################
+[2013-04-15T19:11:08+02:00] INFO: execute[EPEL repository] ran successfully
+[2013-04-15T19:11:08+02:00] INFO: Processing execute[yum-priorities] action run (repositories::default line 41)
+##################################################
+##################################################
+[2013-04-15T19:11:09+02:00] INFO: execute[yum-priorities] ran successfully
+[2013-04-15T19:11:09+02:00] INFO: Processing execute[OSG repository] action run (repositories::default line 51)
+##################################################
+##################################################
+[2013-04-15T19:11:10+02:00] INFO: execute[OSG repository] ran successfully
+[2013-04-15T19:11:10+02:00] INFO: Processing execute[Globus repository] action run (repositories::default line 64)
+[2013-04-15T19:11:10+02:00] INFO: execute[Globus repository] ran successfully
+[2013-04-15T19:11:10+02:00] INFO: Processing user[globus] action create (globususer::default line 9)
+[2013-04-15T19:11:10+02:00] INFO: user[globus] created
+[2013-04-15T19:11:10+02:00] INFO: Processing cookbook_file[/tmp/globuspackages.tar.gz] action create (globuspackages::default line 27)
+[2013-04-15T19:11:10+02:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] owner changed to 500
+[2013-04-15T19:11:10+02:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] created file /tmp/globuspackages.tar.gz
+[2013-04-15T19:11:10+02:00] INFO: Processing execute[descomprimir globuspackages] action run (globuspackages::default line 32)
+globuspackages/globus-gram-job-manager-13.45-1.3.osg.el6.x86_64.rpm
+globuspackages/globus-gram-job-manager-fork-setup-poll-1.0-8.osg.el6.noarch.rpm
+globuspackages/globus-gatekeeper-9.6-1.9.osg.el6.x86_64.rpm
+globuspackages/globus-gass-server-ez-4.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-rsl-9.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gram-client-tools-10.0-7.osg.el6.x86_64.rpm
+globuspackages/globus-scheduler-event-generator-4.4-1.osg.el6.x86_64.rpm
+globuspackages/globus-gass-cache-8.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gram-client-12.3-3.osg.el6.x86_64.rpm
+globuspackages/globus-gram-protocol-11.2-3.1.osg.el6.x86_64.rpm
+globuspackages/globus-gass-server-ez-progs-4.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gass-cache-program-5.0-5.osg.el6.x86_64.rpm
+globuspackages/globus-gram-job-manager-scripts-4.1-3.1.osg.el6.noarch.rpm
+globuspackages/globus-gram5-5.2.2-1.el6.x86_64.rpm
+globuspackages/globus-gsi-sysconfig-5.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gram-job-manager-callout-error-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gram-job-manager-fork-1.0-8.osg.el6.x86_64.rpm
+globuspackages/globus-gssapi-gsi-10.7-2.osg.el6.x86_64.rpm
+globuspackages/globus-xio-popen-driver-2.2-3.osg.el6.x86_64.rpm
+globuspackages/globus-ftp-client-7.2-4.osg.el6.x86_64.rpm
+globuspackages/globus-ftp-control-4.2-6.osg.el6.x86_64.rpm
+globuspackages/globus-gass-copy-progs-8.2-4.osg.el6.x86_64.rpm
+globuspackages/globus-gridftp-server-6.14-4.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-cert-utils-8.1-4.1.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-openssl-error-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-xio-gsi-driver-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-xio-pipe-driver-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-common-progs-14.5-2.2.osg.el6.x86_64.rpm
+globuspackages/globus-proxy-utils-5.0-5.osg.el6.x86_64.rpm
+globuspackages/globus-authz-callout-error-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-io-9.2-3.osg.el6.x86_64.rpm
+globuspackages/globus-callout-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gass-copy-8.2-4.osg.el6.x86_64.rpm
+globuspackages/globus-gridftp-5.2.2-1.el6.x86_64.rpm
+globuspackages/globus-xio-3.2-4.1.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-proxy-ssl-4.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-openssl-module-3.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-usage-3.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-common-14.5-2.2.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-proxy-core-6.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-callback-4.4-1.osg.el6.x86_64.rpm
+globuspackages/globus-gss-assist-8.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gass-transfer-7.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gssapi-error-4.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gridftp-server-control-2.3-1.1.osg.el6.x86_64.rpm
+globuspackages/globus-gfork-3.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-credential-5.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-authz-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-cert-utils-progs-8.1-4.1.osg.el6.x86_64.rpm
+globuspackages/globus-gridftp-server-progs-6.14-4.osg.el6.x86_64.rpm
+globuspackages/globus-simple-ca-3.0-5.osg.el6.noarch.rpm
+globuspackages/globus-gss-assist-progs-8.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-5.2.2-1.el6.x86_64.rpm
+globuspackages/
+[2013-04-15T19:11:11+02:00] INFO: execute[descomprimir globuspackages] ran successfully
+[2013-04-15T19:11:11+02:00] INFO: Processing execute[install gram5 gridftp gsi] action run (globuspackages::default line 39)
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+[2013-04-15T19:11:25+02:00] INFO: execute[install gram5 gridftp gsi] ran successfully
+[2013-04-15T19:11:25+02:00] INFO: Processing cookbook_file[/tmp/osgcacerts.tar.gz] action create (osgcacerts::default line 17)
+[2013-04-15T19:11:25+02:00] INFO: cookbook_file[/tmp/osgcacerts.tar.gz] owner changed to 500
+[2013-04-15T19:11:25+02:00] INFO: cookbook_file[/tmp/osgcacerts.tar.gz] created file /tmp/osgcacerts.tar.gz
+[2013-04-15T19:11:25+02:00] INFO: Processing execute[descomprimir osgcacerts] action run (osgcacerts::default line 22)
+osgcacerts/osg-ca-certs-1.33-1.osg.el6.noarch.rpm
+osgcacerts/
+[2013-04-15T19:11:25+02:00] INFO: execute[descomprimir osgcacerts] ran successfully
+[2013-04-15T19:11:25+02:00] INFO: Processing execute[install osgcacerts] action run (osgcacerts::default line 29)
+##################################################
+##################################################
+[2013-04-15T19:11:27+02:00] INFO: execute[install osgcacerts] ran successfully
+[2013-04-15T19:11:27+02:00] INFO: Processing execute[chkconfig gram5] action run (security-cacerts::services line 7)
+[2013-04-15T19:11:27+02:00] INFO: execute[chkconfig gram5] ran successfully
+[2013-04-15T19:11:27+02:00] INFO: Processing execute[chkconfig globus-gridftp-server] action run (security-cacerts::services line 14)
+[2013-04-15T19:11:27+02:00] INFO: execute[chkconfig globus-gridftp-server] ran successfully
+[2013-04-15T19:11:27+02:00] INFO: Processing execute[save iptables] action run (security-cacerts::services line 48)
+iptables: Saving firewall rules to /etc/sysconfig/iptables: [  OK  ]
+
+[2013-04-15T19:11:27+02:00] INFO: execute[save iptables] ran successfully
+[2013-04-15T19:11:27+02:00] INFO: Processing execute[stop iptables] action run (security-cacerts::services line 55)
+iptables: Flushing firewall rules: [  OK  ]
+
+iptables: Setting chains to policy ACCEPT: filter [  OK  ]
+
+iptables: Unloading modules: [  OK  ]
+
+[2013-04-15T19:11:28+02:00] INFO: execute[stop iptables] ran successfully
+[2013-04-15T19:11:28+02:00] INFO: Processing execute[chkconfig iptables] action run (security-cacerts::services line 61)
+[2013-04-15T19:11:28+02:00] INFO: execute[chkconfig iptables] ran successfully
+[2013-04-15T19:11:28+02:00] INFO: Processing execute[save ip6tables] action run (security-cacerts::services line 68)
+ip6tables: Saving firewall rules to /etc/sysconfig/ip6tables: [  OK  ]
+
+[2013-04-15T19:11:28+02:00] INFO: execute[save ip6tables] ran successfully
+[2013-04-15T19:11:28+02:00] INFO: Processing execute[stop ip6tables] action run (security-cacerts::services line 75)
+ip6tables: Flushing firewall rules: [  OK  ]
+
+ip6tables: Setting chains to policy ACCEPT: filter [  OK  ]
+
+ip6tables: Unloading modules: [  OK  ]
+
+[2013-04-15T19:11:29+02:00] INFO: execute[stop ip6tables] ran successfully
+[2013-04-15T19:11:29+02:00] INFO: Processing execute[chkconfig ip6tables] action run (security-cacerts::services line 82)
+[2013-04-15T19:11:29+02:00] INFO: execute[chkconfig ip6tables] ran successfully
+[2013-04-15T19:11:29+02:00] INFO: Chef Run complete in 23.728990504 seconds
+[2013-04-15T19:11:29+02:00] INFO: Running report handlers
+[2013-04-15T19:11:29+02:00] INFO: Report handlers complete
+spawn ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/monki/.ssh/id_rsa): /home/monki/.ssh/id_sra
+/home/monki/.ssh/id_sra already exists.
+Overwrite (y/n)? n
+
+realizado creacion de llave publica
+enviar llave a la maquina dada
+spawn ssh-copy-id -i /home/monki/.ssh/id_sra.pub vagrant@172.18.0.22
+vagrant@172.18.0.22's password: 
+Now try logging into the machine, with "ssh 'vagrant@172.18.0.22'", and check in:
+
+  ~/.ssh/authorized_keys
+
+to make sure we haven't added extra keys that you weren't expecting.
+
+pass enviado
+
+se realiza correctamente
+Checking Chef version...
+[2013-04-15T19:52:43+02:00] INFO: *** Chef 10.16.6 ***
+[2013-04-15T19:52:45+02:00] INFO: Setting the run_list to ["recipe[repositories]", "recipe[globususer]", "recipe[globuspackages]", "recipe[security-cacerts::services]"] from JSON
+[2013-04-15T19:52:45+02:00] INFO: Run List is [recipe[repositories], recipe[globususer], recipe[globuspackages], recipe[security-cacerts::services]]
+[2013-04-15T19:52:45+02:00] INFO: Run List expands to [repositories, globususer, globuspackages, security-cacerts::services]
+[2013-04-15T19:52:45+02:00] INFO: Starting Chef Run for mgwn2.globustest.org
+[2013-04-15T19:52:45+02:00] INFO: Running start handlers
+[2013-04-15T19:52:45+02:00] INFO: Start handlers complete.
+[2013-04-15T19:52:46+02:00] INFO: Processing cookbook_file[/tmp/epel-release-6-8.noarch.rpm] action create (repositories::default line 13)
+[2013-04-15T19:52:46+02:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] owner changed to 500
+[2013-04-15T19:52:46+02:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] created file /tmp/epel-release-6-8.noarch.rpm
+[2013-04-15T19:52:46+02:00] INFO: Processing cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] action create (repositories::default line 18)
+[2013-04-15T19:52:46+02:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] owner changed to 500
+[2013-04-15T19:52:46+02:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] created file /tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm
+[2013-04-15T19:52:46+02:00] INFO: Processing cookbook_file[/tmp/osg-el6-release-latest.rpm] action create (repositories::default line 23)
+[2013-04-15T19:52:46+02:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] owner changed to 500
+[2013-04-15T19:52:46+02:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] created file /tmp/osg-el6-release-latest.rpm
+[2013-04-15T19:52:46+02:00] INFO: Processing cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] action create (repositories::default line 28)
+[2013-04-15T19:52:46+02:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] owner changed to 500
+[2013-04-15T19:52:46+02:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] created file /tmp/Globus-repo-config.centos-6-1.noarch.rpm
+[2013-04-15T19:52:46+02:00] INFO: Processing execute[EPEL repository] action run (repositories::default line 33)
+##################################################
+##################################################
+[2013-04-15T19:52:49+02:00] INFO: execute[EPEL repository] ran successfully
+[2013-04-15T19:52:49+02:00] INFO: Processing execute[yum-priorities] action run (repositories::default line 41)
+##################################################
+##################################################
+[2013-04-15T19:52:50+02:00] INFO: execute[yum-priorities] ran successfully
+[2013-04-15T19:52:50+02:00] INFO: Processing execute[OSG repository] action run (repositories::default line 51)
+##################################################
+##################################################
+[2013-04-15T19:52:50+02:00] INFO: execute[OSG repository] ran successfully
+[2013-04-15T19:52:50+02:00] INFO: Processing execute[Globus repository] action run (repositories::default line 64)
+[2013-04-15T19:52:50+02:00] INFO: execute[Globus repository] ran successfully
+[2013-04-15T19:52:50+02:00] INFO: Processing user[globus] action create (globususer::default line 9)
+[2013-04-15T19:52:51+02:00] INFO: user[globus] created
+[2013-04-15T19:52:51+02:00] INFO: Processing cookbook_file[/tmp/globuspackages.tar.gz] action create (globuspackages::default line 27)
+[2013-04-15T19:52:51+02:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] owner changed to 500
+[2013-04-15T19:52:51+02:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] created file /tmp/globuspackages.tar.gz
+[2013-04-15T19:52:51+02:00] INFO: Processing execute[descomprimir globuspackages] action run (globuspackages::default line 32)
+globuspackages/globus-gram-job-manager-13.45-1.3.osg.el6.x86_64.rpm
+globuspackages/globus-gram-job-manager-fork-setup-poll-1.0-8.osg.el6.noarch.rpm
+globuspackages/globus-gatekeeper-9.6-1.9.osg.el6.x86_64.rpm
+globuspackages/globus-gass-server-ez-4.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-rsl-9.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gram-client-tools-10.0-7.osg.el6.x86_64.rpm
+globuspackages/globus-scheduler-event-generator-4.4-1.osg.el6.x86_64.rpm
+globuspackages/globus-gass-cache-8.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gram-client-12.3-3.osg.el6.x86_64.rpm
+globuspackages/globus-gram-protocol-11.2-3.1.osg.el6.x86_64.rpm
+globuspackages/globus-gass-server-ez-progs-4.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gass-cache-program-5.0-5.osg.el6.x86_64.rpm
+globuspackages/globus-gram-job-manager-scripts-4.1-3.1.osg.el6.noarch.rpm
+globuspackages/globus-gram5-5.2.2-1.el6.x86_64.rpm
+globuspackages/globus-gsi-sysconfig-5.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gram-job-manager-callout-error-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gram-job-manager-fork-1.0-8.osg.el6.x86_64.rpm
+globuspackages/globus-gssapi-gsi-10.7-2.osg.el6.x86_64.rpm
+globuspackages/globus-xio-popen-driver-2.2-3.osg.el6.x86_64.rpm
+globuspackages/globus-ftp-client-7.2-4.osg.el6.x86_64.rpm
+globuspackages/globus-ftp-control-4.2-6.osg.el6.x86_64.rpm
+globuspackages/globus-gass-copy-progs-8.2-4.osg.el6.x86_64.rpm
+globuspackages/globus-gridftp-server-6.14-4.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-cert-utils-8.1-4.1.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-openssl-error-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-xio-gsi-driver-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-xio-pipe-driver-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-common-progs-14.5-2.2.osg.el6.x86_64.rpm
+globuspackages/globus-proxy-utils-5.0-5.osg.el6.x86_64.rpm
+globuspackages/globus-authz-callout-error-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-io-9.2-3.osg.el6.x86_64.rpm
+globuspackages/globus-callout-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gass-copy-8.2-4.osg.el6.x86_64.rpm
+globuspackages/globus-gridftp-5.2.2-1.el6.x86_64.rpm
+globuspackages/globus-xio-3.2-4.1.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-proxy-ssl-4.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-openssl-module-3.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-usage-3.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-common-14.5-2.2.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-proxy-core-6.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-callback-4.4-1.osg.el6.x86_64.rpm
+globuspackages/globus-gss-assist-8.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gass-transfer-7.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gssapi-error-4.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gridftp-server-control-2.3-1.1.osg.el6.x86_64.rpm
+globuspackages/globus-gfork-3.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-credential-5.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-authz-2.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-cert-utils-progs-8.1-4.1.osg.el6.x86_64.rpm
+globuspackages/globus-gridftp-server-progs-6.14-4.osg.el6.x86_64.rpm
+globuspackages/globus-simple-ca-3.0-5.osg.el6.noarch.rpm
+globuspackages/globus-gss-assist-progs-8.1-4.osg.el6.x86_64.rpm
+globuspackages/globus-gsi-5.2.2-1.el6.x86_64.rpm
+globuspackages/
+[2013-04-15T19:52:51+02:00] INFO: execute[descomprimir globuspackages] ran successfully
+[2013-04-15T19:52:51+02:00] INFO: Processing execute[install gram5 gridftp gsi] action run (globuspackages::default line 39)
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+[2013-04-15T19:53:11+02:00] INFO: execute[install gram5 gridftp gsi] ran successfully
+[2013-04-15T19:53:11+02:00] INFO: Processing execute[chkconfig gram5] action run (security-cacerts::services line 7)
+[2013-04-15T19:53:11+02:00] INFO: execute[chkconfig gram5] ran successfully
+[2013-04-15T19:53:11+02:00] INFO: Processing execute[chkconfig globus-gridftp-server] action run (security-cacerts::services line 14)
+[2013-04-15T19:53:11+02:00] INFO: execute[chkconfig globus-gridftp-server] ran successfully
+[2013-04-15T19:53:11+02:00] INFO: Processing execute[save iptables] action run (security-cacerts::services line 48)
+iptables: Saving firewall rules to /etc/sysconfig/iptables: [  OK  ]
+[2013-04-15T19:53:11+02:00] INFO: execute[save iptables] ran successfully
+[2013-04-15T19:53:11+02:00] INFO: Processing execute[stop iptables] action run (security-cacerts::services line 55)
+iptables: Flushing firewall rules: [  OK  ]
+iptables: Setting chains to policy ACCEPT: filter [  OK  ]
+iptables: Unloading modules: [  OK  ]
+[2013-04-15T19:53:12+02:00] INFO: execute[stop iptables] ran successfully
+[2013-04-15T19:53:12+02:00] INFO: Processing execute[chkconfig iptables] action run (security-cacerts::services line 61)
+[2013-04-15T19:53:12+02:00] INFO: execute[chkconfig iptables] ran successfully
+[2013-04-15T19:53:12+02:00] INFO: Processing execute[save ip6tables] action run (security-cacerts::services line 68)
+ip6tables: Saving firewall rules to /etc/sysconfig/ip6tables: [  OK  ]
+[2013-04-15T19:53:13+02:00] INFO: execute[save ip6tables] ran successfully
+[2013-04-15T19:53:13+02:00] INFO: Processing execute[stop ip6tables] action run (security-cacerts::services line 75)
+ip6tables: Flushing firewall rules: [  OK  ]
+ip6tables: Setting chains to policy ACCEPT: filter [  OK  ]
+ip6tables: Unloading modules: [  OK  ]
+[2013-04-15T19:53:13+02:00] INFO: execute[stop ip6tables] ran successfully
+[2013-04-15T19:53:13+02:00] INFO: Processing execute[chkconfig ip6tables] action run (security-cacerts::services line 82)
+[2013-04-15T19:53:13+02:00] INFO: execute[chkconfig ip6tables] ran successfully
+[2013-04-15T19:53:13+02:00] INFO: Chef Run complete in 28.56122124 seconds
+[2013-04-15T19:53:13+02:00] INFO: Running report handlers
+[2013-04-15T19:53:13+02:00] INFO: Report handlers complete

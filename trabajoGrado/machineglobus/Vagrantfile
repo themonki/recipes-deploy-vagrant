@@ -64,4 +64,41 @@ Vagrant::Config.run do |config|
 			})
 		end
 	end
+	
+	config.vm .define :mgwn2 do |node|
+		node.vm.box = "centos64"
+		#node.vm.boot_mode = :gui
+		#node.vm.network :bridged, :bridge => "eth0"
+		node.vm.network :hostonly, "172.18.0.22"
+		node.vm.customize ["modifyvm", :id, "--memory", 400, "--cpus", 2, "--name", "globus-client2" ]
+		node.vm.provision :chef_solo do |chef|
+			chef.cookbooks_path = "cookbooks"
+			chef.add_recipe "confighost::preinstall"
+			chef.json.merge!({
+				:run_list => [ "recipe[confighost::preinstall]" , "recipe[confighost::hostname]" , "recipe[confighost::hostconfigurenode]" ,
+				"recipe[chefInstall::install]" , "recipe[preinstall]"  ],
+				:host_name => "mgwn2.globustest.org",
+				:alias => "mgwn2" 
+				})
+		end
+	end
+	
+	config.vm .define :mg2 do |node|
+		node.vm.box = "centos64"
+		#node.vm.boot_mode = :gui		
+		#node.vm.network :bridged, :bridge => "eth0"
+		node.vm.network :hostonly, "172.18.0.21"
+		node.vm.customize ["modifyvm", :id, "--memory", 400, "--cpus", 2, "--name", "globus-master2" ]
+		node.vm.provision :chef_solo do |chef|
+			chef.cookbooks_path = "cookbooks"
+			chef.add_recipe "confighost::preinstall"
+			chef.json.merge!({
+				:run_list => [ "recipe[confighost::preinstall]" , "recipe[confighost::hostname]" , "recipe[confighost::hostconfiguremaster]" ,
+				"recipe[chefInstall::install]", "recipe[preinstall]" ],
+				:host_name => "mg2.globustest.org",
+				:hostslaves => ["mgwn2"], #lista de todos los nodos
+				:alias => "mg2" 
+			})
+		end
+	end
 end

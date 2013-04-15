@@ -4,7 +4,8 @@ echo "Apagando la maquina"
 
 cd machineglobus
 
-vagrant halt
+vagrant halt mg
+vagrant halt mgwn1
 
 echo "maquinas apagadas"
 

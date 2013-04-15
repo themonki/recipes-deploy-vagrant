@@ -1,6 +1,8 @@
 #!/bin/bash
 
-vagrant up >> ../log.txt
+vagrant up mgwn1 >> ../log.txt
+
+vagrant up mg >> ../log.txt
 
 ./clean
 
