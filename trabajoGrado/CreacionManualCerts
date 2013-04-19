@@ -206,7 +206,7 @@ New entry:
 
 
 VERIFICANDO LA INSTALACION
-como root:
+como vagrant:
 grid-proxy-init -debug -verify
 ####################################################################################################
 User Cert File: /home/vagrant/.globus/usercert.pem
