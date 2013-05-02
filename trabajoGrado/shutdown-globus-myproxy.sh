@@ -7,6 +7,6 @@ cd machineglobus
 vagrant halt mg
 vagrant halt mgwn1
 
-echo "maquinas apagadas"
+echo "maquinas myproxy apagadas"
 
 cd ..

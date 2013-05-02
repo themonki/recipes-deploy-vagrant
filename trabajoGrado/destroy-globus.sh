@@ -4,12 +4,12 @@ echo "Destruir las maquinas"
 
 cd machineglobus
 
-vagrant destroy -f mg
+vagrant destroy -f mg2
 
-vagrant destroy -f mgwn1
+vagrant destroy -f mgwn2
 
-rm -rf ~/VirtualBox\ VMs/globus-master/
-rm -rf ~/VirtualBox\ VMs/globus-client/
+rm -rf ~/VirtualBox\ VMs/globus-master2/
+rm -rf ~/VirtualBox\ VMs/globus-client2/
 
 ./clean
 
