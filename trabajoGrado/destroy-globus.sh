@@ -11,7 +11,7 @@ vagrant destroy -f mgwn2
 rm -rf ~/VirtualBox\ VMs/globus-master2/
 rm -rf ~/VirtualBox\ VMs/globus-client2/
 
-./clean
+./clean.sh
 
 echo "maquinas Destruidas"
 

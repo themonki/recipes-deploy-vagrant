@@ -76,12 +76,6 @@
 
 ##DONE
 
-#ejemplo de rsl file
-cookbook_file "/home/vagrant/a.rsl" do
-	source "a.rsl"
-	owner "vagrant"
-end
-
 
 #################################################################
 cookbook_file "/tmp/run-setupsecondmachine.exp" do

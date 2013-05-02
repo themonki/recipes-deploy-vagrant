@@ -11,7 +11,7 @@ vagrant destroy -f mgwn1
 rm -rf ~/VirtualBox\ VMs/globus-master/
 rm -rf ~/VirtualBox\ VMs/globus-client/
 
-./clean
+./clean.sh
 
 echo "maquinas myproxy destruidas"
 

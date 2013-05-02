@@ -3,14 +3,14 @@
 pathSSH=$HOME/.ssh/id_rsa
 echo $pathSSH
 
-rm -rf log.txt
-touch log.txt
+rm -rf log2.txt
+touch log2.txt
 
 cd machineglobus
 
-vagrant up mgwn2 >> ../log.txt
+vagrant up mgwn2 >> ../log2.txt
 
-vagrant up mg2 >> ../log.txt
+vagrant up mg2 >> ../log2.txt
 
 ./clean.sh
 
@@ -20,13 +20,13 @@ cd ..
 
 cd globus
 
-expect configssh.exp -u vagrant -p vagrant -h 172.18.0.21 -l ${pathSSH} >> ../log.txt
-expect configssh.exp -u vagrant -p vagrant -h 172.18.0.22 -l ${pathSSH} >> ../log.txt
+expect configssh.exp -u vagrant -p vagrant -h 172.18.0.21 -l ${pathSSH} >> ../log2.txt
+expect configssh.exp -u vagrant -p vagrant -h 172.18.0.22 -l ${pathSSH} >> ../log2.txt
 
 echo "garantizado acceso ssh a las maquinas virtuales"
 
-knife cook vagrant@172.18.0.21 >> ../log.txt
-knife cook vagrant@172.18.0.22 >> ../log.txt
+knife cook vagrant@172.18.0.21 >> ../log2.txt
+knife cook vagrant@172.18.0.22 >> ../log2.txt
 
 echo "globus instalado"
 

@@ -75,6 +75,18 @@ execute "permisos a globus" do
 		    action :run
 end
 
+####################################################################################################
+#example
+
+template "/home/vagrant/a.rsl" do
+          source "a.rsl.rb"
+          mode 0755
+          owner "vagrant"
+          variables(
+                  :host_name => "#{node[:host_name]}"
+          )
+  end
+
 
 ####################################################################################################
 ##para la maquina mg despues de ejecutar la second machine aunque puede que no sea necesario
