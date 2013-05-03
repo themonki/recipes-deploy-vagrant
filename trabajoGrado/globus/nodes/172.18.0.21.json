@@ -1,1 +1,4 @@
-{ "run_list": ["recipe[repositories]","recipe[globususer]","recipe[globuspackages]", "recipe[osgcacerts]" , "recipe[security-cacerts::iptables]", "recipe[security-cacerts::services]" ] }
+{
+"host_name" : "mg.globustest.org",
+"run_list": ["recipe[repositories]","recipe[globususer]","recipe[globuspackages]", "recipe[osgcacerts]" , "recipe[security-cacerts::iptables]", "recipe[security-cacerts::services]" ]
+}
