@@ -22,7 +22,7 @@ if platform?("redhat", "centos", "fedora")
 		end		
 
 		execute "install dependencies" do
-			command "rpm -Uvh *.rpm"
+			command "rpm -Uvh --force *.rpm"
 			user "root"
 			cwd "/tmp/reposPreinstall/Pglobus-x86_64"
 			action :run  
