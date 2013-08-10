@@ -20,6 +20,13 @@ if platform?("redhat", "centos", "fedora")
 			cwd "/tmp"
 			action :run  
 		end		
+		
+		execute "ls reposPreinstall" do
+			command "ls reposPreinstall"
+			user "vagrant"
+			cwd "/tmp"
+			action :run  
+		end
 
 		execute "install dependencies" do
 			command "rpm -Uvh --force *.rpm"
