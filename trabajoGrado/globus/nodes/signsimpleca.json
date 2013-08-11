@@ -1,0 +1,5 @@
+{
+	"slaves": ["mgwn2"],
+	"host_name" : "mg2.globustest.org",
+	"run_list": ["recipe[simpleca::signcerts]" ]
+}

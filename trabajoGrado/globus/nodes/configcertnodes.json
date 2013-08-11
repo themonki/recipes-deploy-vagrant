@@ -1,0 +1,4 @@
+{
+	"alias" : "mgwn2",
+	"run_list": ["recipe[simpleca::configsecondmachine]" ]
+}

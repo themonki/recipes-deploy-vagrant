@@ -197,6 +197,16 @@ node[:slaves].each do |slave|
 	end
 end
 
+#enviar el los certs user de vagrant
+node[:slaves].each do |slave|
+	execute "scp pem certs #{slave}" do
+		command "scp /home/vagrant/.globus/userkey.pem /home/vagrant/.globus/usercert.pem vagrant@#{slave}:/home/vagrant/"
+		user "vagrant"
+		cwd "/tmp"
+		action :run
+	end
+end
+
 
 
 

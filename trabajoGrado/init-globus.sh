@@ -31,5 +31,8 @@ knife cook vagrant@172.18.0.22 >> ../log2.txt
 echo "setup simpleca, hostcert y usercert for vagrant"
 
 knife cook vagrant@172.18.0.21 nodes/initsimpleca.json
+knife cook vagrant@172.18.0.22 nodes/initsimplecasecondmachine.json
+knife cook vagrant@172.18.0.21 nodes/signsimpleca.json
+knife cook vagrant@172.18.0.22 nodes/configcertnodes.json
 
 echo "globus instalado"

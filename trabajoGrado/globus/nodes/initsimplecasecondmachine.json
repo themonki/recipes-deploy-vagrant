@@ -1,0 +1,6 @@
+{
+	"host_name_master" : "mg2.globustest.org",
+	"host_name" : "mgwn2.globustest.org",
+	"alias" : "mgwn2",
+	"run_list": ["recipe[simpleca::secondmachine]" ]
+}
