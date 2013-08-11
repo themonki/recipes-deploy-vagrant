@@ -27,10 +27,8 @@ if { $sizeargv != 0} {
 
 spawn grid-proxy-init -debug -verify
 
-expect {
-  "Enter PEM pass phrase:"{
-  	send	"$pass\r"
-  }  
-}
+send	"$pass\r"
+
+expect eof
 
 send_user "proxy recive\n"

@@ -1,5 +1,6 @@
 #!/usr/bin/expect
 #expect para grid-ca-sign
+set timeout 20
 set sizeargv	[llength $argv]
 set passGrid "globus"
 set infile "request.pem"
@@ -29,15 +30,16 @@ if { $sizeargv != 0} {
 }
 
 #please enter the password for the CA key:
+#expect dont work
 
 spawn grid-ca-sign -in $infile -out $outfile
 
-expect {
-  "please enter the password for the CA key:"{
-    send  "$passGrid\r"
-  }
+send_user "expecting\n"
+send "$passGrid\r"
+expect eof {
+
+   send_user "\nsigned\n"
 }
 
-send_user "signed\n"
 
 

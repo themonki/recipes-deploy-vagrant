@@ -28,5 +28,8 @@ echo "garantizado acceso ssh a las maquinas virtuales"
 knife cook vagrant@172.18.0.21 >> ../log2.txt
 knife cook vagrant@172.18.0.22 >> ../log2.txt
 
-echo "globus instalado"
+echo "setup simpleca, hostcert y usercert for vagrant"
 
+knife cook vagrant@172.18.0.21 nodes/initsimpleca.json
+
+echo "globus instalado"

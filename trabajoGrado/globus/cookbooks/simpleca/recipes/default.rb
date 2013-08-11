@@ -9,12 +9,12 @@
 #agregando archivos necesarios
 cookbook_file "/tmp/run-grid-ca-create.exp" do
 	source "run-grid-ca-create.exp"
-	owner "vagrant"
+	owner "globus"
 end
 
 cookbook_file "/tmp/run-grid-ca-sign.exp" do
 	source "run-grid-ca-sign.exp"
-	owner "vagrant"
+	owner "globus"
 end
 
 cookbook_file "/tmp/run-user-request.exp" do
@@ -101,7 +101,7 @@ end
 
 #request user
 execute "request user" do
-	command "expect run-user-request -p vagrant -n VagrantUser"
+	command "sudo -H -E -u vagrant expect run-user-request.exp -p vagrant -n VagrantUser"
 	user "vagrant"
 	cwd "/tmp"
 	action :run
@@ -115,25 +115,25 @@ execute "cp request tmp" do
 	action :run
 end
 
-execute "cp tmp request" do
-	command "cp /tmp/usercert_request.pem /home/globus"
-	user "globus"
+execute "chown globus" do
+	command "sudo chown globus.globus /tmp/usercert_request.pem"
+	user "vagrant"
 	cwd "/tmp"
 	action :run
 end
 
 #firmar request user
 execute "firmar request host" do
-	command "expect run-grid-ca-sign.exp -in usercert_request.pem -out usersigned.pem"
-	user "globus"
-	cwd "/home/globus"
+	command "sudo -H -E -u globus expect run-grid-ca-sign.exp -in usercert_request.pem -out usersigned.pem"
+	user "vagrant"
+	cwd "/tmp"
 	action :run
 end
 
 #enviar a vagrant user signed
-execute "cp signed tmp" do
-	command "cp /home/globus/usersigned.pem /tmp"
-	user "globus"
+execute "chown vagrant" do
+	command "sudo chown vagrant.vagrant /tmp/usersigned.pem"
+	user "vagrant"
 	cwd "/tmp"
 	action :run
 end
@@ -174,18 +174,25 @@ execute "package certs" do
 end
 
 execute "cp rpm certs" do
-	command "cp globus-simple-ca-*-1.0-1.el6.noarch.rpm"
+	command "cp globus-simple-ca-*-1.0-1.el6.noarch.rpm /tmp"
 	user "globus"
 	cwd "/home/globus"
 	action :run
 end
 
+execute "chown vagrant" do
+	command "sudo chown vagrant.vagrant /tmp/globus-simple-ca-*-1.0-1.el6.noarch.rpm"
+	user "vagrant"
+	cwd "/tmp"
+	action :run
+end
+
 #enviar el rpm a todos los esclavos
 node[:slaves].each do |slave|
-	execute "scp rpm certs #[slave]" do
-		command "scp globus-simple-ca-*-1.0-1.el6.noarch.rpm vagrant@#[slave]:/tmp"
+	execute "scp rpm certs #{slave}" do
+		command "scp globus-simple-ca-*-1.0-1.el6.noarch.rpm vagrant@#{slave}:/tmp"
 		user "vagrant"
-		cwd "/home/vagrant"
+		cwd "/tmp"
 		action :run
 	end
 end
