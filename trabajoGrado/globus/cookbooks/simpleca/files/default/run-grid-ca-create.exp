@@ -1,0 +1,14 @@
+#!/usr/bin/expect
+#expect para grid-ca-create
+
+#Enter PEM pass phrase:
+
+spawn grid-ca-create -noint
+
+expect {
+  "Creating RPM source tarball... done"{
+  	send_user "create ca\n"
+  }  
+}
+
+

@@ -25,74 +25,74 @@ VirtualBox Version: 4.2.4
 [mgwn2] Running provisioner: Vagrant::Provisioners::ChefSolo...
 [mgwn2] Generating chef JSON and uploading...
 [mgwn2] Running chef-solo...
-[2013-08-11T01:43:00+02:00] INFO: *** Chef 10.12.0 ***
-[2013-08-11T01:43:00+02:00] INFO: Setting the run_list to ["recipe[confighost::preinstall]", "recipe[confighost::hostname]", "recipe[confighost::hostconfigurenode]", "recipe[chefInstall::install]", "recipe[preinstall]"] from JSON
-[2013-08-11T01:43:00+02:00] INFO: Run List is [recipe[confighost::preinstall], recipe[confighost::hostname], recipe[confighost::hostconfigurenode], recipe[chefInstall::install], recipe[preinstall]]
-[2013-08-11T01:43:00+02:00] INFO: Run List expands to [confighost::preinstall, confighost::hostname, confighost::hostconfigurenode, chefInstall::install, preinstall]
-[2013-08-11T01:43:00+02:00] INFO: Starting Chef Run for localhost
-[2013-08-11T01:43:00+02:00] INFO: Running start handlers
-[2013-08-11T01:43:00+02:00] INFO: Start handlers complete.
-[2013-08-11T01:43:01+02:00] INFO: Processing cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] action create (confighost::preinstall line 87)
-[2013-08-11T01:43:01+02:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] owner changed to 500
-[2013-08-11T01:43:01+02:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] mode changed to 644
-[2013-08-11T01:43:01+02:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] created file /home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm
-[2013-08-11T01:43:01+02:00] INFO: Processing cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] action create (confighost::preinstall line 94)
-[2013-08-11T01:43:01+02:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] owner changed to 500
-[2013-08-11T01:43:01+02:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] mode changed to 644
-[2013-08-11T01:43:01+02:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] created file /home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm
-[2013-08-11T01:43:01+02:00] INFO: Processing cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] action create (confighost::preinstall line 101)
-[2013-08-11T01:43:01+02:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] owner changed to 500
-[2013-08-11T01:43:01+02:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] mode changed to 644
-[2013-08-11T01:43:01+02:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] created file /home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm
-[2013-08-11T01:43:01+02:00] INFO: Processing execute[install tlc] action run (confighost::preinstall line 110)
-[2013-08-11T01:43:02+02:00] INFO: execute[install tlc] ran successfully
-[2013-08-11T01:43:02+02:00] INFO: Processing execute[install expect] action run (confighost::preinstall line 117)
-[2013-08-11T01:43:02+02:00] INFO: execute[install expect] ran successfully
-[2013-08-11T01:43:02+02:00] INFO: Processing execute[install rsync] action run (confighost::preinstall line 124)
-[2013-08-11T01:43:03+02:00] INFO: execute[install rsync] ran successfully
-[2013-08-11T01:43:03+02:00] INFO: Processing cookbook_file[/home/vagrant/configssh.exp] action create (confighost::preinstall line 133)
-[2013-08-11T01:43:03+02:00] INFO: cookbook_file[/home/vagrant/configssh.exp] owner changed to 500
-[2013-08-11T01:43:03+02:00] INFO: cookbook_file[/home/vagrant/configssh.exp] mode changed to 644
-[2013-08-11T01:43:03+02:00] INFO: cookbook_file[/home/vagrant/configssh.exp] created file /home/vagrant/configssh.exp
-[2013-08-11T01:43:03+02:00] INFO: Processing execute[backup /etc/sysconfig/network] action run (confighost::hostname line 39)
-[2013-08-11T01:43:03+02:00] INFO: execute[backup /etc/sysconfig/network] ran successfully
-[2013-08-11T01:43:03+02:00] INFO: Processing template[/tmp/network] action create (confighost::hostname line 46)
-[2013-08-11T01:43:03+02:00] INFO: template[/tmp/network] mode changed to 755
-[2013-08-11T01:43:03+02:00] INFO: template[/tmp/network] updated content
-[2013-08-11T01:43:03+02:00] INFO: Processing execute[move network] action run (confighost::hostname line 55)
-[2013-08-11T01:43:03+02:00] INFO: execute[move network] ran successfully
-[2013-08-11T01:43:03+02:00] INFO: Processing execute[hostname update] action run (confighost::hostname line 64)
-[2013-08-11T01:43:03+02:00] INFO: execute[hostname update] ran successfully
-[2013-08-11T01:43:03+02:00] INFO: Processing execute[get ip from ifconfig] action run (confighost::getipadd line 10)
-[2013-08-11T01:43:03+02:00] INFO: execute[get ip from ifconfig] ran successfully
-[2013-08-11T01:43:03+02:00] INFO: Processing execute[add ip] action run (confighost::getipadd line 18)
-[2013-08-11T01:43:03+02:00] INFO: execute[add ip] ran successfully
-[2013-08-11T01:43:03+02:00] INFO: Processing execute[add hostname alias] action run (confighost::getipadd line 25)
-[2013-08-11T01:43:03+02:00] INFO: execute[add hostname alias] ran successfully
-[2013-08-11T01:43:03+02:00] INFO: Processing execute[quitar salos de linea] action run (confighost::getipadd line 34)
-[2013-08-11T01:43:03+02:00] INFO: execute[quitar salos de linea] ran successfully
-[2013-08-11T01:43:03+02:00] INFO: Processing template[/home/vagrant/send_host_local.exp] action create (confighost::hostconfigurenode line 4)
-[2013-08-11T01:43:03+02:00] INFO: template[/home/vagrant/send_host_local.exp] owner changed to 500
-[2013-08-11T01:43:03+02:00] INFO: template[/home/vagrant/send_host_local.exp] mode changed to 644
-[2013-08-11T01:43:03+02:00] INFO: template[/home/vagrant/send_host_local.exp] updated content
-[2013-08-11T01:43:03+02:00] INFO: Processing execute[send hosts local] action run (confighost::hostconfigurenode line 18)
-[2013-08-11T01:43:31+02:00] INFO: execute[send hosts local] ran successfully
-[2013-08-11T01:43:31+02:00] INFO: Processing cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] action create (chefInstall::install line 22)
-[2013-08-11T01:43:32+02:00] INFO: cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] created file /tmp/chef-10.16.6-1.el6.x86_64.rpm
-[2013-08-11T01:43:32+02:00] INFO: Processing execute[install chef] action run (chefInstall::install line 33)
-[2013-08-11T01:43:39+02:00] INFO: execute[install chef] ran successfully
-[2013-08-11T01:43:39+02:00] INFO: Processing cookbook_file[/tmp/reposPreinstall.tar.gz] action create (preinstall::default line 12)
-[2013-08-11T01:43:48+02:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] owner changed to 500
-[2013-08-11T01:43:48+02:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] created file /tmp/reposPreinstall.tar.gz
-[2013-08-11T01:43:48+02:00] INFO: Processing execute[unpack reposPreinstall] action run (preinstall::default line 17)
-[2013-08-11T01:43:50+02:00] INFO: execute[unpack reposPreinstall] ran successfully
-[2013-08-11T01:43:50+02:00] INFO: Processing execute[ls reposPreinstall] action run (preinstall::default line 24)
-[2013-08-11T01:43:50+02:00] INFO: execute[ls reposPreinstall] ran successfully
-[2013-08-11T01:43:50+02:00] INFO: Processing execute[install dependencies] action run (preinstall::default line 31)
-[2013-08-11T01:44:38+02:00] INFO: execute[install dependencies] ran successfully
-[2013-08-11T01:44:38+02:00] INFO: Chef Run complete in 97.726758 seconds
-[2013-08-11T01:44:38+02:00] INFO: Running report handlers
-[2013-08-11T01:44:38+02:00] INFO: Report handlers complete
+[2013-08-11T07:12:34+02:00] INFO: *** Chef 10.12.0 ***
+[2013-08-11T07:12:35+02:00] INFO: Setting the run_list to ["recipe[confighost::preinstall]", "recipe[confighost::hostname]", "recipe[confighost::hostconfigurenode]", "recipe[chefInstall::install]", "recipe[preinstall]"] from JSON
+[2013-08-11T07:12:35+02:00] INFO: Run List is [recipe[confighost::preinstall], recipe[confighost::hostname], recipe[confighost::hostconfigurenode], recipe[chefInstall::install], recipe[preinstall]]
+[2013-08-11T07:12:35+02:00] INFO: Run List expands to [confighost::preinstall, confighost::hostname, confighost::hostconfigurenode, chefInstall::install, preinstall]
+[2013-08-11T07:12:35+02:00] INFO: Starting Chef Run for localhost
+[2013-08-11T07:12:35+02:00] INFO: Running start handlers
+[2013-08-11T07:12:35+02:00] INFO: Start handlers complete.
+[2013-08-11T07:12:35+02:00] INFO: Processing cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] action create (confighost::preinstall line 87)
+[2013-08-11T07:12:35+02:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] owner changed to 500
+[2013-08-11T07:12:35+02:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] mode changed to 644
+[2013-08-11T07:12:35+02:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] created file /home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm
+[2013-08-11T07:12:35+02:00] INFO: Processing cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] action create (confighost::preinstall line 94)
+[2013-08-11T07:12:35+02:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] owner changed to 500
+[2013-08-11T07:12:35+02:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] mode changed to 644
+[2013-08-11T07:12:35+02:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] created file /home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm
+[2013-08-11T07:12:35+02:00] INFO: Processing cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] action create (confighost::preinstall line 101)
+[2013-08-11T07:12:35+02:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] owner changed to 500
+[2013-08-11T07:12:35+02:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] mode changed to 644
+[2013-08-11T07:12:35+02:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] created file /home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm
+[2013-08-11T07:12:35+02:00] INFO: Processing execute[install tlc] action run (confighost::preinstall line 110)
+[2013-08-11T07:12:36+02:00] INFO: execute[install tlc] ran successfully
+[2013-08-11T07:12:36+02:00] INFO: Processing execute[install expect] action run (confighost::preinstall line 117)
+[2013-08-11T07:12:37+02:00] INFO: execute[install expect] ran successfully
+[2013-08-11T07:12:37+02:00] INFO: Processing execute[install rsync] action run (confighost::preinstall line 124)
+[2013-08-11T07:12:37+02:00] INFO: execute[install rsync] ran successfully
+[2013-08-11T07:12:37+02:00] INFO: Processing cookbook_file[/home/vagrant/configssh.exp] action create (confighost::preinstall line 133)
+[2013-08-11T07:12:37+02:00] INFO: cookbook_file[/home/vagrant/configssh.exp] owner changed to 500
+[2013-08-11T07:12:37+02:00] INFO: cookbook_file[/home/vagrant/configssh.exp] mode changed to 644
+[2013-08-11T07:12:37+02:00] INFO: cookbook_file[/home/vagrant/configssh.exp] created file /home/vagrant/configssh.exp
+[2013-08-11T07:12:37+02:00] INFO: Processing execute[backup /etc/sysconfig/network] action run (confighost::hostname line 39)
+[2013-08-11T07:12:37+02:00] INFO: execute[backup /etc/sysconfig/network] ran successfully
+[2013-08-11T07:12:37+02:00] INFO: Processing template[/tmp/network] action create (confighost::hostname line 46)
+[2013-08-11T07:12:37+02:00] INFO: template[/tmp/network] mode changed to 755
+[2013-08-11T07:12:37+02:00] INFO: template[/tmp/network] updated content
+[2013-08-11T07:12:37+02:00] INFO: Processing execute[move network] action run (confighost::hostname line 55)
+[2013-08-11T07:12:37+02:00] INFO: execute[move network] ran successfully
+[2013-08-11T07:12:37+02:00] INFO: Processing execute[hostname update] action run (confighost::hostname line 64)
+[2013-08-11T07:12:37+02:00] INFO: execute[hostname update] ran successfully
+[2013-08-11T07:12:37+02:00] INFO: Processing execute[get ip from ifconfig] action run (confighost::getipadd line 10)
+[2013-08-11T07:12:37+02:00] INFO: execute[get ip from ifconfig] ran successfully
+[2013-08-11T07:12:37+02:00] INFO: Processing execute[add ip] action run (confighost::getipadd line 18)
+[2013-08-11T07:12:37+02:00] INFO: execute[add ip] ran successfully
+[2013-08-11T07:12:37+02:00] INFO: Processing execute[add hostname alias] action run (confighost::getipadd line 25)
+[2013-08-11T07:12:37+02:00] INFO: execute[add hostname alias] ran successfully
+[2013-08-11T07:12:37+02:00] INFO: Processing execute[quitar salos de linea] action run (confighost::getipadd line 34)
+[2013-08-11T07:12:37+02:00] INFO: execute[quitar salos de linea] ran successfully
+[2013-08-11T07:12:37+02:00] INFO: Processing template[/home/vagrant/send_host_local.exp] action create (confighost::hostconfigurenode line 4)
+[2013-08-11T07:12:37+02:00] INFO: template[/home/vagrant/send_host_local.exp] owner changed to 500
+[2013-08-11T07:12:37+02:00] INFO: template[/home/vagrant/send_host_local.exp] mode changed to 644
+[2013-08-11T07:12:37+02:00] INFO: template[/home/vagrant/send_host_local.exp] updated content
+[2013-08-11T07:12:37+02:00] INFO: Processing execute[send hosts local] action run (confighost::hostconfigurenode line 18)
+[2013-08-11T07:13:02+02:00] INFO: execute[send hosts local] ran successfully
+[2013-08-11T07:13:02+02:00] INFO: Processing cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] action create (chefInstall::install line 22)
+[2013-08-11T07:13:03+02:00] INFO: cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] created file /tmp/chef-10.16.6-1.el6.x86_64.rpm
+[2013-08-11T07:13:03+02:00] INFO: Processing execute[install chef] action run (chefInstall::install line 33)
+[2013-08-11T07:13:08+02:00] INFO: execute[install chef] ran successfully
+[2013-08-11T07:13:08+02:00] INFO: Processing cookbook_file[/tmp/reposPreinstall.tar.gz] action create (preinstall::default line 12)
+[2013-08-11T07:13:16+02:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] owner changed to 500
+[2013-08-11T07:13:16+02:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] created file /tmp/reposPreinstall.tar.gz
+[2013-08-11T07:13:16+02:00] INFO: Processing execute[unpack reposPreinstall] action run (preinstall::default line 17)
+[2013-08-11T07:13:19+02:00] INFO: execute[unpack reposPreinstall] ran successfully
+[2013-08-11T07:13:19+02:00] INFO: Processing execute[ls reposPreinstall] action run (preinstall::default line 24)
+[2013-08-11T07:13:19+02:00] INFO: execute[ls reposPreinstall] ran successfully
+[2013-08-11T07:13:19+02:00] INFO: Processing execute[install dependencies] action run (preinstall::default line 31)
+[2013-08-11T07:14:04+02:00] INFO: execute[install dependencies] ran successfully
+[2013-08-11T07:14:04+02:00] INFO: Chef Run complete in 89.196214 seconds
+[2013-08-11T07:14:04+02:00] INFO: Running report handlers
+[2013-08-11T07:14:04+02:00] INFO: Report handlers complete
 [mg2] Importing base box 'centos64'...
 [mg2] [0K[mg2] Progress: 10%[mg2] [0K[mg2] Progress: 20%[mg2] [0K[mg2] Progress: 30%[mg2] [0K[mg2] Progress: 40%[mg2] [0K[mg2] Progress: 50%[mg2] [0K[mg2] Progress: 60%[mg2] [0K[mg2] Progress: 90%[mg2] [0K[mg2] The guest additions on this VM do not match the install version of
 VirtualBox! This may cause things such as forwarded ports, shared
@@ -121,119 +121,119 @@ VirtualBox Version: 4.2.4
 [mg2] Running provisioner: Vagrant::Provisioners::ChefSolo...
 [mg2] Generating chef JSON and uploading...
 [mg2] Running chef-solo...
-[2013-08-11T01:46:00+02:00] INFO: *** Chef 10.12.0 ***
-[2013-08-11T01:46:01+02:00] INFO: Setting the run_list to ["recipe[confighost::preinstall]", "recipe[confighost::hostname]", "recipe[confighost::hostconfiguremaster]", "recipe[chefInstall::install]", "recipe[preinstall]", "recipe[postgresql]", "recipe[postgresql::configure]", "recipe[apache]", "recipe[apache::configure]", "recipe[php]"] from JSON
-[2013-08-11T01:46:01+02:00] INFO: Run List is [recipe[confighost::preinstall], recipe[confighost::hostname], recipe[confighost::hostconfiguremaster], recipe[chefInstall::install], recipe[preinstall], recipe[postgresql], recipe[postgresql::configure], recipe[apache], recipe[apache::configure], recipe[php]]
-[2013-08-11T01:46:01+02:00] INFO: Run List expands to [confighost::preinstall, confighost::hostname, confighost::hostconfiguremaster, chefInstall::install, preinstall, postgresql, postgresql::configure, apache, apache::configure, php]
-[2013-08-11T01:46:01+02:00] INFO: Starting Chef Run for localhost
-[2013-08-11T01:46:01+02:00] INFO: Running start handlers
-[2013-08-11T01:46:01+02:00] INFO: Start handlers complete.
-[2013-08-11T01:46:02+02:00] INFO: Processing cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] action create (confighost::preinstall line 87)
-[2013-08-11T01:46:02+02:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] owner changed to 500
-[2013-08-11T01:46:02+02:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] mode changed to 644
-[2013-08-11T01:46:02+02:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] created file /home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm
-[2013-08-11T01:46:02+02:00] INFO: Processing cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] action create (confighost::preinstall line 94)
-[2013-08-11T01:46:02+02:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] owner changed to 500
-[2013-08-11T01:46:02+02:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] mode changed to 644
-[2013-08-11T01:46:02+02:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] created file /home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm
-[2013-08-11T01:46:02+02:00] INFO: Processing cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] action create (confighost::preinstall line 101)
-[2013-08-11T01:46:02+02:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] owner changed to 500
-[2013-08-11T01:46:02+02:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] mode changed to 644
-[2013-08-11T01:46:02+02:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] created file /home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm
-[2013-08-11T01:46:02+02:00] INFO: Processing execute[install tlc] action run (confighost::preinstall line 110)
-[2013-08-11T01:46:05+02:00] INFO: execute[install tlc] ran successfully
-[2013-08-11T01:46:05+02:00] INFO: Processing execute[install expect] action run (confighost::preinstall line 117)
-[2013-08-11T01:46:05+02:00] INFO: execute[install expect] ran successfully
-[2013-08-11T01:46:05+02:00] INFO: Processing execute[install rsync] action run (confighost::preinstall line 124)
-[2013-08-11T01:46:05+02:00] INFO: execute[install rsync] ran successfully
-[2013-08-11T01:46:05+02:00] INFO: Processing cookbook_file[/home/vagrant/configssh.exp] action create (confighost::preinstall line 133)
-[2013-08-11T01:46:05+02:00] INFO: cookbook_file[/home/vagrant/configssh.exp] owner changed to 500
-[2013-08-11T01:46:05+02:00] INFO: cookbook_file[/home/vagrant/configssh.exp] mode changed to 644
-[2013-08-11T01:46:05+02:00] INFO: cookbook_file[/home/vagrant/configssh.exp] created file /home/vagrant/configssh.exp
-[2013-08-11T01:46:05+02:00] INFO: Processing execute[backup /etc/sysconfig/network] action run (confighost::hostname line 39)
-[2013-08-11T01:46:05+02:00] INFO: execute[backup /etc/sysconfig/network] ran successfully
-[2013-08-11T01:46:05+02:00] INFO: Processing template[/tmp/network] action create (confighost::hostname line 46)
-[2013-08-11T01:46:05+02:00] INFO: template[/tmp/network] mode changed to 755
-[2013-08-11T01:46:05+02:00] INFO: template[/tmp/network] updated content
-[2013-08-11T01:46:05+02:00] INFO: Processing execute[move network] action run (confighost::hostname line 55)
-[2013-08-11T01:46:05+02:00] INFO: execute[move network] ran successfully
-[2013-08-11T01:46:05+02:00] INFO: Processing execute[hostname update] action run (confighost::hostname line 64)
-[2013-08-11T01:46:05+02:00] INFO: execute[hostname update] ran successfully
-[2013-08-11T01:46:05+02:00] INFO: Processing cookbook_file[/home/vagrant/hosts_nodes] action create (confighost::hostconfiguremaster line 3)
-[2013-08-11T01:46:06+02:00] INFO: cookbook_file[/home/vagrant/hosts_nodes] mode changed to 755
-[2013-08-11T01:46:06+02:00] INFO: cookbook_file[/home/vagrant/hosts_nodes] created file /home/vagrant/hosts_nodes
-[2013-08-11T01:46:06+02:00] INFO: Processing cookbook_file[/home/vagrant/hostsTemplate] action create (confighost::hostconfiguremaster line 10)
-[2013-08-11T01:46:06+02:00] INFO: cookbook_file[/home/vagrant/hostsTemplate] mode changed to 755
-[2013-08-11T01:46:06+02:00] INFO: cookbook_file[/home/vagrant/hostsTemplate] created file /home/vagrant/hostsTemplate
-[2013-08-11T01:46:06+02:00] INFO: Processing execute[add to templatehost] action run (confighost::hostconfiguremaster line 17)
-[2013-08-11T01:46:06+02:00] INFO: execute[add to templatehost] ran successfully
-[2013-08-11T01:46:06+02:00] INFO: Processing execute[get ip from ifconfig] action run (confighost::getipadd line 10)
-[2013-08-11T01:46:06+02:00] INFO: execute[get ip from ifconfig] ran successfully
-[2013-08-11T01:46:06+02:00] INFO: Processing execute[add ip] action run (confighost::getipadd line 18)
-[2013-08-11T01:46:06+02:00] INFO: execute[add ip] ran successfully
-[2013-08-11T01:46:06+02:00] INFO: Processing execute[add hostname alias] action run (confighost::getipadd line 25)
-[2013-08-11T01:46:06+02:00] INFO: execute[add hostname alias] ran successfully
-[2013-08-11T01:46:06+02:00] INFO: Processing execute[quitar salos de linea] action run (confighost::getipadd line 34)
-[2013-08-11T01:46:06+02:00] INFO: execute[quitar salos de linea] ran successfully
-[2013-08-11T01:46:06+02:00] INFO: Processing execute[add hosts] action run (confighost::hostconfiguremaster line 30)
-[2013-08-11T01:46:06+02:00] INFO: execute[add hosts] ran successfully
-[2013-08-11T01:46:06+02:00] INFO: Processing cookbook_file[/home/vagrant/sendhostsssh.exp] action create (confighost::hostconfiguremaster line 39)
-[2013-08-11T01:46:06+02:00] INFO: cookbook_file[/home/vagrant/sendhostsssh.exp] owner changed to 500
-[2013-08-11T01:46:06+02:00] INFO: cookbook_file[/home/vagrant/sendhostsssh.exp] mode changed to 755
-[2013-08-11T01:46:06+02:00] INFO: cookbook_file[/home/vagrant/sendhostsssh.exp] created file /home/vagrant/sendhostsssh.exp
-[2013-08-11T01:46:06+02:00] INFO: Processing execute[ssh access] action run (confighost::hostconfiguremaster line 47)
-[2013-08-11T01:46:07+02:00] INFO: execute[ssh access] ran successfully
-[2013-08-11T01:46:07+02:00] INFO: Processing execute[send hosts] action run (confighost::hostconfiguremaster line 57)
-[2013-08-11T01:46:11+02:00] INFO: execute[send hosts] ran successfully
-[2013-08-11T01:46:11+02:00] INFO: Processing cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] action create (chefInstall::install line 22)
-[2013-08-11T01:46:13+02:00] INFO: cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] created file /tmp/chef-10.16.6-1.el6.x86_64.rpm
-[2013-08-11T01:46:13+02:00] INFO: Processing execute[install chef] action run (chefInstall::install line 33)
-[2013-08-11T01:46:18+02:00] INFO: execute[install chef] ran successfully
-[2013-08-11T01:46:18+02:00] INFO: Processing cookbook_file[/tmp/reposPreinstall.tar.gz] action create (preinstall::default line 12)
-[2013-08-11T01:46:26+02:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] owner changed to 500
-[2013-08-11T01:46:26+02:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] created file /tmp/reposPreinstall.tar.gz
-[2013-08-11T01:46:26+02:00] INFO: Processing execute[unpack reposPreinstall] action run (preinstall::default line 17)
-[2013-08-11T01:46:28+02:00] INFO: execute[unpack reposPreinstall] ran successfully
-[2013-08-11T01:46:28+02:00] INFO: Processing execute[ls reposPreinstall] action run (preinstall::default line 24)
-[2013-08-11T01:46:29+02:00] INFO: execute[ls reposPreinstall] ran successfully
-[2013-08-11T01:46:29+02:00] INFO: Processing execute[install dependencies] action run (preinstall::default line 31)
-[2013-08-11T01:47:21+02:00] INFO: execute[install dependencies] ran successfully
-[2013-08-11T01:47:21+02:00] INFO: Processing cookbook_file[/tmp/postgresql.tar.gz] action create (postgresql::default line 10)
-[2013-08-11T01:47:21+02:00] INFO: cookbook_file[/tmp/postgresql.tar.gz] owner changed to 500
-[2013-08-11T01:47:21+02:00] INFO: cookbook_file[/tmp/postgresql.tar.gz] created file /tmp/postgresql.tar.gz
-[2013-08-11T01:47:21+02:00] INFO: Processing execute[unpack postgresql] action run (postgresql::default line 15)
-[2013-08-11T01:47:21+02:00] INFO: execute[unpack postgresql] ran successfully
-[2013-08-11T01:47:21+02:00] INFO: Processing execute[install postgresql] action run (postgresql::default line 22)
-[2013-08-11T01:47:24+02:00] INFO: execute[install postgresql] ran successfully
-[2013-08-11T01:47:24+02:00] INFO: Processing execute[start psql] action run (postgresql::configure line 4)
-[2013-08-11T01:47:37+02:00] INFO: execute[start psql] ran successfully
-[2013-08-11T01:47:37+02:00] INFO: Processing execute[chkconfig apache] action run (postgresql::configure line 11)
-[2013-08-11T01:47:37+02:00] INFO: execute[chkconfig apache] ran successfully
-[2013-08-11T01:47:37+02:00] INFO: Processing cookbook_file[/tmp/apache.tar.gz] action create (apache::default line 10)
-[2013-08-11T01:47:38+02:00] INFO: cookbook_file[/tmp/apache.tar.gz] owner changed to 500
-[2013-08-11T01:47:38+02:00] INFO: cookbook_file[/tmp/apache.tar.gz] created file /tmp/apache.tar.gz
-[2013-08-11T01:47:38+02:00] INFO: Processing execute[unpack apache] action run (apache::default line 15)
-[2013-08-11T01:47:38+02:00] INFO: execute[unpack apache] ran successfully
-[2013-08-11T01:47:38+02:00] INFO: Processing execute[install apache] action run (apache::default line 22)
-[2013-08-11T01:47:39+02:00] INFO: execute[install apache] ran successfully
-[2013-08-11T01:47:39+02:00] INFO: Processing execute[start apache] action run (apache::configure line 10)
-[2013-08-11T01:47:39+02:00] INFO: execute[start apache] ran successfully
-[2013-08-11T01:47:39+02:00] INFO: Processing execute[chkconfig apache] action run (apache::configure line 17)
-[2013-08-11T01:47:39+02:00] INFO: execute[chkconfig apache] ran successfully
-[2013-08-11T01:47:39+02:00] INFO: Processing execute[stop iptables] action run (apache::configure line 26)
-[2013-08-11T01:47:40+02:00] INFO: execute[stop iptables] ran successfully
-[2013-08-11T01:47:40+02:00] INFO: Processing execute[chkconfig iptables] action run (apache::configure line 33)
-[2013-08-11T01:47:40+02:00] INFO: execute[chkconfig iptables] ran successfully
-[2013-08-11T01:47:40+02:00] INFO: Processing cookbook_file[/tmp/php.tar.gz] action create (php::default line 10)
-[2013-08-11T01:47:40+02:00] INFO: cookbook_file[/tmp/php.tar.gz] owner changed to 500
-[2013-08-11T01:47:40+02:00] INFO: cookbook_file[/tmp/php.tar.gz] created file /tmp/php.tar.gz
-[2013-08-11T01:47:40+02:00] INFO: Processing execute[unpack php] action run (php::default line 15)
-[2013-08-11T01:47:40+02:00] INFO: execute[unpack php] ran successfully
-[2013-08-11T01:47:40+02:00] INFO: Processing execute[install php] action run (php::default line 22)
-[2013-08-11T01:47:48+02:00] INFO: execute[install php] ran successfully
-[2013-08-11T01:47:48+02:00] INFO: Chef Run complete in 106.379989 seconds
-[2013-08-11T01:47:48+02:00] INFO: Running report handlers
-[2013-08-11T01:47:48+02:00] INFO: Report handlers complete
+[2013-08-11T07:15:19+02:00] INFO: *** Chef 10.12.0 ***
+[2013-08-11T07:15:20+02:00] INFO: Setting the run_list to ["recipe[confighost::preinstall]", "recipe[confighost::hostname]", "recipe[confighost::hostconfiguremaster]", "recipe[chefInstall::install]", "recipe[preinstall]", "recipe[postgresql]", "recipe[postgresql::configure]", "recipe[apache]", "recipe[apache::configure]", "recipe[php]"] from JSON
+[2013-08-11T07:15:20+02:00] INFO: Run List is [recipe[confighost::preinstall], recipe[confighost::hostname], recipe[confighost::hostconfiguremaster], recipe[chefInstall::install], recipe[preinstall], recipe[postgresql], recipe[postgresql::configure], recipe[apache], recipe[apache::configure], recipe[php]]
+[2013-08-11T07:15:20+02:00] INFO: Run List expands to [confighost::preinstall, confighost::hostname, confighost::hostconfiguremaster, chefInstall::install, preinstall, postgresql, postgresql::configure, apache, apache::configure, php]
+[2013-08-11T07:15:20+02:00] INFO: Starting Chef Run for localhost
+[2013-08-11T07:15:20+02:00] INFO: Running start handlers
+[2013-08-11T07:15:20+02:00] INFO: Start handlers complete.
+[2013-08-11T07:15:20+02:00] INFO: Processing cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] action create (confighost::preinstall line 87)
+[2013-08-11T07:15:21+02:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] owner changed to 500
+[2013-08-11T07:15:21+02:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] mode changed to 644
+[2013-08-11T07:15:21+02:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] created file /home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm
+[2013-08-11T07:15:21+02:00] INFO: Processing cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] action create (confighost::preinstall line 94)
+[2013-08-11T07:15:21+02:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] owner changed to 500
+[2013-08-11T07:15:21+02:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] mode changed to 644
+[2013-08-11T07:15:21+02:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] created file /home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm
+[2013-08-11T07:15:21+02:00] INFO: Processing cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] action create (confighost::preinstall line 101)
+[2013-08-11T07:15:21+02:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] owner changed to 500
+[2013-08-11T07:15:21+02:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] mode changed to 644
+[2013-08-11T07:15:21+02:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] created file /home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm
+[2013-08-11T07:15:21+02:00] INFO: Processing execute[install tlc] action run (confighost::preinstall line 110)
+[2013-08-11T07:15:24+02:00] INFO: execute[install tlc] ran successfully
+[2013-08-11T07:15:24+02:00] INFO: Processing execute[install expect] action run (confighost::preinstall line 117)
+[2013-08-11T07:15:24+02:00] INFO: execute[install expect] ran successfully
+[2013-08-11T07:15:24+02:00] INFO: Processing execute[install rsync] action run (confighost::preinstall line 124)
+[2013-08-11T07:15:25+02:00] INFO: execute[install rsync] ran successfully
+[2013-08-11T07:15:25+02:00] INFO: Processing cookbook_file[/home/vagrant/configssh.exp] action create (confighost::preinstall line 133)
+[2013-08-11T07:15:25+02:00] INFO: cookbook_file[/home/vagrant/configssh.exp] owner changed to 500
+[2013-08-11T07:15:25+02:00] INFO: cookbook_file[/home/vagrant/configssh.exp] mode changed to 644
+[2013-08-11T07:15:25+02:00] INFO: cookbook_file[/home/vagrant/configssh.exp] created file /home/vagrant/configssh.exp
+[2013-08-11T07:15:25+02:00] INFO: Processing execute[backup /etc/sysconfig/network] action run (confighost::hostname line 39)
+[2013-08-11T07:15:25+02:00] INFO: execute[backup /etc/sysconfig/network] ran successfully
+[2013-08-11T07:15:25+02:00] INFO: Processing template[/tmp/network] action create (confighost::hostname line 46)
+[2013-08-11T07:15:25+02:00] INFO: template[/tmp/network] mode changed to 755
+[2013-08-11T07:15:25+02:00] INFO: template[/tmp/network] updated content
+[2013-08-11T07:15:25+02:00] INFO: Processing execute[move network] action run (confighost::hostname line 55)
+[2013-08-11T07:15:25+02:00] INFO: execute[move network] ran successfully
+[2013-08-11T07:15:25+02:00] INFO: Processing execute[hostname update] action run (confighost::hostname line 64)
+[2013-08-11T07:15:25+02:00] INFO: execute[hostname update] ran successfully
+[2013-08-11T07:15:25+02:00] INFO: Processing cookbook_file[/home/vagrant/hosts_nodes] action create (confighost::hostconfiguremaster line 3)
+[2013-08-11T07:15:25+02:00] INFO: cookbook_file[/home/vagrant/hosts_nodes] mode changed to 755
+[2013-08-11T07:15:25+02:00] INFO: cookbook_file[/home/vagrant/hosts_nodes] created file /home/vagrant/hosts_nodes
+[2013-08-11T07:15:25+02:00] INFO: Processing cookbook_file[/home/vagrant/hostsTemplate] action create (confighost::hostconfiguremaster line 10)
+[2013-08-11T07:15:25+02:00] INFO: cookbook_file[/home/vagrant/hostsTemplate] mode changed to 755
+[2013-08-11T07:15:25+02:00] INFO: cookbook_file[/home/vagrant/hostsTemplate] created file /home/vagrant/hostsTemplate
+[2013-08-11T07:15:25+02:00] INFO: Processing execute[add to templatehost] action run (confighost::hostconfiguremaster line 17)
+[2013-08-11T07:15:25+02:00] INFO: execute[add to templatehost] ran successfully
+[2013-08-11T07:15:25+02:00] INFO: Processing execute[get ip from ifconfig] action run (confighost::getipadd line 10)
+[2013-08-11T07:15:25+02:00] INFO: execute[get ip from ifconfig] ran successfully
+[2013-08-11T07:15:25+02:00] INFO: Processing execute[add ip] action run (confighost::getipadd line 18)
+[2013-08-11T07:15:25+02:00] INFO: execute[add ip] ran successfully
+[2013-08-11T07:15:25+02:00] INFO: Processing execute[add hostname alias] action run (confighost::getipadd line 25)
+[2013-08-11T07:15:25+02:00] INFO: execute[add hostname alias] ran successfully
+[2013-08-11T07:15:25+02:00] INFO: Processing execute[quitar salos de linea] action run (confighost::getipadd line 34)
+[2013-08-11T07:15:25+02:00] INFO: execute[quitar salos de linea] ran successfully
+[2013-08-11T07:15:25+02:00] INFO: Processing execute[add hosts] action run (confighost::hostconfiguremaster line 30)
+[2013-08-11T07:15:25+02:00] INFO: execute[add hosts] ran successfully
+[2013-08-11T07:15:25+02:00] INFO: Processing cookbook_file[/home/vagrant/sendhostsssh.exp] action create (confighost::hostconfiguremaster line 39)
+[2013-08-11T07:15:25+02:00] INFO: cookbook_file[/home/vagrant/sendhostsssh.exp] owner changed to 500
+[2013-08-11T07:15:25+02:00] INFO: cookbook_file[/home/vagrant/sendhostsssh.exp] mode changed to 755
+[2013-08-11T07:15:25+02:00] INFO: cookbook_file[/home/vagrant/sendhostsssh.exp] created file /home/vagrant/sendhostsssh.exp
+[2013-08-11T07:15:25+02:00] INFO: Processing execute[ssh access] action run (confighost::hostconfiguremaster line 47)
+[2013-08-11T07:15:27+02:00] INFO: execute[ssh access] ran successfully
+[2013-08-11T07:15:27+02:00] INFO: Processing execute[send hosts] action run (confighost::hostconfiguremaster line 57)
+[2013-08-11T07:16:08+02:00] INFO: execute[send hosts] ran successfully
+[2013-08-11T07:16:08+02:00] INFO: Processing cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] action create (chefInstall::install line 22)
+[2013-08-11T07:16:09+02:00] INFO: cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] created file /tmp/chef-10.16.6-1.el6.x86_64.rpm
+[2013-08-11T07:16:09+02:00] INFO: Processing execute[install chef] action run (chefInstall::install line 33)
+[2013-08-11T07:16:15+02:00] INFO: execute[install chef] ran successfully
+[2013-08-11T07:16:15+02:00] INFO: Processing cookbook_file[/tmp/reposPreinstall.tar.gz] action create (preinstall::default line 12)
+[2013-08-11T07:16:23+02:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] owner changed to 500
+[2013-08-11T07:16:23+02:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] created file /tmp/reposPreinstall.tar.gz
+[2013-08-11T07:16:23+02:00] INFO: Processing execute[unpack reposPreinstall] action run (preinstall::default line 17)
+[2013-08-11T07:16:26+02:00] INFO: execute[unpack reposPreinstall] ran successfully
+[2013-08-11T07:16:26+02:00] INFO: Processing execute[ls reposPreinstall] action run (preinstall::default line 24)
+[2013-08-11T07:16:26+02:00] INFO: execute[ls reposPreinstall] ran successfully
+[2013-08-11T07:16:26+02:00] INFO: Processing execute[install dependencies] action run (preinstall::default line 31)
+[2013-08-11T07:17:17+02:00] INFO: execute[install dependencies] ran successfully
+[2013-08-11T07:17:17+02:00] INFO: Processing cookbook_file[/tmp/postgresql.tar.gz] action create (postgresql::default line 10)
+[2013-08-11T07:17:17+02:00] INFO: cookbook_file[/tmp/postgresql.tar.gz] owner changed to 500
+[2013-08-11T07:17:17+02:00] INFO: cookbook_file[/tmp/postgresql.tar.gz] created file /tmp/postgresql.tar.gz
+[2013-08-11T07:17:17+02:00] INFO: Processing execute[unpack postgresql] action run (postgresql::default line 15)
+[2013-08-11T07:17:17+02:00] INFO: execute[unpack postgresql] ran successfully
+[2013-08-11T07:17:17+02:00] INFO: Processing execute[install postgresql] action run (postgresql::default line 22)
+[2013-08-11T07:17:20+02:00] INFO: execute[install postgresql] ran successfully
+[2013-08-11T07:17:20+02:00] INFO: Processing execute[start psql] action run (postgresql::configure line 4)
+[2013-08-11T07:17:35+02:00] INFO: execute[start psql] ran successfully
+[2013-08-11T07:17:35+02:00] INFO: Processing execute[chkconfig apache] action run (postgresql::configure line 11)
+[2013-08-11T07:17:35+02:00] INFO: execute[chkconfig apache] ran successfully
+[2013-08-11T07:17:35+02:00] INFO: Processing cookbook_file[/tmp/apache.tar.gz] action create (apache::default line 10)
+[2013-08-11T07:17:35+02:00] INFO: cookbook_file[/tmp/apache.tar.gz] owner changed to 500
+[2013-08-11T07:17:35+02:00] INFO: cookbook_file[/tmp/apache.tar.gz] created file /tmp/apache.tar.gz
+[2013-08-11T07:17:35+02:00] INFO: Processing execute[unpack apache] action run (apache::default line 15)
+[2013-08-11T07:17:35+02:00] INFO: execute[unpack apache] ran successfully
+[2013-08-11T07:17:35+02:00] INFO: Processing execute[install apache] action run (apache::default line 22)
+[2013-08-11T07:17:36+02:00] INFO: execute[install apache] ran successfully
+[2013-08-11T07:17:36+02:00] INFO: Processing execute[start apache] action run (apache::configure line 10)
+[2013-08-11T07:17:36+02:00] INFO: execute[start apache] ran successfully
+[2013-08-11T07:17:36+02:00] INFO: Processing execute[chkconfig apache] action run (apache::configure line 17)
+[2013-08-11T07:17:36+02:00] INFO: execute[chkconfig apache] ran successfully
+[2013-08-11T07:17:36+02:00] INFO: Processing execute[stop iptables] action run (apache::configure line 26)
+[2013-08-11T07:17:37+02:00] INFO: execute[stop iptables] ran successfully
+[2013-08-11T07:17:37+02:00] INFO: Processing execute[chkconfig iptables] action run (apache::configure line 33)
+[2013-08-11T07:17:37+02:00] INFO: execute[chkconfig iptables] ran successfully
+[2013-08-11T07:17:37+02:00] INFO: Processing cookbook_file[/tmp/php.tar.gz] action create (php::default line 10)
+[2013-08-11T07:17:37+02:00] INFO: cookbook_file[/tmp/php.tar.gz] owner changed to 500
+[2013-08-11T07:17:37+02:00] INFO: cookbook_file[/tmp/php.tar.gz] created file /tmp/php.tar.gz
+[2013-08-11T07:17:37+02:00] INFO: Processing execute[unpack php] action run (php::default line 15)
+[2013-08-11T07:17:37+02:00] INFO: execute[unpack php] ran successfully
+[2013-08-11T07:17:37+02:00] INFO: Processing execute[install php] action run (php::default line 22)
+[2013-08-11T07:17:42+02:00] INFO: execute[install php] ran successfully
+[2013-08-11T07:17:42+02:00] INFO: Chef Run complete in 141.884838 seconds
+[2013-08-11T07:17:42+02:00] INFO: Running report handlers
+[2013-08-11T07:17:42+02:00] INFO: Report handlers complete
 spawn ssh-keygen -t rsa
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/student/.ssh/id_rsa): /home/student/.ssh/id_rsa
@@ -273,45 +273,45 @@ pass enviado
 
 se realiza correctamente
 Checking Chef version...
-[2013-08-11T01:50:25+02:00] INFO: *** Chef 10.16.6 ***
-[2013-08-11T01:50:27+02:00] INFO: Setting the run_list to ["recipe[repositories]", "recipe[globususer]", "recipe[globuspackages]", "recipe[osgcacerts]", "recipe[security-cacerts::iptables]", "recipe[security-cacerts::services]"] from JSON
-[2013-08-11T01:50:27+02:00] INFO: Run List is [recipe[repositories], recipe[globususer], recipe[globuspackages], recipe[osgcacerts], recipe[security-cacerts::iptables], recipe[security-cacerts::services]]
-[2013-08-11T01:50:27+02:00] INFO: Run List expands to [repositories, globususer, globuspackages, osgcacerts, security-cacerts::iptables, security-cacerts::services]
-[2013-08-11T01:50:27+02:00] INFO: Starting Chef Run for mg2.globustest.org
-[2013-08-11T01:50:27+02:00] INFO: Running start handlers
-[2013-08-11T01:50:27+02:00] INFO: Start handlers complete.
-[2013-08-11T01:50:28+02:00] INFO: Processing cookbook_file[/tmp/epel-release-6-8.noarch.rpm] action create (repositories::default line 13)
-[2013-08-11T01:50:28+02:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] owner changed to 500
-[2013-08-11T01:50:28+02:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] created file /tmp/epel-release-6-8.noarch.rpm
-[2013-08-11T01:50:28+02:00] INFO: Processing cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] action create (repositories::default line 18)
-[2013-08-11T01:50:28+02:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] owner changed to 500
-[2013-08-11T01:50:28+02:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] created file /tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm
-[2013-08-11T01:50:28+02:00] INFO: Processing cookbook_file[/tmp/osg-el6-release-latest.rpm] action create (repositories::default line 23)
-[2013-08-11T01:50:28+02:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] owner changed to 500
-[2013-08-11T01:50:28+02:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] created file /tmp/osg-el6-release-latest.rpm
-[2013-08-11T01:50:28+02:00] INFO: Processing cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] action create (repositories::default line 28)
-[2013-08-11T01:50:28+02:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] owner changed to 500
-[2013-08-11T01:50:28+02:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] created file /tmp/Globus-repo-config.centos-6-1.noarch.rpm
-[2013-08-11T01:50:28+02:00] INFO: Processing execute[EPEL repository] action run (repositories::default line 33)
+[2013-08-11T07:20:00+02:00] INFO: *** Chef 10.16.6 ***
+[2013-08-11T07:20:01+02:00] INFO: Setting the run_list to ["recipe[repositories]", "recipe[globususer]", "recipe[globuspackages]", "recipe[osgcacerts]", "recipe[security-cacerts::iptables]", "recipe[security-cacerts::services]"] from JSON
+[2013-08-11T07:20:01+02:00] INFO: Run List is [recipe[repositories], recipe[globususer], recipe[globuspackages], recipe[osgcacerts], recipe[security-cacerts::iptables], recipe[security-cacerts::services]]
+[2013-08-11T07:20:01+02:00] INFO: Run List expands to [repositories, globususer, globuspackages, osgcacerts, security-cacerts::iptables, security-cacerts::services]
+[2013-08-11T07:20:01+02:00] INFO: Starting Chef Run for mg2.globustest.org
+[2013-08-11T07:20:01+02:00] INFO: Running start handlers
+[2013-08-11T07:20:01+02:00] INFO: Start handlers complete.
+[2013-08-11T07:20:02+02:00] INFO: Processing cookbook_file[/tmp/epel-release-6-8.noarch.rpm] action create (repositories::default line 13)
+[2013-08-11T07:20:02+02:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] owner changed to 500
+[2013-08-11T07:20:02+02:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] created file /tmp/epel-release-6-8.noarch.rpm
+[2013-08-11T07:20:02+02:00] INFO: Processing cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] action create (repositories::default line 18)
+[2013-08-11T07:20:02+02:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] owner changed to 500
+[2013-08-11T07:20:02+02:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] created file /tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm
+[2013-08-11T07:20:02+02:00] INFO: Processing cookbook_file[/tmp/osg-el6-release-latest.rpm] action create (repositories::default line 23)
+[2013-08-11T07:20:02+02:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] owner changed to 500
+[2013-08-11T07:20:02+02:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] created file /tmp/osg-el6-release-latest.rpm
+[2013-08-11T07:20:02+02:00] INFO: Processing cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] action create (repositories::default line 28)
+[2013-08-11T07:20:02+02:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] owner changed to 500
+[2013-08-11T07:20:02+02:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] created file /tmp/Globus-repo-config.centos-6-1.noarch.rpm
+[2013-08-11T07:20:02+02:00] INFO: Processing execute[EPEL repository] action run (repositories::default line 33)
 ##################################################
 ##################################################
-[2013-08-11T01:50:28+02:00] INFO: execute[EPEL repository] ran successfully
-[2013-08-11T01:50:28+02:00] INFO: Processing execute[yum-priorities] action run (repositories::default line 41)
+[2013-08-11T07:20:02+02:00] INFO: execute[EPEL repository] ran successfully
+[2013-08-11T07:20:02+02:00] INFO: Processing execute[yum-priorities] action run (repositories::default line 41)
 ##################################################
 ##################################################
-[2013-08-11T01:50:28+02:00] INFO: execute[yum-priorities] ran successfully
-[2013-08-11T01:50:28+02:00] INFO: Processing execute[OSG repository] action run (repositories::default line 51)
+[2013-08-11T07:20:02+02:00] INFO: execute[yum-priorities] ran successfully
+[2013-08-11T07:20:02+02:00] INFO: Processing execute[OSG repository] action run (repositories::default line 51)
 ##################################################
 ##################################################
-[2013-08-11T01:50:29+02:00] INFO: execute[OSG repository] ran successfully
-[2013-08-11T01:50:29+02:00] INFO: Processing execute[Globus repository] action run (repositories::default line 64)
-[2013-08-11T01:50:29+02:00] INFO: execute[Globus repository] ran successfully
-[2013-08-11T01:50:29+02:00] INFO: Processing user[globus] action create (globususer::default line 9)
-[2013-08-11T01:50:29+02:00] INFO: user[globus] created
-[2013-08-11T01:50:29+02:00] INFO: Processing cookbook_file[/tmp/globuspackages.tar.gz] action create (globuspackages::default line 27)
-[2013-08-11T01:50:29+02:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] owner changed to 500
-[2013-08-11T01:50:29+02:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] created file /tmp/globuspackages.tar.gz
-[2013-08-11T01:50:29+02:00] INFO: Processing execute[descomprimir globuspackages] action run (globuspackages::default line 32)
+[2013-08-11T07:20:02+02:00] INFO: execute[OSG repository] ran successfully
+[2013-08-11T07:20:03+02:00] INFO: Processing execute[Globus repository] action run (repositories::default line 64)
+[2013-08-11T07:20:03+02:00] INFO: execute[Globus repository] ran successfully
+[2013-08-11T07:20:03+02:00] INFO: Processing user[globus] action create (globususer::default line 9)
+[2013-08-11T07:20:03+02:00] INFO: user[globus] created
+[2013-08-11T07:20:03+02:00] INFO: Processing cookbook_file[/tmp/globuspackages.tar.gz] action create (globuspackages::default line 27)
+[2013-08-11T07:20:03+02:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] owner changed to 500
+[2013-08-11T07:20:03+02:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] created file /tmp/globuspackages.tar.gz
+[2013-08-11T07:20:03+02:00] INFO: Processing execute[descomprimir globuspackages] action run (globuspackages::default line 32)
 globuspackages/globus-gram-job-manager-13.45-1.3.osg.el6.x86_64.rpm
 globuspackages/globus-gram-job-manager-fork-setup-poll-1.0-8.osg.el6.noarch.rpm
 globuspackages/globus-gatekeeper-9.6-1.9.osg.el6.x86_64.rpm
@@ -366,8 +366,8 @@ globuspackages/globus-simple-ca-3.0-5.osg.el6.noarch.rpm
 globuspackages/globus-gss-assist-progs-8.1-4.osg.el6.x86_64.rpm
 globuspackages/globus-gsi-5.2.2-1.el6.x86_64.rpm
 globuspackages/
-[2013-08-11T01:50:29+02:00] INFO: execute[descomprimir globuspackages] ran successfully
-[2013-08-11T01:50:29+02:00] INFO: Processing execute[install gram5 gridftp gsi] action run (globuspackages::default line 39)
+[2013-08-11T07:20:03+02:00] INFO: execute[descomprimir globuspackages] ran successfully
+[2013-08-11T07:20:03+02:00] INFO: Processing execute[install gram5 gridftp gsi] action run (globuspackages::default line 39)
 ##################################################
 ##################################################
 ##################################################
@@ -422,81 +422,81 @@ globuspackages/
 ##################################################
 ##################################################
 ##################################################
-[2013-08-11T01:50:32+02:00] INFO: execute[install gram5 gridftp gsi] ran successfully
-[2013-08-11T01:50:32+02:00] INFO: Processing cookbook_file[/tmp/osgcacerts.tar.gz] action create (osgcacerts::default line 17)
-[2013-08-11T01:50:32+02:00] INFO: cookbook_file[/tmp/osgcacerts.tar.gz] owner changed to 500
-[2013-08-11T01:50:32+02:00] INFO: cookbook_file[/tmp/osgcacerts.tar.gz] created file /tmp/osgcacerts.tar.gz
-[2013-08-11T01:50:32+02:00] INFO: Processing execute[descomprimir osgcacerts] action run (osgcacerts::default line 22)
+[2013-08-11T07:20:06+02:00] INFO: execute[install gram5 gridftp gsi] ran successfully
+[2013-08-11T07:20:06+02:00] INFO: Processing cookbook_file[/tmp/osgcacerts.tar.gz] action create (osgcacerts::default line 17)
+[2013-08-11T07:20:06+02:00] INFO: cookbook_file[/tmp/osgcacerts.tar.gz] owner changed to 500
+[2013-08-11T07:20:06+02:00] INFO: cookbook_file[/tmp/osgcacerts.tar.gz] created file /tmp/osgcacerts.tar.gz
+[2013-08-11T07:20:06+02:00] INFO: Processing execute[descomprimir osgcacerts] action run (osgcacerts::default line 22)
 osgcacerts/osg-ca-certs-1.33-1.osg.el6.noarch.rpm
 osgcacerts/
-[2013-08-11T01:50:32+02:00] INFO: execute[descomprimir osgcacerts] ran successfully
-[2013-08-11T01:50:32+02:00] INFO: Processing execute[install osgcacerts] action run (osgcacerts::default line 29)
+[2013-08-11T07:20:06+02:00] INFO: execute[descomprimir osgcacerts] ran successfully
+[2013-08-11T07:20:06+02:00] INFO: Processing execute[install osgcacerts] action run (osgcacerts::default line 29)
 ##################################################
 ##################################################
-[2013-08-11T01:50:32+02:00] INFO: execute[install osgcacerts] ran successfully
-[2013-08-11T01:50:32+02:00] INFO: Processing execute[save iptables] action run (security-cacerts::iptables line 14)
-[2013-08-11T01:50:33+02:00] INFO: execute[save iptables] ran successfully
-[2013-08-11T01:50:33+02:00] INFO: Processing execute[stop iptables] action run (security-cacerts::iptables line 21)
-[2013-08-11T01:50:33+02:00] INFO: execute[stop iptables] ran successfully
-[2013-08-11T01:50:33+02:00] INFO: Processing execute[chkconfig iptables] action run (security-cacerts::iptables line 27)
-[2013-08-11T01:50:33+02:00] INFO: execute[chkconfig iptables] ran successfully
-[2013-08-11T01:50:33+02:00] INFO: Processing execute[save ip6tables] action run (security-cacerts::iptables line 34)
+[2013-08-11T07:20:06+02:00] INFO: execute[install osgcacerts] ran successfully
+[2013-08-11T07:20:06+02:00] INFO: Processing execute[save iptables] action run (security-cacerts::iptables line 14)
+[2013-08-11T07:20:06+02:00] INFO: execute[save iptables] ran successfully
+[2013-08-11T07:20:06+02:00] INFO: Processing execute[stop iptables] action run (security-cacerts::iptables line 21)
+[2013-08-11T07:20:06+02:00] INFO: execute[stop iptables] ran successfully
+[2013-08-11T07:20:06+02:00] INFO: Processing execute[chkconfig iptables] action run (security-cacerts::iptables line 27)
+[2013-08-11T07:20:06+02:00] INFO: execute[chkconfig iptables] ran successfully
+[2013-08-11T07:20:06+02:00] INFO: Processing execute[save ip6tables] action run (security-cacerts::iptables line 34)
 ip6tables: Saving firewall rules to /etc/sysconfig/ip6tables: [  OK  ]
-[2013-08-11T01:50:33+02:00] INFO: execute[save ip6tables] ran successfully
-[2013-08-11T01:50:33+02:00] INFO: Processing execute[stop ip6tables] action run (security-cacerts::iptables line 41)
+[2013-08-11T07:20:07+02:00] INFO: execute[save ip6tables] ran successfully
+[2013-08-11T07:20:07+02:00] INFO: Processing execute[stop ip6tables] action run (security-cacerts::iptables line 41)
 ip6tables: Flushing firewall rules: [  OK  ]
 ip6tables: Setting chains to policy ACCEPT: filter [  OK  ]
 ip6tables: Unloading modules: [  OK  ]
-[2013-08-11T01:50:33+02:00] INFO: execute[stop ip6tables] ran successfully
-[2013-08-11T01:50:33+02:00] INFO: Processing execute[chkconfig ip6tables] action run (security-cacerts::iptables line 48)
-[2013-08-11T01:50:34+02:00] INFO: execute[chkconfig ip6tables] ran successfully
-[2013-08-11T01:50:34+02:00] INFO: Processing execute[chkconfig gram5] action run (security-cacerts::services line 7)
-[2013-08-11T01:50:34+02:00] INFO: execute[chkconfig gram5] ran successfully
-[2013-08-11T01:50:34+02:00] INFO: Processing execute[chkconfig globus-gridftp-server] action run (security-cacerts::services line 14)
-[2013-08-11T01:50:34+02:00] INFO: execute[chkconfig globus-gridftp-server] ran successfully
-[2013-08-11T01:50:34+02:00] INFO: Chef Run complete in 6.812566201 seconds
-[2013-08-11T01:50:34+02:00] INFO: Running report handlers
-[2013-08-11T01:50:34+02:00] INFO: Report handlers complete
+[2013-08-11T07:20:07+02:00] INFO: execute[stop ip6tables] ran successfully
+[2013-08-11T07:20:07+02:00] INFO: Processing execute[chkconfig ip6tables] action run (security-cacerts::iptables line 48)
+[2013-08-11T07:20:07+02:00] INFO: execute[chkconfig ip6tables] ran successfully
+[2013-08-11T07:20:07+02:00] INFO: Processing execute[chkconfig gram5] action run (security-cacerts::services line 7)
+[2013-08-11T07:20:07+02:00] INFO: execute[chkconfig gram5] ran successfully
+[2013-08-11T07:20:07+02:00] INFO: Processing execute[chkconfig globus-gridftp-server] action run (security-cacerts::services line 14)
+[2013-08-11T07:20:07+02:00] INFO: execute[chkconfig globus-gridftp-server] ran successfully
+[2013-08-11T07:20:07+02:00] INFO: Chef Run complete in 6.302614245 seconds
+[2013-08-11T07:20:07+02:00] INFO: Running report handlers
+[2013-08-11T07:20:07+02:00] INFO: Report handlers complete
 Checking Chef version...
-[2013-08-11T01:52:27+02:00] INFO: *** Chef 10.16.6 ***
-[2013-08-11T01:52:29+02:00] INFO: Setting the run_list to ["recipe[repositories]", "recipe[globususer]", "recipe[globuspackages]", "recipe[security-cacerts::iptables]"] from JSON
-[2013-08-11T01:52:29+02:00] INFO: Run List is [recipe[repositories], recipe[globususer], recipe[globuspackages], recipe[security-cacerts::iptables]]
-[2013-08-11T01:52:29+02:00] INFO: Run List expands to [repositories, globususer, globuspackages, security-cacerts::iptables]
-[2013-08-11T01:52:29+02:00] INFO: Starting Chef Run for mgwn2.globustest.org
-[2013-08-11T01:52:29+02:00] INFO: Running start handlers
-[2013-08-11T01:52:29+02:00] INFO: Start handlers complete.
-[2013-08-11T01:52:30+02:00] INFO: Processing cookbook_file[/tmp/epel-release-6-8.noarch.rpm] action create (repositories::default line 13)
-[2013-08-11T01:52:30+02:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] owner changed to 500
-[2013-08-11T01:52:30+02:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] created file /tmp/epel-release-6-8.noarch.rpm
-[2013-08-11T01:52:30+02:00] INFO: Processing cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] action create (repositories::default line 18)
-[2013-08-11T01:52:30+02:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] owner changed to 500
-[2013-08-11T01:52:30+02:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] created file /tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm
-[2013-08-11T01:52:30+02:00] INFO: Processing cookbook_file[/tmp/osg-el6-release-latest.rpm] action create (repositories::default line 23)
-[2013-08-11T01:52:30+02:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] owner changed to 500
-[2013-08-11T01:52:30+02:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] created file /tmp/osg-el6-release-latest.rpm
-[2013-08-11T01:52:30+02:00] INFO: Processing cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] action create (repositories::default line 28)
-[2013-08-11T01:52:30+02:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] owner changed to 500
-[2013-08-11T01:52:30+02:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] created file /tmp/Globus-repo-config.centos-6-1.noarch.rpm
-[2013-08-11T01:52:30+02:00] INFO: Processing execute[EPEL repository] action run (repositories::default line 33)
+[2013-08-11T07:21:35+02:00] INFO: *** Chef 10.16.6 ***
+[2013-08-11T07:21:37+02:00] INFO: Setting the run_list to ["recipe[repositories]", "recipe[globususer]", "recipe[globuspackages]", "recipe[security-cacerts::iptables]"] from JSON
+[2013-08-11T07:21:37+02:00] INFO: Run List is [recipe[repositories], recipe[globususer], recipe[globuspackages], recipe[security-cacerts::iptables]]
+[2013-08-11T07:21:37+02:00] INFO: Run List expands to [repositories, globususer, globuspackages, security-cacerts::iptables]
+[2013-08-11T07:21:37+02:00] INFO: Starting Chef Run for mgwn2.globustest.org
+[2013-08-11T07:21:37+02:00] INFO: Running start handlers
+[2013-08-11T07:21:37+02:00] INFO: Start handlers complete.
+[2013-08-11T07:21:38+02:00] INFO: Processing cookbook_file[/tmp/epel-release-6-8.noarch.rpm] action create (repositories::default line 13)
+[2013-08-11T07:21:38+02:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] owner changed to 500
+[2013-08-11T07:21:38+02:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] created file /tmp/epel-release-6-8.noarch.rpm
+[2013-08-11T07:21:38+02:00] INFO: Processing cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] action create (repositories::default line 18)
+[2013-08-11T07:21:38+02:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] owner changed to 500
+[2013-08-11T07:21:38+02:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] created file /tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm
+[2013-08-11T07:21:38+02:00] INFO: Processing cookbook_file[/tmp/osg-el6-release-latest.rpm] action create (repositories::default line 23)
+[2013-08-11T07:21:38+02:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] owner changed to 500
+[2013-08-11T07:21:38+02:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] created file /tmp/osg-el6-release-latest.rpm
+[2013-08-11T07:21:38+02:00] INFO: Processing cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] action create (repositories::default line 28)
+[2013-08-11T07:21:38+02:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] owner changed to 500
+[2013-08-11T07:21:38+02:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] created file /tmp/Globus-repo-config.centos-6-1.noarch.rpm
+[2013-08-11T07:21:38+02:00] INFO: Processing execute[EPEL repository] action run (repositories::default line 33)
 ##################################################
 ##################################################
-[2013-08-11T01:52:30+02:00] INFO: execute[EPEL repository] ran successfully
-[2013-08-11T01:52:30+02:00] INFO: Processing execute[yum-priorities] action run (repositories::default line 41)
+[2013-08-11T07:21:39+02:00] INFO: execute[EPEL repository] ran successfully
+[2013-08-11T07:21:39+02:00] INFO: Processing execute[yum-priorities] action run (repositories::default line 41)
 ##################################################
 ##################################################
-[2013-08-11T01:52:31+02:00] INFO: execute[yum-priorities] ran successfully
-[2013-08-11T01:52:31+02:00] INFO: Processing execute[OSG repository] action run (repositories::default line 51)
+[2013-08-11T07:21:39+02:00] INFO: execute[yum-priorities] ran successfully
+[2013-08-11T07:21:39+02:00] INFO: Processing execute[OSG repository] action run (repositories::default line 51)
 ##################################################
 ##################################################
-[2013-08-11T01:52:31+02:00] INFO: execute[OSG repository] ran successfully
-[2013-08-11T01:52:31+02:00] INFO: Processing execute[Globus repository] action run (repositories::default line 64)
-[2013-08-11T01:52:31+02:00] INFO: execute[Globus repository] ran successfully
-[2013-08-11T01:52:31+02:00] INFO: Processing user[globus] action create (globususer::default line 9)
-[2013-08-11T01:52:31+02:00] INFO: user[globus] created
-[2013-08-11T01:52:31+02:00] INFO: Processing cookbook_file[/tmp/globuspackages.tar.gz] action create (globuspackages::default line 27)
-[2013-08-11T01:52:31+02:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] owner changed to 500
-[2013-08-11T01:52:31+02:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] created file /tmp/globuspackages.tar.gz
-[2013-08-11T01:52:31+02:00] INFO: Processing execute[descomprimir globuspackages] action run (globuspackages::default line 32)
+[2013-08-11T07:21:39+02:00] INFO: execute[OSG repository] ran successfully
+[2013-08-11T07:21:39+02:00] INFO: Processing execute[Globus repository] action run (repositories::default line 64)
+[2013-08-11T07:21:39+02:00] INFO: execute[Globus repository] ran successfully
+[2013-08-11T07:21:39+02:00] INFO: Processing user[globus] action create (globususer::default line 9)
+[2013-08-11T07:21:39+02:00] INFO: user[globus] created
+[2013-08-11T07:21:39+02:00] INFO: Processing cookbook_file[/tmp/globuspackages.tar.gz] action create (globuspackages::default line 27)
+[2013-08-11T07:21:39+02:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] owner changed to 500
+[2013-08-11T07:21:39+02:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] created file /tmp/globuspackages.tar.gz
+[2013-08-11T07:21:39+02:00] INFO: Processing execute[descomprimir globuspackages] action run (globuspackages::default line 32)
 globuspackages/globus-gram-job-manager-13.45-1.3.osg.el6.x86_64.rpm
 globuspackages/globus-gram-job-manager-fork-setup-poll-1.0-8.osg.el6.noarch.rpm
 globuspackages/globus-gatekeeper-9.6-1.9.osg.el6.x86_64.rpm
@@ -551,8 +551,8 @@ globuspackages/globus-simple-ca-3.0-5.osg.el6.noarch.rpm
 globuspackages/globus-gss-assist-progs-8.1-4.osg.el6.x86_64.rpm
 globuspackages/globus-gsi-5.2.2-1.el6.x86_64.rpm
 globuspackages/
-[2013-08-11T01:52:31+02:00] INFO: execute[descomprimir globuspackages] ran successfully
-[2013-08-11T01:52:31+02:00] INFO: Processing execute[install gram5 gridftp gsi] action run (globuspackages::default line 39)
+[2013-08-11T07:21:39+02:00] INFO: execute[descomprimir globuspackages] ran successfully
+[2013-08-11T07:21:39+02:00] INFO: Processing execute[install gram5 gridftp gsi] action run (globuspackages::default line 39)
 ##################################################
 ##################################################
 ##################################################
@@ -607,27 +607,27 @@ globuspackages/
 ##################################################
 ##################################################
 ##################################################
-[2013-08-11T01:52:34+02:00] INFO: execute[install gram5 gridftp gsi] ran successfully
-[2013-08-11T01:52:34+02:00] INFO: Processing execute[save iptables] action run (security-cacerts::iptables line 14)
+[2013-08-11T07:21:42+02:00] INFO: execute[install gram5 gridftp gsi] ran successfully
+[2013-08-11T07:21:42+02:00] INFO: Processing execute[save iptables] action run (security-cacerts::iptables line 14)
 iptables: Saving firewall rules to /etc/sysconfig/iptables: [  OK  ]
-[2013-08-11T01:52:35+02:00] INFO: execute[save iptables] ran successfully
-[2013-08-11T01:52:35+02:00] INFO: Processing execute[stop iptables] action run (security-cacerts::iptables line 21)
+[2013-08-11T07:21:43+02:00] INFO: execute[save iptables] ran successfully
+[2013-08-11T07:21:43+02:00] INFO: Processing execute[stop iptables] action run (security-cacerts::iptables line 21)
 iptables: Flushing firewall rules: [  OK  ]
 iptables: Setting chains to policy ACCEPT: filter [  OK  ]
 iptables: Unloading modules: [  OK  ]
-[2013-08-11T01:52:36+02:00] INFO: execute[stop iptables] ran successfully
-[2013-08-11T01:52:36+02:00] INFO: Processing execute[chkconfig iptables] action run (security-cacerts::iptables line 27)
-[2013-08-11T01:52:36+02:00] INFO: execute[chkconfig iptables] ran successfully
-[2013-08-11T01:52:36+02:00] INFO: Processing execute[save ip6tables] action run (security-cacerts::iptables line 34)
+[2013-08-11T07:21:43+02:00] INFO: execute[stop iptables] ran successfully
+[2013-08-11T07:21:43+02:00] INFO: Processing execute[chkconfig iptables] action run (security-cacerts::iptables line 27)
+[2013-08-11T07:21:43+02:00] INFO: execute[chkconfig iptables] ran successfully
+[2013-08-11T07:21:43+02:00] INFO: Processing execute[save ip6tables] action run (security-cacerts::iptables line 34)
 ip6tables: Saving firewall rules to /etc/sysconfig/ip6tables: [  OK  ]
-[2013-08-11T01:52:36+02:00] INFO: execute[save ip6tables] ran successfully
-[2013-08-11T01:52:36+02:00] INFO: Processing execute[stop ip6tables] action run (security-cacerts::iptables line 41)
+[2013-08-11T07:21:43+02:00] INFO: execute[save ip6tables] ran successfully
+[2013-08-11T07:21:43+02:00] INFO: Processing execute[stop ip6tables] action run (security-cacerts::iptables line 41)
 ip6tables: Flushing firewall rules: [  OK  ]
 ip6tables: Setting chains to policy ACCEPT: filter [  OK  ]
 ip6tables: Unloading modules: [  OK  ]
-[2013-08-11T01:52:36+02:00] INFO: execute[stop ip6tables] ran successfully
-[2013-08-11T01:52:36+02:00] INFO: Processing execute[chkconfig ip6tables] action run (security-cacerts::iptables line 48)
-[2013-08-11T01:52:37+02:00] INFO: execute[chkconfig ip6tables] ran successfully
-[2013-08-11T01:52:37+02:00] INFO: Chef Run complete in 7.733920391 seconds
-[2013-08-11T01:52:37+02:00] INFO: Running report handlers
-[2013-08-11T01:52:37+02:00] INFO: Report handlers complete
+[2013-08-11T07:21:44+02:00] INFO: execute[stop ip6tables] ran successfully
+[2013-08-11T07:21:44+02:00] INFO: Processing execute[chkconfig ip6tables] action run (security-cacerts::iptables line 48)
+[2013-08-11T07:21:44+02:00] INFO: execute[chkconfig ip6tables] ran successfully
+[2013-08-11T07:21:44+02:00] INFO: Chef Run complete in 6.696534637 seconds
+[2013-08-11T07:21:44+02:00] INFO: Running report handlers
+[2013-08-11T07:21:44+02:00] INFO: Report handlers complete

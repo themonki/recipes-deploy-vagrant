@@ -1,0 +1,47 @@
+#!/usr/bin/expect
+#expect para grid-cert-request
+set sizeargv	[llength $argv]
+set pass "vagrant"
+set name "VagrantUser"
+
+if { $sizeargv != 0} {
+
+	if { $sizeargv == 2 || $sizeargv == 4 } {
+		for {set i 0} {$i < [llength $argv]} {incr i 2} {
+			set argvtmp [lindex $argv $i];
+			if {$argvtmp == "-p"} { #pass
+				      set index [expr $i+1];
+					    set pass [lindex $argv $index];
+			} elseif {$argvtmp == "-n"} {#name
+				      set index  [expr $i+1];
+					    set name  [lindex $argv $index];
+			}
+		}
+	}else {
+		send_user "Error parametros incompletos\n"
+		send_user "Uso: run-grid-cert-request -n name -p password"
+		exit 1
+	}
+
+}
+
+#please enter the password for the CA key:
+
+spawn grid-cert-request
+
+expect {
+  "Enter your name,"{
+    send  "$name\r"
+    exp_continue
+  }
+  "Enter PEM pass phrase:"{
+  	send	"$pass\r"
+  	exp_continue
+  }
+  "Verifying - Enter PEM pass phrase:"{
+  	send	"$pass\r"
+  }
+  
+}
+
+send_user "request user done\n"
