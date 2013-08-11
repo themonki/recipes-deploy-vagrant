@@ -69,9 +69,9 @@ execute "request host" do
 	action :run
 end
 
-#enviar a globus en mg2 el hostcert_request.pem
+#mover a tmp para que mg2 lo pueda recibir
 execute "enviar requesthost" do
-	command "scp /etc/grid-security/hostcert_request.pem vagrant@#{node[:host_name_master]}/tmp/#{node[:alias]}-hostcert_request.pem"
+	command "cp /etc/grid-security/hostcert_request.pem /tmp"
 	user "vagrant"
 	cwd "/tmp"
 	action :run
