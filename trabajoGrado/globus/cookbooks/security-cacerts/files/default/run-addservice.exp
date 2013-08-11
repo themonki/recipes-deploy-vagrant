@@ -8,21 +8,22 @@ set hostname "mgwn1.globustest.org"
 
 if { $sizeargv != 0} {
 
-	if{ $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 }
-	{
-		set argvtmp [lindex $argv $i];
-		if {$argvtmp == "-u"} { #userName
-		        set index [expr $i+1];
-			      set userName [lindex $argv $index];
-		} elseif {$argvtmp == "-pu"} {#passUser
-		        set index  [expr $i+1];
-			      set passUser  [lindex $argv $index];
-		} elseif {$argvtmp == "-pg"} {#passGrid
-		        set index  [expr $i+1];
-			      set passGrid [lindex $argv $index];
-		} elseif {$argvtmp == "-h"} {#hostname FQDN
-		        set index  [expr $i+1];
-			      set hostname [lindex $argv $index];
+	if{ $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 } {
+		for {set i 0} {$i < [llength $argv]} {incr i 2} {
+			set argvtmp [lindex $argv $i];
+			if {$argvtmp == "-u"} { #userName
+				      set index [expr $i+1];
+					    set userName [lindex $argv $index];
+			} elseif {$argvtmp == "-pu"} {#passUser
+				      set index  [expr $i+1];
+					    set passUser  [lindex $argv $index];
+			} elseif {$argvtmp == "-pg"} {#passGrid
+				      set index  [expr $i+1];
+					    set passGrid [lindex $argv $index];
+			} elseif {$argvtmp == "-h"} {#hostname FQDN
+				      set index  [expr $i+1];
+					    set hostname [lindex $argv $index];
+			}
 		}
 	}else {
 		send_user "Error parametros incompletos\n"

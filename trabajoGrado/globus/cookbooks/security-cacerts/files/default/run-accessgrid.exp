@@ -6,15 +6,16 @@ set hostname "mg.globustest.org"
 
 if { $sizeargv != 0} {
 
-	if{ $sizeargv == 2 || $sizeargv == 4}
-	{
-		set argvtmp [lindex $argv $i];
-		if {$argvtmp == "-p"} {#pass
-		        set index  [expr $i+1];
-			set pass  [lindex $argv $index];
-		} elseif {$argvtmp == "-h"} {#hostname
-		        set index  [expr $i+1];
-			set hostname [lindex $argv $index];
+	if{ $sizeargv == 2 || $sizeargv == 4} {
+		for {set i 0} {$i < [llength $argv]} {incr i 2} {
+			set argvtmp [lindex $argv $i];
+			if {$argvtmp == "-p"} {#pass
+				      set index  [expr $i+1];
+				set pass  [lindex $argv $index];
+			} elseif {$argvtmp == "-h"} {#hostname
+				      set index  [expr $i+1];
+				set hostname [lindex $argv $index];
+			}
 		}
 	}else {
 		send_user "Error parametros incompletos\n"

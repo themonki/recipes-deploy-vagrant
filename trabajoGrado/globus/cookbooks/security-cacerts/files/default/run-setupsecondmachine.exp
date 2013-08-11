@@ -10,31 +10,32 @@ set name "VagrantUser"
 
 if { $sizeargv != 0} {
 
-	if{ $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 || $sizeargv == 12 }
-	{
-		set argvtmp [lindex $argv $i];
-		if {$argvtmp == "-u"} { #userName
-		        set index [expr $i+1];
-			      set userName [lindex $argv $index];
-		} elseif {$argvtmp == "-pu"} {#passUser
-		        set index  [expr $i+1];
-			      set passUser  [lindex $argv $index];
-		} elseif {$argvtmp == "-pg"} {#passGrid
-		        set index  [expr $i+1];
-			      set passGrid [lindex $argv $index];
-		} elseif {$argvtmp == "-hc"} {#hostnameClient FQDN
-		        set index  [expr $i+1];
-			      set hostnameClient [lindex $argv $index];
-		}elseif {$argvtmp == "-hs"} {#hostnameServer FQDN
-		        set index  [expr $i+1];
-			      set hostnameServer [lindex $argv $index];
-		} elseif {$argvtmp == "-n"} {#name
-		        set index  [expr $i+1];
-			      set name [lindex $argv $index];
+	if{ $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 || $sizeargv == 12 } {
+		for {set i 0} {$i < [llength $argv]} {incr i 2} {
+			set argvtmp [lindex $argv $i];
+			if {$argvtmp == "-u"} { #userName
+				      set index [expr $i+1];
+					    set userName [lindex $argv $index];
+			} elseif {$argvtmp == "-pu"} {#passUser
+				      set index  [expr $i+1];
+					    set passUser  [lindex $argv $index];
+			} elseif {$argvtmp == "-pg"} {#passGrid
+				      set index  [expr $i+1];
+					    set passGrid [lindex $argv $index];
+			} elseif {$argvtmp == "-hc"} {#hostnameClient FQDN
+				      set index  [expr $i+1];
+					    set hostnameClient [lindex $argv $index];
+			}elseif {$argvtmp == "-hs"} {#hostnameServer FQDN
+				      set index  [expr $i+1];
+					    set hostnameServer [lindex $argv $index];
+			} elseif {$argvtmp == "-n"} {#name
+				      set index  [expr $i+1];
+					    set name [lindex $argv $index];
+			}
 		}
 	}else {
 		send_user "Error parametros incompletos\n"
-		send_user "Uso: run-setupsecondmachine -u userName -pu passUser -pg passGrid  -hs hostnameServer_FQDN" -hc hostnameClient_FQDN"
+		send_user "Uso: run-setupsecondmachine -u userName -pu passUser -pg passGrid  -hs hostnameServer_FQDN -hc hostnameClient_FQDN"
 		exit 1
 	}
 }
