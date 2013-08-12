@@ -1,3 +1,4 @@
 {
+	"host_name_master" : "mg2.globustest.org",
 	"run_list": ["recipe[simpleca::configsecondmachine]" ]
 }

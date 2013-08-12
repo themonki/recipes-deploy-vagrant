@@ -22,6 +22,18 @@ cookbook_file "/tmp/run-user-request.exp" do
 	owner "vagrant"
 end
 
+####################################################################################################
+#example
+
+template "/home/vagrant/a.rsl" do
+          source "a.rsl.rb"
+          mode 0755
+          owner "vagrant"
+          variables(
+                  :host_name => "#{node[:host_name]}"
+          )
+  end
+
 #################################################################################
 #user cert
 
