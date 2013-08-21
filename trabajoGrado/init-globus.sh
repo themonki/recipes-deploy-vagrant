@@ -36,3 +36,7 @@ knife cook vagrant@172.18.0.21 nodes/signsimpleca.json >> ../log2.txt
 knife cook vagrant@172.18.0.22 nodes/configcertnodes.json >> ../log2.txt
 
 echo "globus instalado"
+
+cd ..
+
+./restart-globus-myproxy.sh >>  log2.txt

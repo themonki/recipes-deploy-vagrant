@@ -38,3 +38,6 @@ knife cook vagrant@172.18.0.12 nodes/setupsecondmachine.json >> ../log.txt
 
 echo "globus instalado y configurado con myproxy"
 
+cd ..
+
+./restart-globus-myproxy.sh >> ../log.txt
