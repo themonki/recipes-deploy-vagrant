@@ -6,7 +6,7 @@ que se muestran en las secciones mas abajo y los archivos tar.gz que contienen r
 de conectarse a internet.
 
 Los archivos se encuentran en el siguiente enlace:
-[megafiles] (https://mega.co.nz/#F!GY8UGIpC!UWb8thFHA7p4Jb1aeGnQ2w "Archivos")
+[megafiles] (https://mega.co.nz/#F!GY8UGIpC!WQvIVHM43vsiw1iPZK681Q "Archivos")
 
 Los archivos necesarios para ejecutar y la ubicacion son las siguientes:
 
