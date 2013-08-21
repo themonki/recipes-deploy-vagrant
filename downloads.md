@@ -3,7 +3,7 @@ recetas utilizando vagrant y chef-solo
 
 Las recetas las encuentra en el repositorio: 
 
-@themonki/recipes-deploy-vagrant
+[github.com/themonki/recipes-deploy-vagrant] (https://github.com/themonki/recipes-deploy-vagrant)
 
 *************************************************************
 *************************************************************
