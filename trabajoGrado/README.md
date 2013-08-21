@@ -10,7 +10,24 @@ Los archivos se encuentran en el siguiente enlace:
 
 Los archivos necesarios para ejecutar y la ubicacion son las siguientes:
 
-apache.tar.gz machineglobus/apache/files/default/
+####tar.gz files
+* machineglobus/cookbooks/postgresql/files/default/`postgresql.tar.gz`
+* machineglobus/cookbooks/preinstall/files/default/`reposPreinstall.tar.gz`
+* machineglobus/cookbooks/apache/files/default/`apache.tar.gz`
+* machineglobus/cookbooks/php/files/default/`php.tar.gz`
+* globus/cookbooks/globuspackages/files/default/`globuspackages.tar.gz`
+* globus/cookbooks/osgcacerts/files/default/`osgcacerts.tar.gz`
+* globus/cookbooks/security-cacerts/files/default/`security-cacerts.tar.gz`
+
+#####rpm files
+* machineglobus/cookbooks/confighost/files/default/`tcl-8.5.7-6.el6.x86_64.rpm`
+* machineglobus/cookbooks/confighost/files/default/`rsync-3.0.6-9.el6.x86_64.rpm`
+* machineglobus/cookbooks/confighost/files/default/`expect-5.44.1.15-4.el6.x86_64.rpm`
+* machineglobus/cookbooks/chefInstall/files/default/`chef-10.16.6-1.el6.x86_64.rpm`
+* globus/cookbooks/repositories/files/default/`epel-release-6-8.noarch.rpm`
+* globus/cookbooks/repositories/files/default/`Globus-repo-config.centos-6-1.noarch.rpm`
+* globus/cookbooks/repositories/files/default/`osg-el6-release-latest.rpm`
+* globus/cookbooks/repositories/files/default/`yum-plugin-priorities-1.1.30-14.el6.noarch.rpm`
 
 (actualizando ...)
 
@@ -24,10 +41,13 @@ Las variables son:
 ```ruby
   default[:slavedata][:ip_maquina_local] =  "x.x.x.x" 
   #representa la ip de la maquina host donde corren las vm
+  
   default[:slavedata][:pass_maquina_local] =  "pass"
   #el pass del usuario de la maquina host a almacenar los archivos temporales
+  
   default[:slavedata][:user_maquina_local] =  "user"
   #el usuario al que se envian los archivos temporales
+  
   default[:slavedata][:path_project_vagrant] =  "$PATH/recipes/trabajoGrado/machineglobus/cookbooks/confighost/files/default"
   #el path donde se va a crear el archvio hosts que se ira concatenando, es enecesario que sea en la receta confighost
 ```
@@ -44,9 +64,9 @@ ruby version 1.9.3
 
 gem version 1.8.23
 
-knife-solo  version 0.0.15 (see with gem list --local)
+knife-solo  version 0.0.15 (see with `gem list --local`)
 
-chef version 10.16.2 (see with knife --version)
+chef version 10.16.2 (see with `knife --version`)
 
 box [Centos] (https://mega.co.nz/#!OZ8iEAII!dwhEhHwfWg3nqqxoRFkeixK0DxhtkoC0sgKKqQAW_aI "centos64")
 La box debe ser almacenada con el nombre de "centos64"
