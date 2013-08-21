@@ -7,5 +7,6 @@ Las recetas las encuentra en el repositorio:
 
 *************************************************************
 *************************************************************
-[recipes-deploy-vagrant (folder link)] (https://mega.co.nz/#F!GY8UGIpC!WQvIVHM43vsiw1iPZK681Q "")
+Los archivos se encuentran en el siguiente enlace alojado en un servidor de mega
+[recipes-deploy-vagrant (folder link)] (https://mega.co.nz/#F!GY8UGIpC!WQvIVHM43vsiw1iPZK681Q "Mega")
 
