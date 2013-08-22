@@ -68,9 +68,74 @@ knife-solo  version 0.0.15 (see with `gem list --local`)
 
 chef version 10.16.2 (see with `knife --version`)
 
+expect
+
 box [Centos] (https://mega.co.nz/#!OZ8iEAII!dwhEhHwfWg3nqqxoRFkeixK0DxhtkoC0sgKKqQAW_aI "centos64")
 La box debe ser almacenada con el nombre de "centos64"
 
-Testing on Ubuntu 12.04 (precise) 32 bits
+Testing on Ubuntu 12.04 (precise) 64 bits
 =========================================
+
+[vagrant version 1.0.1 (64 bits)] (http://files.vagrantup.com/packages/5bc27e46d3cd5246e0fa2141e52127066407c2b5/vagrant_1.0.1_x86_64.deb "")
+
+[VirtualBox version 4.1.12 (64 bits)] (http://download.virtualbox.org/virtualbox/4.1.12/virtualbox-4.1_4.1.12-77245~Ubuntu~precise_amd64.deb "")
+and [extension 4.1.12] (http://download.virtualbox.org/virtualbox/4.1.12/Oracle_VM_VirtualBox_Extension_Pack-4.1.12-77245.vbox-extpack "")
+
+ruby version 1.8.7
+
+gem version 1.8.15
+
+knife-solo  version 0.0.15 (see with `gem list --local`)
+
+chef version 10.16.2 (see with `knife --version`)
+
+expect 5.45
+
+box [Centos] (https://mega.co.nz/#!OZ8iEAII!dwhEhHwfWg3nqqxoRFkeixK0DxhtkoC0sgKKqQAW_aI "centos64")
+La box debe ser almacenada con el nombre de "centos64"
+
+Getting Started
+===============
+
+La infraestructura que se va a levantar esta basado en el tutorial de globus [Quick Start] (http://www.globus.org/toolkit/docs/5.2/5.2.2/admin/quickstart/#quickstart "GTK 5.2.2 Quick Start"). 
+
+Como se indica en el tutorial se instalan los servicios de gram5, gridftp y gsi. En los scripts que se enceuntran en esta carpeta, se cuenta con 2 tipos de instalaciones que varian de acuerdo al manejo de los certificados (gsi):
+
+1. Utilizando el servidor myproxy, una herramienta desarrollado por globus y que aparece en el tutorial.
+2. Instalando los certificados con los comandos de gsi automatizadamente.
+
+Para ello se disponene de 2 tipos de scripts, aquellos terminados en -myproxy serán para configurar las maquinas con el servicio de myproxy, y se accede a los recursos del grid de acuerdo a como aparece en el tutorial `myproxy-logon -s servidor`, los demás basta con utilizar el comando `grid-proxy-init`.
+
+Inicialmente se instalan y actualizan programas necesarios para instalar globus, apache, php, postgres, expect y chef, y se configura los hostnames de las maquinas. Para configurar las ips de las maquinas es necesario ver el archivo Vagrantfile, la configuracion es la siguiente:
+
+* mg mg.globustest.org 172.18.0.11 (para la maquina con myproxy)
+* mgwn mgwn1.globustest.org 172.18.0.12 (para la maquina con myproxy)
+* mg2 mg2.globustest.org 172.18.0.21
+* mgwn2 mgwn.globustest.org 172.18.0.22
+
+
+Posteriormente se garantiza acceso ssh a las maquinas virtuales utilizando un script en expect y se dispone a instalar los servicios de gram5, gridftp y gsi utilizando la herramienta knife.
+
+Para iniciar la instalación se utiliza el script:
+
+`./init-globus.sh` ó `./init-globus-myproxy`
+
+Para apagar las maquinas virtuales:
+
+`./shutdown-globus.sh` ó `./shutdown-globus-myproxy`
+
+Para iniciar las maquinas virtuales una vez apagadas:
+
+`./up-globus.sh` ó `./up-globus-myproxy`
+
+
+Para reiniciar las maquinas virtuales:
+
+`./restart-globus.sh` ó `./restart-globus-myproxy`
+
+Para ver el estado de las maquinas:
+
+`./status-globus.sh`
+
+
 
