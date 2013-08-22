@@ -68,7 +68,7 @@ knife-solo  version 0.0.15 (see with `gem list --local`)
 
 chef version 10.16.2 (see with `knife --version`)
 
-expect
+expect 
 
 box [Centos] (https://mega.co.nz/#!OZ8iEAII!dwhEhHwfWg3nqqxoRFkeixK0DxhtkoC0sgKKqQAW_aI "centos64")
 La box debe ser almacenada con el nombre de "centos64"
