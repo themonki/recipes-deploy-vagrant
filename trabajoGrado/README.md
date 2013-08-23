@@ -1,4 +1,5 @@
 Ver en Github https://github.com/themonki/recipes-deploy-vagrant/tree/master/trabajoGrado#%C3%8Dndice
+
 #Índice
 
 [Pre-Configuración] (#pre-configuraci%C3%B3n "")
@@ -56,6 +57,9 @@ Los archivos necesarios para ejecutar y la ubicación son las siguientes:
 
 (actualizando ...)
 
+Para descargar solamente esta sección del proyecto con los archivos realmente requeridos:
+[globus clean proyect] ( "")
+
 Tambien es necesario tener en cuenta el archivo machineglobus/cookbooks/confighost/attributes/default.rb
 que contiene la información necesaria para poder acceder a una maquina que permite enviar el archivo /etc/hosts de los esclavos 
 a la maquina principal, de esta manera se configura automaticamente los alias y los hostname de las máquinas a levantar
@@ -76,6 +80,7 @@ Las variables son:
   default[:slavedata][:path_project_vagrant] =  "$PATH/machineglobus/cookbooks/confighost/files/default"
   #el path donde se va a crear el archivo hosts que se ira concatenando, es necesario que sea en la receta confighost
 ```
+
 
 Testing on Ubuntu 12.10 (quantal) 64 bits
 =========================================
