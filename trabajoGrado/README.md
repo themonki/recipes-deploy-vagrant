@@ -97,8 +97,23 @@ La box debe ser almacenada con el nombre de "centos64"
 Getting Started
 ===============
 
+##Pre-requisitos
+
 La infraestructura que se va a levantar esta basado en el tutorial de globus 
-[Quick Start] (http://www.globus.org/toolkit/docs/5.2/5.2.2/admin/quickstart/#quickstart "GTK 5.2.2 Quick Start"). 
+[Quick Start] (http://www.globus.org/toolkit/docs/5.2/5.2.2/admin/quickstart/#quickstart "GTK 5.2.2 Quick Start"),
+donde se tienen las siguientes modificaciones:
+
+* `quser` será el usuario `vagrant`
+
+* `elephant` será la máquina `mg` o `mg2`
+
+*	`donkey` será la máquina `mgwn1` o `mgwn2`
+
+* el dominio `globus.org` será `globustest.org`
+
+Mas adelante se explica la configuración ip de las máquinas.
+
+##Tipos de Script
 
 Como se indica en el tutorial se instalan los servicios de gram5, gridftp y gsi. En los scripts que se enceuntran en esta carpeta,
  se cuenta con 2 tipos de instalaciónes que varian de acuerdo al manejo de los certificados (gsi):
@@ -107,25 +122,36 @@ Como se indica en el tutorial se instalan los servicios de gram5, gridftp y gsi.
 2. Instalando los certificados con los comandos de gsi automatizadamente.
 
 Para ello se disponene de 2 tipos de scripts, aquellos terminados en -myproxy serán para configurar las máquinas con el servicio de myproxy,
- y se accede a los recursos del grid de la manera en como se muestra en el tutorial: `myproxy-logon -s servidor`, 
- para las otras maquinas basta con utilizar el comando `grid-proxy-init`, para el usuario vagrant.
+ y se autentica a los recursos del grid de la manera en como se muestra en el tutorial: `myproxy-logon -s servidor`, 
+ para las otras máquinas basta con utilizar el comando `grid-proxy-init`, para el usuario vagrant.
 
-Inicialmente se instalan y actualizan programas necesarios para instalar globus, apache, php, postgres, expect y chef, y se configura los
- hostnames de las máquinas. Para configurar las ips de las máquinas es necesario ver el archivo `Vagrantfile` en la carpeta `machineglobus`,
-  la configuración por defecto es la siguiente:
+##Configuración ip
 
-* mg mg.globustest.org 172.18.0.11 (para la maquina con myproxy)
-* mgwn mgwn1.globustest.org 172.18.0.12 (para la maquina con myproxy)
-* mg2 mg2.globustest.org 172.18.0.21
-* mgwn2 mgwn.globustest.org 172.18.0.22
+Para configurar las ips de las máquinas es necesario ver el archivo `Vagrantfile` en la carpeta `machineglobus`,
+ la configuración por defecto es la siguiente:
 
+* mg mg.globustest.org 172.18.0.11 (principal para la maquina con myproxy)
+* mgwn mgwn1.globustest.org 172.18.0.12 (secundaria para la maquina con myproxy)
+
+* mg2 mg2.globustest.org 172.18.0.21 (principal)
+* mgwn2 mgwn.globustest.org 172.18.0.22 (segundaria)
+
+##Recetas
+
+Inicialmente se instalan y actualizan programas necesarios (dependencias) para instalar globus, y se intalán los programas
+ apache, php, postgres, expect y chef, y se configuran los hostnames de las máquinas (receta confighost).
+ 
 Posteriormente se garantiza acceso ssh a las máquinas virtuales utilizando un script en expect `globus/configssh.exp`, 
 es necesario haber generado las claves públicas en `$HOME/.ssh/id_rsa`, de esta manera se puede acceder utilizando el 
 comando ssh habitual para acceder a las máquinas sin necesidad de ingresar la contraseña:
  
- `ssh vagrant@172.18.0.x`
+```bash ssh vagrant@172.18.0.x```
  
-Luego se dispone a instalar los servicios de gram5, gridftp y gsi utilizando la herramienta knife.
+Luego se dispone a instalar los servicios de gram5, gridftp y gsi utilizando la herramienta `knife`, que sin el acceso directo por ssh
+solicita la contraseña del usuario vagrant varias veces. Una vez terminado se reinician las máquinas y !están listas para acceder y disfrutar
+de los servicios de globus!
+
+##Run Scripts
 
 Para iniciar la instalación se utiliza el script:
 
