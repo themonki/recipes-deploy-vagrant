@@ -1,17 +1,26 @@
 #Indice
 
-###[Pre-Configuración] (#Pre-configuraci%C3%B3n "")
+[Pre-Configuración] (#Pre-configuraci%C3%B3n "")
 
-		[tar.gz files] (#targz-files "")
-		[rpm files] (#rpm-files "")
+- [tar.gz files] (#targz-files "")
+
+- [rpm files] (#rpm-files "")
+
 [Testing on Ubuntu 12.10 (quantal) 64 bits] (#testing-on-ubuntu-1210-quantal-64-bits "")
+
 [Testing on Ubuntu 12.04 (precise) 64 bits] (#testing-on-ubuntu-1204-precise-64-bits "")
+
 [Getting Started] (#getting-started "")
-		[Pre-requisitos] (#pre-requisitos "")
-		[Tipos de Script] (#tipos-de-script "")
-		[Configuración ip] (#configuraci%C3%B3n-ip "")
-		[Recetas] (#recetas "")
-		[Run Scripts] (#run-scripts "")
+
+- [Pre-requisitos] (#pre-requisitos "")
+
+- [Tipos de Script] (#tipos-de-script "")
+
+- [Configuración ip] (#configuraci%C3%B3n-ip "")
+
+- [Recetas] (#recetas "")
+
+- [Run Scripts] (#run-scripts "")
 
 Pre-Configuración
 =========================================
