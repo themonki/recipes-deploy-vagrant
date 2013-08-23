@@ -1,4 +1,4 @@
-#Indice
+#Índice
 
 [Pre-Configuración] (#pre-configuraci%C3%B3n "")
 
