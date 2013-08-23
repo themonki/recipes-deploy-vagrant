@@ -145,7 +145,9 @@ Posteriormente se garantiza acceso ssh a las máquinas virtuales utilizando un s
 es necesario haber generado las claves públicas en `$HOME/.ssh/id_rsa`, de esta manera se puede acceder utilizando el 
 comando ssh habitual para acceder a las máquinas sin necesidad de ingresar la contraseña:
  
-```bash ssh vagrant@172.18.0.x```
+```bash
+	ssh vagrant@172.18.0.x
+```
  
 Luego se dispone a instalar los servicios de gram5, gridftp y gsi utilizando la herramienta `knife`, que sin el acceso directo por ssh
 solicita la contraseña del usuario vagrant varias veces. Una vez terminado se reinician las máquinas y !están listas para acceder y disfrutar
