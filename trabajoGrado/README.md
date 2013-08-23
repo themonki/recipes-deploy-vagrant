@@ -58,7 +58,7 @@ Los archivos necesarios para ejecutar y la ubicación son las siguientes:
 (actualizando ...)
 
 Para descargar solamente esta sección del proyecto con los archivos realmente requeridos:
-[globus clean proyect] ( "")
+[globus clean proyect] (https://mega.co.nz/#F!DZMg2YaT!es9-nHVGO4FqybeCF7gcLA "")
 
 Tambien es necesario tener en cuenta el archivo machineglobus/cookbooks/confighost/attributes/default.rb
 que contiene la información necesaria para poder acceder a una maquina que permite enviar el archivo /etc/hosts de los esclavos 
