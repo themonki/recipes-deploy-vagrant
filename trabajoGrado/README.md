@@ -30,7 +30,7 @@ que se muestran en las secciónes mas abajo y los archivos tar.gz que contienen 
 de conectarse a internet.
 
 Los archivos se encuentran en el siguiente enlace:
-[megafiles] (https://mega.co.nz/#F!GY8UGIpC!WQvIVHM43vsiw1iPZK681Q "Archivos")
+[reciples-deploy-vagrant on mega] (https://mega.co.nz/#F!GY8UGIpC!WQvIVHM43vsiw1iPZK681Q "Archivos")
 
 Los archivos necesarios para ejecutar y la ubicación son las siguientes:
 
