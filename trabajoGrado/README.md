@@ -1,6 +1,6 @@
 #Indice
 
-[Pre-Configuración] (#Pre-configuraci%C3%B3n "")
+[Pre-Configuración] (#pre-configuraci%C3%B3n "")
 
 - [tar.gz files] (#targz-files "")
 
