@@ -1,16 +1,16 @@
-Configuracion Inicial
+Configuración Inicial
 =========================================
 
-Para la ejecucion de estas recetas es necesesario tener en cuenta las versiones de las herramientas
-que se muestran en las secciones mas abajo y los archivos tar.gz que contienen rpm que permiten instalar sin neceseidad
+Para la ejecución de estas recetas es necesesario tener en cuenta las versiones de las herramientas
+que se muestran en las secciónes mas abajo y los archivos tar.gz que contienen rpm que permiten instalar sin neceseidad
 de conectarse a internet.
 
 Los archivos se encuentran en el siguiente enlace:
 [megafiles] (https://mega.co.nz/#F!GY8UGIpC!WQvIVHM43vsiw1iPZK681Q "Archivos")
 
-Los archivos necesarios para ejecutar y la ubicacion son las siguientes:
+Los archivos necesarios para ejecutar y la ubicación son las siguientes:
 
-####tar.gz files
+#####tar.gz files
 * machineglobus/cookbooks/postgresql/files/default/`postgresql.tar.gz`
 * machineglobus/cookbooks/preinstall/files/default/`reposPreinstall.tar.gz`
 * machineglobus/cookbooks/apache/files/default/`apache.tar.gz`
@@ -32,8 +32,8 @@ Los archivos necesarios para ejecutar y la ubicacion son las siguientes:
 (actualizando ...)
 
 Tambien es necesario tener en cuenta el archivo machineglobus/cookbooks/confighost/attributes/default.rb
-que contiene la informacion necesaria para poder acceder a una maquina que permite enviar el archivo /etc/hosts de los esclavos 
-a la maquina principal, de esta manera se configura automaticamente los alias y los hostname de las maquinas a levantar
+que contiene la información necesaria para poder acceder a una maquina que permite enviar el archivo /etc/hosts de los esclavos 
+a la maquina principal, de esta manera se configura automaticamente los alias y los hostname de las máquinas a levantar
 de manera automatica.
 
 Las variables son:
@@ -48,8 +48,8 @@ Las variables son:
   default[:slavedata][:user_maquina_local] =  "user"
   #el usuario al que se envian los archivos temporales
   
-  default[:slavedata][:path_project_vagrant] =  "$PATH/recipes/trabajoGrado/machineglobus/cookbooks/confighost/files/default"
-  #el path donde se va a crear el archvio hosts que se ira concatenando, es enecesario que sea en la receta confighost
+  default[:slavedata][:path_project_vagrant] =  "$PATH/machineglobus/cookbooks/confighost/files/default"
+  #el path donde se va a crear el archivo hosts que se ira concatenando, es necesario que sea en la receta confighost
 ```
 
 Testing on Ubuntu 12.10 (quantal) 64 bits
@@ -101,46 +101,54 @@ La infraestructura que se va a levantar esta basado en el tutorial de globus
 [Quick Start] (http://www.globus.org/toolkit/docs/5.2/5.2.2/admin/quickstart/#quickstart "GTK 5.2.2 Quick Start"). 
 
 Como se indica en el tutorial se instalan los servicios de gram5, gridftp y gsi. En los scripts que se enceuntran en esta carpeta,
- se cuenta con 2 tipos de instalaciones que varian de acuerdo al manejo de los certificados (gsi):
+ se cuenta con 2 tipos de instalaciónes que varian de acuerdo al manejo de los certificados (gsi):
 
 1. Utilizando el servidor myproxy, una herramienta desarrollado por globus y que aparece en el tutorial.
 2. Instalando los certificados con los comandos de gsi automatizadamente.
 
-Para ello se disponene de 2 tipos de scripts, aquellos terminados en -myproxy serán para configurar las maquinas con el servicio de myproxy,
- y se accede a los recursos del grid de acuerdo a como aparece en el tutorial `myproxy-logon -s servidor`, los demás basta con utilizar el comando `grid-proxy-init`.
+Para ello se disponene de 2 tipos de scripts, aquellos terminados en -myproxy serán para configurar las máquinas con el servicio de myproxy,
+ y se accede a los recursos del grid de la manera en como se muestra en el tutorial: `myproxy-logon -s servidor`, 
+ para las otras maquinas basta con utilizar el comando `grid-proxy-init`, para el usuario vagrant.
 
 Inicialmente se instalan y actualizan programas necesarios para instalar globus, apache, php, postgres, expect y chef, y se configura los
- hostnames de las maquinas. Para configurar las ips de las maquinas es necesario ver el archivo Vagrantfile, la configuracion es la siguiente:
+ hostnames de las máquinas. Para configurar las ips de las máquinas es necesario ver el archivo `Vagrantfile` en la carpeta `machineglobus`,
+  la configuración por defecto es la siguiente:
 
 * mg mg.globustest.org 172.18.0.11 (para la maquina con myproxy)
 * mgwn mgwn1.globustest.org 172.18.0.12 (para la maquina con myproxy)
 * mg2 mg2.globustest.org 172.18.0.21
 * mgwn2 mgwn.globustest.org 172.18.0.22
 
-
-Posteriormente se garantiza acceso ssh a las maquinas virtuales utilizando un script en expect, es necesario haber generado las claves
- publicas en $HOME/.ssh/id_rsa, y se dispone a instalar los servicios de gram5, gridftp y gsi utilizando la herramienta knife.
+Posteriormente se garantiza acceso ssh a las máquinas virtuales utilizando un script en expect, es necesario haber generado las claves
+ públicas en `$HOME/.ssh/id_rsa`, de esta manera se puede acceder utilizando el comando ssh habitual para acceder a las máquinas sin necesidad de
+ ingresar la contraseña:
+ 
+ `ssh vagrant@172.18.0.x`
+ 
+Luego se dispone a instalar los servicios de gram5, gridftp y gsi utilizando la herramienta knife.
 
 Para iniciar la instalación se utiliza el script:
 
-`./init-globus.sh` ó `./init-globus-myproxy`
+`./init-globus.sh` ó `./init-globus-myproxy.sh`
 
-Para apagar las maquinas virtuales:
+Para apagar las máquinas virtuales:
 
-`./shutdown-globus.sh` ó `./shutdown-globus-myproxy`
+`./shutdown-globus.sh` ó `./shutdown-globus-myproxy.sh`
 
-Para iniciar las maquinas virtuales una vez apagadas:
+Para iniciar las máquinas virtuales una vez apagadas:
 
-`./up-globus.sh` ó `./up-globus-myproxy`
+`./up-globus.sh` ó `./up-globus-myproxy.sh`
 
 
-Para reiniciar las maquinas virtuales:
+Para reiniciar las máquinas virtuales:
 
-`./restart-globus.sh` ó `./restart-globus-myproxy`
+`./restart-globus.sh` ó `./restart-globus-myproxy.sh`
 
-Para ver el estado de las maquinas:
+Para ver el estado de las máquinas:
 
 `./status-globus.sh`
 
+Para ver la información del levantamiento con los scripts `init` se generan dos archivos log.txt y log2.txt, para los scripts
+ `./init-globus-myproxy.sh` ó `./init-globus`
 
 
