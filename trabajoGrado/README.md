@@ -68,7 +68,7 @@ knife-solo  version 0.0.15 (see with `gem list --local`)
 
 chef version 10.16.2 (see with `knife --version`)
 
-expect 
+expect 5.45 
 
 box [Centos] (https://mega.co.nz/#!OZ8iEAII!dwhEhHwfWg3nqqxoRFkeixK0DxhtkoC0sgKKqQAW_aI "centos64")
 La box debe ser almacenada con el nombre de "centos64"
@@ -97,16 +97,20 @@ La box debe ser almacenada con el nombre de "centos64"
 Getting Started
 ===============
 
-La infraestructura que se va a levantar esta basado en el tutorial de globus [Quick Start] (http://www.globus.org/toolkit/docs/5.2/5.2.2/admin/quickstart/#quickstart "GTK 5.2.2 Quick Start"). 
+La infraestructura que se va a levantar esta basado en el tutorial de globus 
+[Quick Start] (http://www.globus.org/toolkit/docs/5.2/5.2.2/admin/quickstart/#quickstart "GTK 5.2.2 Quick Start"). 
 
-Como se indica en el tutorial se instalan los servicios de gram5, gridftp y gsi. En los scripts que se enceuntran en esta carpeta, se cuenta con 2 tipos de instalaciones que varian de acuerdo al manejo de los certificados (gsi):
+Como se indica en el tutorial se instalan los servicios de gram5, gridftp y gsi. En los scripts que se enceuntran en esta carpeta,
+ se cuenta con 2 tipos de instalaciones que varian de acuerdo al manejo de los certificados (gsi):
 
 1. Utilizando el servidor myproxy, una herramienta desarrollado por globus y que aparece en el tutorial.
 2. Instalando los certificados con los comandos de gsi automatizadamente.
 
-Para ello se disponene de 2 tipos de scripts, aquellos terminados en -myproxy serán para configurar las maquinas con el servicio de myproxy, y se accede a los recursos del grid de acuerdo a como aparece en el tutorial `myproxy-logon -s servidor`, los demás basta con utilizar el comando `grid-proxy-init`.
+Para ello se disponene de 2 tipos de scripts, aquellos terminados en -myproxy serán para configurar las maquinas con el servicio de myproxy,
+ y se accede a los recursos del grid de acuerdo a como aparece en el tutorial `myproxy-logon -s servidor`, los demás basta con utilizar el comando `grid-proxy-init`.
 
-Inicialmente se instalan y actualizan programas necesarios para instalar globus, apache, php, postgres, expect y chef, y se configura los hostnames de las maquinas. Para configurar las ips de las maquinas es necesario ver el archivo Vagrantfile, la configuracion es la siguiente:
+Inicialmente se instalan y actualizan programas necesarios para instalar globus, apache, php, postgres, expect y chef, y se configura los
+ hostnames de las maquinas. Para configurar las ips de las maquinas es necesario ver el archivo Vagrantfile, la configuracion es la siguiente:
 
 * mg mg.globustest.org 172.18.0.11 (para la maquina con myproxy)
 * mgwn mgwn1.globustest.org 172.18.0.12 (para la maquina con myproxy)
@@ -114,7 +118,8 @@ Inicialmente se instalan y actualizan programas necesarios para instalar globus,
 * mgwn2 mgwn.globustest.org 172.18.0.22
 
 
-Posteriormente se garantiza acceso ssh a las maquinas virtuales utilizando un script en expect y se dispone a instalar los servicios de gram5, gridftp y gsi utilizando la herramienta knife.
+Posteriormente se garantiza acceso ssh a las maquinas virtuales utilizando un script en expect, es necesario haber generado las claves
+ publicas en $HOME/.ssh/id_rsa, y se dispone a instalar los servicios de gram5, gridftp y gsi utilizando la herramienta knife.
 
 Para iniciar la instalación se utiliza el script:
 
