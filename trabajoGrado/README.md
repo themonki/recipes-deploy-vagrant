@@ -164,7 +164,7 @@ Para configurar las ips de las máquinas es necesario ver el archivo `Vagrantfil
 * mgwn mgwn1.globustest.org 172.18.0.12 (secundaria para la maquina con myproxy)
 
 * mg2 mg2.globustest.org 172.18.0.21 (principal)
-* mgwn2 mgwn.globustest.org 172.18.0.22 (segundaria)
+* mgwn2 mgwn2.globustest.org 172.18.0.22 (segundaria)
 
 ##Recetas
 
