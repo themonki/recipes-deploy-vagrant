@@ -24,12 +24,12 @@ if { $sizeargv != 0} {
 			} elseif {$argvtmp == "-n"} {#name
 				      set index  [expr $i+1];
 					    set name [lindex $argv $index];
-			}elseif {$argvtmp == "-h"} {#hostname FQDN
+			} elseif {$argvtmp == "-h"} {#hostname FQDN
 				      set index  [expr $i+1];
 					    set hostname [lindex $argv $index];
 			}
 		}
-	}else {
+	} else {
 		send_user "Error parametros incompletos\n"
 		send_user "Uso: run-usergrid -u userName -pu passUser -pg passGrid -n name -h hostname_FQDN"
 		exit 1

@@ -93,7 +93,7 @@ end
 #pass globus
 #script setup-simpleca en /tmp/setup-simpleca
 execute "run setup-simpleca.exp" do
-  command "expect run-setupsimpleca.exp"
+  command "expect run-setupsimpleca.exp -n setup-simpleca -p globus"
   user "vagrant"
   cwd "/tmp/"
   action :run  
@@ -161,7 +161,7 @@ end
 
 
 execute "run run-usergrid.exp" do
-	command "expect run-usergrid.exp"
+	command "expect run-usergrid.exp -u #{node[:user_name]} -pu #{node[:pass_user]} -pg globus -h #{node[:host_name]}  -n #{node[:name]}"
 	user "vagrant"
 	cwd "/tmp"
 	action :run

@@ -25,7 +25,7 @@ cookbook_file "/tmp/run-addservice.exp" do
 end
 
 execute "expect run-addservice" do
-	command "expect run-addservice.exp"
+	command "expect run-addservice.exp -u #{node[:user_name]} -pu #{node[:pass_user]} -pg globus -h #{node[:host_name]}"
 	user "vagrant"
 	cwd "/tmp/"
 	action :run

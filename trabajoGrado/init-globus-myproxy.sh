@@ -40,4 +40,4 @@ echo "globus instalado y configurado con myproxy"
 
 cd ..
 
-./restart-globus-myproxy.sh >> ../log.txt
+./restart-globus-myproxy.sh >> log.txt

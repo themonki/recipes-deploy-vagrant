@@ -73,7 +73,7 @@ end
 
 #firmar request host
 execute "firmar request host" do
-	command "sudo -H -E -u globus expect run-grid-ca-sign.exp -in hostcert_request.pem -out hostsigned.pem"
+	command "sudo -H -E -u globus expect run-grid-ca-sign.exp -p globus -in hostcert_request.pem -out hostsigned.pem"
 	user "vagrant"
 	cwd "/tmp"
 	action :run
@@ -100,8 +100,9 @@ end
 ##usercert
 
 #request user
+#debe de existir dicho usuario #{node[:user_name]} por defecto vagrant
 execute "request user" do
-	command "sudo -H -E -u vagrant expect run-user-request.exp -p vagrant -n VagrantUser"
+	command "sudo -H -E -u #{node[:user_name]} expect run-user-request.exp -p #{node[:pass_user]} -n #{node[:name]}"
 	user "vagrant"
 	cwd "/tmp"
 	action :run
@@ -124,7 +125,7 @@ end
 
 #firmar request user
 execute "firmar request host" do
-	command "sudo -H -E -u globus expect run-grid-ca-sign.exp -in usercert_request.pem -out usersigned.pem"
+	command "sudo -H -E -u globus expect run-grid-ca-sign.exp  -p globus -in usercert_request.pem -out usersigned.pem"
 	user "vagrant"
 	cwd "/tmp"
 	action :run
@@ -155,7 +156,7 @@ end
 #agregar al gridmapfile
 #grid-mapfile-add-entry -dn /O=Grid/OU=GlobusTest/OU=simpleCA-mg2.globustest.org/OU=local/CN=VagrantUser -ln vagrant
 execute "gridmapfile vagrant" do
-	command "grid-mapfile-add-entry -dn /O=Grid/OU=GlobusTest/OU=simpleCA-#{node[:host_name]}/OU=local/CN=VagrantUser -ln vagrant"
+	command "grid-mapfile-add-entry -dn /O=Grid/OU=GlobusTest/OU=simpleCA-#{node[:host_name]}/OU=local/CN=#{node[:name]} -ln #{node[:user_name]}"
 	user "root"
 	cwd "/tmp"
 	action :run
@@ -197,10 +198,10 @@ node[:slaves].each do |slave|
 	end
 end
 
-#enviar el los certs user de vagrant
+#enviar el los certs user de #{node[:user_name]} a vagrant de las otra maquinas
 node[:slaves].each do |slave|
 	execute "scp pem certs #{slave}" do
-		command "scp /home/vagrant/.globus/userkey.pem /home/vagrant/.globus/usercert.pem vagrant@#{slave}:/home/vagrant/"
+		command "scp /home/vagrant/.globus/userkey.pem /home/#{node[:user_name]}/.globus/usercert.pem vagrant@#{slave}:/home/vagrant/"
 		user "vagrant"
 		cwd "/tmp"
 		action :run

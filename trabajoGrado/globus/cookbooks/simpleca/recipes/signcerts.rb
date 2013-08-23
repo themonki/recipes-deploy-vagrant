@@ -9,10 +9,10 @@ node[:slaves].each do |slave|
 	end
 end
 
-#enviar el los certs user de vagrant
+#enviar los certs user de vagrant
 node[:slaves].each do |slave|
 	execute "sign cert #{slave}" do
-		command "sudo -H -E -u globus expect run-grid-ca-sign.exp -in #{slave}-hostcert_request.pem -out #{slave}-hostsigned.pem"
+		command "sudo -H -E -u globus expect run-grid-ca-sign.exp -p globus -in #{slave}-hostcert_request.pem -out #{slave}-hostsigned.pem"
 		user "vagrant"
 		cwd "/tmp"
 		action :run

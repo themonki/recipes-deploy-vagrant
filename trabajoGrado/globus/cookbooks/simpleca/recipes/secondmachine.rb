@@ -25,10 +25,10 @@ end
 ####################################################################################################
 #example
 
-template "/home/vagrant/a.rsl" do
+template "/home/#{node[:user_name]}/a.rsl" do
           source "a.rsl.rb"
           mode 0755
-          owner "vagrant"
+          owner "#{node[:user_name]}"
           variables(
                   :host_name => "#{node[:host_name]}"
           )
@@ -38,16 +38,23 @@ template "/home/vagrant/a.rsl" do
 #user cert
 
 execute "mkdir .globus" do
-	command "mkdir -p /home/vagrant/.globus"
-	user "vagrant"
+	command "mkdir -p /home/#{node[:user_name]}/.globus"
+	user "#{node[:user_name]}"
 	cwd "/tmp"
 	action :run
 end
 
 execute "mv usercert" do
-	command "mv /home/vagrant/userkey.pem /home/vagrant/usercert.pem /home/vagrant/.globus/"
-	user "vagrant"
-	cwd "/home/vagrant"
+	command "cp /home/vagrant/userkey.pem /home/vagrant/usercert.pem /home/#{node[:user_name]}/.globus/"
+	user "root"
+	cwd "/tmp"
+	action :run
+end
+
+execute "chwon usercert" do
+	command "chown -R #{node[:user_name]}.#{node[:user_name]} /home/#{node[:user_name]}/.globus/*"
+	user "root"
+	cwd "/tmp"
 	action :run
 end
 
@@ -56,7 +63,7 @@ end
 #instalar certificados
 
 execute "install certificates" do
-	command "rpm -Uvh globus-simple-ca-b83525ab-1.0-1.el6.noarch.rpm"
+	command "rpm -Uvh globus-simple-ca-*-1.0-1.el6.noarch.rpm"
 	user "root"
 	cwd "/tmp"
 	action :run

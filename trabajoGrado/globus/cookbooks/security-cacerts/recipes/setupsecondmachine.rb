@@ -84,7 +84,7 @@ cookbook_file "/tmp/run-setupsecondmachine.exp" do
 end
 
 execute "expect run-setupsecondmachine" do
-	command "expect run-setupsecondmachine.exp"
+	command "expect run-setupsecondmachine.exp -u #{node[:user_name]} -pu #{node[:pass_user]} -hc #{node[:host_name]} -hs #{node[:host_server]} -n #{node[:name]}"
 	user "vagrant"
 	cwd "/tmp/"
 	action :run

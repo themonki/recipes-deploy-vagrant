@@ -55,7 +55,7 @@ execute "copiando los certificados de mg" do
 		    user "vagrant"
 		    #group "admin"
 		    cwd "/home/vagrant"
-		    command "expect get-file-server.exp -u vagrant -p vagrant -h mg -s /etc/grid-security/certificates -l /tmp/certificates"
+		    command "expect get-file-server.exp -u #{node[:user_name]} -p #{node[:pass_user]} -h #{node[:alias_server]} -s /etc/grid-security/certificates -l /tmp/certificates"
 		    action :run
 end
 

@@ -6,7 +6,7 @@ set hostname "mg.globustest.org"
 
 if { $sizeargv != 0} {
 
-	if{ $sizeargv == 2 || $sizeargv == 4} {
+	if { $sizeargv == 2 || $sizeargv == 4} {
 		for {set i 0} {$i < [llength $argv]} {incr i 2} {
 			set argvtmp [lindex $argv $i];
 			if {$argvtmp == "-p"} {#pass
@@ -17,7 +17,7 @@ if { $sizeargv != 0} {
 				set hostname [lindex $argv $index];
 			}
 		}
-	}else {
+	} else {
 		send_user "Error parametros incompletos\n"
 		send_user "Uso: run-run-accessgrid -p pass hl hostname"
 		exit 1

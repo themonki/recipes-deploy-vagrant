@@ -2,13 +2,13 @@
 
 set sizeargv	[llength $argv]
 set passGrid "globus"
-set passUser "globus"
+set passUser "vagrant"
 set userName "vagrant"
 set hostname "mgwn1.globustest.org"
 
 if { $sizeargv != 0} {
 
-	if{ $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 } {
+	if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 } {
 		for {set i 0} {$i < [llength $argv]} {incr i 2} {
 			set argvtmp [lindex $argv $i];
 			if {$argvtmp == "-u"} { #userName
@@ -25,7 +25,7 @@ if { $sizeargv != 0} {
 					    set hostname [lindex $argv $index];
 			}
 		}
-	}else {
+	} else {
 		send_user "Error parametros incompletos\n"
 		send_user "Uso: run-addservice -u userName -pu passUser -pg passGrid  -h hostname_FQDN"
 		exit 1

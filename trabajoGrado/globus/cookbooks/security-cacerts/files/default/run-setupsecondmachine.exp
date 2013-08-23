@@ -1,8 +1,7 @@
 #!/usr/bin/expect
 
 set sizeargv	[llength $argv]
-set passGrid "globus"
-set passUser "globus"
+set passUser "vagrant"
 set userName "vagrant"
 set hostnameClient "mgwn1.globustest.org"
 set hostnameServer "mg.globustest.org"
@@ -10,7 +9,7 @@ set name "VagrantUser"
 
 if { $sizeargv != 0} {
 
-	if{ $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 || $sizeargv == 12 } {
+	if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $sizeargv == 10 || $sizeargv == 12 } {
 		for {set i 0} {$i < [llength $argv]} {incr i 2} {
 			set argvtmp [lindex $argv $i];
 			if {$argvtmp == "-u"} { #userName
@@ -19,13 +18,10 @@ if { $sizeargv != 0} {
 			} elseif {$argvtmp == "-pu"} {#passUser
 				      set index  [expr $i+1];
 					    set passUser  [lindex $argv $index];
-			} elseif {$argvtmp == "-pg"} {#passGrid
-				      set index  [expr $i+1];
-					    set passGrid [lindex $argv $index];
 			} elseif {$argvtmp == "-hc"} {#hostnameClient FQDN
 				      set index  [expr $i+1];
 					    set hostnameClient [lindex $argv $index];
-			}elseif {$argvtmp == "-hs"} {#hostnameServer FQDN
+			} elseif {$argvtmp == "-hs"} {#hostnameServer FQDN
 				      set index  [expr $i+1];
 					    set hostnameServer [lindex $argv $index];
 			} elseif {$argvtmp == "-n"} {#name
@@ -33,9 +29,9 @@ if { $sizeargv != 0} {
 					    set name [lindex $argv $index];
 			}
 		}
-	}else {
+	} else {
 		send_user "Error parametros incompletos\n"
-		send_user "Uso: run-setupsecondmachine -u userName -pu passUser -pg passGrid  -hs hostnameServer_FQDN -hc hostnameClient_FQDN"
+		send_user "Uso: run-setupsecondmachine -u userName -pu passUser  -hs hostnameServer_FQDN -hc hostnameClient_FQDN"
 		exit 1
 	}
 }
@@ -49,7 +45,7 @@ spawn sudo myproxy-retrieve -s $hostnameServer -k $hostnameClient -l $userName
 
 expect {
 	"Enter MyProxy pass phrase:" {
-		send "$passGrid\r"
+		send "$passUser\r"
 		exp_continue
 	}
 	"/etc/grid-security/hostkey.pem" {

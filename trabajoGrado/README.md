@@ -185,6 +185,14 @@ Luego se dispone a instalar los servicios de gram5, gridftp y gsi utilizando la 
 solicita la contraseña del usuario vagrant varias veces. Una vez terminado se reinician las máquinas y !están listas para acceder y disfrutar
 de los servicios de globus!
 
+Recordar:
+
+El usuario `globus` es quien realiza la firma de los certificados y el password que pide para realizarlo es "globus", 
+este password no puede ser modificado. Proximamente se realizaria receta para poder hacerlo.
+
+El usuario por defecto quien tiene certificados autenticados por globus es el usuario `vagrant` y cuando se solicite acceso a los recursos 
+el password es "vagrant". Se puede modificar este usuario y su password en los archivos .json ubicados en `globus/nodes`.
+
 ##Run Scripts
 
 Para iniciar la instalación se utiliza el script:
@@ -198,7 +206,6 @@ Para apagar las máquinas virtuales:
 Para iniciar las máquinas virtuales una vez apagadas:
 
 `./up-globus.sh` ó `./up-globus-myproxy.sh`
-
 
 Para reiniciar las máquinas virtuales:
 
