@@ -119,9 +119,9 @@ Inicialmente se instalan y actualizan programas necesarios para instalar globus,
 * mg2 mg2.globustest.org 172.18.0.21
 * mgwn2 mgwn.globustest.org 172.18.0.22
 
-Posteriormente se garantiza acceso ssh a las máquinas virtuales utilizando un script en expect, es necesario haber generado las claves
- públicas en `$HOME/.ssh/id_rsa`, de esta manera se puede acceder utilizando el comando ssh habitual para acceder a las máquinas sin necesidad de
- ingresar la contraseña:
+Posteriormente se garantiza acceso ssh a las máquinas virtuales utilizando un script en expect `globus/configssh.exp`, 
+es necesario haber generado las claves públicas en `$HOME/.ssh/id_rsa`, de esta manera se puede acceder utilizando el 
+comando ssh habitual para acceder a las máquinas sin necesidad de ingresar la contraseña:
  
  `ssh vagrant@172.18.0.x`
  
@@ -149,6 +149,6 @@ Para ver el estado de las máquinas:
 `./status-globus.sh`
 
 Para ver la información del levantamiento con los scripts `init` se generan dos archivos log.txt y log2.txt, para los scripts
- `./init-globus-myproxy.sh` ó `./init-globus`
+ `./init-globus-myproxy.sh` ó `./init-globus.sh`
 
 
