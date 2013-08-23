@@ -140,6 +140,8 @@ Para configurar las ips de las máquinas es necesario ver el archivo `Vagrantfil
 
 Inicialmente se instalan y actualizan programas necesarios (dependencias) para instalar globus, y se intalán los programas
  apache, php, postgres, expect y chef, y se configuran los hostnames de las máquinas (receta confighost).
+
+(actualizando ...)
  
 Posteriormente se garantiza acceso ssh a las máquinas virtuales utilizando un script en expect `globus/configssh.exp`, 
 es necesario haber generado las claves públicas en `$HOME/.ssh/id_rsa`, de esta manera se puede acceder utilizando el 
