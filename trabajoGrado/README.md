@@ -8,6 +8,8 @@ Ver en Github https://github.com/themonki/recipes-deploy-vagrant/tree/master/tra
 
 - [rpm files] (#rpm-files "")
 
+[Releases] (#releases "")
+
 [Testing on Ubuntu 12.10 (quantal) 64 bits] (#testing-on-ubuntu-1210-quantal-64-bits "")
 
 [Testing on Ubuntu 12.04 (precise) 64 bits] (#testing-on-ubuntu-1204-precise-64-bits "")
@@ -57,9 +59,6 @@ Los archivos necesarios para ejecutar y la ubicación son las siguientes:
 
 (actualizando ...)
 
-Para descargar solamente esta sección del proyecto con los archivos realmente requeridos:
-[globus clean proyect] (https://mega.co.nz/#F!DZMg2YaT!es9-nHVGO4FqybeCF7gcLA "")
-
 Tambien es necesario tener en cuenta el archivo machineglobus/cookbooks/confighost/attributes/default.rb
 que contiene la información necesaria para poder acceder a una maquina que permite enviar el archivo /etc/hosts de los esclavos 
 a la maquina principal, de esta manera se configura automaticamente los alias y los hostname de las máquinas a levantar
@@ -80,7 +79,25 @@ Las variables son:
   default[:slavedata][:path_project_vagrant] =  "$PATH/machineglobus/cookbooks/confighost/files/default"
   #el path donde se va a crear el archivo hosts que se ira concatenando, es necesario que sea en la receta confighost
 ```
+Se puede manejar utilizando el script `manage-user-profile.sh`, para listar perfiles de esta configuracion, crear, borrar
+y seleccionar el que por defecto correra la receta de confighost.  Para mas información de este script 
+`manage-user-profile.sh -h`.
 
+#Releases
+
+Para descargar solamente esta sección del proyecto (trabajoGrado) con los archivos realmente requeridos se creo
+una seccion en mega para los releases:
+
+[globus clean proyect] (https://mega.co.nz/#F!DZMg2YaT!es9-nHVGO4FqybeCF7gcLA "")
+
+Información de los releases.
+
+`Release v.0.0.2` corrigiendo errores en scripts de expect, agregando a los json las variables para correr los scripts 
+de expect con otros parametros, actualizando readme. Agregando script para crear release.tar.gz con lo importante y 
+creando script para manejar el archivo de configuracion de la receta confighost.
+
+`Release v.0.0.1` recetas de plataformas corriendo y recetas de trabajo de grado con scripts, instalacion offline y 
+levantamiento de globus con certificados utilizando myproxy y automatizada.
 
 Testing on Ubuntu 12.10 (quantal) 64 bits
 =========================================
