@@ -60,7 +60,26 @@ if platform?("redhat", "centos", "fedora")
  
 	
 	if Extensions::Platform.i386?
+		cookbook_file "/home/vagrant/tcl-8.5.7-6.el6.i686.rpm" do
+				    source "tcl-8.5.7-6.el6.i686.rpm"
+				    mode 0644
+				    owner "vagrant"
+				    #group "admin"				
+		end
+
+		cookbook_file "/home/vagrant/expect-5.44.1.15-4.el6.i686.rpm" do
+        source "expect-5.44.1.15-4.el6.i686.rpm"
+        mode 0644
+        owner "vagrant"
+        #group "admin"
+		end
 		
+		cookbook_file "/home/vagrant/rsync-3.0.6-9.el6.i686.rpm" do
+        source "rsync-3.0.6-9.el6.i686.rpm"
+        mode 0644
+        owner "vagrant"
+        #group "admin"
+		end		
 
 	end
 
@@ -92,20 +111,20 @@ if platform?("redhat", "centos", "fedora")
 				    user "root"
 				    #group "admin"
 				    cwd "/home/vagrant"
-						command "yum install -y tcl*.rpm"
+						command "rpm -Uvh --quiet tcl*.rpm"
 				    action :run
 		end
 		execute "install expect" do
 				    user "root"
 				    #group "admin"
 				    cwd "/home/vagrant"
-				    command "yum install -y expect-*.rpm"
+				    command "rpm -Uvh --quiet expect-*.rpm"
 				    action :run
 		end
 		execute "install rsync" do
 	          user "root"
 	          cwd "/home/vagrant"
-	          command "yum install -y rsync*.rpm"
+	          command "rpm -Uvh --quiet rsync*.rpm"
 	          action :run
 
     end 
