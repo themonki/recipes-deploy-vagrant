@@ -39,4 +39,4 @@ echo "globus instalado"
 
 cd ..
 
-./restart-globus-myproxy.sh >>  log2.txt
+./restart-globus.sh >>  log2.txt
