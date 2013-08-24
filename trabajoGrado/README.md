@@ -2,6 +2,7 @@ Ver en Github https://github.com/themonki/recipes-deploy-vagrant/tree/master/tra
 
 #Índice
 
+
 [Pre-Configuración] (#pre-configuraci%C3%B3n "")
 
 - [tar.gz files] (#targz-files "")
