@@ -57,7 +57,8 @@ Vagrant::Config.run do |config|
 			chef.add_recipe "confighost::preinstall"
 			chef.json.merge!({
 				:run_list => [ "recipe[confighost::preinstall]" , "recipe[confighost::hostname]" , "recipe[confighost::hostconfiguremaster]" ,
-				"recipe[chefInstall::install]", "recipe[preinstall]", "recipe[postgresql]", "recipe[postgresql::configure]", "recipe[apache]" , "recipe[apache::configure]", "recipe[php]" ],
+				"recipe[chefInstall::install]", "recipe[preinstall]", "recipe[postgresql]", "recipe[postgresql::configure]", "recipe[apache]" ,
+				 "recipe[apache::configure]", "recipe[php]" , "recipe[java7-64]" , "recipe[tomcat7]" ],
 				:host_name => "mg.globustest.org",
 				:hostslaves => ["mgwn1"], #lista de todos los nodos
 				:alias => "mg" 
@@ -94,7 +95,8 @@ Vagrant::Config.run do |config|
 			chef.add_recipe "confighost::preinstall"
 			chef.json.merge!({
 				:run_list => [ "recipe[confighost::preinstall]" , "recipe[confighost::hostname]" , "recipe[confighost::hostconfiguremaster]" ,
-				"recipe[chefInstall::install]", "recipe[preinstall]", "recipe[postgresql]", "recipe[postgresql::configure]", "recipe[apache]" , "recipe[apache::configure]", "recipe[php]" ],
+				"recipe[chefInstall::install]", "recipe[preinstall]", "recipe[postgresql]", "recipe[postgresql::configure]", "recipe[apache]" ,
+				 "recipe[apache::configure]", "recipe[php]" , "recipe[java7-64]" , "recipe[tomcat7]"],
 				:host_name => "mg2.globustest.org",
 				:hostslaves => ["mgwn2"], #lista de todos los nodos
 				:alias => "mg2" 
