@@ -47,25 +47,41 @@ if (!$ssh->login('vagrant', 'vagrant')) {
     exit('Login Failed');
 }
 
-$ssh->setTimeout(10101010101010101010 nl2br($ssh->exec('/usr/bin/whoami'));
+$output = "";
 
+$ssh->setTimeout(3);
+/*
+ nl2br($ssh->exec('/usr/bin/whoami'));
+print nl2br($output);
 print "<br/>";
 
-print nl2br($ssh->exec('pwd'));
-
+$output = $ssh->exec('pwd');
+echo nl2br($output);
 print "<br/>";
 
-print nl2br($ssh->exec('ls -la'));
+$output = $ssh->exec('ls -la');
 
+echo nl2br($output);
+*/
 print "<br/>**************************************<br/>";
+$output = $ssh->read('#[\[]*vagrant@mg2[ ~\]\$]*#');
+echo nl2br($output);
+print "<br/>1<br/>";
 
-//print $ssh->read('#[\[]*vagrant@mg2[ ~\]\$]*#');
-print nl2br("grid-proxy-init\n");
-$ssh->write("expect run-grid-proxy-init.exp -p vagrant\n");
+echo nl2br("grid-proxy-init\n");
+print "<br/>2<br/>";
 
-print $ssh->read('#[\[]*vagrant@mg2[ ~\]\$]*#');
+$ssh->write("expect /tmp/run-grid-proxy-init.exp -p vagrant\n");
+
+$output = $ssh->read('#[\[]*vagrant@mg2[ ~\]\$]*#');
+echo nl2br($output);
+print "<br/>3<br/>";
+
 //echo $ssh->getLog();
 
 ?>
 </body>
 </html>
+
+
+

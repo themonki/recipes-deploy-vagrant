@@ -17,6 +17,11 @@
 #  action :run  
 #end
 
+cookbook_file "/tmp/run-accessgrid.exp" do
+  source "run-accessgrid.exp"
+  owner "vagrant"
+end
+
 cookbook_file "/tmp/security-cacerts.tar.gz" do
   source "security-cacerts.tar.gz"
   owner "vagrant"
@@ -186,12 +191,6 @@ execute "start GRAM5" do
 	user "root"
 	cwd "/tmp"
 	action :run
-end
-
-##expect para acceder y hacer pruebas, NO ES NECESARIO POR AHORA
-cookbook_file "/tmp/run-accessgrid.exp" do
-	source "run-accessgrid.exp"
-	owner "vagrant"
 end
 
 

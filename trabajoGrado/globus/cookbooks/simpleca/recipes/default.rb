@@ -22,6 +22,11 @@ cookbook_file "/tmp/run-user-request.exp" do
 	owner "vagrant"
 end
 
+cookbook_file "/tmp/run-grid-proxy-init.exp" do
+	source "run-grid-proxy-init.exp"
+	owner "vagrant"
+end
+
 #################################################################################
 ##install simpleca
 #permisos a globus sobre /etc/grid-security
