@@ -1,7 +1,7 @@
 #!/usr/bin/expect
 
 set sizeargv	[llength $argv]
-set pass "globus"
+set pass "vagrant"
 set hostname "mg.globustest.org"
 
 if { $sizeargv != 0} {
@@ -19,7 +19,7 @@ if { $sizeargv != 0} {
 		}
 	} else {
 		send_user "Error parametros incompletos\n"
-		send_user "Uso: run-run-accessgrid -p pass hl hostname"
+		send_user "Uso: run-accessgrid -p pass -h hostname"
 		exit 1
 	}
 }

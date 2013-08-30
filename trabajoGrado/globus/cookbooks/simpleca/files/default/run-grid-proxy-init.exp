@@ -5,6 +5,7 @@
 
 set sizeargv	[llength $argv]
 set pass "vagrant"
+set timeout 2
 
 if { $sizeargv != 0} {
 	if { $sizeargv == 2 }	{
@@ -15,7 +16,7 @@ if { $sizeargv != 0} {
 					    set pass [lindex $argv $index];
 			}
 		}
-	}else {
+	} else {
 		send_user "Error parametros incompletos\n"
 		send_user "Uso: run-grid-proxy-init -p password"
 		exit 1
