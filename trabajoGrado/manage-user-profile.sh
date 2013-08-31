@@ -10,6 +10,8 @@ export PATH_CONFIGHOST=$PATH_SCRIPT/$PATH_FILES
 #echo $PATH_CONFIGHOST
 IP="172.18.0.1"
 #echo $IP
+NAME="$(whoami)"
+#echo $NAME
 
 function print_help {
 	printf '%s\n' "";
@@ -34,7 +36,7 @@ function print_help {
 	printf '\t\t%s\n' "-n	NAME indica el nombre del perfil"
 	printf '\t\t%s\n' "-i	IP indica el la ip del equipo actual del perfil. Por defecto 172.18.0.1."
 	printf '\t\t%s\n' "-p	PASS indica el PASS del USER"
-	printf '\t\t%s\n' "-u	USER indica el USER de la maquina actual"
+	printf '\t\t%s\n' "-u	USER indica el USER de la máquina actual. Por defecto el usuario actual."
 	printf '%s\n' "" ;
 }
 
