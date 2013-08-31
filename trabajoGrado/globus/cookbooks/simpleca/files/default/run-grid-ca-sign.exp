@@ -6,6 +6,7 @@ set passGrid "globus"
 set infile "request.pem"
 set outfile "signed.pem"
 set extfileconf ""
+set paramsextfileconf ""
 
 if { $sizeargv != 0} {
 	if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 | $sizeargv == 8 }	{
@@ -36,11 +37,12 @@ if { $sizeargv != 0} {
 #please enter the password for the CA key:
 #expect dont work
 
-if { extfileconf == ""} {
-	spawn grid-ca-sign -in $infile -out $outfile 
-} elseif {
-	spawn grid-ca-sign -in $infile -out $outfile -extfile $extfileconf
+if { $extfileconf != "" } {
+  set paramsextfileconf "-extfile $extfileconf" ;
 }
+
+spawn grid-ca-sign -in $infile -out $outfile $paramsextfileconf
+
 send_user "expecting\n"
 send "$passGrid\r"
 expect eof {
