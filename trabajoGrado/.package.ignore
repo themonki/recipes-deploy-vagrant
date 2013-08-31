@@ -12,3 +12,5 @@
 ./package.ignore
 ./machineglobus/cookbooks/confighost/attributes/monki.rb
 ./machineglobus/cookbooks/confighost/attributes/student.rb
+./ssl
+./Prototipe
