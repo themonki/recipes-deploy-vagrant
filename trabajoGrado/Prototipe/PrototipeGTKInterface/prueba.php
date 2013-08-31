@@ -1,37 +1,27 @@
 <html>
 <body>
-<form method="POST" action="">
+<form method="POST" action="prueba.php">
 <input type="text" name="comando">
 <input type="submit" value="enviar">
 </form>
 
 <?php
 
-
-
- 
-if(isset($_GET['comando'])){
-$var = system($_GET['comando']);
-echo $var;
-}
-
-
-
-print nl2br(exec('/usr/bin/whoami'));
-
-print "<br/>";
-
-print nl2br(shell_exec('/usr/bin/whoami'));
-
-print "<br/>";
-
-print nl2br(exec('pwd'));
-
-print "<br/>";
-
-print nl2br(exec('ls -la'));
-
-print "<br/>";
+//print nl2br(exec('/usr/bin/whoami'));
+//
+//print "<br/>";
+//
+//print nl2br(shell_exec('/usr/bin/whoami'));
+//
+//print "<br/>";
+//
+//print nl2br(exec('pwd'));
+//
+//print "<br/>";
+//
+//print nl2br(exec('ls -la'));
+//
+//print "<br/>";
 
 
 
@@ -63,25 +53,39 @@ $output = $ssh->exec('ls -la');
 
 echo nl2br($output);
 */
-print "<br/>**************************************<br/>";
+//print "<br/>**************************************<br/>";
 $output = $ssh->read('#[\[]*vagrant@mg2[ ~\]\$]*#');
-echo nl2br($output);
-print "<br/>1<br/>";
+//echo nl2br($output);
+//print "<br/>1<br/>";
 
-echo nl2br("grid-proxy-init\n");
-print "<br/>2<br/>";
+//echo nl2br("grid-proxy-init\n");
+//print "<br/>2<br/>";
 
 $ssh->write("expect /tmp/run-grid-proxy-init.exp -p vagrant\n");
 
 $output = $ssh->read('#[\[]*vagrant@mg2[ ~\]\$]*#');
-echo nl2br($output);
-print "<br/>3<br/>";
+//echo nl2br($output);
+//print "<br/>3<br/>";
+
+ if(isset($_POST['comando'])){   
+
+    $var = $_POST['comando'];
+    
+    $ssh->write("$var\n");
+
+    $output = $ssh->read('#[\[]*vagrant@mg2[ ~\]\$]*#');
+    echo nl2br($output);
+    
+}
+//globusrun -status https://172.18.0.21:43922/16362122880619392831/4895484430711845780/
+
+//globusrun -b -r 172.18.0.21/jobmanager-fork "&(executable=/bin/sleep)(arguments=50000)"
+
 
 //echo $ssh->getLog();
+
+
 
 ?>
 </body>
 </html>
-
-
-
