@@ -64,6 +64,8 @@ function delete_profile {
 
 											}
 function election_profile {
+												echo $PATH_PROFILE/$NAME.rb;
+												echo $PATH_PROFILE/default.rb;
 												cat $PATH_PROFILE/$NAME.rb | sed 's/^#*//g' > $PATH_PROFILE/default.rb ;
 												exit 0;
 }
@@ -97,7 +99,7 @@ do
 			i ) IP=${OPTARG};;
 			p ) PASS=${OPTARG};;
 			u ) USER=${OPTARG};;
-			e ) NAME=${OPTARG};;
+			e ) NAME=${OPTARG};election_profile;;
 			s ) NAME=${OPTARG};print_show;;
 			l) print_list;;
 			d ) NAME=${OPTARG};delete_profile;;
