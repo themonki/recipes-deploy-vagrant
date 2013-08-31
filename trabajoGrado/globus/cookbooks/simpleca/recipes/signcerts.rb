@@ -12,7 +12,7 @@ end
 #enviar los certs user de vagrant
 node[:slaves].each do |slave|
 	execute "sign cert #{slave}" do
-		command "sudo -H -E -u globus expect run-grid-ca-sign.exp -p globus -in #{slave}-hostcert_request.pem -out #{slave}-hostsigned.pem"
+		command "sudo -H -E -u globus expect run-grid-ca-sign.exp -p globus -in #{slave}-hostcert_request.pem -out #{slave}-hostsigned.pem -f /tmp/configserver.conf"
 		user "vagrant"
 		cwd "/tmp"
 		action :run

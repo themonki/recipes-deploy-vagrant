@@ -27,6 +27,16 @@ cookbook_file "/tmp/run-grid-proxy-init.exp" do
 	owner "vagrant"
 end
 
+cookbook_file "/tmp/configserver.conf" do
+	source "configuser.conf"
+	owner "globus"
+end
+
+
+cookbook_file "/tmp/configuser.conf" do
+	source "configuser.conf"
+	owner "globus"
+end
 #################################################################################
 ##install simpleca
 #permisos a globus sobre /etc/grid-security
@@ -78,7 +88,7 @@ end
 
 #firmar request host
 execute "firmar request host" do
-	command "sudo -H -E -u globus expect run-grid-ca-sign.exp -p globus -in hostcert_request.pem -out hostsigned.pem"
+	command "sudo -H -E -u globus expect run-grid-ca-sign.exp -p globus -in hostcert_request.pem -out hostsigned.pem -f /tmp/configserver.conf"
 	user "vagrant"
 	cwd "/tmp"
 	action :run
@@ -130,7 +140,7 @@ end
 
 #firmar request user
 execute "firmar request host" do
-	command "sudo -H -E -u globus expect run-grid-ca-sign.exp  -p globus -in usercert_request.pem -out usersigned.pem"
+	command "sudo -H -E -u globus expect run-grid-ca-sign.exp  -p globus -in usercert_request.pem -out usersigned.pem -f /tmp/configuser.conf"
 	user "vagrant"
 	cwd "/tmp"
 	action :run

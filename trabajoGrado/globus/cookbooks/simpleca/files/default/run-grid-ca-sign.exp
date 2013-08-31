@@ -5,6 +5,7 @@ set sizeargv	[llength $argv]
 set passGrid "globus"
 set infile "request.pem"
 set outfile "signed.pem"
+set extfileconf ""
 
 if { $sizeargv != 0} {
 	if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 }	{
@@ -19,11 +20,14 @@ if { $sizeargv != 0} {
 			} elseif {$argvtmp == "-out"} {#outfile
 				      set index  [expr $i+1];
 					    set outfile [lindex $argv $index];
+			} elseif {$argvtmp == "-f"} {#extfileconf
+				      set index  [expr $i+1];
+					    set extfileconf [lindex $argv $index];
 			}
 		}
 	} else {
 		send_user "Error parametros incompletos\n"
-		send_user "Uso: run-grid-ca-sign -p passGrid -in infile -out outfile"
+		send_user "Uso: run-grid-ca-sign -p passGrid -in infile -out outfile -f extfile"
 		exit 1
 	}
 
@@ -32,8 +36,11 @@ if { $sizeargv != 0} {
 #please enter the password for the CA key:
 #expect dont work
 
-spawn grid-ca-sign -in $infile -out $outfile
-
+if { extfileconf == ""} {
+	spawn grid-ca-sign -in $infile -out $outfile 
+} elseif {
+	spawn grid-ca-sign -in $infile -out $outfile -extfile $extfileconf
+}
 send_user "expecting\n"
 send "$passGrid\r"
 expect eof {
