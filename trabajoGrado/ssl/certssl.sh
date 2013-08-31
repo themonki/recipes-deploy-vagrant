@@ -6,7 +6,7 @@
 #openssl x509 -CA CAXplotaKey.pem -CAkey CAXplotaKey.pem -req -extfile configservidor.cnf -in certificado.pem -days 3650 -CAcreateserial -sha1 -out certificado-servidor.pem
 
 #ejecutando en $HOME/.globus/simpleCA
-##se hace elreques normal con /ur/bin/grid-ca-request
+##se hace el request normal con /ur/bin/grid-ca-request
 
 #pide pass del anterior
 
@@ -22,17 +22,39 @@
 #                  > $tmp_output 2>&1
 
 #el comando requerido
-openssl x509 -CA private/cakey.pem -CAkey cacert.pem -req -extfile configservidor.cnf -in certificado.pem -days 3650 -CAcreateserial -sha1 -out certificado-servidor.pem
+## LOS CERTS DEL CA ESTAN  /home/globus/.globus/simpleCA/cacert.pem  /home/globus/.globus/simpleCA/private/cakey.pem
+#openssl x509 -CA private/cakey.pem -CAkey cacert.pem -req -extfile configservidor.cnf -in certificado.pem -days 3650 -CAcreateserial -sha1 -out certificado-servidor.pem
 
 #pide pass del globus
 
 #se probara usando la opcion -extfile e indicando el archivo configservidor.conf que se indica en el tutorial (primer link)
 #para ver mas opciones http://chschneider.eu/linux/server/openssl.shtml
 #se modifica el archivo de firmado de expect run-grid-ca-sing.exp
+##ACTUALIZADO EL .exp y genera correctamente el cert
 
 #luego referenciarlo en /etc/httpd/conf.d/ssl.conf
 
+SSLEngine on
+SSLCertificateFile /ruta/a/certificado-servidor.pem
+SSLCertificateKeyFile /ruta/a/claveprivada.pem
 
 
+#se reinicia y funciona :D
+
+#se genera el p12 para el navegador
+openssl pkcs12 -export -in /home/vagrant/.globus/usercert.pem -inkey /home/vagrant/.globus/userkey.pem -certfile /home/globus/.globus/simpleCA/cacert.pem -out webcert.p12
+#salida
+
+#Enter pass phrase for /home/vagrant/.globus/userkey.pem:
+#Enter Export Password:
+#Verifying - Enter Export Password:
+
+
+#agregar al ssl.conf que procese las peticiones ssl
+SSLCACertificateFile /path/a/CAXplotacert.pem
+SSLVerifyClient require
+
+#donde CAXplotacert.pem ES  /home/globus/.globus/simpleCA/cacert.pem
+#reinicar httpd o apache
 
 

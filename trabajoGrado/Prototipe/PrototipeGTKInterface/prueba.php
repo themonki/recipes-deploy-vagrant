@@ -5,7 +5,7 @@
 <input type="submit" value="enviar">
 </form>
 
-<?php
+<?php 
 
 //print nl2br(exec('/usr/bin/whoami'));
 //
@@ -23,6 +23,11 @@
 //
 //print "<br/>";
 
+foreach($_SERVER as $key_name => $key_value) {
+
+print $key_name . " = " . $key_value . "<br>";
+
+}
 
 
 set_include_path(get_include_path() . PATH_SEPARATOR . 'phpseclib');
