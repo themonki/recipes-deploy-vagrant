@@ -3,9 +3,11 @@
 set sizeargv	[llength $argv]
 set pass "vagrant"
 set name "VagrantUser"
+set prefix "user"
+set timeout 2
 
 if { $sizeargv != 0} {
-	if { $sizeargv == 2 || $sizeargv == 4 } {
+	if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 } {
 		for {set i 0} {$i < [llength $argv]} {incr i 2} {
 			set argvtmp [lindex $argv $i];
 			if {$argvtmp == "-p"} { #pass
@@ -14,11 +16,14 @@ if { $sizeargv != 0} {
 			} elseif {$argvtmp == "-n"} {#name
 				      set index  [expr $i+1];
 					    set name  [lindex $argv $index];
+			} elseif {$argvtmp == "-f"} {#prefix
+				      set index  [expr $i+1];
+					    set prefix  [lindex $argv $index];
 			}
 		}
 	} else {
 		send_user "Error parametros incompletos\n"
-		send_user "Uso: run-grid-cert-request -n name -p password"
+		send_user "Uso: run-grid-cert-request -n name -p password -f prefix"
 		exit 1
 	}
 
@@ -71,12 +76,7 @@ if { $sizeargv != 0} {
 #Your certificate will be mailed to you within two working days.
 #If you receive no response, contact Globus Simple CA at globus@mg2.globustest.org
 
-spawn grid-cert-request
-
-##Enter your name, e.g., John Smith:
-send "$name\r"
-
-expect eof
+spawn grid-cert-request -f $prefix -cn $name
 
 #Enter PEM pass phrase:
 send "$pass\r"
