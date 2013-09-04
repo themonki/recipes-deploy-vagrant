@@ -126,7 +126,8 @@ Testing on Ubuntu 12.04 (precise) 64 bits
 
 [vagrant version 1.0.1 (64 bits)] (http://files.vagrantup.com/packages/5bc27e46d3cd5246e0fa2141e52127066407c2b5/vagrant_1.0.1_x86_64.deb "")
 
-Y [vagrant version 1.1.5 (64 bits)] (http://files.vagrantup.com/packages/64e360814c3ad960d810456add977fd4c7d47ce6/vagrant_x86_64.deb "")
+Y [vagrant version 1.1.5 (64 bits)] (http://files.vagrantup.com/packages/64e360814c3ad960d810456add977fd4c7d47ce6/vagrant_x86_64.deb "") se muestra simplemente
+un warning sobre el provedor a utilizar ya que las nuevas versiones buscan compatibilidad con VMWARE. Por defecto usara VirtualBox.
 
 [VirtualBox version 4.1.12 (64 bits)] (http://download.virtualbox.org/virtualbox/4.1.12/virtualbox-4.1_4.1.12-77245~Ubuntu~precise_amd64.deb "")
 and [extension 4.1.12] (http://download.virtualbox.org/virtualbox/4.1.12/Oracle_VM_VirtualBox_Extension_Pack-4.1.12-77245.vbox-extpack "")
