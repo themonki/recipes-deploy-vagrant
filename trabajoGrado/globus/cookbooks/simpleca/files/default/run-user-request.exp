@@ -76,7 +76,7 @@ if { $sizeargv != 0} {
 #Your certificate will be mailed to you within two working days.
 #If you receive no response, contact Globus Simple CA at globus@mg2.globustest.org
 
-spawn grid-cert-request -f $prefix -cn $name
+spawn grid-cert-request -prefix $prefix -cn $name
 
 #Enter PEM pass phrase:
 send "$pass\r"

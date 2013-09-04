@@ -2,7 +2,7 @@
 
 cookbook_file "/tmp/pass.sql" do
 	source "pass.sql"
-	owner "root"
+	owner "postgres"
 end
 
 cookbook_file "/tmp/changepasspsql.exp" do
@@ -10,7 +10,7 @@ cookbook_file "/tmp/changepasspsql.exp" do
 	owner "root"
 end
 
-execute "start psql" do
+execute "initdb psql" do
 	command "service postgresql initdb"
 	user "root"
 	cwd "/tmp"
@@ -19,6 +19,13 @@ end
 
 execute "chkconfig postgresql" do
 	command "chkconfig postgresql on"
+	user "root"
+	cwd "/tmp"
+	action :run  
+end
+
+execute "start psql" do
+	command "service postgresql start"
 	user "root"
 	cwd "/tmp"
 	action :run  
@@ -37,4 +44,3 @@ execute "pass psql" do
 	cwd "/tmp"
 	action :run  
 end
-
