@@ -29,7 +29,7 @@
 
             return true;
         }
-        
+
 //        CREATE TABLE `sc_users_sslclientcerts` (
 //            `id` INT NOT NULL AUTO_INCREMENT ,
 //            `uId` INT NOT NULL ,
@@ -63,17 +63,16 @@
 //print nl2br(exec('pwd'));
 //
 //print "<br/>";
-//
+
 //print nl2br(exec('ls -la'));
 //
 //print "<br/>";
 
-//        foreach ($_SERVER as $key_name => $key_value) {
-//
-//            print $key_name . " = " . $key_value . "<br>";
-//        }
+        foreach ($_SERVER as $key_name => $key_value) {
 
-
+            print $key_name . " = " . $key_value . "<br>";
+        }
+        
         set_include_path(get_include_path() . PATH_SEPARATOR . 'phpseclib');
 
         include('Net/SSH2.php');
@@ -87,35 +86,35 @@
         if (!$ssh->login($user, $passuser)) {
             exit('Login Failed');
         }
-
+//
         $output = "";
-
-        /*
-          nl2br($ssh->exec('/usr/bin/whoami'));
-          print nl2br($output);
-          print "<br/>";
-
-          $output = $ssh->exec('pwd');
-          echo nl2br($output);
-          print "<br/>";
-
-          $output = $ssh->exec('ls -la');
-
-          echo nl2br($output);
-         */
-//print "<br/>**************************************<br/>";
-        //[vagrant@mg2 tmp]$
+//
+//        /*
+//          nl2br($ssh->exec('/usr/bin/whoami'));
+//          print nl2br($output);
+//          print "<br/>";
+//
+//          $output = $ssh->exec('pwd');
+//          echo nl2br($output);
+//          print "<br/>";
+//
+//          $output = $ssh->exec('ls -la');
+//
+//          echo nl2br($output);
+//         */
+////print "<br/>**************************************<br/>";
+//        //[vagrant@mg2 tmp]$
         $output = $ssh->read('['.$user.'@'.$host.' ~]$');
         echo nl2br($output);
-//print "<br/>1<br/>";
-//echo nl2br("grid-proxy-init\n");
-//print "<br/>2<br/>";
-
-        //$ssh->write("expect /tmp/run-grid-proxy-init.exp -p vagrant\n");
-
-        //$output = $ssh->read('#[\[]*vagrant@mg2[ ~\]\$]*#');
-//echo nl2br($output);
-//print "<br/>3<br/>";
+////print "<br/>1<br/>";
+////echo nl2br("grid-proxy-init\n");
+////print "<br/>2<br/>";
+//
+//        //$ssh->write("expect /tmp/run-grid-proxy-init.exp -p vagrant\n");
+//
+//        //$output = $ssh->read('#[\[]*vagrant@mg2[ ~\]\$]*#');
+////echo nl2br($output);
+////print "<br/>3<br/>";
         if(hasValidCert()){
             echo "<br/>es valido";
         }
