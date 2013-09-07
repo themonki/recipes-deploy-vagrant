@@ -26,6 +26,27 @@ execute "chkconfig postgresql" do
 	action :run  
 end
 
+execute "start psql" do
+	command "service postgresql start"
+	user "root"
+	cwd "/tmp"
+	action :run  
+end
+
+execute "pass sql" do
+	command "su postgres -c 'psql -f /tmp/pass.sql'"
+	user "root"
+	cwd "/tmp"
+	action :run  
+end
+
+execute "pass psql" do
+	command "expect changepasspsql.exp -p dbpsglobus2013"
+	user "root"
+	cwd "/tmp"
+	action :run  
+end
+
 execute "backups pg_hba.conf" do
 	command "mv /var/lib/pgsql/data/pg_hba.conf /var/lib/pgsql/data/pg_hba.conf.old"
 	user "root"
@@ -52,23 +73,11 @@ cookbook_file "/var/lib/pgsql/data/pg_hba.conf" do
 	mode 0600
 end
 
-execute "start psql" do
-	command "service postgresql start"
+execute "restart psql" do
+	command "service postgresql restart"
 	user "root"
 	cwd "/tmp"
 	action :run  
 end
 
-execute "pass sql" do
-	command "su postgres -c 'psql -f /tmp/pass.sql'"
-	user "root"
-	cwd "/tmp"
-	action :run  
-end
 
-execute "pass psql" do
-	command "expect changepasspsql.exp -p dbpsglobus2013"
-	user "root"
-	cwd "/tmp"
-	action :run  
-end
