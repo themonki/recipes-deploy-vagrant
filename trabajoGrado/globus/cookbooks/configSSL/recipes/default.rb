@@ -12,11 +12,13 @@
 cookbook_file "/tmp/httpd.conf" do
 	source "httpd.conf"
 	owner "root"
+	mode 0644
 end
 
 cookbook_file "/tmp/ssl.conf" do
 	source "ssl.conf"
 	owner "root"
+	mode 0644
 end
 
 cookbook_file "/tmp/generatep12.exp" do

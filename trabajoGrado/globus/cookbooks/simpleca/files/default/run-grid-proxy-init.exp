@@ -5,8 +5,8 @@
 
 set sizeargv	[llength $argv]
 set pass "vagrant"
-set userkey "\$HOME/.globus/usercert.pem"
-set usercert "\$HOME/.globus/userkey.pem"
+set userkey "/home/vagrant/.globus/usercert.pem"
+set usercert "/home/vagrant/.globus/userkey.pem"
 set outproxy "/tmp/x509up_u500"
 set timeout 2
 
