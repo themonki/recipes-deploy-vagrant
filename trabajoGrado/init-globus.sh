@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pathSSH=$HOME/.ssh/id_rsa
-echo $pathSSH
+#echo $pathSSH
 
 rm -rf log2.txt
 touch log2.txt
@@ -34,11 +34,20 @@ knife cook vagrant@172.18.0.21 nodes/initsimpleca.json >> ../log2.txt
 knife cook vagrant@172.18.0.22 nodes/initsimplecasecondmachine.json >> ../log2.txt
 knife cook vagrant@172.18.0.21 nodes/signsimpleca.json >> ../log2.txt
 knife cook vagrant@172.18.0.22 nodes/configcertnodes.json >> ../log2.txt
-knife cook vagrant@172.18.0.21 nodes/configSSL.json >> ../log2.txt
+
 echo "globus instalado"
+
+echo "Preparando aplicación"
+
+knife cook vagrant@172.18.0.21 nodes/configSSL.json >> ../log2.txt
+knife cook vagrant@172.18.0.21 nodes/database.json >> ../log2.txt
+
+echo "Aplicación generada"
 
 cd ..
 
-scp vagrant@172.18.0.21:/tmp/webcert.p12 .
+scp vagrant@172.18.0.21:/tmp/webcert.p12 . >> log2.txt
+
+echo "certificado globus obtenido"
 
 ./restart-globus.sh >>  log2.txt

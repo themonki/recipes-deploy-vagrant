@@ -1,4 +1,6 @@
-#configuracion y levantamiento del servicio apache
+#configuracion y levantamiento del servicio POSTGRESQL
+##RECORDAR QUE ES NECESARIO ORGANIZAR LAS IPTABLES
+##http://www.cyberciti.biz/tips/postgres-allow-remote-access-tcp-connection.html
 
 cookbook_file "/tmp/pass.sql" do
 	source "pass.sql"
@@ -22,6 +24,32 @@ execute "chkconfig postgresql" do
 	user "root"
 	cwd "/tmp"
 	action :run  
+end
+
+execute "backups pg_hba.conf" do
+	command "mv /var/lib/pgsql/data/pg_hba.conf /var/lib/pgsql/data/pg_hba.conf.old"
+	user "root"
+	cwd "/tmp"
+	action :run  
+end
+
+execute "backups postgresql.conf" do
+	command "mv /var/lib/pgsql/data/postgresql.conf /var/lib/pgsql/data/postgresql.conf.old"
+	user "root"
+	cwd "/tmp"
+	action :run  
+end
+
+cookbook_file "/var/lib/pgsql/data/postgresql.conf" do
+	source "postgresql.conf"
+	owner "postgres"
+	mode 0600
+end
+
+cookbook_file "/var/lib/pgsql/data/pg_hba.conf" do
+	source "pg_hba.conf"
+	owner "postgres"
+	mode 0600
 end
 
 execute "start psql" do
