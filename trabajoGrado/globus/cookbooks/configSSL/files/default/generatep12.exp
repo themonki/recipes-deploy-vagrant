@@ -25,7 +25,7 @@ if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $si
         	        set cert  [lindex $argv $index];
 	        } elseif { $argvtmp == "-o" } {#out
                 	set index  [expr $i+1];
-        	        set out_server [lindex $argv $index];
+        	        set out [lindex $argv $index];
 	        } elseif { $argvtmp == "-pu" } {#passuser
 	                set index  [expr $i+1];
                 	set passuser  [lindex $argv $index];

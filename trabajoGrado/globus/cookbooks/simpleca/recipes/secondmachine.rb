@@ -86,7 +86,7 @@ end
 
 #hostcert
 execute "request host" do
-	command "sudo grid-cert-request -host '#{node[:host_name]}' -force"
+	command "sudo grid-cert-request -host '#{node[:host_name]}' -force -cn '#{node[:host_name]}'"
 	user "vagrant"
 	cwd "/tmp"
 	action :run

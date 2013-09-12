@@ -1,11 +1,29 @@
 <html>
+    <head>
+        <script src="js/scripts.js" type="text/javascript"></script>        
+    </head>
     <body>
         <form method="POST" action="prueba.php">
-            <input type="text" name="comando">
-            <input type="submit" value="enviar">
+            <input type="text" name="comando"/>
+            <input type="submit" value="enviar"/>
+        </form>
+        <form method="POST" action="prueba.php"> 
+            <input hidden="" type="text" name="clear"/>
+            <input type="submit" value="Limpiar Certs"/>
         </form>
 
+
         <?php
+        header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
+        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+        header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
+        
+        if (isset($_POST['clear'])) {
+            $_SERVER = array();
+        }
+        
 
         /**
          * Determines if the browser provided a valid SSL client certificate
@@ -104,16 +122,28 @@
         echo nl2br($output);
         print "<br/>1<br/>";
         echo nl2br("grid-proxy-init\n");
-        print "<br/>2<br/>";
+        print "<br/><br/>";
 
         $ssh->write("expect /tmp/run-grid-proxy-init.exp -p vagrant\n");
 
         $output = $ssh->read('[' . $user . '@' . $host . ' ~]$');
         echo nl2br($output);
-        print "<br/>3<br/>";
+        print "<br/><br/>";
         if (hasValidCert()) {
             echo "<br/>es valido";
+            print "<br/><br/>";
         }
+
+
+        $datos = openssl_x509_parse($_SERVER['SSL_CLIENT_CERT']);
+        var_dump($datos);
+        print "<br/><br/>";
+
+       
+        $p12cert = array();
+        openssl_pkcs12_read($_SERVER['SSL_CLIENT_CERT'], $p12cert, 'client');
+
+        var_dump($p12cert);
 
         if (isset($_POST['comando'])) {
 
@@ -121,12 +151,15 @@
 
             $ssh->write("$var\n");
 
-            $output = $ssh->read('#[\[]*vagrant@mg2[ ~\]\$]*#');
+            $output = $ssh->read('[' . $user . '@' . $host . ' ~]$');
             echo nl2br($output);
         }
+        
 //        globusrun -status https://172.18.0.21:43922/16362122880619392831/4895484430711845780/
 //        globusrun -b -r 172.18.0.21/jobmanager-fork "&(executable=/bin/sleep)(arguments=50000)"
-        echo $ssh->getLog();
+//        echo $ssh->getLog();
+        
+        
         ?>
     </body>
 </html>
