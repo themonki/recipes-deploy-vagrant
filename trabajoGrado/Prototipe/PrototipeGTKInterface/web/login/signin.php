@@ -10,30 +10,33 @@ if (isset($_SESSION['PWD_CONTROLADOR'])) {
 } else {
     include( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/login/Signin.php' );
 }
+/**
+ * Estilo css styleLogin.css
+ * http://ui-cloud.com/html-login-register-forms/
+ */
 ?>
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
     <head>
-        <title>Sign in</title>
-        <link rel="stylesheet" type="text/css" href="<?php echo $_SESSION['SITE_PROTOTIPE'] . "/css/"; ?>style.css">
-    </head>
-    <body class="min">
-        <p>Welcome to <a href="http://www.w3bees.com/2013/02/php-simple-log-in-example.html">PHP Sign in example</a> demo!</p>
-        <h1>Sign in</h1>
-        <div class="form">
-            <?php
-            if (isset($msg)) {
-                echo "<p class='error'>{$msg}</p>";
-            }
-            ?>
-            <form action ="" method="POST" >
-                <lable><b>Username: </b><input type="text" name="username" /><br />
-                    <lable><b>Password: </b><input type="password" name="password" /><br />
-                        <input type="submit" value="Sigin in" />
-                        </form>
-                        <br />
-                        <br />	
-                        </div>
+        <meta charset="UTF-8">
+        <title>Log In</title>
+        <link rel="stylesheet" href="<?php echo $_SESSION['SITE_PROTOTIPE'] . "/css/"; ?>styleLogin.css" />
 
-                        </body>
-                        </html>
+    </head>
+
+    <body>
+
+        <form action ="" method="POST">
+            
+
+            <h2>Log In</h2>
+
+            <input name="username" type="text" class="text-field" placeholder="Username" />
+            <input name="password" type="password" class="text-field" placeholder="Password" />
+
+            <input type="submit" value="Log In" class="button" />
+
+        </form>
+
+    </body>
+</html>

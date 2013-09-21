@@ -14,7 +14,7 @@ if (isset($_SESSION['PWD_CONTROLADOR'])) {
 
 if (isset($_SESSION["username"]) && $_SESSION["password"]) {
     if (valid_login($_SESSION["username"], $_SESSION["password"])) {
-        header("Location: " . $_SESSION['SITE_WEB']);
+        header("Location: " . $_SESSION['SITE_WEB']."/site");
     }
 } elseif (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = $_POST["username"];
@@ -24,10 +24,10 @@ if (isset($_SESSION["username"]) && $_SESSION["password"]) {
         session_start();
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
-        header("Location: " . $_SESSION['SITE_WEB']);
+        header("Location: " . $_SESSION['SITE_WEB']."/site");
         exit;
     } else {
-        $msg = "Fail to login. Wrong username or password!";
+        $msg = "¡Fallo al autenticarse. Nombre de Usuario y/o Contraseña invalidos.";
     }
 }
 ?>

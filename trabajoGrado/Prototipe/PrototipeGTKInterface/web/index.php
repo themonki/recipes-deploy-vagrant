@@ -6,5 +6,5 @@ if (isset($_SESSION['PWD_CONTROLADOR'])) {
 } else {
     require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
 }
-header("Location: " . $_SESSION['SITE_WEB'] . "/site");
+header("Location: " . $_SESSION['SITE_WEB'] . "/login/signin.php");
 ?>
