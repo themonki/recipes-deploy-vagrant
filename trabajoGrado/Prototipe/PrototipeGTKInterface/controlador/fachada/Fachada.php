@@ -7,16 +7,15 @@
  * @author Edgar Moncada
  */
 session_start();
-if(isset($_SESSION['PWD_CONTROLADOR'])){
+if (isset($_SESSION['PWD_CONTROLADOR'])) {
     require_once( $_SESSION['PWD_CONTROLADOR'] . '/config.php' );
 } else {
     require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
 }
 
 class Fachada {
-    
+
     private $dbcon = null;
-    
 
     /**
      * Función para obtener una conexión a la base de datos postgres.
@@ -41,8 +40,8 @@ class Fachada {
             return true;
         }
         return false;
-    }    
-    
+    }
+
     /**
      * Función realizar consultas a la base de datos.
      * @param type $query String con la consulta a realizar
@@ -50,7 +49,7 @@ class Fachada {
      */
     public function db_query_select_pg($query) {
         if (isset($query) && isset($this->dbcon)) {
-            return pg_query($this->dbcon,$query);            
+            return pg_query($this->dbcon, $query);
         }
         return false;
     }

@@ -16,9 +16,6 @@
 //        header("Cache-Control: post-check=0, pre-check=0", false);
 //        header("Pragma: no-cache");
 
-        
-
-
         /**
          * Determines if the browser provided a valid SSL client certificate
          *
@@ -83,12 +80,12 @@
         }
 
         session_start();
-        if(isset($_SESSION['PWD_CONTROLADOR'])){
+        if (isset($_SESSION['PWD_CONTROLADOR'])) {
             require_once( $_SESSION['PWD_CONTROLADOR'] . '/config.php' );
         } else {
             require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
         }
-        set_include_path(get_include_path() . PATH_SEPARATOR . $_SESSION['PWD_PHPSECLIB'] );
+        set_include_path(get_include_path() . PATH_SEPARATOR . $_SESSION['PWD_PHPSECLIB']);
 
         include('Net/SSH2.php');
 

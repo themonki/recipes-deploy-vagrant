@@ -19,17 +19,16 @@ session_start();
 /**
  * PATH PARA REDIRECCIONAR PAGINAS ENTRE OTRAS
  */
-
 if (!isset($_SESSION['SITE_PROTOTIPE'])) {
     echo "asigna ";
     $_SESSION['SITE_PROTOTIPE'] = '/PrototipeGTKInterface';
-     echo $_SESSION['SITE_PROTOTIPE']." ";
+    echo $_SESSION['SITE_PROTOTIPE'] . " ";
 }
 
 if (!isset($_SESSION['SITE_WEB'])) {
     echo ", web ";
     $_SESSION['SITE_WEB'] = $_SESSION['SITE_PROTOTIPE'] . '/web';
-    echo $_SESSION['SITE_WEB']." ";
+    echo $_SESSION['SITE_WEB'] . " ";
 }
 
 if (!isset($_SESSION['SITE_CONTROLADOR'])) {
@@ -62,7 +61,4 @@ if (!isset($_SESSION['PWD_PHPSECLIB'])) {
 if (!isset($_SESSION['PWD_FACHADA'])) {
     $_SESSION['PWD_FACHADA'] = $_SESSION['PWD_CONTROLADOR'] . '/fachada';
 }
-
-
-
 ?>
