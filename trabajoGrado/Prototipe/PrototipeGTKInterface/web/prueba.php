@@ -7,23 +7,17 @@
             <input type="text" name="comando"/>
             <input type="submit" value="enviar"/>
         </form>
-        <form method="POST" action="prueba.php"> 
-            <input hidden="" type="text" name="clear"/>
-            <input type="submit" value="Limpiar Certs"/>
-        </form>
 
 
         <?php
-        header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
-        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-        header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-        header("Cache-Control: post-check=0, pre-check=0", false);
-        header("Pragma: no-cache");
+//        header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
+//        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+//        header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+//        header("Cache-Control: post-check=0, pre-check=0", false);
+//        header("Pragma: no-cache");
+
         
-        if (isset($_POST['clear'])) {
-            $_SERVER = array();
-        }
-        
+
 
         /**
          * Determines if the browser provided a valid SSL client certificate
@@ -88,7 +82,8 @@
             print $key_name . " = " . $key_value . "<br>";
         }
 
-        set_include_path(get_include_path() . PATH_SEPARATOR . 'phpseclib');
+
+        set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['PWD_PHPSECLIB'] );
 
         include('Net/SSH2.php');
 
@@ -139,7 +134,7 @@
         var_dump($datos);
         print "<br/><br/>";
 
-       
+
         $p12cert = array();
         openssl_pkcs12_read($_SERVER['SSL_CLIENT_CERT'], $p12cert, 'client');
 
@@ -154,12 +149,10 @@
             $output = $ssh->read('[' . $user . '@' . $host . ' ~]$');
             echo nl2br($output);
         }
-        
+
 //        globusrun -status https://172.18.0.21:43922/16362122880619392831/4895484430711845780/
 //        globusrun -b -r 172.18.0.21/jobmanager-fork "&(executable=/bin/sleep)(arguments=50000)"
 //        echo $ssh->getLog();
-        
-        
         ?>
     </body>
 </html>
