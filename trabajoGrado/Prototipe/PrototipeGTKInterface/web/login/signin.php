@@ -1,4 +1,9 @@
 <?php
+/**
+* PHP Simpe Login
+* @author Resalat Haque
+* @link http://www.w3bees.com/2013/02/php-simple-log-in-example.html
+*/
 session_start();
     if(isset($_SESSION['PWD_CONTROLADOR'])){
         include( $_SESSION['PWD_CONTROLADOR'] . '/login/Signin.php' );
@@ -10,7 +15,7 @@ session_start();
 <html>
 <head>
 	<title>Sign in</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo $_SESSION['SITE_PROTOTIPE']."/css/"; ?>style.css">
 </head>
 <body class="min">
 	<p>Welcome to <a href="http://www.w3bees.com/2013/02/php-simple-log-in-example.html">PHP Sign in example</a> demo!</p>
@@ -27,8 +32,7 @@ session_start();
 		<input type="submit" value="Sigin in" />
 	</form>
 	<br />
-	<br />
-	<p>New user? <a href="signup.php">Sign up</a>
+	<br />	
 </div>
 
 </body>

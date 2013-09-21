@@ -82,8 +82,13 @@
             print $key_name . " = " . $key_value . "<br>";
         }
 
-
-        set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['PWD_PHPSECLIB'] );
+        session_start();
+        if(isset($_SESSION['PWD_CONTROLADOR'])){
+            require_once( $_SESSION['PWD_CONTROLADOR'] . '/config.php' );
+        } else {
+            require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
+        }
+        set_include_path(get_include_path() . PATH_SEPARATOR . $_SESSION['PWD_PHPSECLIB'] );
 
         include('Net/SSH2.php');
 

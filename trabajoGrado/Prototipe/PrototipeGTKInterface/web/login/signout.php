@@ -9,6 +9,8 @@
 */
 session_start();
 if(session_destroy()){
-header("Location: signin.php");
+    session_start();
+    include( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
+    header("Location: ".$_SESSION['SITE_WEB']."/login/signin.php");
 }
 ?>

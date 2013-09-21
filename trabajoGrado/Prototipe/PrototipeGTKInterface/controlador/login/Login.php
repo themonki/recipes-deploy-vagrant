@@ -22,7 +22,7 @@ if (isset($_SESSION['PWD_FACHADA'])) {
 function is_logged_in() {
     /**
      * Cheque session is user logged in or not
-     * */
+     * */    
     if (isset($_SESSION['username']) && isset($_SESSION["password"])) {
         if (valid_login($_SESSION["username"], $_SESSION["password"])) {
             

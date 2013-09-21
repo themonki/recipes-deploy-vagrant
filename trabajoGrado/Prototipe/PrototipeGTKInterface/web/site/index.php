@@ -22,6 +22,6 @@ is_logged_in();
 <body class="full">
 	<p>Hello <?php  echo $_SESSION['username'];?> !</p><br />
 	<p>What are you feeling</p>
-	<a href="signout.php">Sign out</a>
+	<a href="<?php echo $_SESSION['SITE_WEB']."/login/"; ?>signout.php">Sign out</a>
 </body>
 </html>
