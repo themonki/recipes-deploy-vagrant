@@ -10,35 +10,34 @@ if (isset($_SESSION['PWD_CONTROLADOR'])) {
 } else {
     include( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/login/Login.php' );
 }
+
 is_logged_in();
+
+include( $_SESSION['PWD_TEMPLEATE'] . '/principal.php' );
+print_up();
 ?>
 
-<!doctype html>
-<html>
-    <head>
-        <script src="<?php echo $_SESSION['SITE_PROTOTIPE'] . "/js/"; ?>scripts.js" type="text/javascript"></script>
-        <link rel='stylesheet' type='text/css' href='<?php echo $_SESSION['SITE_PROTOTIPE'] . "/css/"; ?>style.css' />
-        <link rel='stylesheet' type='text/css' href='<?php echo $_SESSION['SITE_PROTOTIPE'] . "/css/"; ?>styleMenu.css' />
-        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
-    </head>
-    <body>
-        <div class="wrapper">
-            <div class="header">
-                <?php
-                include( $_SESSION['PWD_TEMPLEATE'] . '/menu.php' );
-                printMenu();
-                ?>
-            </div>
-            <h2>Bienvenido</h2>
-            <p>
-                Este es la pagina principal para el prototipo de Interfaz.                             
-            </p>            
-        </div>
-        <div class="footer">
-            <p>
-                Autor: Edgar Moncada
-            </p>
-        </div>
-    </body>
-</html>
+
+<h2>Bienvenido</h2>
+<p>
+    Esta es la página principal para el prototipo de Interfaz.
+</p>
+<p>
+    Si usted puede visualizar correctamente esta página es porque 
+    acaba de ingresar por medio del usuario y contraseña 
+    administrados y porque instalo correctamente su certificado de 
+    usuario (.p12).
+</p>
+<p>
+    <strong>Pero recuerde:</strong> que si esta utilizando un equipo
+    que no es suyo, no olvide eliminar si certificado de usuario, 
+    para que otros no puedan acceder como usted.
+<p>
+    Ahora disfrute de los servicios del Grid.
+</p>
+
+<?php
+print_down();
+?>
+        
 

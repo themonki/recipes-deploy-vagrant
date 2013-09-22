@@ -26,7 +26,7 @@ html, body {
     position: relative;
     background: white;
     width: 700px;
-    border-style: solid;
+    box-shadow: 0 0 10px rgba(0,0,0, .4); 
 }
 
 .header {
@@ -37,13 +37,14 @@ h1 {
 }
 h2 {
     padding: 0 5px 1em;
-    color: #d00;
+    color: #858282;
     font: 1.4em helvetica,arial,sans-serif;
 }
 p {
-    padding: 0 5px 1em;
+    padding: 0 10px 1em;
     color: #666;
     font: 1em/1.6em helvetica,arial,sans-serif;
+    text-align: justify;
 }
 
 .footer {

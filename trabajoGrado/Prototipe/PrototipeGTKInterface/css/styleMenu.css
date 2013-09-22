@@ -10,6 +10,7 @@
     font-size: 14px;
     font-weight: bold;
     width: auto;
+    height: 35px;
 }
 .cssmenu ul {
     background: #333333;
@@ -74,7 +75,7 @@
 }
 .cssmenu li ul a {
     display: block;
-    height: 35px;
+    height: 100%;
     font-size: 12px;
     font-style: normal;
     margin: 0px;
