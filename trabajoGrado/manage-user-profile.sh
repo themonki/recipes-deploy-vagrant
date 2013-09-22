@@ -10,7 +10,7 @@ export PATH_CONFIGHOST=$PATH_SCRIPT/$PATH_FILES
 #echo $PATH_CONFIGHOST
 IP="172.18.0.1"
 #echo $IP
-NAME="$(whoami)"
+USER="$(whoami)"
 #echo $NAME
 
 function print_help {
@@ -76,7 +76,7 @@ function election_profile {
 }
 
 function create_profile {
-	if [ $NAME ] && [ $PASS ] && [ $USER ]; then
+	if [ ! -z "$NAME" ] && [ ! -z "$PASS" ]; then
 		if [ $PATH_PROFILE/$NAME.rb ]; then
 			printf '%s\n' "Actualizando profile $NAME ...";
 			rm -rf $PATH_PROFILE/$NAME.rb;
@@ -100,14 +100,14 @@ do
 	case "$option"
 		in
 			c) CREATE=true;;
-			n ) NAME=${OPTARG};;
-			i ) IP=${OPTARG};;
-			p ) PASS=${OPTARG};;
-			u ) USER=${OPTARG};;
-			e ) NAME=${OPTARG};election_profile;;
-			s ) NAME=${OPTARG};print_show;;
+			n ) NAME="$OPTARG";;
+			i ) IP="$OPTARG";;
+			p ) PASS="$OPTARG";;
+			u ) USER="$OPTARG";;
+			e ) NAME="$OPTARG";election_profile;;
+			s ) NAME="$OPTARG";print_show;;
 			l) print_list;;
-			d ) NAME=${OPTARG};delete_profile;;
+			d ) NAME="$OPTARG";delete_profile;;
 			h) print_help; exit 0;;
 			*) print_error; exit 2;;
 	esac
