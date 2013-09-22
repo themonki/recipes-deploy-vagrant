@@ -19,24 +19,20 @@ if (isset($_SESSION['PWD_CONTROLADOR'])) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Log In</title>
+        <title>Iniciar Sesión</title>
         <link rel="stylesheet" href="<?php echo $_SESSION['SITE_PROTOTIPE'] . "/css/"; ?>styleLogin.css" />
-
     </head>
-
     <body>
-
-        <form action ="" method="POST">
-            
-
-            <h2>Log In</h2>
-
-            <input name="username" type="text" class="text-field" placeholder="Username" />
-            <input name="password" type="password" class="text-field" placeholder="Password" />
-
-            <input type="submit" value="Log In" class="button" />
-
-        </form>
+        <form class="<?php echo $formerror;  ?>" action ="" method="POST">            
+            <h2>Iniciar Sesión</h2>
+            <input name="username" type="text" class="text-field" placeholder="Correo"
+                   required="true" />
+            <input name="password" type="password" class="text-field" placeholder="Contraseña"
+                   required="true" />
+            <input type="submit" value="Ingresar" class="button" />
+            <label style="<?php echo $msgshow;  ?>" class="error" > <?php echo $msg; ?></label>
+        </form>        
+        
 
     </body>
 </html>

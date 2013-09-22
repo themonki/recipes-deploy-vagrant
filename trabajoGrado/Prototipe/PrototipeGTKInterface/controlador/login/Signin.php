@@ -6,6 +6,9 @@
  * @link http://www.w3bees.com/2013/02/php-simple-log-in-example.html
  */
 session_start();
+$msg="";
+$msgshow= 'display: none;';
+$formerror = '';
 if (isset($_SESSION['PWD_CONTROLADOR'])) {
     include( $_SESSION['PWD_CONTROLADOR'] . '/login/Login.php' );
 } else {
@@ -19,15 +22,27 @@ if (isset($_SESSION["username"]) && $_SESSION["password"]) {
 } elseif (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = $_POST["username"];
     $password = md5($_POST["password"]);
-
+    
     if (valid_login($username, $password)) {
-        session_start();
         $_SESSION['username'] = $username;
         $_SESSION['password'] = $password;
-        header("Location: " . $_SESSION['SITE_WEB']."/site");
-        exit;
+        echo "SELECT * "
+                . "FROM users "
+                . "WHERE email = '" . $username . "' "
+                . ";";
+        if(setting_Session($username)){
+            header("Location: " . $_SESSION['SITE_WEB']."/site");
+            exit;
+        }  else {
+            $msg = "¡Fallo al obtener los valores del usuario para la sesión.";
+            $msgshow= '';
+            $formerror = 'formerror';
+        }
+        
     } else {
-        $msg = "¡Fallo al autenticarse. Nombre de Usuario y/o Contraseña invalidos.";
+        $msg = "¡Fallo al autenticarse¡. <br>Nombre de Usuario y/o Contraseña invalidos.";
+        $msgshow= '';
+        $formerror = 'formerror';
     }
 }
 ?>

@@ -43,6 +43,11 @@ if (!isset($_SESSION['SITE_FACHADA'])) {
     $_SESSION['SITE_FACHADA'] = $_SESSION['SITE_CONTROLADOR'] . '/fachada';
 }
 
+if (!isset($_SESSION['SITE_TEMPLEATE'])) {
+    $_SESSION['SITE_TEMPLEATE'] = $_SESSION['SITE_PROTOTIPE'] . '/templates';
+}
+
+
 /**
  * PATH EN EL SERVIDOR PARA IMPORTACIONES ENTRE OTRAS
  */
@@ -60,5 +65,9 @@ if (!isset($_SESSION['PWD_PHPSECLIB'])) {
 
 if (!isset($_SESSION['PWD_FACHADA'])) {
     $_SESSION['PWD_FACHADA'] = $_SESSION['PWD_CONTROLADOR'] . '/fachada';
+}
+
+if (!isset($_SESSION['PWD_TEMPLEATE'])) {
+    $_SESSION['PWD_TEMPLEATE'] = $_SESSION['PWD_PROTOTIPE'] . '/templates';
 }
 ?>

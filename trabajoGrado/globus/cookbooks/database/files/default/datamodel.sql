@@ -1,11 +1,12 @@
 
 DROP TABLE IF EXISTS users;
-DROP SEQUENCE IF EXISTS users_email_seq;
+DROP SEQUENCE IF EXISTS users_id_seq;
 
-CREATE SEQUENCE users_email_seq INCREMENT 1 START 1;
+CREATE SEQUENCE users_id_seq INCREMENT 1 START 1;
 
 CREATE TABLE users (
-	email varchar(20) DEFAULT NEXTVAL('users_email_seq'::TEXT) NOT NULL,
+  id integer DEFAULT NEXTVAL('users_id_seq'::TEXT) NOT NULL,
+	email varchar(20)  NOT NULL,
 	password varchar(1000) NOT NULL,
 	estado boolean DEFAULT FALSE,
 	name varchar(200),
@@ -14,6 +15,9 @@ CREATE TABLE users (
 
 
 ALTER TABLE users ADD CONSTRAINT PK_users
-	PRIMARY KEY (email);
+	PRIMARY KEY (id);
+	
+ALTER TABLE users
+	ADD CONSTRAINT UQ_users_email UNIQUE (email);
 
 

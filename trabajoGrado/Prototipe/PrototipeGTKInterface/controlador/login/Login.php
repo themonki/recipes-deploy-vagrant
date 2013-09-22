@@ -65,4 +65,37 @@ function valid_login($user, $password) {
     return false;
 }
 
+/**
+ * Función que dado el username (email) agregara a la session los valores necesarios.
+ * @param String $user el email del usuario para obtener sus datos
+ * @return boolea true si se hace correctamente.
+ */
+function setting_Session($user) {
+    
+    $fachada = new Fachada();
+    $conect = $fachada->db_connect_pg();
+    
+    if ($conect) {        
+        $query = "SELECT * "
+                . "FROM users "
+                . "WHERE email = '" . $user . "' "
+                . ";";
+        $result = $fachada->db_query_select_pg($query);
+        $fachada->db_close_pg();
+        while ($row = pg_fetch_array($result)) {            
+            $_SESSION['username'] = $row['email'];
+            $_SESSION['password'] = $row['password'];
+            $_SESSION['name'] = $row['name'];
+            $_SESSION['estado'] = $row['estado'];
+            $_SESSION['user'] = $row['usersystem'];
+            break;
+            
+        }
+        
+        return true;
+        
+    }
+    return true;
+}
+
 ?>

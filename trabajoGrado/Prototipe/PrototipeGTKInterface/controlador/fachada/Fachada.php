@@ -37,6 +37,7 @@ class Fachada {
     public function db_close_pg() {
         if (isset($this->dbcon)) {
             pg_close($this->dbcon);
+            $this->dbcon=null;
             return true;
         }
         return false;

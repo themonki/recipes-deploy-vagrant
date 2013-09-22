@@ -13,15 +13,17 @@ if (isset($_SESSION['PWD_CONTROLADOR'])) {
 is_logged_in();
 ?>
 
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Wellcome to secure page</title>
-        <link rel="stylesheet" type="text/css" href="<?php echo $_SESSION['SITE_PROTOTIPE'] . "/css/"; ?>style.css">
+        <link rel='stylesheet' type='text/css' href='<?php echo $_SESSION['SITE_PROTOTIPE'] . "/css/"; ?>styleMenu.css' />
+        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
     </head>
-    <body class="full">
-        <p>Hello <?php echo $_SESSION['username']; ?> !</p><br />
-        <p>What are you feeling</p>
-        <a href="<?php echo $_SESSION['SITE_WEB'] . "/login/"; ?>signout.php">Sign out</a>
+    <body>
+        <?php 
+            include( $_SESSION['PWD_TEMPLEATE'] . '/menu.php' );
+            printMenu();
+        ?>
     </body>
 </html>
+
