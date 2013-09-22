@@ -87,7 +87,7 @@ function setting_Session($user) {
             $_SESSION['password'] = $row['password'];
             $_SESSION['name'] = $row['name'];
             $_SESSION['estado'] = $row['estado'];
-            $_SESSION['user'] = $row['usersystem'];
+            $_SESSION['user'] = $row['usersystem'];            
             break;
             
         }

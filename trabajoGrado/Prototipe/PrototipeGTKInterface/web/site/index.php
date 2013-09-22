@@ -13,17 +13,32 @@ if (isset($_SESSION['PWD_CONTROLADOR'])) {
 is_logged_in();
 ?>
 
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
+        <script src="<?php echo $_SESSION['SITE_PROTOTIPE'] . "/js/"; ?>scripts.js" type="text/javascript"></script>
+        <link rel='stylesheet' type='text/css' href='<?php echo $_SESSION['SITE_PROTOTIPE'] . "/css/"; ?>style.css' />
         <link rel='stylesheet' type='text/css' href='<?php echo $_SESSION['SITE_PROTOTIPE'] . "/css/"; ?>styleMenu.css' />
         <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
     </head>
     <body>
-        <?php 
-            include( $_SESSION['PWD_TEMPLEATE'] . '/menu.php' );
-            printMenu();
-        ?>
+        <div class="wrapper">
+            <div class="header">
+                <?php
+                include( $_SESSION['PWD_TEMPLEATE'] . '/menu.php' );
+                printMenu();
+                ?>
+            </div>
+            <h2>Bienvenido</h2>
+            <p>
+                Este es la pagina principal para el prototipo de Interfaz.                             
+            </p>            
+        </div>
+        <div class="footer">
+            <p>
+                Autor: Edgar Moncada
+            </p>
+        </div>
     </body>
 </html>
 

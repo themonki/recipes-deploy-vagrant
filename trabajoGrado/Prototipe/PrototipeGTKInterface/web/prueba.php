@@ -1,6 +1,14 @@
+<?php
+session_start();
+if (isset($_SESSION['PWD_CONTROLADOR'])) {
+    include( $_SESSION['PWD_CONTROLADOR'] . '/login/Login.php' );
+} else {
+    include( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/login/Login.php' );
+}
+?>
 <html>
     <head>
-        <script src="js/scripts.js" type="text/javascript"></script>        
+        <script src="<?php echo $_SESSION['SITE_PROTOTIPE'] . "/js/"; ?>/scripts.js" type="text/javascript"></script>        
     </head>
     <body>
         <form method="POST" action="prueba.php">
