@@ -40,7 +40,7 @@ if (isset($_SESSION["username"]) && $_SESSION["password"]) {
         }
         
     } else {
-        $msg = "¡Fallo al autenticarse¡. <br>Nombre de Usuario y/o Contraseña invalidos.";
+        $msg = "¡Fallo al autenticarse¡. <br>Nombre de Usuario y/o Contraseña inválidos.";
         $msgshow= '';
         $formerror = 'formerror';
     }
