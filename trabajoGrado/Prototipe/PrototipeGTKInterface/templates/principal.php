@@ -1,4 +1,14 @@
 <?php
+/**
+ * Imprime la plantilla, el layout con el menu.
+ * para mostrar el contenido se llama a la funcion.
+ * 
+ * print_up();
+ * 
+ * contenido
+ * 
+ * print_down();
+ */
 session_start();
 if (isset($_SESSION['PWD_CONTROLADOR'])) {
     include( $_SESSION['PWD_CONTROLADOR'] . '/config.php' );
