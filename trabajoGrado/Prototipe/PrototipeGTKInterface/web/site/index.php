@@ -18,7 +18,7 @@ print_up();
 ?>
 
 
-<h2>Bienvenido</h2>
+<h2>Bienvenido <?php echo $_SESSION['name'];?>,</h2>
 <p>
     Esta es la página principal para el prototipo de Interfaz.
 </p>

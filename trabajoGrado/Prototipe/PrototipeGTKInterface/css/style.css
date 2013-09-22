@@ -25,7 +25,7 @@ html, body {
     /*the bottom margin is the negative value of the footer's height*/ 
     position: relative;
     background: white;
-    width: 700px;
+    width: 800px;
     box-shadow: 0 0 10px rgba(0,0,0, .4); 
 }
 
@@ -52,7 +52,7 @@ p {
     position: relative;  
     margin: 0 auto;
     background-color: #333333;
-    width: 700px;
+    width: 800px;
 }
 .footer p {
     padding-left: 20px;
