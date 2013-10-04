@@ -10,6 +10,6 @@ Para algunos paquetes que son necesarios, descargarlos en la siguiente lista de 
 
 ó
 
-[download file on bitbucket] (https://bitbucket.org/themonki/recipes-deploy-vagrant/src/0c89e93bff796dd4e6abfbabf7c8351e973e612e/downloads.md "")
+[download file on bitbucket] (https://bitbucket.org/themonki/recipes-deploy-vagrant/src/18d0c6d5be299c33849591d1fcec38b19ea59086/downloads.md "")
 
 Autor: Edgar A. Moncada @themonki
