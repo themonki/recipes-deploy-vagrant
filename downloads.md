@@ -1,9 +1,11 @@
 Los siguientes links contienen archivos que son necesarios para la ejecución de 
 recetas utilizando vagrant y chef-solo
 
-Las recetas las encuentra en el repositorio: 
+Las recetas las encuentra en los repositorios: 
 
 [github.com/themonki/recipes-deploy-vagrant] (https://github.com/themonki/recipes-deploy-vagrant)
+
+[bitbucket.org/themonki/recipes-deploy-vagrant] (https://bitbucket.org/themonki/recipes-deploy-vagrant)
 
 *************************************************************
 *************************************************************
