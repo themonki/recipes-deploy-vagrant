@@ -4,7 +4,7 @@ include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/lo
 ?>
 <html>
     <head>
-        <script src="<?php echo $_SESSION['SITE_PROTOTIPE'] . "/js/"; ?>/scripts.js" type="text/javascript"></script>        
+        <script src="<?php echo SITE_PROTOTIPE . "/js/"; ?>/scripts.js" type="text/javascript"></script>        
     </head>
     <body>
         <form method="POST" action="prueba.php">
@@ -83,13 +83,9 @@ include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/lo
             print $key_name . " = " . $key_value . "<br>";
         }
 
-        session_start();
-        if (isset($_SESSION['PWD_CONTROLADOR'])) {
-            require_once( $_SESSION['PWD_CONTROLADOR'] . '/config.php' );
-        } else {
-            require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
-        }
-        set_include_path(get_include_path() . PATH_SEPARATOR . $_SESSION['PWD_PHPSECLIB']);
+        require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
+        
+        set_include_path(get_include_path() . PATH_SEPARATOR . PWD_PHPSECLIB);
 
         include('Net/SSH2.php');
 
@@ -156,8 +152,8 @@ include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/lo
             echo nl2br($output);
         }
 
-//        globusrun -status https://172.18.0.21:43922/16362122880619392831/4895484430711845780/
-//        globusrun -b -r 172.18.0.21/jobmanager-fork "&(executable=/bin/sleep)(arguments=50000)"
+//        globusrun -status url
+    //        globusrun -b -r 172.18.0.21/jobmanager-fork "&(executable=/bin/sleep)(arguments=50000)"
 //        echo $ssh->getLog();
         ?>
     </body>

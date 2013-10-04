@@ -82,7 +82,7 @@ function setting_Session($user) {
         $fachada->db_close_pg();
         while ($row = pg_fetch_array($result)) {
             $userSession = new User();
-            
+
             $userSession->setId($row['usr_id']);
             $userSession->setEmail($row['usr_email']);
             $userSession->setPassword($row['usr_password']);
