@@ -1,10 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['PWD_CONTROLADOR'])) {
-    include( $_SESSION['PWD_CONTROLADOR'] . '/login/Login.php' );
-} else {
-    include( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/login/Login.php' );
-}
+include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/login/Login.php' );
 ?>
 <html>
     <head>

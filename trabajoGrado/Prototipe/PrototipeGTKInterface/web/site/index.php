@@ -5,20 +5,18 @@
  * @link http://www.w3bees.com/2013/02/php-simple-log-in-example.html
  */
 session_start();
-if (isset($_SESSION['PWD_CONTROLADOR'])) {
-    include( $_SESSION['PWD_CONTROLADOR'] . '/login/Login.php' );
-} else {
-    include( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/login/Login.php' );
-}
+require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
+include_once( PWD_CONTROLADOR . '/login/Login.php' );
+
 
 is_logged_in();
 
-include( $_SESSION['PWD_TEMPLEATE'] . '/principal.php' );
+include( PWD_TEMPLEATE . '/principal.php' );
 print_up();
 ?>
 
 
-<h2>Bienvenido <?php echo $_SESSION['name'];?>,</h2>
+<h2>Bienvenido <?php echo unserialize($_SESSION['user'])->getName();?>,</h2>
 <p>
     Esta es la página principal para el prototipo de Interfaz.
 </p>

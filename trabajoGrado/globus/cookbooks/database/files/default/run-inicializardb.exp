@@ -12,7 +12,7 @@ set passwordpostgres    "dbpsglobus2013"
 set passwordglobus        "globus"
 set location_server    "localhost"
 set databasepostgres    "template1"
-set databaseglobus   "globus"
+set databaseglobus   "globusdatabase"
 set databaseinit                1
 set pathdatabase  "basedatos.sql"
 set pathdatamodel "datamodel.sql"

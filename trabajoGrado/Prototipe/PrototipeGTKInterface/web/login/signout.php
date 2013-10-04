@@ -8,20 +8,19 @@
  * Cleare session cookies
  */
 session_start();
+include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
 ?>
 <!doctype html>
 <html>
     <head>
-        <script src="<?php echo $_SESSION['SITE_PROTOTIPE'] . "/js/"; ?>scripts.js" type="text/javascript"></script> 
+        <script src="<?php echo SITE_PROTOTIPE . "/js/"; ?>scripts.js" type="text/javascript"></script> 
     </head>
     <body>
         <?php
         if (session_destroy()) {
             ?>
-            <?php
-            session_start();
-            include( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
-            header("Location: " . $_SESSION['SITE_WEB'] . "/login/signin.php");
+            <?php            
+            header("Location: " .SITE_WEB . "/login/signin.php");
         }
         ?>
     </body>

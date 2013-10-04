@@ -5,11 +5,9 @@
  * @link http://www.w3bees.com/2013/02/php-simple-log-in-example.html
  */
 session_start();
-if (isset($_SESSION['PWD_CONTROLADOR'])) {
-    include( $_SESSION['PWD_CONTROLADOR'] . '/login/Signin.php' );
-} else {
-    include( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/login/Signin.php' );
-}
+require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
+include_once( PWD_FACHADA . '/Fachada.php' );
+include_once( PWD_CONTROLADOR . '/login/Signin.php' );
 /**
  * Estilo css styleLogin.css
  * http://ui-cloud.com/html-login-register-forms/
@@ -20,7 +18,7 @@ if (isset($_SESSION['PWD_CONTROLADOR'])) {
     <head>
         <meta charset="UTF-8">
         <title>Iniciar Sesión</title>
-        <link rel="stylesheet" href="<?php echo $_SESSION['SITE_PROTOTIPE'] . "/css/"; ?>styleLogin.css" />
+        <link rel="stylesheet" href="<?php echo SITE_PROTOTIPE . "/css/"; ?>styleLogin.css" />
     </head>
     <body>
         <form class="<?php echo $formerror;  ?>" action ="" method="POST">            
