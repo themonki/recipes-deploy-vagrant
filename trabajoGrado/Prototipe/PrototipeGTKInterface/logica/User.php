@@ -32,10 +32,9 @@ class User {
      */
     private $userSystem;
 
-    /*
+    /**
      * Constructor por defecto.
      */
-
     function __construct() {
         $this->id = 0;
         $this->email = '';

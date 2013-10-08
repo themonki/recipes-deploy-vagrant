@@ -29,8 +29,6 @@ include_once( PWD_CONTROLADOR . '/login/Signin.php' );
                    required="true" />
             <input type="submit" value="Ingresar" class="button" />
             <label style="<?php echo $msgshow;  ?>" class="error" > <?php echo $msg; ?></label>
-        </form>        
-        
-
+        </form>
     </body>
 </html>

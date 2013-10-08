@@ -10,7 +10,7 @@
  */
 session_start();
 require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
-include_once( PWD_FACHADA . '/Fachada.php' );
+include_once( PWD_MODEL . '/ModelUser.php' );
 include_once( PWD_LOGICA . '/User.php' );
 
 /**
@@ -23,8 +23,8 @@ function is_logged_in() {
      * */
     if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {
         if (valid_login(unserialize($_SESSION['user']))) {
-            
         } else {
+            session_destroy();
             header("Location: " . SITE_WEB . "/login/signin.php");
             exit;
         }
@@ -44,22 +44,13 @@ function valid_login($user) {
     /**
      * Cheque username and password is it match or not. If match return true else flase
      * */
-    $fachada = new Fachada();
-    $conect = $fachada->db_connect_pg();
-
-    if ($conect) {
-        $query = "SELECT * "
-                . "FROM usr_user "
-                . "WHERE usr_email = '" . $user->getEmail() . "' "
-                . "AND usr_password = '" . $user->getPassword() . "' "
-                . "AND usr_status = TRUE ;";
-        $result = $fachada->db_query_select_pg($query);
-        $fachada->db_close_pg();
-        if (pg_num_rows($result) > 0) {
-            return true;
-        }
+    $modelUser = new ModelUser();
+    $userFind = $modelUser->selectByEmailPasswordActivate($user);
+    if (isset($userFind) && $userFind->getId() != 0) {
+        return true;
+    } else {
+        return false;
     }
-    return false;
 }
 
 /**
@@ -69,33 +60,9 @@ function valid_login($user) {
  * @return boolea true si se hace correctamente.
  */
 function setting_Session($user) {
-
-    $fachada = new Fachada();
-    $conect = $fachada->db_connect_pg();
-
-    if ($conect) {
-        $query = "SELECT * "
-                . "FROM usr_user "
-                . "WHERE usr_email = '" . $user->getEmail() . "' "
-                . ";";
-        $result = $fachada->db_query_select_pg($query);
-        $fachada->db_close_pg();
-        while ($row = pg_fetch_array($result)) {
-            $userSession = new User();
-
-            $userSession->setId($row['usr_id']);
-            $userSession->setEmail($row['usr_email']);
-            $userSession->setPassword($row['usr_password']);
-            $userSession->setName($row['usr_name']);
-            $userSession->setStatus($row['usr_status']);
-            $userSession->setUserSystem($row['usr_usersystem']);
-
-            $_SESSION['user'] = serialize($userSession);
-            break;
-        }
-
-        return true;
-    }
+    $modelUser = new ModelUser();
+    $userSession = $modelUser->selectByEmail($user);
+    $_SESSION['user'] = serialize($userSession);
     return true;
 }
 

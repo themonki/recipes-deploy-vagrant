@@ -43,4 +43,6 @@ define('PWD_FACHADA', PWD_CONTROLADOR . '/fachada');
 define('PWD_TEMPLEATE', PWD_PROTOTIPE . '/templates');
 
 define('PWD_LOGICA', PWD_PROTOTIPE . '/logica');
+
+define('PWD_MODEL', PWD_PROTOTIPE . '/model');
 ?>

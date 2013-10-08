@@ -14,13 +14,16 @@ $msg = "";
 $msgshow = 'display: none;';
 $formerror = '';
 
-
-
 if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {
     if (valid_login(unserialize($_SESSION["user"]))) {
         header("Location: " . SITE_WEB . "/site");
+    } else {
+        $msg = "¡Fallo de Autenticación¡ Puede ser que este desactivado, comuniquese con el administrador.";
+        $msgshow = '';
+        $formerror = 'formerror';
+        session_destroy();
     }
-} elseif (isset($_POST["username"]) && isset($_POST["password"])) {
+} else if (isset($_POST["username"]) && isset($_POST["password"])) {
 
     $usertmp = new User();
     $usertmp->setEmail($_POST["username"]);
@@ -36,7 +39,7 @@ if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {
             $formerror = 'formerror';
         }
     } else {
-        $msg = "¡Fallo al autenticarse¡. <br>Nombre de Usuario y/o Contraseña inválidos.";
+        $msg = "¡Fallo al autenticarse¡. <br>Nombre de Usuario y/o Contraseña inválidos. También puede ser que este desactivado, comuniquese con el administrador.";
         $msgshow = '';
         $formerror = 'formerror';
     }
