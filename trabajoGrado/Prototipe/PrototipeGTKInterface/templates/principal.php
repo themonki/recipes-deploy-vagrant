@@ -22,6 +22,7 @@ function print_up() {
             <script src='" . SITE_PROTOTIPE . "/js/scripts.js' type='text/javascript'></script>
             <link rel='stylesheet' type='text/css' href='" . SITE_PROTOTIPE . "/css/style.css' />
             <link rel='stylesheet' type='text/css' href='" . SITE_PROTOTIPE . "/css/styleMenu.css' />
+                <link rel='stylesheet' type='text/css' href='" . SITE_PROTOTIPE . "/css/styleProfile.css' />
             <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
         </head>
         <body>
