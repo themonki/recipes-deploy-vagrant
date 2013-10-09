@@ -6,7 +6,7 @@
  *
  * @author Edgar Moncada
  */
-class Cert {
+class RelationUserCert {
 
     /**
      * El id del certificado. Tipo integer.

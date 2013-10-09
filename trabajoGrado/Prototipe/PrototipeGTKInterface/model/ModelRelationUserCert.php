@@ -2,7 +2,7 @@
 
 require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
 include_once( PWD_FACHADA . '/Fachada.php' );
-include_once( PWD_LOGICA . '/RelationUserCerts.php' );
+include_once( PWD_LOGICA . '/RelationUserCert.php' );
 
 /**
  * Clase encargada de consultar, insertar y actualizar la tabla ruc_relationusercert de la 
@@ -10,7 +10,7 @@ include_once( PWD_LOGICA . '/RelationUserCerts.php' );
  *
  * @author Edgar Moncada
  */
-class ModelRelationUserCerts {
+class ModelRelationUserCert {
 
     /**
      * @var Fachada 
@@ -137,7 +137,7 @@ class ModelRelationUserCerts {
         $objArray = array();
 
         while ($row = pg_fetch_array($result)) {
-            $objTmp = new User();
+            $objTmp = new RelationUserCert();
             $objTmp->setIdUser($row[$this->col1]);
             $objTmp->setIdCert($row[$this->col2]);            
             $objArray[] = $objTmp;
@@ -161,7 +161,7 @@ class ModelRelationUserCerts {
         $objArray = array();
 
         while ($row = pg_fetch_array($result)) {
-            $objTmp = new User();
+            $objTmp = new RelationUserCert();
             $objTmp->setIdUser($row[$this->col1]);
             $objTmp->setIdCert($row[$this->col2]);            
             $objArray[] = $objTmp;
@@ -185,7 +185,7 @@ class ModelRelationUserCerts {
         $objArray = array();
 
         while ($row = pg_fetch_array($result)) {
-            $objTmp = new User();
+            $objTmp = new RelationUserCert();
             $objTmp->setIdUser($row[$this->col1]);
             $objTmp->setIdCert($row[$this->col2]);            
             $objArray[] = $objTmp;

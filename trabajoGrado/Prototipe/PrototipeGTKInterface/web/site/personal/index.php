@@ -8,8 +8,9 @@ session_start();
 require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
 include_once( PWD_CONTROLADOR . '/login/Login.php' );
 
-
 is_logged_in();
+
+include_once( PWD_CONTROLADOR . '/personal/TableUserCerts.php' );
 
 include( PWD_TEMPLEATE . '/principal.php' );
 print_up();
@@ -32,68 +33,8 @@ print_up();
 </div>
 
 <div class="CSSTableGenerator" >
-    <table >
-        <tr>
-            <td>
-                Title 1
-            </td>
-            <td >
-                Title 2
-            </td>
-            <td>
-                Title 3
-            </td>
-        </tr>
-        <tr>
-            <td >
-                Row 1
-            </td>
-            <td>
-                Row 1
-            </td>
-            <td>
-                Row 1
-            </td>
-        </tr>
-        <tr>
-            <td >
-                Row 2
-            </td>
-            <td>
-                Row 2
-            </td>
-            <td>
-                Row 2
-            </td>
-        </tr>
-        <tr>
-            <td >
-                Row 2
-            </td>
-            <td>
-                Row 2
-            </td>
-            <td>
-                Row 2
-            </td>
-        </tr>
-        <tr>
-            <td >
-                Row 3
-            </td>
-            <td>
-                Row 3
-            </td>
-            <td>
-                Row 3
-            </td>
-        </tr>
-    </table>
+   <?php printTableCertsUser(unserialize($_SESSION['user']))?>
 </div>
-
-
-
-
 
 <?php
 print_down();
