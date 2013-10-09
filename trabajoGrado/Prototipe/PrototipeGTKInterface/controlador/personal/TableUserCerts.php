@@ -15,20 +15,20 @@ function printTableCertsUser($User) {
 
     $result = $modelRelationUserCert->selectByIdUser($relationUserCert);
 
-    echo "<table>";
+    echo "<table>";    
     echo "<tr>";
-    echo "<td>";
+    echo "<th>";
     echo "Id";
-    echo "</td>";
-    echo "<td>";
+    echo "</th>";
+    echo "<th>";
     echo "Serial";
-    echo "</td>";
-    echo "<td>";
+    echo "</th>";
+    echo "<th>";
     echo "Issue";
-    echo "</td>";
-    echo "<td>";
+    echo "</th>";
+    echo "<th>";
     echo "Used";
-    echo "</td>";
+    echo "</th>";
     echo "</tr>";
 
     foreach ($result as $ruc) {
@@ -37,7 +37,7 @@ function printTableCertsUser($User) {
         $certFind->setId($ruc->getIdCert());
         $cert = $modelCert->selectById($certFind);
 
-        echo "<tr class='".isCertUsed($cert)."' >";
+        echo "<tr class='" . isCertUsed($cert) . "' >";
         echo "<td>";
         echo $cert->getId();
         echo "</td>";
@@ -52,10 +52,16 @@ function printTableCertsUser($User) {
         echo "</td>";
         echo "</tr>";
     }
-    echo "</table>";
     if (count($result) <= 0) {
+
+        echo "<tr>";
+        echo "<td colspan='4'>";
         echo "No se encontraron registros.";
+        echo "</td>";
+        echo "</tr>";
     }
+    
+    echo "</table>";
 }
 
 function isCertUsed($cert) {

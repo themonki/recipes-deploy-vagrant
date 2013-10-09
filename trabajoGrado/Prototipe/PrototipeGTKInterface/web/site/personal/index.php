@@ -32,9 +32,16 @@ print_up();
 
 </div>
 
-<div class="CSSTableGenerator" >
-   <?php printTableCertsUser(unserialize($_SESSION['user']))?>
+<div class="certsInfo">
+    <h3>Certificados</h3>
+
+    <div class="CSSTableGenerator" >
+        <?php printTableCertsUser(unserialize($_SESSION['user'])) ?>
+    </div>
+
 </div>
+
+
 
 <?php
 print_down();

@@ -25,30 +25,30 @@
     height:100%;
     margin:0px;padding:0px;
 }
-.CSSTableGenerator tr:last-child td:last-child {
+.CSSTableGenerator tr:last-child td:last-child, .CSSTableGenerator tr:last-child th:last-child {
     -moz-border-radius-bottomright:13px;
     -webkit-border-bottom-right-radius:13px;
     border-bottom-right-radius:13px;
 }
-.CSSTableGenerator table tr:first-child td:first-child {
+.CSSTableGenerator table tr:first-child td:first-child, .CSSTableGenerator table tr:first-child th:first-child {
     -moz-border-radius-topleft:13px;
     -webkit-border-top-left-radius:13px;
     border-top-left-radius:13px;
 }
-.CSSTableGenerator table tr:first-child td:last-child {
+.CSSTableGenerator table tr:first-child td:last-child, .CSSTableGenerator table tr:first-child th:last-child {
     -moz-border-radius-topright:13px;
     -webkit-border-top-right-radius:13px;
     border-top-right-radius:13px;
 }
-.CSSTableGenerator tr:last-child td:first-child{
+.CSSTableGenerator tr:last-child td:first-child, .CSSTableGenerator tr:last-child th:first-child{
     -moz-border-radius-bottomleft:13px;
     -webkit-border-bottom-left-radius:13px;
     border-bottom-left-radius:13px;
 }
-.CSSTableGenerator tr:hover td{
+.CSSTableGenerator tr:hover td, .CSSTableGenerator tr:hover th{
     background-color:#ffffff;
 }
-.CSSTableGenerator td{
+.CSSTableGenerator td, .CSSTableGenerator th{
     vertical-align:middle;
     background-color:#cccccc;
     border:1px solid #ffffff;
@@ -60,16 +60,16 @@
     font-weight:normal;
     color:#000000;
 }
-.CSSTableGenerator tr:last-child td{
+.CSSTableGenerator tr:last-child td, .CSSTableGenerator tr:last-child th{
     border-width:0px 1px 0px 0px;
 }
-.CSSTableGenerator tr td:last-child{
+.CSSTableGenerator tr td:last-child, .CSSTableGenerator tr th:last-child {
     border-width:0px 0px 1px 0px;
 }
-.CSSTableGenerator tr:last-child td:last-child{
+.CSSTableGenerator tr:last-child td:last-child, .CSSTableGenerator tr:last-child th:last-child{
     border-width:0px 0px 0px 0px;
 }
-.CSSTableGenerator tr:first-child td{
+.CSSTableGenerator tr:first-child td, .CSSTableGenerator table tr:first-child th{
     background:-o-linear-gradient(bottom, #000000 5%, #000000 100%);
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #000000) );
     background:-moz-linear-gradient( center top, #000000 5%, #000000 100% );
@@ -84,7 +84,7 @@
     font-weight:bold;
     color:#ffffff;
 }
-.CSSTableGenerator tr:first-child:hover td{
+.CSSTableGenerator tr:first-child:hover td, .CSSTableGenerator tr:first-child:hover th{
     background:-o-linear-gradient(bottom, #000000 5%, #000000 100%);
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #000000) );
     background:-moz-linear-gradient( center top, #000000 5%, #000000 100% );
@@ -93,13 +93,17 @@
 
     background-color:#000000;
 }
-.CSSTableGenerator tr:first-child td:first-child{
+.CSSTableGenerator tr:first-child td:first-child, .CSSTableGenerator tr:first-child th:first-child {
     border-width:0px 0px 1px 0px;
 }
-.CSSTableGenerator tr:first-child td:last-child{
+.CSSTableGenerator tr:first-child td:last-child, .CSSTableGenerator tr:first-child th:last-child{
     border-width:0px 0px 1px 1px;
 }
 
-.CSSTableGenerator table .selected {    
-    background-color: red!important;
+.CSSTableGenerator table .selected td{    
+    background-color:green;
+}
+
+.CSSTableGenerator .selected:hover td{
+    background-color:greenyellow;
 }
