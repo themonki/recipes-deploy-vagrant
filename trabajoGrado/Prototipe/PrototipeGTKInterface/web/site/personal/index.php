@@ -17,7 +17,7 @@ print_up();
 ?>
 <div class="profile">
     <div class="photo">
-        <img src="<?php echo SITE_PROTOTIPE; ?>/resources/images/profile/profile_avatar.png">        
+        <img src="<?php echo SITE_PROTOTIPE;?>/resources/images/profile/profile_avatar.png">        
     </div>
 
     <div class="containerText">
@@ -29,10 +29,8 @@ print_up();
             <h3><?php echo unserialize($_SESSION['user'])->getEmail(); ?></h3>
         </div>
     </div>
-
-</div>
-
-<div class="certsInfo">
+    
+    <div class="certsInfo">
     <h3>Certificados</h3>
 
     <div class="CSSTableGenerator" >
@@ -40,6 +38,11 @@ print_up();
     </div>
 
 </div>
+
+</div>
+
+
+
 
 
 

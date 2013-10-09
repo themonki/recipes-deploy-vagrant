@@ -4,7 +4,8 @@
 */
 
 .CSSTableGenerator {
-    margin:0px;padding:0px;
+    margin:0px;
+    padding:0px;
     width:100%;
     border:1px solid #ffffff;
     -moz-border-radius-bottomleft:13px;
@@ -100,10 +101,11 @@
     border-width:0px 0px 1px 1px;
 }
 
-.CSSTableGenerator table .selected td{    
-    background-color:green;
+.CSSTableGenerator table .selected td{
+    background-color:#429842;
+    font-weight:bold;
 }
 
 .CSSTableGenerator .selected:hover td{
-    background-color:greenyellow;
+    background-color:#9cf53a;
 }

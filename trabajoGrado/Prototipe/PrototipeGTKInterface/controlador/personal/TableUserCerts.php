@@ -14,7 +14,6 @@ function printTableCertsUser($User) {
     $relationUserCert->setIdUser($User->getId());
 
     $result = $modelRelationUserCert->selectByIdUser($relationUserCert);
-
     echo "<table>";    
     echo "<tr>";
     echo "<th>";

@@ -1,6 +1,12 @@
+
+.wrapper {
+    
+}
+
 .profile {
-    float: left;
+    clear: both;
     width: 100%;
+    height: 100%
 }
 
 .profile .photo {
@@ -9,7 +15,6 @@
     width: 16%;
     padding: 20px 0;
     margin: 0 0 0 4%;
-    display: inline;
 }
 
 .profile .photo img {
@@ -33,6 +38,8 @@
 
 }
 
-.certsInfo {
+.profile .certsInfo {    
+    clear: left;
+    display: block;
     padding: 0 80px 0 80px;
 }
