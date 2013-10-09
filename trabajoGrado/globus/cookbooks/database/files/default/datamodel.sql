@@ -16,7 +16,6 @@ CREATE TABLE usr_user (
 	usr_usersystem varchar(200)
 );
 
-
 ALTER TABLE usr_user ADD CONSTRAINT PK_usr_user
 	PRIMARY KEY (usr_id);
 	
@@ -42,7 +41,21 @@ CREATE TABLE crt_cert (
 	crt_proxypath varchar(2000)
 );
 
-
 ALTER TABLE crt_cert ADD CONSTRAINT PK_crt_cert
 	PRIMARY KEY (crt_id);
+
+
+------------------------------------------------------------------------------------------
+-- Relation Users Certs
+------------------------------------------------------------------------------------------
+
+DROP TABLE IF EXISTS ruc_relationusercert;
+
+CREATE TABLE ruc_relationusercert (
+  usr_id integer NOT NULL,
+  crt_id integer NOT NULL
+);
+
+ALTER TABLE ruc_relationusercert ADD CONSTRAINT PK_ruc_relationusercert
+	PRIMARY KEY (usr_id, crt_id);
 
