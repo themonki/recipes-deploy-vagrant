@@ -24,7 +24,6 @@ function print_up() {
             <link rel='stylesheet' type='text/css' href='" . SITE_PROTOTIPE . "/css/styleMenu.css' />
             <link rel='stylesheet' type='text/css' href='" . SITE_PROTOTIPE . "/css/styleProfile.css' />
             <link rel='stylesheet' type='text/css' href='" . SITE_PROTOTIPE . "/css/styleTable.css' />
-            <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
         </head>
         <body>
             <div class='wrapper'>

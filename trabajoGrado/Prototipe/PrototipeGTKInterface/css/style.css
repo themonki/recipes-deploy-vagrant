@@ -30,12 +30,6 @@ html, body {
     box-shadow: 0 0 10px rgba(0,0,0, .4);
 }
 
-.contenido{
-    clear: left;
-    display: block;
-    clear: left;
-}
-
 .header {
     height: 100px;
 }
