@@ -26,29 +26,44 @@ function printTableCertsUser($User) {
     echo "<td>";
     echo "Issue";
     echo "</td>";
+    echo "<td>";
+    echo "Used";
+    echo "</td>";
     echo "</tr>";
-    
-        foreach ($result as $ruc) {
-            $modelCert = new ModelCert();
-            $certFind = new Cert();
-            $certFind->setId($ruc->getIdCert());
-            $cert = $modelCert->selectById($certFind);
 
-            echo "<tr>";
-            echo "<td>";
-            echo $cert->getId();
-            echo "</td>";
-            echo "<td>";
-            echo $cert->getSerial();
-            echo "</td>";
-            echo "<td>";
-            echo $cert->getIssue();
-            echo "</td>";
-            echo "</tr>";
-        }
+    foreach ($result as $ruc) {
+        $modelCert = new ModelCert();
+        $certFind = new Cert();
+        $certFind->setId($ruc->getIdCert());
+        $cert = $modelCert->selectById($certFind);
+
+        echo "<tr class='".isCertUsed($cert)."' >";
+        echo "<td>";
+        echo $cert->getId();
+        echo "</td>";
+        echo "<td>";
+        echo $cert->getSerial();
+        echo "</td>";
+        echo "<td>";
+        echo $cert->getIssue();
+        echo "</td>";
+        echo "<td>";
+        echo isCertUsed($cert);
+        echo "</td>";
+        echo "</tr>";
+    }
     echo "</table>";
-    if (count($result) <= 0) {               
-        echo "No se encontraron registros.";        
+    if (count($result) <= 0) {
+        echo "No se encontraron registros.";
+    }
+}
+
+function isCertUsed($cert) {
+    if ($_SERVER["SSL_CLIENT_I_DN"] == $cert->getIssue()
+            && $_SERVER["SSL_CLIENT_M_SERIAL"] == $cert->getSerial()) {
+        return "selected";
+    } else {
+        return "";
     }
 }
 
