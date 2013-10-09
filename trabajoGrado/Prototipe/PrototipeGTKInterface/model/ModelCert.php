@@ -32,7 +32,6 @@ class ModelCert {
     /**
      * Constructor por defecto.
      */
-
     function __construct() {
         $this->fachada = new Fachada();
     }
@@ -60,8 +59,7 @@ class ModelCert {
     /**
      * Método para instertar en la tabla crt_cert con el id dado.
      * @param Cert $obj de la logica con los datos encapsulados.
-     * @return int el numero de filas afectadas o -1 si no se realiza 
-     * correctamente.
+     * @return Cert el objeto que corresponde con la consulta.
      */
     function insertId($obj) {
         $sql = "INSERT INTO " . $this->tablename . " "
@@ -78,7 +76,7 @@ class ModelCert {
     }
 
     /**
-     * Método para instertar en la tabla crt_cert.
+     * Método para actualizar en la tabla crt_cert.
      * @param Cert $obj de la logica con los datos encapsulados.
      * @return int el numero de filas afectadas o -1 si no se realiza 
      * correctamente.
@@ -97,7 +95,7 @@ class ModelCert {
     }
 
     /**
-     * Método para instertar en la tabla crt_cert.
+     * Método para borrar en la tabla crt_cert.
      * @param Cert $obj de la logica con los datos encapsulados.
      * @return int el numero de filas afectadas o -1 si no se realiza 
      * correctamente.
@@ -111,10 +109,9 @@ class ModelCert {
     }
 
     /**
-     * Método para instertar en la tabla crt_cert.
+     * Método para consultar en la tabla crt_cert.
      * @param Cert $obj de la logica con los datos encapsulados.
-     * @return int el numero de filas afectadas o -1 si no se realiza 
-     * correctamente.
+     * @return Cert el objeto que corresponde con la consulta.
      */
     function selectById($obj) {
         $sql = "SELECT "
@@ -124,12 +121,12 @@ class ModelCert {
                 . $this->col4 . ", "
                 . $this->col5 . ", "
                 . $this->col6 . " "
-                . "FROM " . $this->tablename ." "
+                . "FROM " . $this->tablename . " "
                 . "WHERE " . $this->col1 . " = " . $obj->getId() . ""
-                .";";
+                . ";";
         $result = $this->fachada->db_query_select_pg($sql);
         $objTmp = new Cert();
-        while ($row = pg_fetch_array($result)) {   
+        while ($row = pg_fetch_array($result)) {
             $objTmp->setId($row[$this->col1]);
             $objTmp->setSerial($row[$this->col2]);
             $objTmp->setIssue($row[$this->col3]);
@@ -137,15 +134,44 @@ class ModelCert {
             $objTmp->setCertPath($row[$this->col5]);
             $objTmp->setProxyPath($row[$this->col6]);
             break;
-        }        
+        }
         return $objTmp;
     }
 
     /**
-     * Método para instertar en la tabla crt_cert.
+     * Método para consultar todos los registros en la tabla crt_cert.
+     * @return array con los objetos Cert correspondientes.
+     */
+    function select() {
+        $sql = "SELECT "
+                . $this->col1 . ", "
+                . $this->col2 . ", "
+                . $this->col3 . ", "
+                . $this->col4 . ", "
+                . $this->col5 . ", "
+                . $this->col6 . " "
+                . "FROM " . $this->tablename . ""
+                . ";";
+        $result = $this->fachada->db_query_select_pg($sql);
+        $objArray = array();
+
+        while ($row = pg_fetch_array($result)) {
+            $objTmp = new Cert();
+            $objTmp->setId($row[$this->col1]);
+            $objTmp->setSerial($row[$this->col2]);
+            $objTmp->setIssue($row[$this->col3]);
+            $objTmp->setKeyPath($row[$this->col4]);
+            $objTmp->setCertPath($row[$this->col5]);
+            $objTmp->setProxyPath($row[$this->col6]);
+            $objArray[] = $objTmp;
+        }
+        return $objArray;
+    }
+
+    /**
+     * Método para consultar en la tabla crt_cert.
      * @param Cert $obj de la logica con los datos encapsulados.
-     * @return int el numero de filas afectadas o -1 si no se realiza 
-     * correctamente.
+     * @return Cert el objeto que corresponde con la consulta.
      */
     function selectBySerialIssue($obj) {
         $sql = "SELECT "
@@ -155,13 +181,13 @@ class ModelCert {
                 . $this->col4 . ", "
                 . $this->col5 . ", "
                 . $this->col6 . " "
-                . "FROM " . $this->tablename ." "
+                . "FROM " . $this->tablename . " "
                 . "WHERE " . $this->col2 . " = '" . $obj->getSerial() . "' AND "
                 . "" . $this->col3 . " = '" . $obj->getIssue() . "'"
-                .";";
+                . ";";
         $result = $this->fachada->db_query_select_pg($sql);
         $objTmp = new Cert();
-        while ($row = pg_fetch_array($result)) {   
+        while ($row = pg_fetch_array($result)) {
             $objTmp->setId($row[$this->col1]);
             $objTmp->setSerial($row[$this->col2]);
             $objTmp->setIssue($row[$this->col3]);
@@ -169,7 +195,7 @@ class ModelCert {
             $objTmp->setCertPath($row[$this->col5]);
             $objTmp->setProxyPath($row[$this->col6]);
             break;
-        }        
+        }
         return $objTmp;
     }
 

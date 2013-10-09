@@ -6,28 +6,33 @@
  * @author Edgar Moncada
  */
 class User {
-    /*
+
+    /**
      * El id del usuario. Tipo integer.
      */
-
     private $id;
-    /*
+
+    /**
      * El email del usuario. Tipo string.
      */
     private $email;
-    /*
+
+    /**
      * El password del usuario. Tipo string.
      */
     private $password;
-    /*
+
+    /**
      * El status del usuario. Tipo bool.
      */
     private $status;
-    /*
+
+    /**
      * El name del usuario. Tipo string.
      */
     private $name;
-    /*
+
+    /**
      * El userSystem del usuario. Tipo string.
      */
     private $userSystem;

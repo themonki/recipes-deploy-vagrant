@@ -6,28 +6,33 @@
  * @author Edgar Moncada
  */
 class Cert {
-    /*
+
+    /**
      * El id del certificado. Tipo integer.
      */
-
     private $id;
-    /*
+
+    /**
      * El serial del certificado. Tipo string.
      */
     private $serial;
-    /*
+
+    /**
      * El issue del certificado. Tipo string.
      */
     private $issue;
-    /*
+
+    /**
      * El keyPath del certificado. Tipo varchar.
      */
     private $keyPath;
-    /*
+
+    /**
      * El certPath del certificado. Tipo string.
      */
     private $certPath;
-    /*
+
+    /**
      * El proxyPath del certificado. Tipo string.
      */
     private $proxyPath;

@@ -77,7 +77,7 @@ class ModelUser {
     }
 
     /**
-     * Método para instertar en la tabla usr_user.
+     * Método para actualizar en la tabla usr_user.
      * @param User $obj de la logica con los datos encapsulados.
      * @return int el numero de filas afectadas o -1 si no se realiza 
      * correctamente.
@@ -96,7 +96,7 @@ class ModelUser {
     }
 
     /**
-     * Método para instertar en la tabla usr_user.
+     * Método para borrar en la tabla usr_user.
      * @param User $obj de la logica con los datos encapsulados.
      * @return int el numero de filas afectadas o -1 si no se realiza 
      * correctamente.
@@ -110,10 +110,9 @@ class ModelUser {
     }
 
     /**
-     * Método para instertar en la tabla usr_user.
+     * Método para consultar en la tabla usr_user.
      * @param User $obj de la logica con los datos encapsulados.
-     * @return int el numero de filas afectadas o -1 si no se realiza 
-     * correctamente.
+     * @return User el objeto que corresponde con la consulta.
      */
     function selectById($obj) {
         $sql = "SELECT "
@@ -123,12 +122,12 @@ class ModelUser {
                 . $this->col4 . ", "
                 . $this->col5 . ", "
                 . $this->col6 . " "
-                . "FROM " . $this->tablename ." "
+                . "FROM " . $this->tablename . " "
                 . "WHERE " . $this->col1 . " = " . $obj->getId() . ""
-                .";";
+                . ";";
         $result = $this->fachada->db_query_select_pg($sql);
         $objTmp = new User();
-        while ($row = pg_fetch_array($result)) {   
+        while ($row = pg_fetch_array($result)) {
             $objTmp->setId($row[$this->col1]);
             $objTmp->setEmail($row[$this->col2]);
             $objTmp->setPassword($row[$this->col3]);
@@ -136,15 +135,44 @@ class ModelUser {
             $objTmp->setName($row[$this->col5]);
             $objTmp->setUserSystem($row[$this->col6]);
             break;
-        }        
+        }
         return $objTmp;
     }
-    
+
     /**
-     * Método para instertar en la tabla usr_user.
+     * Método para consultar todos los registros en la tabla usr_user.
+     * @return array con los objetos User correspondientes.
+     */
+    function select() {
+        $sql = "SELECT "
+                . $this->col1 . ", "
+                . $this->col2 . ", "
+                . $this->col3 . ", "
+                . $this->col4 . ", "
+                . $this->col5 . ", "
+                . $this->col6 . " "
+                . "FROM " . $this->tablename . ""
+                . ";";
+        $result = $this->fachada->db_query_select_pg($sql);
+        $objArray = array();
+
+        while ($row = pg_fetch_array($result)) {
+            $objTmp = new User();
+            $objTmp->setId($row[$this->col1]);
+            $objTmp->setEmail($row[$this->col2]);
+            $objTmp->setPassword($row[$this->col3]);
+            $objTmp->setStatus($row[$this->col4]);
+            $objTmp->setName($row[$this->col5]);
+            $objTmp->setUserSystem($row[$this->col6]);
+            $objArray[] = $objTmp;
+        }
+        return $objArray;
+    }
+
+    /**
+     * Método para consultar en la tabla usr_user.
      * @param User $obj de la logica con los datos encapsulados.
-     * @return int el numero de filas afectadas o -1 si no se realiza 
-     * correctamente.
+     * @return User el objeto que corresponde con la consulta.
      */
     function selectByEmail($obj) {
         $sql = "SELECT "
@@ -154,13 +182,13 @@ class ModelUser {
                 . $this->col4 . ", "
                 . $this->col5 . ", "
                 . $this->col6 . " "
-                . "FROM " . $this->tablename ." "
+                . "FROM " . $this->tablename . " "
                 . "WHERE " . $this->col2 . " = '" . $obj->getEmail() . "'"
-                .";";
+                . ";";
         $result = $this->fachada->db_query_select_pg($sql);
-        
+
         $objTmp = new User();
-        while ($row = pg_fetch_array($result)) {   
+        while ($row = pg_fetch_array($result)) {
             $objTmp->setId($row[$this->col1]);
             $objTmp->setEmail($row[$this->col2]);
             $objTmp->setPassword($row[$this->col3]);
@@ -168,15 +196,14 @@ class ModelUser {
             $objTmp->setName($row[$this->col5]);
             $objTmp->setUserSystem($row[$this->col6]);
             break;
-        }        
+        }
         return $objTmp;
     }
 
     /**
      * Método para instertar en la tabla usr_user.
      * @param User $obj de la logica con los datos encapsulados.
-     * @return int el numero de filas afectadas o -1 si no se realiza 
-     * correctamente.
+     * @return User el objeto que corresponde con la consulta.
      */
     function selectByEmailPassword($obj) {
         $sql = "SELECT "
@@ -186,13 +213,13 @@ class ModelUser {
                 . $this->col4 . ", "
                 . $this->col5 . ", "
                 . $this->col6 . " "
-                . "FROM " . $this->tablename ." "
+                . "FROM " . $this->tablename . " "
                 . "WHERE " . $this->col2 . " = '" . $obj->getEmail() . "' AND "
                 . "" . $this->col3 . " = '" . $obj->getPassword() . "'"
-                .";";
+                . ";";
         $result = $this->fachada->db_query_select_pg($sql);
         $objTmp = new User();
-        while ($row = pg_fetch_array($result)) {   
+        while ($row = pg_fetch_array($result)) {
             $objTmp->setId($row[$this->col1]);
             $objTmp->setEmail($row[$this->col2]);
             $objTmp->setPassword($row[$this->col3]);
@@ -200,15 +227,14 @@ class ModelUser {
             $objTmp->setName($row[$this->col5]);
             $objTmp->setUserSystem($row[$this->col6]);
             break;
-        }        
+        }
         return $objTmp;
     }
-    
+
     /**
      * Método para instertar en la tabla usr_user.
      * @param User $obj de la logica con los datos encapsulados.
-     * @return int el numero de filas afectadas o -1 si no se realiza 
-     * correctamente.
+     * @return User el objeto que corresponde con la consulta.
      */
     function selectByEmailPasswordActivate($obj) {
         $sql = "SELECT "
@@ -218,14 +244,14 @@ class ModelUser {
                 . $this->col4 . ", "
                 . $this->col5 . ", "
                 . $this->col6 . " "
-                . "FROM " . $this->tablename ." "
+                . "FROM " . $this->tablename . " "
                 . "WHERE " . $this->col2 . " = '" . $obj->getEmail() . "' AND "
                 . "" . $this->col3 . " = '" . $obj->getPassword() . "' AND "
                 . "" . $this->col4 . " = " . "TRUE" . ""
-                .";";
+                . ";";
         $result = $this->fachada->db_query_select_pg($sql);
         $objTmp = new User();
-        while ($row = pg_fetch_array($result)) {   
+        while ($row = pg_fetch_array($result)) {
             $objTmp->setId($row[$this->col1]);
             $objTmp->setEmail($row[$this->col2]);
             $objTmp->setPassword($row[$this->col3]);
@@ -233,9 +259,10 @@ class ModelUser {
             $objTmp->setName($row[$this->col5]);
             $objTmp->setUserSystem($row[$this->col6]);
             break;
-        }        
+        }
         return $objTmp;
     }
+
 }
 
 ?>
