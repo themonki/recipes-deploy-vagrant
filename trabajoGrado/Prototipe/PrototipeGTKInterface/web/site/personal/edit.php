@@ -3,19 +3,9 @@ session_start();
 require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
 include_once( PWD_CONTROLADOR . '/login/Login.php' );
 is_logged_in();
-include_once( PWD_CONTROLADOR . '/personal/TableUserCerts.php' );
 include_once(PWD_CONTROLADOR . '/templates/TemplateManager.php');
 
-$contenidoTableUserCerts = buildTableUserCerts(unserialize($_SESSION['user']));
-$contenidoInicial = new TemplateManager();
-$contenidoInicial->plantilla("profile");
-$contenidoInicial->asigna_variables(array(
-    "SITE_PROTOTIPE" => SITE_PROTOTIPE,
-    "NAME" => unserialize($_SESSION['user'])->getName(),
-    "EMAIL" => unserialize($_SESSION['user'])->getEmail(),
-    "TABLEUSERCERTS" => $contenidoTableUserCerts
-));
-$contenidoInicialString = $contenidoInicial->muestra();
+$contenidoInicialString = "";
 
 $contenidoPrincipal = new TemplateManager();
 $contenidoPrincipal->plantilla("principal");
@@ -27,5 +17,4 @@ $contenidoPrincipal->asigna_variables(array(
 ));
 $contenidoPrincipalString = $contenidoPrincipal->muestra();
 echo $contenidoPrincipalString;
-
 ?>
