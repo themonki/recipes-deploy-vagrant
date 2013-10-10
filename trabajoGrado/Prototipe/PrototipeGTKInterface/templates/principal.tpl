@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <script src='{SITE_PROTOTIPE}/js/scriptsjs' type='text/javascript'></script>
+        <script src='{SITE_PROTOTIPE}/js/scripts.js' type='text/javascript'></script>
         <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/style.css' />
         <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/styleMenu.css' />
         <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/styleProfile.css' />
