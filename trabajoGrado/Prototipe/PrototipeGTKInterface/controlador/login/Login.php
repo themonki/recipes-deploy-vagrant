@@ -16,6 +16,7 @@ include_once( PWD_LOGICA . '/User.php' );
 /**
  * Función que sera la encargada de saber si la sessión ya tiene asiganos los 
  * valores del usuario y si aun existe en la base de datos.
+ * @return true si se conecta correctamente.
  */
 function is_logged_in() {
     /**
@@ -23,6 +24,7 @@ function is_logged_in() {
      * */
     if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {
         if (valid_login(unserialize($_SESSION['user']))) {
+            return true;
         } else {
             session_destroy();
             header("Location: " . SITE_WEB . "/login/signin.php");

@@ -8,59 +8,75 @@ include_once( PWD_LOGICA . '/RelationUserCert.php' );
 include_once( PWD_LOGICA . '/User.php' );
 include_once( PWD_LOGICA . '/Cert.php' );
 
-function printTableCertsUser($User) {
+function printTableUserCerts($user) {
+    echo buildTableUserCerts($user);
+}
+
+function buildTableUserCerts($user) {
+
     $modelRelationUserCert = new ModelRelationUserCert();
     $relationUserCert = new RelationUserCert();
-    $relationUserCert->setIdUser($User->getId());
+    $relationUserCert->setIdUser($user->getId());
+
+    $data = array();
+
+    $headers = array(
+        "",
+        array("Id", "Serial", "Issue", "Used")
+    );
+
+    $data[] = $headers;
 
     $result = $modelRelationUserCert->selectByIdUser($relationUserCert);
-    echo "<table>";    
-    echo "<tr>";
-    echo "<th>";
-    echo "Id";
-    echo "</th>";
-    echo "<th>";
-    echo "Serial";
-    echo "</th>";
-    echo "<th>";
-    echo "Issue";
-    echo "</th>";
-    echo "<th>";
-    echo "Used";
-    echo "</th>";
-    echo "</tr>";
 
     foreach ($result as $ruc) {
         $modelCert = new ModelCert();
         $certFind = new Cert();
         $certFind->setId($ruc->getIdCert());
         $cert = $modelCert->selectById($certFind);
+        $certsData = array(
+            isCertUsed($cert),
+            array(
+                $cert->getId(),
+                $cert->getSerial(),
+                $cert->getIssue(),
+                isCertUsed($cert)
+            )
+        );
+        $data[] = $certsData;
+    }
 
-        echo "<tr class='" . isCertUsed($cert) . "' >";
-        echo "<td>";
-        echo $cert->getId();
-        echo "</td>";
-        echo "<td>";
-        echo $cert->getSerial();
-        echo "</td>";
-        echo "<td>";
-        echo $cert->getIssue();
-        echo "</td>";
-        echo "<td>";
-        echo isCertUsed($cert);
-        echo "</td>";
-        echo "</tr>";
+    $content = "\n<table>\n";
+    $count = 0;
+    foreach ($data as $row) {
+        $content.= "\t<tr class='$row[0]'>\n";
+        if ($count == 0) {
+            foreach ($row[1] as $d) {
+                $content.= "\t\t<th>\n";
+                $content.= "\t\t\t$d\n";
+                $content.= "\t\t</th>\n";
+            }
+            $count++;
+        } else if($count< (count($data))) {
+            foreach ($row[1] as $d) {
+                $content.= "\t\t<td>\n";
+                $content.= "\t\t\t$d\n";
+                $content.= "\t\t</td>\n";
+            }
+            $count++;
+        }
+        $content.= "\t</tr>\n";
     }
     if (count($result) <= 0) {
-
-        echo "<tr>";
-        echo "<td colspan='4'>";
-        echo "No se encontraron registros.";
-        echo "</td>";
-        echo "</tr>";
+        $content.= "\t<tr class='noFound'>\n";
+        $content.= "\t\t<td colspan='4'>\n";
+        $content.= "\t\t\tNo se encontraron registros.\n";
+        $content.= "\t\t</td>\n";
+        $content.= "\t</tr>\n";
     }
-    
-    echo "</table>";
+
+    $content.= "</table>\n";
+    return $content;
 }
 
 function isCertUsed($cert) {

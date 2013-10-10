@@ -15,32 +15,41 @@ http://ryanfait.com/
 }
 html, body {
     height: 100%;
-    
+
 }
 .wrapper {
-    clear: left;
-    height:90%;
-    min-height:90%;
     height:auto!important; 
+    height:100%;
+    min-height:100%;    
     margin: 0 auto ;   
-    /*the bottom margin is the negative value of the footer's height*/ 
     position: relative;
     background: white;
     width: 800px;
     box-shadow: 0 0 10px rgba(0,0,0, .4);
 }
+/* Aqui va todo el contenido */
+.container{
+    width: 100%;
+    padding-bottom: 75px; /* This should match the height of the footer */
+}
 
-.header {
+.header {    
     height: 100px;
 }
 h1 {
-    text-indent: -500em;
+    padding: 0 10px 1em;
+    color: black;
 }
 h2 {
-    padding: 0 5px 1em;
-    color: #858282;
+    padding: 0 10px 1em;
+    color: black;
     font: 1.4em helvetica,arial,sans-serif;
 }
+
+h3 {
+    padding: 0 10px 1em;    
+}
+
 p {    
     padding: 0 10px 1em;
     color: #666;
@@ -48,13 +57,13 @@ p {
     text-align: justify;
 }
 
-.footer {    
-    clear: both;
-    min-height:10%;
-    position: relative;  
+.footer {
+    height:75px;
+    position: absolute;
+    bottom: 0;
     margin: 0 auto;
     background-color: #333333;
-    width: 800px;
+    width: 100%;
 }
 .footer p {
     padding-left: 20px;

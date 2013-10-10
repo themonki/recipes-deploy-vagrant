@@ -17,6 +17,7 @@ $formerror = '';
 if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {
     if (valid_login(unserialize($_SESSION["user"]))) {
         header("Location: " . SITE_WEB . "/site");
+        exit;
     } else {
         $msg = "¡Fallo de Autenticación¡ Puede ser que este desactivado, comuniquese con el administrador.";
         $msgshow = '';

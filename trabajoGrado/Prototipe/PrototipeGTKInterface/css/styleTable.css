@@ -87,7 +87,7 @@
 }
 .CSSTableGenerator tr:first-child:hover td, .CSSTableGenerator tr:first-child:hover th{
     background:-o-linear-gradient(bottom, #000000 5%, #000000 100%);
-    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #000000) );
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1,  #000000) );
     background:-moz-linear-gradient( center top, #000000 5%, #000000 100% );
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000");
     background: -o-linear-gradient(top,#000000,000000);
@@ -108,4 +108,12 @@
 
 .CSSTableGenerator .selected:hover td{
     background-color:#9cf53a;
+}
+
+.CSSTableGenerator table .noFound td{
+    font-weight:bold;
+    background-color:#cccccc;
+}
+.CSSTableGenerator .noFound td{
+    background-color:#cccccc;
 }

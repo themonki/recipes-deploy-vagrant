@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PHP Simpe Login
  * @author Resalat Haque
@@ -8,32 +9,26 @@ session_start();
 require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
 include_once( PWD_CONTROLADOR . '/login/Login.php' );
 
-
 is_logged_in();
 
-include( PWD_TEMPLEATE . '/principal.php' );
-print_up();
-?>
-<h2>Bienvenido <?php echo unserialize($_SESSION['user'])->getName(); ?>,</h2>
-<p>
-    Esta es la página principal para el prototipo de Interfaz.
-</p>
-<p>
-    Si usted puede visualizar correctamente esta página es porque 
-    acaba de ingresar por medio del usuario y contraseña 
-    administrados y porque instalo correctamente su certificado de 
-    usuario (.p12).
-</p>
-<p>
-    <strong>Pero recuerde:</strong> que si esta utilizando un equipo
-    que no es suyo, no olvide eliminar si certificado de usuario, 
-    para que otros no puedan acceder como usted.
-<p>
-    Ahora disfrute de los servicios del Grid.
-</p>
+include_once(PWD_CONTROLADOR . '/templates/TemplateManager.php');
 
-<?php
-print_down();
-?>
-        
+$contenidoInicial = new TemplateManager();
+$contenidoInicial->plantilla("inicio");
+$contenidoInicial->asigna_variables(array(
+    "NAME" => unserialize($_SESSION['user'])->getName()
+));
+$contenidoInicialString = $contenidoInicial->muestra();
 
+$contenidoPrincipal = new TemplateManager();
+$contenidoPrincipal->plantilla("principal");
+$contenidoPrincipal->asigna_variables(array(
+    "SITE_PROTOTIPE" => SITE_PROTOTIPE,
+    "SITE_WEB" => SITE_WEB,
+    "NAME" => unserialize($_SESSION['user'])->getName(),
+    "CONTAINER" => $contenidoInicialString
+));
+$contenidoPrincipalString = $contenidoPrincipal->muestra();
+echo $contenidoPrincipalString;
+
+?>

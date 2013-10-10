@@ -6,7 +6,7 @@
  */
 session_start();
 require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
-include_once( PWD_FACHADA . '/Fachada.php' );
+
 include_once( PWD_CONTROLADOR . '/login/Signin.php' );
 /**
  * Estilo css styleLogin.css
