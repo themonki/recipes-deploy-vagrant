@@ -6,6 +6,7 @@
         <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/styleMenu.css' />
         <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/styleProfile.css' />
         <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/styleTable.css' />
+        <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/styleForm.css' />
     </head>
     <body>
         <div class='wrapper'>

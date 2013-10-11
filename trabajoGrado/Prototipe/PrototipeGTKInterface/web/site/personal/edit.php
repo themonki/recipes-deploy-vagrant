@@ -11,6 +11,7 @@ $contenidoEditar->asigna_variables(array(
     "SITE_PROTOTIPE" => SITE_PROTOTIPE,
     "SITE_WEB" => SITE_WEB,
     "NAME" => unserialize($_SESSION['user'])->getName(),
+    "EMAIL" => unserialize($_SESSION['user'])->getEmail()
 ));
 
 
