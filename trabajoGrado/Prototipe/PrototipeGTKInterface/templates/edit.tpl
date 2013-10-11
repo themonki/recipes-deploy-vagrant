@@ -28,7 +28,7 @@
                 <input class="text-field" type="password" name="passwordConfirmation" id="passwordConfirmation" required onkeyup="validatePattern(form, this);"
                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}" />
             </div>
-            <input class="button" type="submit" value="submit"/>
+            <input class="button" type="submit" value="Actualizar"/>
         </form>
     </div>
 </div>
