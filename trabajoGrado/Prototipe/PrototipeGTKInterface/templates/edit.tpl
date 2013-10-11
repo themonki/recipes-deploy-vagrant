@@ -6,11 +6,29 @@
         <h3>{EMAIL}</h3>
     </div>
     <div class=passwords >
-        <form name="ValidationForm" onsubmit="validatePassword();"  action ="index.php" method="POST">
-            Contraseña Actual: <input type="password" id="passwordOld" required/>
-            Contraseña Nueva: <input type="password" id="passwordNew" required/>
-            Confirmar Contraseña Nueva:<input type="password" id="passwordConfirmation" required/>
-            <input type="submit" value="submit"/>
+        <form name="ValidationForm"   action ="index.php" method="POST">
+
+            <div class=field> 
+                <label class="label" for="passwordOld">
+                    Contraseña Actual: 
+                </label>
+                <input class="text-field" type="password" name="passwordOld" id="passwordOld" required/>
+            </div>
+            <div class=field for="passwordNew"> 
+                <label class="label">
+                    Contraseña Nueva: 
+                </label> 
+                <input class="text-field" type="password" name="passwordNew" id="passwordNew" required onkeyup="validatePattern(form, this);"
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}"/>
+            </div>
+            <div class=field for="passwordConfirmation"> 
+                <label class="label">
+                    Confirmar Contraseña Nueva:
+                </label>
+                <input class="text-field" type="password" name="passwordConfirmation" id="passwordConfirmation" required onkeyup="validatePattern(form, this);"
+                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}" />
+            </div>
+            <input class="button" type="submit" value="submit"/>
         </form>
     </div>
 </div>

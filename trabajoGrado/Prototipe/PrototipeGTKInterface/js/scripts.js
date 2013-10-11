@@ -7,23 +7,20 @@
 //alert ("scripts");
 
 
-window.onload = function () {
+
+function validatePattern(form, obj){
+    form.passwordConfirmation.setCustomValidity("");
+    if(obj.validity.patternMismatch){
+        obj.setCustomValidity('Password must contain at least 6 characters, including UPPER/lowercase and numbers');
+    }else {
+        obj.setCustomValidity('');
+    }    
+    if(obj.checkValidity() && form.passwordNew == obj){
+//        form.passwordConfirmation.pattern = obj.value;
+    }else if (form.passwordConfirmation == obj && form.passwordNew.value != obj.value  ){
+        form.passwordConfirmation.setCustomValidity("Las Contraseñas no coinciden");
+    }else{
+        form.passwordConfirmation.setCustomValidity("");
+    }
     
-//    document.getElementById("passwordNew").onchange = validatePassword();
-//    alert ("load");
-//    document.getElementById("passwordConfirmation").onchange = validatePassword();
-}
-function validatePassword(){
-    alert ("validate");
-    var pass2=document.getElementById("passwordConfirmation").value;
-    var pass1=document.getElementById("passwordNew").value;
-    if(pass1!=pass2){alert ("load1");
-        document.getElementById("passwordConfirmation").setCustomValidity("Passwords Don't Match");
-        return false;
-    }
-    else {alert ("load2");
-        document.getElementById("passwordConfirmation").setCustomValidity('');
-        return true;
-    }
-//empty string means no validation error
 }
