@@ -20,13 +20,13 @@ if (isset($_POST)) {
     $result = $modelUser->updateById($user);
 
     if (isset($result) && $result > 0) {
-        $message = "Correcto";
+        $message = "Datos actualizados correctamente.";
         $message_class = "success";
         $user = $modelUser->selectById($user);
         setting_Session($user);
     } else {
         //error
-        $message = "Error";
+        $message = "Error al actualizar los datos.";
         $message_class = "error";        
     }
     header("Location: " . SITE_WEB . "/site/personal/edit.php?message=".$message."&message_class=".$message_class);

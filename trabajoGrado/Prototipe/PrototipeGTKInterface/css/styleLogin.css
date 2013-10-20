@@ -47,25 +47,16 @@ nav a.focus {
 
 .formLogin {
     width: 280px;
-    height: 260px;
+    /*height: 260px;*/
     margin: 200px auto;
     background: white;
     border-radius: 3px;
     box-shadow: 0 0 10px rgba(0,0,0, .4); 
     text-align: center;
     padding-top: 1px;
+    padding-bottom: 10px;
 }
 
-.formLoginBox {
-    width: 280px;
-    height: 350px;
-    margin: 200px auto;
-    background: white;
-    border-radius: 3px;
-    box-shadow: 0 0 10px rgba(0,0,0, .4); 
-    text-align: center;
-    padding-top: 1px;
-}
 /* Register form height */
 .formLogin .register{
     height: 420px;
@@ -130,8 +121,5 @@ nav a.focus {
 }
 
 .formLogin .error {
-/*    width: 230px;
-    height: 40px;    
-    background: #fcfcfc;
-    color: #bf1c1c;*/
+    margin: 10px 10px 0px 10px;
 }
