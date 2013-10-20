@@ -19,16 +19,17 @@ include_once( PWD_CONTROLADOR . '/login/Signin.php' );
         <meta charset="UTF-8">
         <title>Iniciar Sesión</title>
         <link rel="stylesheet" href="<?php echo SITE_PROTOTIPE . "/css/"; ?>styleLogin.css" />
+        <link rel="stylesheet" href="<?php echo SITE_PROTOTIPE . "/css/"; ?>styleMessages.css" />
     </head>
     <body>
-        <form class="<?php echo $formerror;  ?>" action ="" method="POST">            
+        <form class="formLogin" action ="" method="POST">            
             <h2>Iniciar Sesión</h2>
             <input name="username" type="text" class="text-field" placeholder="Correo"
                    required="true" />
             <input name="password" type="password" class="text-field" placeholder="Contraseña"
                    required="true" />
             <input type="submit" value="Ingresar" class="button" />
-            <label style="<?php echo $msgshow;  ?>" class="error" > <?php echo $msg; ?></label>
+            <div class="<?php echo $msgshow;  ?>" > <?php echo $msg; ?></div>
         </form>
     </body>
 </html>

@@ -11,7 +11,7 @@
 */
 
 body {
-    background: url(../image/background.png) fixed 50% no-repeat white;
+    background: url(../resources/image/background.png) fixed 50% no-repeat white;
     font-family: Helvetica;
 }
 
@@ -45,7 +45,7 @@ nav a.focus {
 
 /* LOGIN & REGISTER FORM */
 
-form {
+.formLogin {
     width: 280px;
     height: 260px;
     margin: 200px auto;
@@ -56,7 +56,7 @@ form {
     padding-top: 1px;
 }
 
-.formerror {
+.formLoginBox {
     width: 280px;
     height: 350px;
     margin: 200px auto;
@@ -66,12 +66,12 @@ form {
     text-align: center;
     padding-top: 1px;
 }
-
-form.register{																				/* Register form height */
+/* Register form height */
+.formLogin .register{
     height: 420px;
 }
-
-form .text-field {																			/* Input fields; Username, Password etc. */
+/* Input fields; Username, Password etc. */
+.formLogin .text-field {
     border: 1px solid #a6a6a6;
     width: 230px;
     height: 40px;
@@ -83,13 +83,13 @@ form .text-field {																			/* Input fields; Username, Password etc. */
     outline: none;
 }
 
-form .text-field:focus {
+.formLogin .text-field:focus {
     box-shadow: inset 0 0 2px rgba(0,0,0, .3);
     color: #a6a6a6;
     background: white;
 }
 
-form .button {																				/* Submit button */
+.formLogin .button {																				/* Submit button */
     border-radius: 3px;
     border: 1px solid #787878;
     box-shadow: inset 0 1px 0 #787878;
@@ -111,7 +111,7 @@ form .button {																				/* Submit button */
     font-size: 13px;
 }
 
-form .button:hover {
+.formLogin .button:hover {
     background: linear-gradient(bottom, #dedede 0%, #aaaaac 100%);
     background: -o-linear-gradient(bottom, #dedede 0%, #aaaaac 100%);
     background: -moz-linear-gradient(bottom, #dedede 0%, #aaaaac 100%);
@@ -119,7 +119,7 @@ form .button:hover {
     background: -ms-linear-gradient(bottom, #dedede 0%, #aaaaac 100%);
 }
 
-form .button:active {
+.formLogin .button:active {
     background: linear-gradient(bottom, #5BA7E9 0%, #4889C2 100%);
     background: -o-linear-gradient(bottom, #5BA7E9 0%, #4889C2 100%);
     background: -moz-linear-gradient(bottom, #5BA7E9 0%, #4889C2 100%);
@@ -129,9 +129,9 @@ form .button:active {
     box-shadow: inset 0 0 2px rgba(0,0,0, .3), 0 1px 0 white;
 }
 
-form .error {																			/* Input fields; Username, Password etc. */
-    width: 230px;
+.formLogin .error {
+/*    width: 230px;
     height: 40px;    
     background: #fcfcfc;
-    color: #bf1c1c;
+    color: #bf1c1c;*/
 }

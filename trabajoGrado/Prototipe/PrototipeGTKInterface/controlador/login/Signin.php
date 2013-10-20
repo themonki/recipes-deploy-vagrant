@@ -11,8 +11,7 @@ require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/co
 include_once ( PWD_CONTROLADOR . '/login/Login.php' );
 
 $msg = "";
-$msgshow = 'display: none;';
-$formerror = '';
+$msgshow = 'none';
 
 if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {
     if (valid_login(unserialize($_SESSION["user"]))) {
@@ -20,8 +19,7 @@ if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {
         exit;
     } else {
         $msg = "¡Fallo de Autenticación¡ Puede ser que este desactivado, comuniquese con el administrador.";
-        $msgshow = '';
-        $formerror = 'formerror';
+        $msgshow = 'error';
         session_destroy();
     }
 } else if (isset($_POST["username"]) && isset($_POST["password"])) {
@@ -36,13 +34,11 @@ if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {
             exit;
         } else {
             $msg = "¡Fallo al obtener los valores del usuario para la sesión.";
-            $msgshow = '';
-            $formerror = 'formerror';
+            $msgshow = 'error';
         }
     } else {
         $msg = "¡Fallo al autenticarse¡. <br>Nombre de Usuario y/o Contraseña inválidos. También puede ser que este desactivado, comuniquese con el administrador.";
-        $msgshow = '';
-        $formerror = 'formerror';
+        $msgshow = 'error';
     }
 }
 ?>
