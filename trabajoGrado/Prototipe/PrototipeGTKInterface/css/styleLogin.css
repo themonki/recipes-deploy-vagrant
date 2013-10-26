@@ -11,8 +11,19 @@
 */
 
 body {
+    position: fixed;
     font-family: Helvetica;
     background: white;
+    height: 100%;
+    width: 100%;
+}
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 }
 
 h2 {
@@ -46,9 +57,11 @@ h2 {
 /* LOGIN & REGISTER FORM */
 
 .formLogin {
+    position: relative;
     width: 280px;
+    height: auto;
     /*height: 260px;*/
-    margin: 200px auto;
+    
     background: white;
     border-radius: 3px;
     box-shadow: 0 0 10px rgba(0,0,0, .4); 
