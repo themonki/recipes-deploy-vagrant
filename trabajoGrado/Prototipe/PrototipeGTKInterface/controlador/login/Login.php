@@ -11,7 +11,11 @@
 session_start();
 require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
 include_once( PWD_MODEL . '/ModelUser.php' );
+include_once( PWD_MODEL . '/ModelCert.php' );
+include_once( PWD_MODEL . '/ModelRelationUserCert.php' );
 include_once( PWD_LOGICA . '/User.php' );
+include_once( PWD_LOGICA . '/Cert.php' );
+include_once( PWD_LOGICA . '/RelationUserCert.php' );
 
 /**
  * Función que sera la encargada de saber si la sessión ya tiene asiganos los 
@@ -20,11 +24,35 @@ include_once( PWD_LOGICA . '/User.php' );
  */
 function is_logged_in() {
     /**
-     * Cheque session is user logged in or not
-     * */
-    if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {
-        if (valid_login(unserialize($_SESSION['user']))) {
-            return true;
+     * Checks session is user logged in or not
+     */
+    if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {//tengo el usuario
+        if (valid_login(unserialize($_SESSION['user']))) {//el usuario es valido
+            /**
+             * Checks if users is owner of the certificate
+             */
+            if (isset($_SESSION['cert']) && unserialize($_SESSION['cert'])->getId() !== 0) {//tengo el certificado
+                if (hasValidCert() && valid_cert(unserialize($_SESSION['user']), unserialize($_SESSION['cert']))) {//elcertificado es valido y corresponde al usuario
+                    return true;
+                } else {
+                    session_destroy();
+                    header("Location: " . SITE_WEB . "/login/signin.php");
+                    exit;
+                }
+            } else {
+                if (hasValidCert()) {//aún no se ha elegido un certificado y este es valido?
+                    $cert = new Cert();
+                    $cert->setIssue($_SERVER['SSL_CLIENT_I_DN']);
+                    $cert->setSerial($_SERVER['SSL_CLIENT_M_SERIAL']);
+                    if (valid_cert(unserialize($_SESSION['user']), $cert)) {//correponde el certificado al usuario?
+                        setting_Session(NULL, $cert);
+                        return true;
+                    }
+                }
+                session_destroy();
+                header("Location: " . SITE_WEB . "/login/signin.php");
+                exit;
+            }
         } else {
             session_destroy();
             header("Location: " . SITE_WEB . "/login/signin.php");
@@ -44,8 +72,9 @@ function is_logged_in() {
  */
 function valid_login($user) {
     /**
-     * Cheque username and password is it match or not. If match return true else flase
-     * */
+     * Cheque username and password is it match or not. If match return true 
+     * else flase
+     */
     $modelUser = new ModelUser();
     $userFind = $modelUser->selectByEmailPasswordActivate($user);
     if (isset($userFind) && $userFind->getId() != 0) {
@@ -59,12 +88,68 @@ function valid_login($user) {
  * Función que dado el usuario con el username (email) agregara a la session los
  * valores necesarios.
  * @param User $user el usuario con el email a buscar
+ * @param Cert $cert el certificado del usuario con el issue y el serial a 
+ * buscar
  * @return boolea true si se hace correctamente.
  */
-function setting_Session($user) {
-    $modelUser = new ModelUser();
-    $userSession = $modelUser->selectByEmail($user);
-    $_SESSION['user'] = serialize($userSession);
+function setting_Session($user, $cert) {
+    if (isset($user) && $user != NULL) {
+        $modelUser = new ModelUser();
+        $userSession = $modelUser->selectByEmail($user);
+        $_SESSION['user'] = serialize($userSession);
+    }
+    if (isset($cert) && $cert != NULL) {
+        $modelCert = new ModelCert();
+        $certSession = $modelCert->selectBySerialIssue($cert);
+        $_SESSION['cert'] = serialize($certSession);
+    }
+
+    return true;
+}
+
+/**
+ * Válida el certificado, que se encuentra en $_SERVER, corresponda a el usuario
+ * en el sistema.
+ * @param User $user el usuario con id
+ * @param Cert $cert el certificado del usuario con el issue y el serial 
+ * @return boolean true si el certificado seleccionado corresponde al usuario.
+ */
+function valid_cert($user, $cert) {
+    $modelCert = new ModelCert();
+    $certResult = $modelCert->selectBySerialIssue($cert);
+
+    if (isset($user) && $user->getId() != 0 && isset($certResult) && $certResult->getId() != 0) {
+        $relationUserCert = new RelationUserCert();
+        $relationUserCert->setIdUser($user->getId());
+        $relationUserCert->setIdCert($cert->getId());
+
+        return true;
+    }
+
+    //aun no selecciona un certificado
+    return false;
+}
+
+/**
+ * Determines if the browser provided a valid SSL client certificate
+ *
+ * @return boolean True if the client cert is there and is valid
+ * http://cweiske.de/tagebuch/ssl-client-certificates.htm
+ */
+function hasValidCert() {
+    if (!isset($_SERVER['SSL_CLIENT_M_SERIAL'])
+            || !isset($_SERVER['SSL_CLIENT_V_END'])
+            || !isset($_SERVER['SSL_CLIENT_VERIFY'])
+            || $_SERVER['SSL_CLIENT_VERIFY'] !== 'SUCCESS'
+            || !isset($_SERVER['SSL_CLIENT_I_DN'])
+    ) {
+        return false;
+    }
+
+    if ($_SERVER['SSL_CLIENT_V_REMAIN'] <= 0) {
+        return false;
+    }
+
     return true;
 }
 

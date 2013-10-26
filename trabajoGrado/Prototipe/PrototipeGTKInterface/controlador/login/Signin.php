@@ -13,23 +13,14 @@ include_once ( PWD_CONTROLADOR . '/login/Login.php' );
 $msg = "";
 $msgshow = 'none';
 
-if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {
-    if (valid_login(unserialize($_SESSION["user"]))) {
-        header("Location: " . SITE_WEB . "/site");
-        exit;
-    } else {
-        $msg = "¡Fallo de Autenticación¡ Puede ser que este desactivado, comuniquese con el administrador.";
-        $msgshow = 'error';
-        session_destroy();
-    }
-} else if (isset($_POST["username"]) && isset($_POST["password"])) {
-
-    $usertmp = new User();
-    $usertmp->setEmail($_POST["username"]);
-    $usertmp->setPassword(md5($_POST["password"]));
-
-    if (valid_login($usertmp)) {
-        if (setting_Session($usertmp)) {
+if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {// ya esta loggeado
+    header("Location: " . SITE_WEB . "/site");
+} else if (isset($_POST["username"]) && isset($_POST["password"])) {// validar los datos
+    $userTmp = new User();
+    $userTmp->setEmail($_POST["username"]);
+    $userTmp->setPassword(md5($_POST["password"]));
+    if (valid_login($userTmp)) {
+        if (setting_Session($userTmp, NULL)) {// solo el usuario
             header("Location: " . SITE_WEB . "/site");
             exit;
         } else {
