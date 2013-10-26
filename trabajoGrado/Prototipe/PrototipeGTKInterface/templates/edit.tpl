@@ -1,6 +1,6 @@
     <div class=forms >
         <h1>Editar datos básicos</h1>
-        <form name="ValidationForm" action ="{SITE_CONTROLADOR}/personal/Edit.php" method="POST"> 
+        <form if="formEdit" name="formEdit" action ="{SITE_CONTROLADOR}/personal/Edit.php" method="POST"> 
             <div class="field">
                 <div class="{MESSAGE_CLASS}">
                     {MESSAGE}

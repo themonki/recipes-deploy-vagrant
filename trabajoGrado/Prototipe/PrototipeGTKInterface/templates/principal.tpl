@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <title>{TITLE_PAGE}</title>
         <script src='{SITE_PROTOTIPE}/js/scripts.js' type='text/javascript'></script>
         <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/style.css' />
         <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/styleMenu.css' />

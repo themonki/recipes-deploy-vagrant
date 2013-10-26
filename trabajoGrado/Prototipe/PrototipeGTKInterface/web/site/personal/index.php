@@ -20,6 +20,7 @@ $contenidoInicialString = $contenidoInicial->muestra();
 $contenidoPrincipal = new TemplateManager();
 $contenidoPrincipal->plantilla("principal");
 $contenidoPrincipal->asigna_variables(array(
+    "TITLE_PAGE" => "Perfil",
     "SITE_PROTOTIPE" => SITE_PROTOTIPE,
     "SITE_WEB" => SITE_WEB,
     "NAME" => unserialize($_SESSION['user'])->getName(),

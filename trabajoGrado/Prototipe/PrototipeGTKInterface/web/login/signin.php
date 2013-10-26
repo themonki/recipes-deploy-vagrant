@@ -11,14 +11,14 @@ include_once( PWD_CONTROLADOR . '/login/Signin.php' );
 
 include_once(PWD_CONTROLADOR . '/templates/TemplateManager.php');
 
-$contenidoPrincipal = new TemplateManager();
-$contenidoPrincipal->plantilla("signin");
-$contenidoPrincipal->asigna_variables(array(
+$contenidoLogin = new TemplateManager();
+$contenidoLogin->plantilla("signin");
+$contenidoLogin->asigna_variables(array(
     "SITE_PROTOTIPE" => SITE_PROTOTIPE,
     "msg" => $msg,
     "msgshow" => $msgshow
 ));
-$contenidoPrincipalString = $contenidoPrincipal->muestra();
-echo $contenidoPrincipalString;
+$contenidoLoginString = $contenidoLogin->muestra();
+echo $contenidoLoginString;
 
 ?>

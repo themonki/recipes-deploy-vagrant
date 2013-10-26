@@ -11,8 +11,8 @@
 */
 
 body {
-    background: url(../resources/image/background.png) fixed 50% no-repeat white;
-    font-family: Helvetica;
+/*    background: url(../resources/image/background.png) fixed 50% no-repeat white;
+    font-family: Helvetica;*/
 }
 
 h2 {
@@ -21,13 +21,13 @@ h2 {
 
 /* NAVIGATION */
 
-nav {
+.navLogin {
     position: fixed;
     top: 10px;
     left: 10px;
 }
 
-nav a {
+.navLogin a {
     color: #4889C2;
     font-weight: bold;
     text-decoration: none;
@@ -35,11 +35,11 @@ nav a {
     -moz-transition: all .4s;
 }
 
-nav a:hover {
+.navLogin a:hover {
     opacity: 1;
 }
 
-nav a.focus {
+.navLogin a.focus {
     opacity: 1;
 }
 
@@ -59,7 +59,7 @@ nav a.focus {
 
 /* Register form height */
 .formLogin .register{
-    height: 420px;
+    /*height: 420px;*/
 }
 /* Input fields; Username, Password etc. */
 .formLogin .text-field {

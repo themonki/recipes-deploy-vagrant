@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="{SITE_PROTOTIPE}/css/styleMessages.css" />
     </head>
     <body>
-        <form class="formLogin" action ="" method="POST">            
+        <form id="formSignin" name="formSignin" class="formLogin" action ="" method="POST">            
             <h2>Iniciar Sesión</h2>
             <input name="username" type="text" class="text-field" placeholder="Correo"
                    required="true" />
