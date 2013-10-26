@@ -14,7 +14,7 @@
             <input name="password" type="password" class="text-field" placeholder="Contraseña"
                    required="true" />
             <input type="submit" value="Ingresar" class="button" />
-            <div class="{msgshow}" > {msg}></div>
+            <div class="{msgshow}">{msg}</div>
         </form>
     </body>
 </html>

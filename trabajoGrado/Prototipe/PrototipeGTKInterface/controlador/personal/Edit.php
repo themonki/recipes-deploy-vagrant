@@ -5,15 +5,16 @@ require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/co
 include_once( PWD_MODEL . '/ModelUser.php' );
 include_once( PWD_LOGICA . '/User.php' );
 include_once ( PWD_CONTROLADOR . '/login/Login.php' );
-
-if (isset($_POST)) {
+$message_class = "none";
+$message = "";
+if (isset($_POST) && isset($_POST['name']) && trim($_POST['name']) !="") {
     $name = $_POST['name'];
     $password = $_POST['passwordNew']; // encriptado
     $modelUser = new ModelUser();
     $user = $modelUser->selectById(unserialize($_SESSION['user']));
 
     $user->setName($name);
-    if(isset($password) && $password!='' ) {
+    if (isset($password) && $password != '') {
         $user->setPassword(md5($password));
     }
 
@@ -23,13 +24,13 @@ if (isset($_POST)) {
         $message = "Datos actualizados correctamente.";
         $message_class = "success";
         $user = $modelUser->selectById($user);
-        setting_Session($user);
+        setting_Session($user, unserialize($_SESSION['cert']));
     } else {
         //error
         $message = "Error al actualizar los datos.";
-        $message_class = "error";        
+        $message_class = "error";
     }
-    header("Location: " . SITE_WEB . "/site/personal/edit.php?message=".$message."&message_class=".$message_class);
+//    header("Location: " . SITE_WEB . "/site/personal/edit.php?message=".$message."&message_class=".$message_class);
 //    exit;
 }
 ?>

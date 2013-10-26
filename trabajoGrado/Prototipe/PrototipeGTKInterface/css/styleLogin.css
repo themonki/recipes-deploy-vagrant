@@ -11,8 +11,8 @@
 */
 
 body {
-/*    background: url(../resources/image/background.png) fixed 50% no-repeat white;
-    font-family: Helvetica;*/
+    font-family: Helvetica;
+    background: white;
 }
 
 h2 {
