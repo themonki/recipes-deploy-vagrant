@@ -15,6 +15,7 @@ $msgshow = 'none';
 
 if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {// ya esta loggeado
     header("Location: " . SITE_WEB . "/site");
+    exit;
 } else if (isset($_POST["username"]) && isset($_POST["password"])) {// validar los datos
     $userTmp = new User();
     $userTmp->setEmail($_POST["username"]);
