@@ -36,7 +36,7 @@ function is_logged_in() {
                     return true;
                 } else {
                     session_destroy();
-                    header("Location: " . SITE_WEB . "/login/signin.php");
+                    header("Location: " . SITE_WEB . "/login/signin.php?value=3");
                     exit;
                 }
             } else {
@@ -50,7 +50,7 @@ function is_logged_in() {
                     }
                 }
                 session_destroy();
-                header("Location: " . SITE_WEB . "/login/signin.php");
+                header("Location: " . SITE_WEB . "/login/signin.php?value=3");
                 exit;
             }
         } else {
@@ -121,9 +121,15 @@ function valid_cert($user, $cert) {
     if (isset($user) && $user->getId() != 0 && isset($certResult) && $certResult->getId() != 0) {
         $relationUserCert = new RelationUserCert();
         $relationUserCert->setIdUser($user->getId());
-        $relationUserCert->setIdCert($cert->getId());
+        $relationUserCert->setIdCert($certResult->getId());
 
-        return true;
+        $modelRelationCert = new ModelRelationUserCert();
+        $relationUserCertResult = $modelRelationCert->selectById($relationUserCert);
+
+        if (isset($relationUserCertResult) && $relationUserCertResult->getIdUser() != 0
+                && $relationUserCertResult->getIdCert() != 0) {
+            return true;
+        }
     }
 
     //aun no selecciona un certificado

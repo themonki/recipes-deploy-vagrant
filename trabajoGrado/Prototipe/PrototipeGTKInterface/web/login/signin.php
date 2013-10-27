@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PHP Simpe Login
  * @author Resalat Haque
@@ -10,7 +11,10 @@ require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/co
 include_once( PWD_CONTROLADOR . '/login/Signin.php' );
 
 include_once(PWD_CONTROLADOR . '/templates/TemplateManager.php');
-
+if ($_GET['value'] && $_GET['value']==3) {
+    $msg = getErrorMSG($_GET['value']);
+    $msgshow = "error";
+}
 $contenidoLogin = new TemplateManager();
 $contenidoLogin->plantilla("signin");
 $contenidoLogin->asigna_variables(array(
@@ -20,5 +24,4 @@ $contenidoLogin->asigna_variables(array(
 ));
 $contenidoLoginString = $contenidoLogin->muestra();
 echo $contenidoLoginString;
-
 ?>

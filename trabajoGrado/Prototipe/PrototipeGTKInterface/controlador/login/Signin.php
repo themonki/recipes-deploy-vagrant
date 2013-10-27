@@ -25,12 +25,30 @@ if (isset($_SESSION['user']) && unserialize($_SESSION['user'])->getId() !== 0) {
             header("Location: " . SITE_WEB . "/site");
             exit;
         } else {
-            $msg = "¡Fallo al obtener los valores del usuario para la sesión.";
+            $msg = getErrorMSG(1);
             $msgshow = 'error';
         }
     } else {
-        $msg = "¡Fallo al autenticarse¡. <br>Nombre de Usuario y/o Contraseña inválidos. También puede ser que este desactivado, comuniquese con el administrador.";
+        $msg = getErrorMSG(2);
         $msgshow = 'error';
     }
 }
+/**
+ * Función para devolver los mensajes de error en el Login
+ * @param int $value int con el tipo de mensaje de error a mostrar
+ * @return string con el mensaje
+ */
+function getErrorMSG($value) {
+    $msg = "";
+    if ($value == 1) {
+        $msg = "¡Fallo al obtener los valores del usuario para la sesión.";
+    } else if ($value == 2) {
+        $msg = "¡Fallo al autenticarse¡. <br>Nombre de Usuario y/o Contraseña inválidos. También puede ser que este desactivado, comuniquese con el administrador.";
+    } else if ($value == 3) {
+        $msg = "Usted esta registrado. Pero el certificado actual ya expiro o no le corresponde a usted.";
+    }
+
+    return $msg;
+}
+
 ?>

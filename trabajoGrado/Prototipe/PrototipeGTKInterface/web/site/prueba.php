@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/login/Login.php' );
+include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
 ?>
 <html>
     <head>

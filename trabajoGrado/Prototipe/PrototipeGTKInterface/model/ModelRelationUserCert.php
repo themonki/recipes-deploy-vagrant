@@ -34,7 +34,7 @@ class ModelRelationUserCert {
 
     /**
      * Método para instertar en la tabla ruc_relationusercert.
-     * @param RelationUserCerts $obj de la logica con los datos encapsulados.
+     * @param RelationUserCert $obj de la logica con los datos encapsulados.
      * @return int el numero de filas afectadas o -1 si no se realiza 
      * correctamente.
      */
@@ -50,7 +50,7 @@ class ModelRelationUserCert {
 
     /**
      * Método para instertar en la tabla ruc_relationusercert con el id dado.
-     * @param RelationUserCerts $obj de la logica con los datos encapsulados.
+     * @param RelationUserCert $obj de la logica con los datos encapsulados.
      * @return int el numero de filas afectadas o -1 si no se realiza 
      * correctamente.
      */
@@ -66,7 +66,7 @@ class ModelRelationUserCert {
 
     /**
      * Método para actualizar en la tabla ruc_relationusercert.
-     * @param RelationUserCerts $obj de la logica con los datos encapsulados.
+     * @param RelationUserCert $obj de la logica con los datos encapsulados.
      * @return int el numero de filas afectadas o -1 si no se realiza 
      * correctamente.
      */
@@ -83,7 +83,7 @@ class ModelRelationUserCert {
 
     /**
      * Método para borrar en la tabla ruc_relationusercert.
-     * @param RelationUserCerts $obj de la logica con los datos encapsulados.
+     * @param RelationUserCert $obj de la logica con los datos encapsulados.
      * @return int el numero de filas afectadas o -1 si no se realiza 
      * correctamente.
      */
@@ -98,8 +98,8 @@ class ModelRelationUserCert {
 
     /**
      * Método para consultar en la tabla ruc_relationusercert.
-     * @param RelationUserCerts $obj de la logica con los datos encapsulados.
-     * @return RelationUserCerts el objeto que corresponde con la consulta.
+     * @param RelationUserCert $obj de la logica con los datos encapsulados.
+     * @return RelationUserCert el objeto que corresponde con la consulta.
      */
     function selectById($obj) {
         $sql = "SELECT "
@@ -110,10 +110,10 @@ class ModelRelationUserCert {
                 . "AND " . $this->col2 . " = " . $obj->getIdCert() . ""
                 . ";";
         $result = $this->fachada->db_query_select_pg($sql);
-        $objTmp = new RelationUserCerts();
+        $objTmp = new RelationUserCert();
         while ($row = pg_fetch_array($result)) {
             $objTmp->setIdUser($row[$this->col1]);
-            $objTmp->getIdCert($row[$this->col2]);            
+            $objTmp->setIdCert($row[$this->col2]);            
             break;
         }
         return $objTmp;
@@ -121,7 +121,7 @@ class ModelRelationUserCert {
     
     /**
      * Método para consultar todos los registros en la tabla ruc_relationusercert.
-     * @return array con los objetos RelationUserCerts correspondientes.
+     * @return array con los objetos RelationUserCert correspondientes.
      */
     function select() {
         $sql = "SELECT "
@@ -147,8 +147,8 @@ class ModelRelationUserCert {
     
     /**
      * Método para consultar en la tabla ruc_relationusercert.
-     * @param RelationUserCerts $obj de la logica con los datos encapsulados.
-     * @return array con los objetos RelationUserCerts correspondientes.
+     * @param RelationUserCert $obj de la logica con los datos encapsulados.
+     * @return array con los objetos RelationUserCert correspondientes.
      */
     function selectByIdUser($obj) {
         $sql = "SELECT "
@@ -171,8 +171,8 @@ class ModelRelationUserCert {
     
     /**
      * Método para consultar en la tabla ruc_relationusercert.
-     * @param RelationUserCerts $obj de la logica con los datos encapsulados.
-     * @return array con los objetos RelationUserCerts correspondientes.
+     * @param RelationUserCert $obj de la logica con los datos encapsulados.
+     * @return array con los objetos RelationUserCert correspondientes.
      */
     function selectByIdCert($obj) {
         $sql = "SELECT "
