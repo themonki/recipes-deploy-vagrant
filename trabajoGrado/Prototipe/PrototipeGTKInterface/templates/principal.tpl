@@ -23,7 +23,7 @@
                                 <li class=><a href ='{SITE_WEB}/site/personal/edit.php'><span>Editar Perfil</span></a></li>
                             </ul>
                         </li>
-                        <li><a href='#'><span>Dashboard</span></a></li>
+                        <li><a href='{SITE_WEB}/site/dashboard/index.php'><span>Dashboard</span></a></li>
                         <li><a href='{SITE_WEB}/site/index.php'><span>Inicio</span></a></li>
                     </ul>
                 </div>
