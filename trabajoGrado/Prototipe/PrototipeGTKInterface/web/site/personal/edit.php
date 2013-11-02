@@ -13,7 +13,6 @@ $contenidoEditar->plantilla("edit");
 $contenidoEditar->asigna_variables(array(
     "MESSAGE_CLASS" => $message_class,
     "MESSAGE" => $message,
-    "SITE_WEB" => SITE_WEB,
     "NAME" => unserialize($_SESSION['user'])->getName(),
     "EMAIL" => unserialize($_SESSION['user'])->getEmail()
 ));
