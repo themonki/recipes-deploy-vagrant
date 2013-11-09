@@ -1,0 +1,5 @@
+##vagrant configuracion
+.vagrant
+/trabajoGrado/Prototipe/PrototipeGTKInterface/nbproject/private/
+
+*.p12
