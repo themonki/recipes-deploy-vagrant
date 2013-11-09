@@ -1,5 +1,5 @@
 ##vagrant configuracion
 .vagrant
-*/nbproject/private/
+*nbproject/private/
 
 *.p12
