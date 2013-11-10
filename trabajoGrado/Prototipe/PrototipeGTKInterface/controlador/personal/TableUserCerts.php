@@ -2,9 +2,9 @@
 
 session_start();
 require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
-include_once( PWD_MODEL . '/ModelRelationUserCert.php' );
+//include_once( PWD_MODEL . '/ModelRelationUserCert.php' );
 include_once( PWD_MODEL . '/ModelCert.php' );
-include_once( PWD_LOGICA . '/RelationUserCert.php' );
+//include_once( PWD_LOGICA . '/RelationUserCert.php' );
 include_once( PWD_LOGICA . '/User.php' );
 include_once( PWD_LOGICA . '/Cert.php' );
 
@@ -14,9 +14,12 @@ function printTableUserCerts($user) {
 
 function buildTableUserCerts($user) {
 
-    $modelRelationUserCert = new ModelRelationUserCert();
-    $relationUserCert = new RelationUserCert();
-    $relationUserCert->setIdUser($user->getId());
+    $modelCert = new ModelCert();
+    $cert_user = new Cert();
+    $cert_user->setIdUser($user->getId());
+//    $modelRelationUserCert = new ModelRelationUserCert();
+//    $relationUserCert = new RelationUserCert();
+//    $relationUserCert->setIdUser($user->getId());
 
     $data = array();
 
@@ -27,13 +30,14 @@ function buildTableUserCerts($user) {
 
     $data[] = $headers;
 
-    $result = $modelRelationUserCert->selectByIdUser($relationUserCert);
-
-    foreach ($result as $ruc) {
-        $modelCert = new ModelCert();
-        $certFind = new Cert();
-        $certFind->setId($ruc->getIdCert());
-        $cert = $modelCert->selectById($certFind);
+//    $result = $modelRelationUserCert->selectByIdUser($relationUserCert);
+    $result = $modelCert->selectByIdUser($cert_user);
+    foreach ($result as $cert) {
+//    foreach ($result as $ruc) {
+//        $modelCert = new ModelCert();
+//        $certFind = new Cert();
+//        $certFind->setId($ruc->getIdCert());
+//        $cert = $modelCert->selectById($certFind);
         $certsData = array(
             isCertUsed($cert),
             array(
@@ -57,7 +61,7 @@ function buildTableUserCerts($user) {
                 $content.= "\t\t</th>\n";
             }
             $count++;
-        } else if($count< (count($data))) {
+        } else if ($count < (count($data))) {
             foreach ($row[1] as $d) {
                 $content.= "\t\t<td>\n";
                 $content.= "\t\t\t$d\n";

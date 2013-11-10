@@ -34,8 +34,9 @@ CREATE SEQUENCE crt_cert_id_seq INCREMENT 1 START 1;
 
 CREATE TABLE crt_cert (
   crt_id integer DEFAULT NEXTVAL('crt_cert_id_seq'::TEXT) NOT NULL,
+  usr_id integer NOT NULL,
 	crt_serial varchar(200)  NOT NULL,
-	crt_issue varchar(1000) NOT NULL,
+	crt_issue varchar(1000) NOT NULL,  
 	crt_keypath varchar(2000),
 	crt_certpath varchar(2000),
 	crt_proxypath varchar(2000)
@@ -43,19 +44,28 @@ CREATE TABLE crt_cert (
 
 ALTER TABLE crt_cert ADD CONSTRAINT PK_crt_cert
 	PRIMARY KEY (crt_id);
+ALTER TABLE crt_cert ADD CONSTRAINT FK_crt_cert_usr_user 
+	FOREIGN KEY (usr_id) REFERENCES usr_user (usr_id)
+ON DELETE CASCADE ON UPDATE CASCADE;
 
 
 ------------------------------------------------------------------------------------------
 -- Relation Users Certs
 ------------------------------------------------------------------------------------------
 
-DROP TABLE IF EXISTS ruc_relationusercert;
+--DROP TABLE IF EXISTS ruc_relationusercert;
 
-CREATE TABLE ruc_relationusercert (
-  usr_id integer NOT NULL,
-  crt_id integer NOT NULL
-);
+--CREATE TABLE ruc_relationusercert (
+--  usr_id integer NOT NULL,
+--  crt_id integer NOT NULL
+--);
 
-ALTER TABLE ruc_relationusercert ADD CONSTRAINT PK_ruc_relationusercert
-	PRIMARY KEY (usr_id, crt_id);
+--ALTER TABLE ruc_relationusercert ADD CONSTRAINT PK_ruc_relationusercert
+--	PRIMARY KEY (usr_id, crt_id);
+--ALTER TABLE ruc_relationusercert ADD CONSTRAINT FK_ruc_relationusercert_usr_user 
+--	FOREIGN KEY (usr_id) REFERENCES usr_user (usr_id)
+--ON DELETE CASCADE ON UPDATE CASCADE;
+--ALTER TABLE ruc_relationusercert ADD CONSTRAINT FK_ruc_relationusercert_crt_cert 
+--	FOREIGN KEY (crt_id) REFERENCES crt_cert (crt_id)
+--ON DELETE CASCADE ON UPDATE CASCADE;
 

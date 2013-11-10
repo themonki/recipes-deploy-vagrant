@@ -11,6 +11,10 @@ class Cert {
      * El id del certificado. Tipo integer.
      */
     private $id;
+    /**
+     * El id del usuario. Tipo integer.
+     */
+    private $idUser;
 
     /**
      * El serial del certificado. Tipo string.
@@ -63,6 +67,22 @@ class Cert {
      */
     function setId($value) {
         $this->id = $value;
+    }
+    
+    /**
+     * Retorna el valor del atributo idUser
+     * @return integer
+     */
+    function getIdUser() {
+        return $this->idUser;
+    }
+
+    /**
+     * Asigna un valor al atributo idUser
+     * @param integer $value
+     */
+    function setIdUser($value) {
+        $this->idUser = $value;
     }
 
     /**

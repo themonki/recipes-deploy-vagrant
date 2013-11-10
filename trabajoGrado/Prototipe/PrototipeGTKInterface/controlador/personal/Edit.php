@@ -24,7 +24,7 @@ if (isset($_POST) && isset($_POST['name']) && trim($_POST['name']) !="") {
         $message = "Datos actualizados correctamente.";
         $message_class = "success";
         $user = $modelUser->selectById($user);
-        setting_Session($user, unserialize($_SESSION['cert']));
+        setting_Session($user, NULL);
     } else {
         //error
         $message = "Error al actualizar los datos.";

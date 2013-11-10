@@ -12,10 +12,10 @@ session_start();
 require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
 include_once( PWD_MODEL . '/ModelUser.php' );
 include_once( PWD_MODEL . '/ModelCert.php' );
-include_once( PWD_MODEL . '/ModelRelationUserCert.php' );
+//include_once( PWD_MODEL . '/ModelRelationUserCert.php' );
 include_once( PWD_LOGICA . '/User.php' );
 include_once( PWD_LOGICA . '/Cert.php' );
-include_once( PWD_LOGICA . '/RelationUserCert.php' );
+//include_once( PWD_LOGICA . '/RelationUserCert.php' );
 
 /**
  * Función que sera la encargada de saber si la sessión ya tiene asiganos los 
@@ -32,7 +32,7 @@ function is_logged_in() {
              * Checks if users is owner of the certificate
              */
             if (isset($_SESSION['cert']) && unserialize($_SESSION['cert'])->getId() !== 0) {//tengo el certificado
-                if (hasValidCert() && valid_cert(unserialize($_SESSION['user']), unserialize($_SESSION['cert']))) {//elcertificado es valido y corresponde al usuario
+                if (hasValidCert() && valid_cert(unserialize($_SESSION['cert']))) {//elcertificado es valido y corresponde al usuario
                     return true;
                 } else {
                     session_destroy();
@@ -44,7 +44,8 @@ function is_logged_in() {
                     $cert = new Cert();
                     $cert->setIssue($_SERVER['SSL_CLIENT_I_DN']);
                     $cert->setSerial($_SERVER['SSL_CLIENT_M_SERIAL']);
-                    if (valid_cert(unserialize($_SESSION['user']), $cert)) {//correponde el certificado al usuario?
+                    $cert->setIdUser(unserialize($_SESSION['user'])->getId());
+                    if (valid_cert($cert)) {//correponde el certificado al usuario?
                         setting_Session(NULL, $cert);
                         return true;
                     }
@@ -88,8 +89,8 @@ function valid_login($user) {
  * Función que dado el usuario con el username (email) agregara a la session los
  * valores necesarios.
  * @param User $user el usuario con el email a buscar
- * @param Cert $cert el certificado del usuario con el issue y el serial a 
- * buscar
+ * @param Cert $cert el certificado del usuario con el id del usuario, issue y 
+ * el serial a buscar
  * @return boolea true si se hace correctamente.
  */
 function setting_Session($user, $cert) {
@@ -100,7 +101,7 @@ function setting_Session($user, $cert) {
     }
     if (isset($cert) && $cert != NULL) {
         $modelCert = new ModelCert();
-        $certSession = $modelCert->selectBySerialIssue($cert);
+        $certSession = $modelCert->selectBySerialIssueIdUser($cert);
         $_SESSION['cert'] = serialize($certSession);
     }
 
@@ -110,11 +111,12 @@ function setting_Session($user, $cert) {
 /**
  * Válida el certificado, que se encuentra en $_SERVER, corresponda a el usuario
  * en el sistema.
+ * @deprecated es una relación 1 - N
  * @param User $user el usuario con id
  * @param Cert $cert el certificado del usuario con el issue y el serial 
  * @return boolean true si el certificado seleccionado corresponde al usuario.
  */
-function valid_cert($user, $cert) {
+function valid_cert_user($user, $cert) {
     $modelCert = new ModelCert();
     $certResult = $modelCert->selectBySerialIssue($cert);
 
@@ -133,6 +135,22 @@ function valid_cert($user, $cert) {
     }
 
     //aun no selecciona un certificado
+    return false;
+}
+
+/**
+ * Válida el certificado, que se encuentra en $_SERVER, corresponda a el usuario
+ * en el sistema.
+ * @param Cert $cert el certificado del usuario con el issue y el serial 
+ * @return boolean true si el certificado seleccionado corresponde al usuario.
+ */
+function valid_cert($cert) {
+    $modelCert = new ModelCert();
+    $certResult = $modelCert->selectBySerialIssueIdUser($cert);
+
+    if (isset($certResult) && $certResult->getId() != 0) {
+        return true;
+    }
     return false;
 }
 

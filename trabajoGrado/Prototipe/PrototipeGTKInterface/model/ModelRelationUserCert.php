@@ -9,6 +9,7 @@ include_once( PWD_LOGICA . '/RelationUserCert.php' );
  * base de datos.
  *
  * @author Edgar Moncada
+ * @deprecated Es una relacion de 1 - N.
  */
 class ModelRelationUserCert {
 

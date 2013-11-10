@@ -5,6 +5,7 @@
  * encapsulados
  *
  * @author Edgar Moncada
+ * @deprecated Es una relacion de 1 - N.
  */
 class RelationUserCert {
 
