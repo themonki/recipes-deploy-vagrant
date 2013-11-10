@@ -1,5 +1,26 @@
 #!/bin/bash
 
+FILE=./machineglobus/cookbooks/confighost/attributes/default.rb
+
+profile=false;
+if [ -e $FILE ]; then
+
+  while read line
+  do
+    if [[ "$line" == *"$HOME"* ]]
+      then
+        profile=true;       
+    fi
+  done < $FILE
+  if [ $profile == false ]; then
+    echo "El perfil por defecto no corresponde al usuario actual, actualice con manage-user-profile.sh";
+    exit;
+  fi
+else
+  echo "Debe generar primero el perfil por defecto del usuario con manage-user-profile.sh";
+  exit;
+fi
+
 pathSSH=$HOME/.ssh/id_rsa
 echo $pathSSH
 

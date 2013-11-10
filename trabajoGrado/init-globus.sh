@@ -1,5 +1,27 @@
 #!/bin/bash
 
+FILE=./machineglobus/cookbooks/confighost/attributes/default.rb
+
+profile=false;
+if [ -e $FILE ]; then
+
+  while read line
+  do
+    if [[ "$line" == *"$HOME"* ]]
+      then
+        profile=true;       
+    fi
+  done < $FILE
+  if [ $profile == false ]; then
+    echo "El perfil por defecto no corresponde al usuario actual, actualice con manage-user-profile.sh";
+    exit;
+  fi
+else
+  echo "Debe generar primero el perfil por defecto del usuario con manage-user-profile.sh";
+  exit;
+fi
+
+
 pathSSH=$HOME/.ssh/id_rsa
 #echo $pathSSH
 
@@ -45,9 +67,14 @@ knife cook vagrant@172.18.0.21 nodes/database.json >> ../log2.txt
 echo "Aplicación generada"
 
 cd ..
-rm -rf usercred.p12
-scp vagrant@172.18.0.21:~/.globus/usercred.p12 . >> log2.txt
 
-echo "certificado globus obtenido"
+./getCredencial.sh >> log2.txt
 
 ./restart-globus.sh >>  log2.txt
+
+echo "Importe al navegador el archivo usercred.p12."
+echo "Ingrese al Grid: https://172.18.0.21/PrototipeGTKInterface/"
+echo "email: vagrant@gmail.com"
+echo "Contraseña: Vagrant123"
+echo ""
+
