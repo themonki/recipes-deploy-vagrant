@@ -94,9 +94,9 @@ include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/co
         $output = $ssh->exec('/usr/bin/whoami');
         print $output;
         $output = $ssh->exec('pwd');
-        print $output;
+//        print $output;
         $output = $ssh->exec('ls -la');
-        print $output;
+//        print $output;
         print "<br/>**************************************<br/>";
 //        [vagrant@mg2 tmp]$
         $output = $ssh->read('[' . $user . '@' . $host . ' ~]$');
@@ -104,18 +104,18 @@ include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/co
         print "<br/>";
         $ssh->write("expect /tmp/run-grid-proxy-init.exp -p vagrant\n");
         $output = $ssh->read('[' . $user . '@' . $host . ' ~]$');
-        print $output;
+//        print $output;
         if (hasValidCert()) {
             print "<br/>es valido";
             print "<br/>";
         }
         print "<br/>**************************************<br/>";
         $datos = openssl_x509_parse($_SERVER['SSL_CLIENT_CERT']);
-        var_dump($datos);
+//        var_dump($datos);
         print "<br/>**************************************<br/>";
         $p12cert = array();
         openssl_pkcs12_read($_SERVER['SSL_CLIENT_CERT'], $p12cert, 'client');        
-        var_dump($p12cert);
+//        var_dump($p12cert);
         print "<br/>**************************************<br/>";
         if (isset($_POST['comando'])) {
             $var = $_POST['comando'];
