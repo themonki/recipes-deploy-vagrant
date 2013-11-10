@@ -5,7 +5,6 @@
 set timeout 10
 set in    "/home/vagrant/.globus/usercert.pem"
 set inkey	"/home/vagrant/.globus/userkey.pem"
-set cert	"/home/globus/.globus/simpleCA/cacert.pem"
 set out		"/tmp/webcert.p12"
 set passuser	"vagrant"
 set passout	""
@@ -20,9 +19,6 @@ if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $si
 	        } elseif { $argvtmp == "-k" } {#inkey
                 	set index  [expr $i+1];
         	        set inkey  [lindex $argv $index];
-	        } elseif { $argvtmp == "-c" } {#cert
-                	set index  [expr $i+1];
-        	        set cert  [lindex $argv $index];
 	        } elseif { $argvtmp == "-o" } {#out
                 	set index  [expr $i+1];
         	        set out [lindex $argv $index];
@@ -36,7 +32,7 @@ if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $si
 	}
 } else {
 	send_user "Error parametros incompletos\n"
-        send_user "Uso: generatep12.exp -i in -k inkey -c certCA -o out -pu passuser -po passout \n"
+        send_user "Uso: generatep12.exp -i in -k inkey -o out -pu passuser -po passout \n"
         exit 1
 }
 
@@ -45,7 +41,7 @@ if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 || $si
 #Enter Export Password:
 #Verifying - Enter Export Password:
 
-spawn openssl pkcs12 -export -in $in -inkey $inkey -certfile $cert -out $out
+spawn openssl pkcs12 -export -in $in -inkey $inkey -out $out
 
 expect {
 	"Enter pass phrase for" {

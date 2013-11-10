@@ -104,6 +104,13 @@ if platform?("redhat", "centos", "fedora")
         owner "vagrant"
         #group "admin"
 		end
+		
+		cookbook_file "/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm" do
+        source "yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm"
+        mode 0644
+        owner "vagrant"
+        #group "admin"
+		end
 
 	end
 
@@ -127,7 +134,14 @@ if platform?("redhat", "centos", "fedora")
 	          command "rpm -Uvh --quiet rsync*.rpm"
 	          action :run
 
-    end 
+    end
+    execute "install yum-plugin-downloadonly" do
+	          user "root"
+	          cwd "/home/vagrant"
+	          command "rpm -Uvh --quiet yum-plugin-downloadonly*.rpm"
+	          action :run
+
+    end
 end
 
 cookbook_file "/home/vagrant/configssh.exp" do

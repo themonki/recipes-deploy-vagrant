@@ -77,11 +77,7 @@ include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/co
         print nl2br(exec('ls -la'));
 
         print "<br/>";
-
-        foreach ($_SERVER as $key_name => $key_value) {
-
-            print $key_name . " = " . $key_value . "<br>";
-        }
+        var_dump($_SERVER);
 
         require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
         

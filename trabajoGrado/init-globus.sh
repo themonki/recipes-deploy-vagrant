@@ -46,7 +46,7 @@ echo "Aplicación generada"
 
 cd ..
 
-scp vagrant@172.18.0.21:/tmp/webcert.p12 . >> log2.txt
+scp vagrant@172.18.0.21:~/.globus/usercred.p12 . >> log2.txt
 
 echo "certificado globus obtenido"
 

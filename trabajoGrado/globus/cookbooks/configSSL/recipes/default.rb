@@ -66,14 +66,21 @@ end
 ##openssl pkcs12 -export -in /home/vagrant/.globus/usercert.pem -inkey /home/vagrant/.globus/userkey.pem -certfile /home/globus/.globus/simpleCA/cacert.pem -out webcert.p12
 
 execute "run generatep12" do
-	command "expect generatep12.exp -i /home/vagrant/.globus/usercert.pem -k /home/vagrant/.globus/userkey.pem -c /home/globus/.globus/simpleCA/cacert.pem -o /tmp/webcert.p12 -pu vagrant -po client"
+	command "expect generatep12.exp -i /home/vagrant/.globus/usercert.pem -k /home/vagrant/.globus/userkey.pem -o /home/vagrant/.globus/usercred.p12 -pu vagrant"
 	user "root"
 	cwd "/tmp"
 	action :run
 end
 
 execute "chown vagrant" do
-	command "chown vagrant.vagrant /tmp/webcert.p12"
+	command "chown vagrant.vagrant /home/vagrant/.globus/usercred.p12"
+	user "root"
+	cwd "/tmp"
+	action :run
+end
+
+execute "chmod vagrant" do
+	command "chmod 400 /home/vagrant/.globus/usercred.p12"
 	user "root"
 	cwd "/tmp"
 	action :run
