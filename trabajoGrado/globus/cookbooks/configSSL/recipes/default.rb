@@ -79,6 +79,13 @@ execute "chown vagrant" do
 	action :run
 end
 
+execute "cp usercred" do
+	command "cp /home/vagrant/.globus/usercred.p12 /home/vagrant/usercred.p12"
+	user "root"
+	cwd "/home/vagrant"
+	action :run
+end
+
 execute "chmod vagrant" do
 	command "chmod 400 /home/vagrant/.globus/usercred.p12"
 	user "root"

@@ -224,7 +224,7 @@ class ModelCert {
                 . $this->col5 . ", "
                 . $this->col6 . ", "
                 . $this->col7 . " "
-                . "FROM " . $this->tablename . ""
+                . "FROM " . $this->tablename . " "
                 . "WHERE " . $this->col2 . " = " . $obj->getIdUser() . ""
                 . ";";
         $result = $this->fachada->db_query_select_pg($sql);

@@ -45,7 +45,7 @@ knife cook vagrant@172.18.0.21 nodes/database.json >> ../log2.txt
 echo "Aplicación generada"
 
 cd ..
-
+rm -rf usercred.p12
 scp vagrant@172.18.0.21:~/.globus/usercred.p12 . >> log2.txt
 
 echo "certificado globus obtenido"

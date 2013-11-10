@@ -1,5 +1,4 @@
 <?php
-
 /**
  * PHP Simpe Login
  * @author Resalat Haque
