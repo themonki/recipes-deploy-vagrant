@@ -4,21 +4,18 @@ include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/co
 ?>
 <html>
     <head>
-        <script src="<?php echo SITE_PROTOTIPE . "/js/"; ?>/scripts.js" type="text/javascript"></script>        
+        <script src="<?php print SITE_PROTOTIPE . "/js/"; ?>/scripts.js" type="text/javascript"></script>        
     </head>
-    <body>
+    <body style="white-space:pre-wrap">
         <form method="POST" action="prueba.php">
-            <input type="text" name="comando"/>
+            <input style="width: 800px" type="text" name="comando"/>
             <input type="submit" value="enviar"/>
-        </form>
-
-
-        <?php
-//        header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
-//        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-//        header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-//        header("Cache-Control: post-check=0, pre-check=0", false);
-//        header("Pragma: no-cache");
+        </form><?php
+        header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
+        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+        header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
 
         /**
          * Determines if the browser provided a valid SSL client certificate
@@ -64,23 +61,22 @@ include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/co
 //                        )
 //        );
         print nl2br(exec('/usr/bin/whoami'));
-
         print "<br/>";
-
-        print nl2br(shell_exec('/usr/bin/whoami'));
-
-        print "<br/>";
-
+        print shell_exec('/usr/bin/whoami');
         print nl2br(exec('pwd'));
-
-        print "<br/>";
+        print nl2br("<br/>");
         print nl2br(exec('ls -la'));
+        print nl2br("<br/>");
 
-        print "<br/>";
+//        foreach ($_SERVER as $key_name => $key_value) {
+//
+//            nl2br $key_name . " = " . $key_value . "<br>";
+//        }
         var_dump($_SERVER);
+        print "<br/>*********************************************************************";
 
         require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
-        
+
         set_include_path(get_include_path() . PATH_SEPARATOR . PWD_PHPSECLIB);
 
         include('Net/SSH2.php');
@@ -94,63 +90,43 @@ include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/co
         if (!$ssh->login($user, $passuser)) {
             exit('Login Failed');
         }
-
-        $output = "";
-
-
-        nl2br($ssh->exec('/usr/bin/whoami'));
-        print nl2br($output);
         print "<br/>";
-
+        $output = $ssh->exec('/usr/bin/whoami');
+        print $output;
         $output = $ssh->exec('pwd');
-        echo nl2br($output);
-        print "<br/>";
-
+        print $output;
         $output = $ssh->exec('ls -la');
-
-        echo nl2br($output);
+        print $output;
         print "<br/>**************************************<br/>";
 //        [vagrant@mg2 tmp]$
         $output = $ssh->read('[' . $user . '@' . $host . ' ~]$');
-        echo nl2br($output);
-        print "<br/>1<br/>";
-        echo nl2br("grid-proxy-init\n");
-        print "<br/><br/>";
-
+        print $output;
+        print "<br/>";
         $ssh->write("expect /tmp/run-grid-proxy-init.exp -p vagrant\n");
-
         $output = $ssh->read('[' . $user . '@' . $host . ' ~]$');
-        echo nl2br($output);
-        print "<br/><br/>";
+        print $output;
         if (hasValidCert()) {
-            echo "<br/>es valido";
-            print "<br/><br/>";
+            print "<br/>es valido";
+            print "<br/>";
         }
-
-
+        print "<br/>**************************************<br/>";
         $datos = openssl_x509_parse($_SERVER['SSL_CLIENT_CERT']);
         var_dump($datos);
-        print "<br/><br/>";
-
-
+        print "<br/>**************************************<br/>";
         $p12cert = array();
-        openssl_pkcs12_read($_SERVER['SSL_CLIENT_CERT'], $p12cert, 'client');
-
+        openssl_pkcs12_read($_SERVER['SSL_CLIENT_CERT'], $p12cert, 'client');        
         var_dump($p12cert);
-
+        print "<br/>**************************************<br/>";
         if (isset($_POST['comando'])) {
-
             $var = $_POST['comando'];
-
             $ssh->write("$var\n");
-
             $output = $ssh->read('[' . $user . '@' . $host . ' ~]$');
-            echo nl2br($output);
+            print $output;
         }
 
 //        globusrun -status url
-    //        globusrun -b -r 172.18.0.21/jobmanager-fork "&(executable=/bin/sleep)(arguments=50000)"
-//        echo $ssh->getLog();
+        //        globusrun -b -r 172.18.0.21/jobmanager-fork "&(executable=/bin/sleep)(arguments=50000)"
+//        print $ssh->getLog();
         ?>
     </body>
 </html>
