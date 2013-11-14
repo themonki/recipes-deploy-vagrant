@@ -23,6 +23,13 @@ if platform?("redhat", "centos", "fedora")
 	    command "mv /tmp/my.cnf /etc/my.cnf"
 	    action :run
     end
+    
+    execute "chkconfig mysql" do
+	    user "root"
+	    cwd "/tmp"
+	    command "chkconfig --level 23 mysqld on"
+	    action :run
+    end
 
     execute "restart-mysql" do
 	    user "root"

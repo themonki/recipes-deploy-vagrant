@@ -22,7 +22,7 @@ if platform?("redhat", "centos", "fedora")
 		  execute "install mysql" do
 			  command "rpm -Uvh --force *.rpm"
 			  user "root"
-			  cwd "/tmp/apache"
+			  cwd "/tmp/mysql"
 			  action :run  
 		  end
 		end
