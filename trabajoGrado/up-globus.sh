@@ -1,14 +1,27 @@
 #!/bin/bash
 
-echo "Iniciando las maquinas"
-
 cd machineglobus
 
-vagrant reload --no-provision mg2
+if [ $# = 1 ] ; then
+  if [ $1 = "mg2" ] || [ $1 = "mgwn2" ]; then
+    
+    echo "Iniciando la maquina $1"
 
-vagrant reload --no-provision mgwn2
+    #vagrant reload --no-provision $1
 
+    echo "maquinas $1 iniciada"
+    
+  fi
+else
+  echo "Iniciando las maquinas"
 
-echo "maquinas iniciadas"
+  #vagrant reload --no-provision mg2
+
+  #vagrant reload --no-provision mgwn2
+
+  echo "maquinas iniciadas"
+
+fi
 
 cd ..
+

@@ -1,7 +1,7 @@
 #!/bin/bash
-./shutdown-globus.sh
+./shutdown-globus.sh $1
 
 
-./up-globus.sh
+./up-globus.sh $1
 
-echo "restart complete"
+echo "reinicio completado"

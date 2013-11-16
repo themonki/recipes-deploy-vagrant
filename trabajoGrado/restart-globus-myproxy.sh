@@ -1,7 +1,7 @@
 #!/bin/bash
-./shutdown-globus-myproxy.sh
+./shutdown-globus-myproxy.sh $1
 
 
-./up-globus-myproxy.sh
+./up-globus-myproxy.sh $1
 
-echo "restart complete"
+echo "reinicio con myproxy completado"
