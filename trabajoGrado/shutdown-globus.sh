@@ -7,7 +7,7 @@ if [ $# = 1 ] ; then
     
     echo "Apagando la maquina $1"
 
-    #vagrant halt $1
+    vagrant halt $1
 
     echo "maquinas $1 apagada"
     
@@ -15,9 +15,9 @@ if [ $# = 1 ] ; then
 else
   echo "Apagando las maquinas"
 
-  #vagrant halt mg2
+  vagrant halt mg2
 
-  #vagrant halt mgwn2
+  vagrant halt mgwn2
 
   echo "maquinas apagadas"
 
