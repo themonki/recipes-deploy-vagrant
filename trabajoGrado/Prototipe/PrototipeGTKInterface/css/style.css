@@ -18,13 +18,15 @@ html, body {
 
 }
 .wrapper {
-    height:auto!important; 
+    height:auto!important;
+    width:auto!important;
     height:100%;
     min-height:100%;    
     margin: 0 auto ;   
     position: relative;
     background: white;
-    width: 800px;
+    max-width: 800px;
+    min-width: 415px;
     box-shadow: 0 0 10px rgba(0,0,0, .4);
 }
 /* Aqui va todo el contenido */

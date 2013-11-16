@@ -8,7 +8,9 @@
     clear: left;
     float: left;
     width: 16%;
-    padding: 20px 0;
+    min-width: 150px;
+    max-width: 150px;
+    padding: 20px 0 5px 0;
     margin: 0 0 0 4%;
 }
 
@@ -19,22 +21,28 @@
 }
 
 .profile .containerText {    
-    float: right;
-    width: 70%;
-    padding: 20px 0;
+    padding: 20px 0 5px 0;
     margin: 0 3% 0 0;
-    display: inline;
+    display: table-cell;    
 }
 
-.profile .containerText .name {
+.profile .containerText * {
+    min-width: 164px!important;
+    max-width: 650px;
+    display: block;
+    padding: 5px 10px 0 5px;
+    word-break: break-all;
+    margin: 0 0 0 0;
 }
 
-.profile .containerText .email {
+.profile .containerText .name {    
+}
 
+.profile .containerText .email {   
 }
 
 .profile .certsInfo {    
     clear: left;
     display: block;
-    padding: 0 80px 0 80px;
+    padding: 5px 10px 5px 40px;
 }
