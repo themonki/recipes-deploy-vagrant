@@ -9,9 +9,5 @@
                     usuario (.p12).
                 </p>
                 <p>
-                    <strong>Pero recuerde:</strong> que si esta utilizando un equipo
-                    que no es suyo, no olvide eliminar si certificado de usuario, 
-                    para que otros no puedan acceder como usted.
-                <p>
                     Ahora disfrute de los servicios del Grid.
                 </p>
