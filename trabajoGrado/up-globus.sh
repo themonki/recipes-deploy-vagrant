@@ -7,7 +7,7 @@ if [ $# = 1 ] ; then
     
     echo "Iniciando la maquina $1"
 
-    #vagrant reload --no-provision $1
+    vagrant reload --no-provision $1
 
     echo "maquinas $1 iniciada"
     
@@ -15,9 +15,9 @@ if [ $# = 1 ] ; then
 else
   echo "Iniciando las maquinas"
 
-  #vagrant reload --no-provision mg2
+  vagrant reload --no-provision mg2
 
-  #vagrant reload --no-provision mgwn2
+  vagrant reload --no-provision mgwn2
 
   echo "maquinas iniciadas"
 
