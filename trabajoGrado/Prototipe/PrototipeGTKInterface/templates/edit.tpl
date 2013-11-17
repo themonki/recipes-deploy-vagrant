@@ -21,7 +21,7 @@
                 Nombre: 
             </label>
             <input class="text-field" name="name" id="name" value="{NAME}" required 
-                   maxlength="200" pattern="[ ]*([A-Za-záÁéÉíÍóÓúÚñÑÇç]+\\s*)+"
+                   maxlength="200" pattern="[ ]*([0-9A-Za-záÁéÉíÍóÓúÚñÑÇç]+\\s*)+"
                    title="Indique su nombre. Solo puede contener caracteres alfanuméricos y espacios." 
                    alt="Indique su nombre. Solo puede contener caracteres alfanuméricos y espacios."
                    placeholder="Indique su nombre."
@@ -37,7 +37,7 @@
                 Contraseña Nueva: 
             </label> 
             <input class="text-field" type="password" name="passwordNew" id="passwordNew" onkeyup="validatePattern(form, this);"
-                   maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}"
+                   maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])\w{6,}"
                    title="Indique su contraseña. Esta debe ser de minimo 6 y máximo 15 caracteres. Debe incluir minúsculas, mayúsculas y números." 
                    alt="Indique su contraseña. Esta debe ser de minimo 6 y máximo 15 caracteres. Debe incluir minúsculas, mayúsculas y números."
                    placeholder="Contraseña."
@@ -48,7 +48,7 @@
                 Confirmar Contraseña Nueva:
             </label>
             <input class="text-field" type="password" name="passwordConfirmation" id="passwordConfirmation" onkeyup="validatePattern(form, this);"
-                   maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}"
+                   maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])\w{6,}"
                    title="Confirme su contraseña debe ser igual a la anterior."
                    alt="Confirme su contraseña debe ser igual a la anterior."
                    placeholder="Confirme la contraseña."
