@@ -72,7 +72,7 @@ include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/co
 //
 //            nl2br $key_name . " = " . $key_value . "<br>";
 //        }
-        var_dump($_SERVER);
+//        var_dump($_SERVER);
         print "<br/>*********************************************************************";
 
         require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
@@ -92,15 +92,15 @@ include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/co
         }
         print "<br/>";
         $output = $ssh->exec('/usr/bin/whoami');
-        print $output;
+//        print $output;
         $output = $ssh->exec('pwd');
 //        print $output;
-        $output = $ssh->exec('ls -la');
+//        $output = $ssh->exec('ls -la');
 //        print $output;
         print "<br/>**************************************<br/>";
 //        [vagrant@mg2 tmp]$
         $output = $ssh->read('[' . $user . '@' . $host . ' ~]$');
-        print $output;
+//        print $output;
         print "<br/>";
         $ssh->write("expect /tmp/run-grid-proxy-init.exp -p vagrant\n");
         $output = $ssh->read('[' . $user . '@' . $host . ' ~]$');
@@ -119,16 +119,19 @@ include_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/co
         print "<br/>**************************************<br/>";
         if (isset($_POST['comando'])) {
             $var = $_POST['comando'];
-            $ssh->write("$var\n");
-            $output = $ssh->read('[' . $user . '@' . $host . ' ~]$');
-            print $output;
+//            $ssh->write("$var\n");
+//            $output = $ssh->read('[' . $user . '@' . $host . ' ~]$');
+//            print $output;
+//            print "<br/>**************************************<br/>";
+            print trim($ssh->exec($var));
         }
-
+        
+        
+        $ssh->disconnect();
+        print "\ndesconectado";
 //        globusrun -status url
-        //        globusrun -b -r 172.18.0.21/jobmanager-fork "&(executable=/bin/sleep)(arguments=50000)"
+//        globusrun -s -b -r 172.18.0.21/jobmanager-fork "&(executable=/bin/sleep)(arguments=50000)"
 //        print $ssh->getLog();
         ?>
     </body>
 </html>
-
-
