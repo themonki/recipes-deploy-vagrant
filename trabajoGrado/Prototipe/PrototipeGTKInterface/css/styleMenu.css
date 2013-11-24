@@ -53,10 +53,10 @@
     margin: 0px;
     border: 0px;
     position: absolute;
-    width: 225px;
+    max-width: 200px;
     z-index: 200;
-    /*top:1em;
-          /*left:0;*/
+    /*top:1em;*/
+    /*left:0;*/
 
 }
 .cssmenu li:hover ul {
@@ -68,7 +68,7 @@
     float: none;
     margin: 0px;
     padding: 0px;
-    width: 225px;
+    max-width: 200px;
 }
 .cssmenu li:hover li a {
     background: none;

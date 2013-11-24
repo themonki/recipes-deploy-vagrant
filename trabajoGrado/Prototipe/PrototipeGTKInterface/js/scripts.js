@@ -11,9 +11,9 @@
 function validatePattern(form, obj){
     form.passwordConfirmation.setCustomValidity("");
     if(obj.validity.patternMismatch){
-        obj.setCustomValidity('Password must contain at least 6 characters, including UPPER/lowercase and numbers');
+        obj.setCustomValidity('La contraseña debe contener \nal menos 6 caracteres e \nincluir mayúsculas, minúsculas \ny números');
     }else {
-        obj.setCustomValidity('');
+        obj.setCustomValidity("");
     }    
     if(obj.checkValidity() && form.passwordNew == obj){
 //        form.passwordConfirmation.pattern = obj.value;

@@ -21,7 +21,7 @@
                 Nombre: 
             </label>
             <input class="text-field" name="name" id="name" value="{NAME}" required 
-                   maxlength="200" pattern="[ ]*([0-9A-Za-záÁéÉíÍóÓúÚñÑÇç]+\\s*)+"
+                   maxlength="200" pattern="([0-9A-Za-záÁéÉíÍóÓúÚñÑÇç]+\\s*)+[ ]*"
                    title="Indique su nombre. Solo puede contener caracteres alfanuméricos y espacios." 
                    alt="Indique su nombre. Solo puede contener caracteres alfanuméricos y espacios."
                    placeholder="Indique su nombre."

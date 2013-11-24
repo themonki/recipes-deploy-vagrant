@@ -1,5 +1,5 @@
-<h1>tittle</h1>
 <div class=forms >
+    <h1>tittle</h1>
     <form if="formEdit" name="formEdit" action ="" method="POST">
         <div class="field">
             <div class="{MESSAGE_CLASS}">
