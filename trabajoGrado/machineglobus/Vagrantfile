@@ -103,18 +103,5 @@ Vagrant::Config.run do |config|
 			})
 		end
 	end
-	config.vm .define :test do |node|
-		node.vm.box = "centos64"
-		#node.vm.boot_mode = :gui		
-		#node.vm.network :bridged, :bridge => "eth0"
-		node.vm.network :hostonly, "172.18.0.99"
-		node.vm.customize ["modifyvm", :id, "--memory", 400, "--cpus", 2, "--name", "test" ]
-		node.vm.provision :chef_solo do |chef|
-			chef.cookbooks_path = "cookbooks"
-			chef.add_recipe "confighost::preinstall"
-			chef.json.merge!({
-				:run_list => [ "recipe[confighost::preinstall]"]
-			})
-		end
-	end
+	
 end

@@ -16,11 +16,10 @@ function validatePattern(form, obj){
         obj.setCustomValidity("");
     }    
     if(obj.checkValidity() && form.passwordNew == obj){
-//        form.passwordConfirmation.pattern = obj.value;
+    //        form.passwordConfirmation.pattern = obj.value;
     }else if (form.passwordConfirmation == obj && form.passwordNew.value != obj.value  ){
         form.passwordConfirmation.setCustomValidity("Las Contraseñas no coinciden");
     }else{
         form.passwordConfirmation.setCustomValidity("");
     }
-    
 }

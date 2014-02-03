@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>{TITLE_PAGE}</title>
+        <script src='{SITE_PROTOTIPE}/js/jquery-1.11.0.min.js' type='text/javascript'></script>
+        <script src='{SITE_PROTOTIPE}/js/oneSimpleTablePaging-1.0.js' type='text/javascript'></script>
         <script src='{SITE_PROTOTIPE}/js/scripts.js' type='text/javascript'></script>
         <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/style.css' />
         <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/styleMenu.css' />
@@ -10,6 +12,8 @@
         <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/styleTable.css' />
         <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/styleForm.css' />
         <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/styleMessages.css' />
+        <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/styleDashBoard.css' />
+        <link rel='stylesheet' type='text/css' href='{SITE_PROTOTIPE}/css/styleTooltip.css' />
     </head>
     <body>
         <div class='wrapper'>

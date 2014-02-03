@@ -110,6 +110,22 @@ class ModelUser {
     }
 
     /**
+     * Método que devuelve el siguiente id de la secuencia.
+     * 
+     * @return \User con el id
+     */
+    function selectNextId() {
+        $sql = "SELECT nextval(('usr_user_usr_id_seq'::text)::regclass);";
+
+        $result = $this->fachada->db_query_select_pg($sql);
+        $objTmp = new User();
+        while ($row = pg_fetch_array($result)) {
+            $objTmp->setId($row[0]);
+        }
+        return $objTmp;
+    }
+
+    /**
      * Método para consultar en la tabla usr_user.
      * @param User $obj de la logica con los datos encapsulados.
      * @return User el objeto que corresponde con la consulta.

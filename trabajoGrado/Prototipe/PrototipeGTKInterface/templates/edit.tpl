@@ -1,6 +1,6 @@
-<div class=forms >
+<div class="forms" >
     <h1>Editar datos básicos</h1>
-    <form if="formEdit" name="formEdit" action ="" method="POST">
+    <form class="formBorder" id="formEdit" name="formEdit" action ="" method="POST">
         <div class="field">
             <div class="{MESSAGE_CLASS}">
                 {MESSAGE}

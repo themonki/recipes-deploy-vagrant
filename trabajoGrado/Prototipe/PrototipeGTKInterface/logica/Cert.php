@@ -25,6 +25,11 @@ class Cert {
      * El issue del certificado. Tipo string.
      */
     private $issue;
+    
+    /**
+     * El keyPass del certificado. Tipo varchar.
+     */
+    private $keyPass;
 
     /**
      * El keyPath del certificado. Tipo varchar.
@@ -48,6 +53,7 @@ class Cert {
         $this->id = 0;
         $this->serial = '';
         $this->issue = '';
+        $this->keyPass = '';
         $this->keyPath = '';
         $this->certPath = '';
         $this->proxyPath = '';
@@ -115,6 +121,22 @@ class Cert {
      */
     function setIssue($value) {
         $this->issue = $value;
+    }
+    
+    /**
+     * Retorna el valor del atributo keyPass
+     * @return varchar
+     */
+    function getKeyPass() {
+        return $this->keyPass;
+    }
+
+    /**
+     * Asigna un valor al atributo keyPass
+     * @param varchar $value
+     */
+    function setKeyPass($value) {
+        $this->keyPass = $value;
     }
 
     /**

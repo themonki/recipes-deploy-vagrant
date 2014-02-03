@@ -30,7 +30,5 @@ if (isset($_POST) && isset($_POST['name']) && trim($_POST['name']) !="") {
         $message = "Error al actualizar los datos.";
         $message_class = "error";
     }
-//    header("Location: " . SITE_WEB . "/site/personal/edit.php?message=".$message."&message_class=".$message_class);
-//    exit;
 }
 ?>

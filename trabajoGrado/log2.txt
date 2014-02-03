@@ -1,5 +1,5 @@
 [mgwn2] Importing base box 'centos64'...
-[mgwn2] [0K[mgwn2] Progress: 10%[mgwn2] [0K[mgwn2] Progress: 20%[mgwn2] [0K[mgwn2] Progress: 30%[mgwn2] [0K[mgwn2] Progress: 40%[mgwn2] [0K[mgwn2] Progress: 50%[mgwn2] [0K[mgwn2] Progress: 60%[mgwn2] [0K[mgwn2] Progress: 90%[mgwn2] [0K[mgwn2] The guest additions on this VM do not match the install version of
+[mgwn2] [0K[mgwn2] Progress: 10%[mgwn2] [0K[mgwn2] Progress: 20%[mgwn2] [0K[mgwn2] Progress: 40%[mgwn2] [0K[mgwn2] Progress: 50%[mgwn2] [0K[mgwn2] Progress: 60%[mgwn2] [0K[mgwn2] Progress: 90%[mgwn2] [0K[mgwn2] The guest additions on this VM do not match the install version of
 VirtualBox! This may cause things such as forwarded ports, shared
 folders, and more to not work properly. If any of those things fail on
 this machine, please update the guest additions and repackage the
@@ -25,80 +25,80 @@ VirtualBox Version: 4.2.4
 [mgwn2] Running provisioner: Vagrant::Provisioners::ChefSolo...
 [mgwn2] Generating chef JSON and uploading...
 [mgwn2] Running chef-solo...
-[2013-11-17T16:32:34+01:00] INFO: *** Chef 10.12.0 ***
-[2013-11-17T16:32:35+01:00] INFO: Setting the run_list to ["recipe[confighost::preinstall]", "recipe[confighost::hostname]", "recipe[confighost::hostconfigurenode]", "recipe[chefInstall::install]", "recipe[preinstall]"] from JSON
-[2013-11-17T16:32:35+01:00] INFO: Run List is [recipe[confighost::preinstall], recipe[confighost::hostname], recipe[confighost::hostconfigurenode], recipe[chefInstall::install], recipe[preinstall]]
-[2013-11-17T16:32:35+01:00] INFO: Run List expands to [confighost::preinstall, confighost::hostname, confighost::hostconfigurenode, chefInstall::install, preinstall]
-[2013-11-17T16:32:35+01:00] INFO: Starting Chef Run for localhost
-[2013-11-17T16:32:35+01:00] INFO: Running start handlers
-[2013-11-17T16:32:35+01:00] INFO: Start handlers complete.
-[2013-11-17T16:32:35+01:00] INFO: Processing cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] action create (confighost::preinstall line 87)
-[2013-11-17T16:32:35+01:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] owner changed to 500
-[2013-11-17T16:32:35+01:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] mode changed to 644
-[2013-11-17T16:32:35+01:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] created file /home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm
-[2013-11-17T16:32:35+01:00] INFO: Processing cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] action create (confighost::preinstall line 94)
-[2013-11-17T16:32:36+01:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] owner changed to 500
-[2013-11-17T16:32:36+01:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] mode changed to 644
-[2013-11-17T16:32:36+01:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] created file /home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm
-[2013-11-17T16:32:36+01:00] INFO: Processing cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] action create (confighost::preinstall line 101)
-[2013-11-17T16:32:36+01:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] owner changed to 500
-[2013-11-17T16:32:36+01:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] mode changed to 644
-[2013-11-17T16:32:36+01:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] created file /home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm
-[2013-11-17T16:32:36+01:00] INFO: Processing cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] action create (confighost::preinstall line 108)
-[2013-11-17T16:32:36+01:00] INFO: cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] owner changed to 500
-[2013-11-17T16:32:36+01:00] INFO: cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] mode changed to 644
-[2013-11-17T16:32:36+01:00] INFO: cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] created file /home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm
-[2013-11-17T16:32:36+01:00] INFO: Processing execute[install tlc] action run (confighost::preinstall line 117)
-[2013-11-17T16:32:37+01:00] INFO: execute[install tlc] ran successfully
-[2013-11-17T16:32:37+01:00] INFO: Processing execute[install expect] action run (confighost::preinstall line 124)
-[2013-11-17T16:32:37+01:00] INFO: execute[install expect] ran successfully
-[2013-11-17T16:32:37+01:00] INFO: Processing execute[install rsync] action run (confighost::preinstall line 131)
-[2013-11-17T16:32:37+01:00] INFO: execute[install rsync] ran successfully
-[2013-11-17T16:32:37+01:00] INFO: Processing execute[install yum-plugin-downloadonly] action run (confighost::preinstall line 138)
-[2013-11-17T16:32:37+01:00] INFO: execute[install yum-plugin-downloadonly] ran successfully
-[2013-11-17T16:32:37+01:00] INFO: Processing cookbook_file[/home/vagrant/configssh.exp] action create (confighost::preinstall line 147)
-[2013-11-17T16:32:37+01:00] INFO: cookbook_file[/home/vagrant/configssh.exp] owner changed to 500
-[2013-11-17T16:32:37+01:00] INFO: cookbook_file[/home/vagrant/configssh.exp] mode changed to 644
-[2013-11-17T16:32:37+01:00] INFO: cookbook_file[/home/vagrant/configssh.exp] created file /home/vagrant/configssh.exp
-[2013-11-17T16:32:37+01:00] INFO: Processing execute[backup /etc/sysconfig/network] action run (confighost::hostname line 39)
-[2013-11-17T16:32:37+01:00] INFO: execute[backup /etc/sysconfig/network] ran successfully
-[2013-11-17T16:32:37+01:00] INFO: Processing template[/tmp/network] action create (confighost::hostname line 46)
-[2013-11-17T16:32:37+01:00] INFO: template[/tmp/network] mode changed to 755
-[2013-11-17T16:32:37+01:00] INFO: template[/tmp/network] updated content
-[2013-11-17T16:32:37+01:00] INFO: Processing execute[move network] action run (confighost::hostname line 55)
-[2013-11-17T16:32:37+01:00] INFO: execute[move network] ran successfully
-[2013-11-17T16:32:37+01:00] INFO: Processing execute[hostname update] action run (confighost::hostname line 64)
-[2013-11-17T16:32:37+01:00] INFO: execute[hostname update] ran successfully
-[2013-11-17T16:32:37+01:00] INFO: Processing execute[get ip from ifconfig] action run (confighost::getipadd line 10)
-[2013-11-17T16:32:37+01:00] INFO: execute[get ip from ifconfig] ran successfully
-[2013-11-17T16:32:37+01:00] INFO: Processing execute[add ip] action run (confighost::getipadd line 18)
-[2013-11-17T16:32:37+01:00] INFO: execute[add ip] ran successfully
-[2013-11-17T16:32:37+01:00] INFO: Processing execute[add hostname alias] action run (confighost::getipadd line 25)
-[2013-11-17T16:32:38+01:00] INFO: execute[add hostname alias] ran successfully
-[2013-11-17T16:32:38+01:00] INFO: Processing execute[quitar salos de linea] action run (confighost::getipadd line 34)
-[2013-11-17T16:32:38+01:00] INFO: execute[quitar salos de linea] ran successfully
-[2013-11-17T16:32:38+01:00] INFO: Processing template[/home/vagrant/send_host_local.exp] action create (confighost::hostconfigurenode line 4)
-[2013-11-17T16:32:38+01:00] INFO: template[/home/vagrant/send_host_local.exp] owner changed to 500
-[2013-11-17T16:32:38+01:00] INFO: template[/home/vagrant/send_host_local.exp] mode changed to 644
-[2013-11-17T16:32:38+01:00] INFO: template[/home/vagrant/send_host_local.exp] updated content
-[2013-11-17T16:32:38+01:00] INFO: Processing execute[send hosts local] action run (confighost::hostconfigurenode line 18)
-[2013-11-17T16:33:00+01:00] INFO: execute[send hosts local] ran successfully
-[2013-11-17T16:33:00+01:00] INFO: Processing cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] action create (chefInstall::install line 22)
-[2013-11-17T16:33:01+01:00] INFO: cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] created file /tmp/chef-10.16.6-1.el6.x86_64.rpm
-[2013-11-17T16:33:01+01:00] INFO: Processing execute[install chef] action run (chefInstall::install line 33)
-[2013-11-17T16:33:07+01:00] INFO: execute[install chef] ran successfully
-[2013-11-17T16:33:07+01:00] INFO: Processing cookbook_file[/tmp/reposPreinstall.tar.gz] action create (preinstall::default line 12)
-[2013-11-17T16:33:14+01:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] owner changed to 500
-[2013-11-17T16:33:14+01:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] created file /tmp/reposPreinstall.tar.gz
-[2013-11-17T16:33:14+01:00] INFO: Processing execute[unpack reposPreinstall] action run (preinstall::default line 17)
-[2013-11-17T16:33:16+01:00] INFO: execute[unpack reposPreinstall] ran successfully
-[2013-11-17T16:33:16+01:00] INFO: Processing execute[ls reposPreinstall] action run (preinstall::default line 24)
-[2013-11-17T16:33:16+01:00] INFO: execute[ls reposPreinstall] ran successfully
-[2013-11-17T16:33:16+01:00] INFO: Processing execute[install dependencies] action run (preinstall::default line 31)
-[2013-11-17T16:33:59+01:00] INFO: execute[install dependencies] ran successfully
-[2013-11-17T16:33:59+01:00] INFO: Chef Run complete in 84.261604 seconds
-[2013-11-17T16:33:59+01:00] INFO: Running report handlers
-[2013-11-17T16:33:59+01:00] INFO: Report handlers complete
+[2014-02-03T05:40:56+01:00] INFO: *** Chef 10.12.0 ***
+[2014-02-03T05:40:57+01:00] INFO: Setting the run_list to ["recipe[confighost::preinstall]", "recipe[confighost::hostname]", "recipe[confighost::hostconfigurenode]", "recipe[chefInstall::install]", "recipe[preinstall]"] from JSON
+[2014-02-03T05:40:57+01:00] INFO: Run List is [recipe[confighost::preinstall], recipe[confighost::hostname], recipe[confighost::hostconfigurenode], recipe[chefInstall::install], recipe[preinstall]]
+[2014-02-03T05:40:57+01:00] INFO: Run List expands to [confighost::preinstall, confighost::hostname, confighost::hostconfigurenode, chefInstall::install, preinstall]
+[2014-02-03T05:40:57+01:00] INFO: Starting Chef Run for localhost
+[2014-02-03T05:40:57+01:00] INFO: Running start handlers
+[2014-02-03T05:40:57+01:00] INFO: Start handlers complete.
+[2014-02-03T05:40:57+01:00] INFO: Processing cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] action create (confighost::preinstall line 87)
+[2014-02-03T05:40:57+01:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] owner changed to 500
+[2014-02-03T05:40:57+01:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] mode changed to 644
+[2014-02-03T05:40:57+01:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] created file /home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm
+[2014-02-03T05:40:57+01:00] INFO: Processing cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] action create (confighost::preinstall line 94)
+[2014-02-03T05:40:57+01:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] owner changed to 500
+[2014-02-03T05:40:57+01:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] mode changed to 644
+[2014-02-03T05:40:57+01:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] created file /home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm
+[2014-02-03T05:40:57+01:00] INFO: Processing cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] action create (confighost::preinstall line 101)
+[2014-02-03T05:40:57+01:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] owner changed to 500
+[2014-02-03T05:40:57+01:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] mode changed to 644
+[2014-02-03T05:40:57+01:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] created file /home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm
+[2014-02-03T05:40:57+01:00] INFO: Processing cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] action create (confighost::preinstall line 108)
+[2014-02-03T05:40:57+01:00] INFO: cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] owner changed to 500
+[2014-02-03T05:40:57+01:00] INFO: cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] mode changed to 644
+[2014-02-03T05:40:57+01:00] INFO: cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] created file /home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm
+[2014-02-03T05:40:57+01:00] INFO: Processing execute[install tlc] action run (confighost::preinstall line 117)
+[2014-02-03T05:40:58+01:00] INFO: execute[install tlc] ran successfully
+[2014-02-03T05:40:58+01:00] INFO: Processing execute[install expect] action run (confighost::preinstall line 124)
+[2014-02-03T05:40:58+01:00] INFO: execute[install expect] ran successfully
+[2014-02-03T05:40:58+01:00] INFO: Processing execute[install rsync] action run (confighost::preinstall line 131)
+[2014-02-03T05:40:59+01:00] INFO: execute[install rsync] ran successfully
+[2014-02-03T05:40:59+01:00] INFO: Processing execute[install yum-plugin-downloadonly] action run (confighost::preinstall line 138)
+[2014-02-03T05:40:59+01:00] INFO: execute[install yum-plugin-downloadonly] ran successfully
+[2014-02-03T05:40:59+01:00] INFO: Processing cookbook_file[/home/vagrant/configssh.exp] action create (confighost::preinstall line 147)
+[2014-02-03T05:40:59+01:00] INFO: cookbook_file[/home/vagrant/configssh.exp] owner changed to 500
+[2014-02-03T05:40:59+01:00] INFO: cookbook_file[/home/vagrant/configssh.exp] mode changed to 644
+[2014-02-03T05:40:59+01:00] INFO: cookbook_file[/home/vagrant/configssh.exp] created file /home/vagrant/configssh.exp
+[2014-02-03T05:40:59+01:00] INFO: Processing execute[backup /etc/sysconfig/network] action run (confighost::hostname line 39)
+[2014-02-03T05:40:59+01:00] INFO: execute[backup /etc/sysconfig/network] ran successfully
+[2014-02-03T05:40:59+01:00] INFO: Processing template[/tmp/network] action create (confighost::hostname line 46)
+[2014-02-03T05:40:59+01:00] INFO: template[/tmp/network] mode changed to 755
+[2014-02-03T05:40:59+01:00] INFO: template[/tmp/network] updated content
+[2014-02-03T05:40:59+01:00] INFO: Processing execute[move network] action run (confighost::hostname line 55)
+[2014-02-03T05:40:59+01:00] INFO: execute[move network] ran successfully
+[2014-02-03T05:40:59+01:00] INFO: Processing execute[hostname update] action run (confighost::hostname line 64)
+[2014-02-03T05:40:59+01:00] INFO: execute[hostname update] ran successfully
+[2014-02-03T05:40:59+01:00] INFO: Processing execute[get ip from ifconfig] action run (confighost::getipadd line 10)
+[2014-02-03T05:40:59+01:00] INFO: execute[get ip from ifconfig] ran successfully
+[2014-02-03T05:40:59+01:00] INFO: Processing execute[add ip] action run (confighost::getipadd line 18)
+[2014-02-03T05:40:59+01:00] INFO: execute[add ip] ran successfully
+[2014-02-03T05:40:59+01:00] INFO: Processing execute[add hostname alias] action run (confighost::getipadd line 25)
+[2014-02-03T05:40:59+01:00] INFO: execute[add hostname alias] ran successfully
+[2014-02-03T05:40:59+01:00] INFO: Processing execute[quitar salos de linea] action run (confighost::getipadd line 34)
+[2014-02-03T05:40:59+01:00] INFO: execute[quitar salos de linea] ran successfully
+[2014-02-03T05:40:59+01:00] INFO: Processing template[/home/vagrant/send_host_local.exp] action create (confighost::hostconfigurenode line 4)
+[2014-02-03T05:40:59+01:00] INFO: template[/home/vagrant/send_host_local.exp] owner changed to 500
+[2014-02-03T05:40:59+01:00] INFO: template[/home/vagrant/send_host_local.exp] mode changed to 644
+[2014-02-03T05:40:59+01:00] INFO: template[/home/vagrant/send_host_local.exp] updated content
+[2014-02-03T05:40:59+01:00] INFO: Processing execute[send hosts local] action run (confighost::hostconfigurenode line 18)
+[2014-02-03T05:41:21+01:00] INFO: execute[send hosts local] ran successfully
+[2014-02-03T05:41:21+01:00] INFO: Processing cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] action create (chefInstall::install line 22)
+[2014-02-03T05:41:22+01:00] INFO: cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] created file /tmp/chef-10.16.6-1.el6.x86_64.rpm
+[2014-02-03T05:41:22+01:00] INFO: Processing execute[install chef] action run (chefInstall::install line 33)
+[2014-02-03T05:41:27+01:00] INFO: execute[install chef] ran successfully
+[2014-02-03T05:41:27+01:00] INFO: Processing cookbook_file[/tmp/reposPreinstall.tar.gz] action create (preinstall::default line 12)
+[2014-02-03T05:41:34+01:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] owner changed to 500
+[2014-02-03T05:41:34+01:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] created file /tmp/reposPreinstall.tar.gz
+[2014-02-03T05:41:34+01:00] INFO: Processing execute[unpack reposPreinstall] action run (preinstall::default line 17)
+[2014-02-03T05:41:38+01:00] INFO: execute[unpack reposPreinstall] ran successfully
+[2014-02-03T05:41:38+01:00] INFO: Processing execute[ls reposPreinstall] action run (preinstall::default line 24)
+[2014-02-03T05:41:38+01:00] INFO: execute[ls reposPreinstall] ran successfully
+[2014-02-03T05:41:38+01:00] INFO: Processing execute[install dependencies] action run (preinstall::default line 31)
+[2014-02-03T05:42:18+01:00] INFO: execute[install dependencies] ran successfully
+[2014-02-03T05:42:18+01:00] INFO: Chef Run complete in 81.189831 seconds
+[2014-02-03T05:42:18+01:00] INFO: Running report handlers
+[2014-02-03T05:42:18+01:00] INFO: Report handlers complete
 [mg2] Importing base box 'centos64'...
 [mg2] [0K[mg2] Progress: 10%[mg2] [0K[mg2] Progress: 20%[mg2] [0K[mg2] Progress: 30%[mg2] [0K[mg2] Progress: 40%[mg2] [0K[mg2] Progress: 50%[mg2] [0K[mg2] Progress: 60%[mg2] [0K[mg2] Progress: 90%[mg2] [0K[mg2] The guest additions on this VM do not match the install version of
 VirtualBox! This may cause things such as forwarded ports, shared
@@ -127,203 +127,324 @@ VirtualBox Version: 4.2.4
 [mg2] Running provisioner: Vagrant::Provisioners::ChefSolo...
 [mg2] Generating chef JSON and uploading...
 [mg2] Running chef-solo...
-[2013-11-17T16:35:11+01:00] INFO: *** Chef 10.12.0 ***
-[2013-11-17T16:35:12+01:00] INFO: Setting the run_list to ["recipe[confighost::preinstall]", "recipe[confighost::hostname]", "recipe[confighost::hostconfiguremaster]", "recipe[chefInstall::install]", "recipe[preinstall]", "recipe[postgresql]", "recipe[postgresql::configure]", "recipe[apache]", "recipe[apache::configure]", "recipe[php]", "recipe[php::installdebug]", "recipe[java7-64]", "recipe[tomcat7]"] from JSON
-[2013-11-17T16:35:12+01:00] INFO: Run List is [recipe[confighost::preinstall], recipe[confighost::hostname], recipe[confighost::hostconfiguremaster], recipe[chefInstall::install], recipe[preinstall], recipe[postgresql], recipe[postgresql::configure], recipe[apache], recipe[apache::configure], recipe[php], recipe[php::installdebug], recipe[java7-64], recipe[tomcat7]]
-[2013-11-17T16:35:12+01:00] INFO: Run List expands to [confighost::preinstall, confighost::hostname, confighost::hostconfiguremaster, chefInstall::install, preinstall, postgresql, postgresql::configure, apache, apache::configure, php, php::installdebug, java7-64, tomcat7]
-[2013-11-17T16:35:12+01:00] INFO: Starting Chef Run for localhost
-[2013-11-17T16:35:12+01:00] INFO: Running start handlers
-[2013-11-17T16:35:12+01:00] INFO: Start handlers complete.
-[2013-11-17T16:35:13+01:00] INFO: Processing cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] action create (confighost::preinstall line 87)
-[2013-11-17T16:35:13+01:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] owner changed to 500
-[2013-11-17T16:35:13+01:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] mode changed to 644
-[2013-11-17T16:35:13+01:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] created file /home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm
-[2013-11-17T16:35:13+01:00] INFO: Processing cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] action create (confighost::preinstall line 94)
-[2013-11-17T16:35:13+01:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] owner changed to 500
-[2013-11-17T16:35:13+01:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] mode changed to 644
-[2013-11-17T16:35:13+01:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] created file /home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm
-[2013-11-17T16:35:13+01:00] INFO: Processing cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] action create (confighost::preinstall line 101)
-[2013-11-17T16:35:13+01:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] owner changed to 500
-[2013-11-17T16:35:13+01:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] mode changed to 644
-[2013-11-17T16:35:13+01:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] created file /home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm
-[2013-11-17T16:35:13+01:00] INFO: Processing cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] action create (confighost::preinstall line 108)
-[2013-11-17T16:35:13+01:00] INFO: cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] owner changed to 500
-[2013-11-17T16:35:13+01:00] INFO: cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] mode changed to 644
-[2013-11-17T16:35:13+01:00] INFO: cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] created file /home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm
-[2013-11-17T16:35:13+01:00] INFO: Processing execute[install tlc] action run (confighost::preinstall line 117)
-[2013-11-17T16:35:18+01:00] INFO: execute[install tlc] ran successfully
-[2013-11-17T16:35:18+01:00] INFO: Processing execute[install expect] action run (confighost::preinstall line 124)
-[2013-11-17T16:35:18+01:00] INFO: execute[install expect] ran successfully
-[2013-11-17T16:35:18+01:00] INFO: Processing execute[install rsync] action run (confighost::preinstall line 131)
-[2013-11-17T16:35:18+01:00] INFO: execute[install rsync] ran successfully
-[2013-11-17T16:35:18+01:00] INFO: Processing execute[install yum-plugin-downloadonly] action run (confighost::preinstall line 138)
-[2013-11-17T16:35:19+01:00] INFO: execute[install yum-plugin-downloadonly] ran successfully
-[2013-11-17T16:35:19+01:00] INFO: Processing cookbook_file[/home/vagrant/configssh.exp] action create (confighost::preinstall line 147)
-[2013-11-17T16:35:19+01:00] INFO: cookbook_file[/home/vagrant/configssh.exp] owner changed to 500
-[2013-11-17T16:35:19+01:00] INFO: cookbook_file[/home/vagrant/configssh.exp] mode changed to 644
-[2013-11-17T16:35:19+01:00] INFO: cookbook_file[/home/vagrant/configssh.exp] created file /home/vagrant/configssh.exp
-[2013-11-17T16:35:19+01:00] INFO: Processing execute[backup /etc/sysconfig/network] action run (confighost::hostname line 39)
-[2013-11-17T16:35:19+01:00] INFO: execute[backup /etc/sysconfig/network] ran successfully
-[2013-11-17T16:35:19+01:00] INFO: Processing template[/tmp/network] action create (confighost::hostname line 46)
-[2013-11-17T16:35:19+01:00] INFO: template[/tmp/network] mode changed to 755
-[2013-11-17T16:35:19+01:00] INFO: template[/tmp/network] updated content
-[2013-11-17T16:35:19+01:00] INFO: Processing execute[move network] action run (confighost::hostname line 55)
-[2013-11-17T16:35:19+01:00] INFO: execute[move network] ran successfully
-[2013-11-17T16:35:19+01:00] INFO: Processing execute[hostname update] action run (confighost::hostname line 64)
-[2013-11-17T16:35:19+01:00] INFO: execute[hostname update] ran successfully
-[2013-11-17T16:35:19+01:00] INFO: Processing cookbook_file[/home/vagrant/hosts_nodes] action create (confighost::hostconfiguremaster line 3)
-[2013-11-17T16:35:19+01:00] INFO: cookbook_file[/home/vagrant/hosts_nodes] mode changed to 755
-[2013-11-17T16:35:19+01:00] INFO: cookbook_file[/home/vagrant/hosts_nodes] created file /home/vagrant/hosts_nodes
-[2013-11-17T16:35:19+01:00] INFO: Processing cookbook_file[/home/vagrant/hostsTemplate] action create (confighost::hostconfiguremaster line 10)
-[2013-11-17T16:35:19+01:00] INFO: cookbook_file[/home/vagrant/hostsTemplate] mode changed to 755
-[2013-11-17T16:35:19+01:00] INFO: cookbook_file[/home/vagrant/hostsTemplate] created file /home/vagrant/hostsTemplate
-[2013-11-17T16:35:19+01:00] INFO: Processing execute[add to templatehost] action run (confighost::hostconfiguremaster line 17)
-[2013-11-17T16:35:19+01:00] INFO: execute[add to templatehost] ran successfully
-[2013-11-17T16:35:19+01:00] INFO: Processing execute[get ip from ifconfig] action run (confighost::getipadd line 10)
-[2013-11-17T16:35:19+01:00] INFO: execute[get ip from ifconfig] ran successfully
-[2013-11-17T16:35:19+01:00] INFO: Processing execute[add ip] action run (confighost::getipadd line 18)
-[2013-11-17T16:35:19+01:00] INFO: execute[add ip] ran successfully
-[2013-11-17T16:35:19+01:00] INFO: Processing execute[add hostname alias] action run (confighost::getipadd line 25)
-[2013-11-17T16:35:19+01:00] INFO: execute[add hostname alias] ran successfully
-[2013-11-17T16:35:19+01:00] INFO: Processing execute[quitar salos de linea] action run (confighost::getipadd line 34)
-[2013-11-17T16:35:19+01:00] INFO: execute[quitar salos de linea] ran successfully
-[2013-11-17T16:35:19+01:00] INFO: Processing execute[add hosts] action run (confighost::hostconfiguremaster line 30)
-[2013-11-17T16:35:19+01:00] INFO: execute[add hosts] ran successfully
-[2013-11-17T16:35:19+01:00] INFO: Processing cookbook_file[/home/vagrant/sendhostsssh.exp] action create (confighost::hostconfiguremaster line 39)
-[2013-11-17T16:35:19+01:00] INFO: cookbook_file[/home/vagrant/sendhostsssh.exp] owner changed to 500
-[2013-11-17T16:35:19+01:00] INFO: cookbook_file[/home/vagrant/sendhostsssh.exp] mode changed to 755
-[2013-11-17T16:35:19+01:00] INFO: cookbook_file[/home/vagrant/sendhostsssh.exp] created file /home/vagrant/sendhostsssh.exp
-[2013-11-17T16:35:19+01:00] INFO: Processing execute[ssh access] action run (confighost::hostconfiguremaster line 47)
-[2013-11-17T16:35:20+01:00] INFO: execute[ssh access] ran successfully
-[2013-11-17T16:35:20+01:00] INFO: Processing execute[send hosts] action run (confighost::hostconfiguremaster line 57)
-[2013-11-17T16:36:00+01:00] INFO: execute[send hosts] ran successfully
-[2013-11-17T16:36:00+01:00] INFO: Processing cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] action create (chefInstall::install line 22)
-[2013-11-17T16:36:01+01:00] INFO: cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] created file /tmp/chef-10.16.6-1.el6.x86_64.rpm
-[2013-11-17T16:36:01+01:00] INFO: Processing execute[install chef] action run (chefInstall::install line 33)
-[2013-11-17T16:36:07+01:00] INFO: execute[install chef] ran successfully
-[2013-11-17T16:36:07+01:00] INFO: Processing cookbook_file[/tmp/reposPreinstall.tar.gz] action create (preinstall::default line 12)
-[2013-11-17T16:36:16+01:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] owner changed to 500
-[2013-11-17T16:36:16+01:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] created file /tmp/reposPreinstall.tar.gz
-[2013-11-17T16:36:16+01:00] INFO: Processing execute[unpack reposPreinstall] action run (preinstall::default line 17)
-[2013-11-17T16:36:17+01:00] INFO: execute[unpack reposPreinstall] ran successfully
-[2013-11-17T16:36:17+01:00] INFO: Processing execute[ls reposPreinstall] action run (preinstall::default line 24)
-[2013-11-17T16:36:17+01:00] INFO: execute[ls reposPreinstall] ran successfully
-[2013-11-17T16:36:17+01:00] INFO: Processing execute[install dependencies] action run (preinstall::default line 31)
-[2013-11-17T16:37:07+01:00] INFO: execute[install dependencies] ran successfully
-[2013-11-17T16:37:07+01:00] INFO: Processing cookbook_file[/tmp/postgresql.tar.gz] action create (postgresql::default line 10)
-[2013-11-17T16:37:07+01:00] INFO: cookbook_file[/tmp/postgresql.tar.gz] owner changed to 500
-[2013-11-17T16:37:07+01:00] INFO: cookbook_file[/tmp/postgresql.tar.gz] created file /tmp/postgresql.tar.gz
-[2013-11-17T16:37:07+01:00] INFO: Processing execute[unpack postgresql] action run (postgresql::default line 15)
-[2013-11-17T16:37:08+01:00] INFO: execute[unpack postgresql] ran successfully
-[2013-11-17T16:37:08+01:00] INFO: Processing execute[install postgresql] action run (postgresql::default line 22)
-[2013-11-17T16:37:10+01:00] INFO: execute[install postgresql] ran successfully
-[2013-11-17T16:37:10+01:00] INFO: Processing cookbook_file[/tmp/pass.sql] action create (postgresql::configure line 13)
-[2013-11-17T16:37:10+01:00] INFO: cookbook_file[/tmp/pass.sql] owner changed to 26
-[2013-11-17T16:37:10+01:00] INFO: cookbook_file[/tmp/pass.sql] created file /tmp/pass.sql
-[2013-11-17T16:37:10+01:00] INFO: Processing cookbook_file[/tmp/changepasspsql.exp] action create (postgresql::configure line 18)
-[2013-11-17T16:37:10+01:00] INFO: cookbook_file[/tmp/changepasspsql.exp] created file /tmp/changepasspsql.exp
-[2013-11-17T16:37:10+01:00] INFO: Processing execute[initdb psql] action run (postgresql::configure line 23)
-[2013-11-17T16:37:24+01:00] INFO: execute[initdb psql] ran successfully
-[2013-11-17T16:37:24+01:00] INFO: Processing execute[chkconfig postgresql] action run (postgresql::configure line 30)
-[2013-11-17T16:37:24+01:00] INFO: execute[chkconfig postgresql] ran successfully
-[2013-11-17T16:37:24+01:00] INFO: Processing execute[start psql] action run (postgresql::configure line 37)
-[2013-11-17T16:37:26+01:00] INFO: execute[start psql] ran successfully
-[2013-11-17T16:37:26+01:00] INFO: Processing execute[pass sql] action run (postgresql::configure line 44)
-[2013-11-17T16:37:26+01:00] INFO: execute[pass sql] ran successfully
-[2013-11-17T16:37:26+01:00] INFO: Processing execute[pass psql] action run (postgresql::configure line 51)
-[2013-11-17T16:37:34+01:00] INFO: execute[pass psql] ran successfully
-[2013-11-17T16:37:34+01:00] INFO: Processing execute[backups pg_hba.conf] action run (postgresql::configure line 58)
-[2013-11-17T16:37:34+01:00] INFO: execute[backups pg_hba.conf] ran successfully
-[2013-11-17T16:37:34+01:00] INFO: Processing execute[backups postgresql.conf] action run (postgresql::configure line 65)
-[2013-11-17T16:37:34+01:00] INFO: execute[backups postgresql.conf] ran successfully
-[2013-11-17T16:37:34+01:00] INFO: Processing cookbook_file[/var/lib/pgsql/data/postgresql.conf] action create (postgresql::configure line 72)
-[2013-11-17T16:37:34+01:00] INFO: cookbook_file[/var/lib/pgsql/data/postgresql.conf] owner changed to 26
-[2013-11-17T16:37:34+01:00] INFO: cookbook_file[/var/lib/pgsql/data/postgresql.conf] created file /var/lib/pgsql/data/postgresql.conf
-[2013-11-17T16:37:34+01:00] INFO: Processing cookbook_file[/var/lib/pgsql/data/pg_hba.conf] action create (postgresql::configure line 78)
-[2013-11-17T16:37:34+01:00] INFO: cookbook_file[/var/lib/pgsql/data/pg_hba.conf] owner changed to 26
-[2013-11-17T16:37:34+01:00] INFO: cookbook_file[/var/lib/pgsql/data/pg_hba.conf] created file /var/lib/pgsql/data/pg_hba.conf
-[2013-11-17T16:37:34+01:00] INFO: Processing execute[restart psql] action run (postgresql::configure line 84)
-[2013-11-17T16:37:37+01:00] INFO: execute[restart psql] ran successfully
-[2013-11-17T16:37:37+01:00] INFO: Processing cookbook_file[/tmp/apache.tar.gz] action create (apache::default line 10)
-[2013-11-17T16:37:37+01:00] INFO: cookbook_file[/tmp/apache.tar.gz] owner changed to 500
-[2013-11-17T16:37:37+01:00] INFO: cookbook_file[/tmp/apache.tar.gz] created file /tmp/apache.tar.gz
-[2013-11-17T16:37:37+01:00] INFO: Processing execute[unpack apache] action run (apache::default line 15)
-[2013-11-17T16:37:37+01:00] INFO: execute[unpack apache] ran successfully
-[2013-11-17T16:37:37+01:00] INFO: Processing execute[install apache] action run (apache::default line 22)
-[2013-11-17T16:37:39+01:00] INFO: execute[install apache] ran successfully
-[2013-11-17T16:37:39+01:00] INFO: Processing execute[start apache] action run (apache::configure line 10)
-[2013-11-17T16:37:39+01:00] INFO: execute[start apache] ran successfully
-[2013-11-17T16:37:39+01:00] INFO: Processing execute[chkconfig apache] action run (apache::configure line 17)
-[2013-11-17T16:37:39+01:00] INFO: execute[chkconfig apache] ran successfully
-[2013-11-17T16:37:39+01:00] INFO: Processing execute[stop iptables] action run (apache::configure line 26)
-[2013-11-17T16:37:40+01:00] INFO: execute[stop iptables] ran successfully
-[2013-11-17T16:37:40+01:00] INFO: Processing execute[chkconfig iptables] action run (apache::configure line 33)
-[2013-11-17T16:37:40+01:00] INFO: execute[chkconfig iptables] ran successfully
-[2013-11-17T16:37:40+01:00] INFO: Processing cookbook_file[/tmp/php.tar.gz] action create (php::default line 10)
-[2013-11-17T16:37:40+01:00] INFO: cookbook_file[/tmp/php.tar.gz] owner changed to 500
-[2013-11-17T16:37:40+01:00] INFO: cookbook_file[/tmp/php.tar.gz] created file /tmp/php.tar.gz
-[2013-11-17T16:37:40+01:00] INFO: Processing execute[unpack php] action run (php::default line 15)
-[2013-11-17T16:37:41+01:00] INFO: execute[unpack php] ran successfully
-[2013-11-17T16:37:41+01:00] INFO: Processing execute[install php] action run (php::default line 22)
-[2013-11-17T16:37:45+01:00] INFO: execute[install php] ran successfully
-[2013-11-17T16:37:45+01:00] INFO: Processing cookbook_file[/tmp/xdebug.tar.gz] action create (php::installdebug line 9)
-[2013-11-17T16:37:45+01:00] INFO: cookbook_file[/tmp/xdebug.tar.gz] owner changed to 500
-[2013-11-17T16:37:45+01:00] INFO: cookbook_file[/tmp/xdebug.tar.gz] created file /tmp/xdebug.tar.gz
-[2013-11-17T16:37:45+01:00] INFO: Processing cookbook_file[/tmp/xdebug_configure.txt] action create (php::installdebug line 14)
-[2013-11-17T16:37:45+01:00] INFO: cookbook_file[/tmp/xdebug_configure.txt] owner changed to 500
-[2013-11-17T16:37:45+01:00] INFO: cookbook_file[/tmp/xdebug_configure.txt] created file /tmp/xdebug_configure.txt
-[2013-11-17T16:37:45+01:00] INFO: Processing execute[unpack xdebug] action run (php::installdebug line 19)
-[2013-11-17T16:37:45+01:00] INFO: execute[unpack xdebug] ran successfully
-[2013-11-17T16:37:45+01:00] INFO: Processing execute[run phpize] action run (php::installdebug line 26)
-[2013-11-17T16:37:48+01:00] INFO: execute[run phpize] ran successfully
-[2013-11-17T16:37:48+01:00] INFO: Processing execute[run configure] action run (php::installdebug line 33)
-[2013-11-17T16:37:53+01:00] INFO: execute[run configure] ran successfully
-[2013-11-17T16:37:53+01:00] INFO: Processing execute[run make] action run (php::installdebug line 40)
-[2013-11-17T16:38:02+01:00] INFO: execute[run make] ran successfully
-[2013-11-17T16:38:02+01:00] INFO: Processing execute[run make install] action run (php::installdebug line 47)
-[2013-11-17T16:38:03+01:00] INFO: execute[run make install] ran successfully
-[2013-11-17T16:38:03+01:00] INFO: Processing execute[configure xdebug] action run (php::installdebug line 54)
-[2013-11-17T16:38:03+01:00] INFO: execute[configure xdebug] ran successfully
-[2013-11-17T16:38:03+01:00] INFO: Processing cookbook_file[/tmp/jdk-7u3-linux-x64.tar.gz] action create (java7-64::default line 1)
-[2013-11-17T16:38:09+01:00] INFO: cookbook_file[/tmp/jdk-7u3-linux-x64.tar.gz] created file /tmp/jdk-7u3-linux-x64.tar.gz
-[2013-11-17T16:38:09+01:00] INFO: Processing execute[uncompress jdk] action run (java7-64::default line 6)
-[2013-11-17T16:38:13+01:00] INFO: execute[uncompress jdk] ran successfully
-[2013-11-17T16:38:13+01:00] INFO: Processing cookbook_file[/tmp/append2profile] action create (java7-64::default line 12)
-[2013-11-17T16:38:13+01:00] INFO: cookbook_file[/tmp/append2profile] created file /tmp/append2profile
-[2013-11-17T16:38:13+01:00] INFO: Processing execute[cat profile] action run (java7-64::default line 17)
-[2013-11-17T16:38:14+01:00] INFO: execute[cat profile] ran successfully
-[2013-11-17T16:38:14+01:00] INFO: Processing execute[ln java] action run (java7-64::default line 23)
-[2013-11-17T16:38:14+01:00] INFO: execute[ln java] ran successfully
-[2013-11-17T16:38:14+01:00] INFO: Processing cookbook_file[/etc/init.d/tomcat-inst1] action create (tomcat7::default line 13)
-[2013-11-17T16:38:14+01:00] INFO: cookbook_file[/etc/init.d/tomcat-inst1] mode changed to 755
-[2013-11-17T16:38:14+01:00] INFO: cookbook_file[/etc/init.d/tomcat-inst1] created file /etc/init.d/tomcat-inst1
-[2013-11-17T16:38:14+01:00] INFO: Processing cookbook_file[/tmp/apache-tomcat-7.tar.gz] action create (tomcat7::default line 19)
-[2013-11-17T16:38:15+01:00] INFO: cookbook_file[/tmp/apache-tomcat-7.tar.gz] created file /tmp/apache-tomcat-7.tar.gz
-[2013-11-17T16:38:15+01:00] INFO: Processing cookbook_file[/tmp/tomcat-users.xml] action create (tomcat7::default line 25)
-[2013-11-17T16:38:15+01:00] INFO: cookbook_file[/tmp/tomcat-users.xml] created file /tmp/tomcat-users.xml
-[2013-11-17T16:38:15+01:00] INFO: Processing execute[mkdir /opt/tomcat/tomcat-inst1] action run (tomcat7::default line 32)
-[2013-11-17T16:38:15+01:00] INFO: execute[mkdir /opt/tomcat/tomcat-inst1] ran successfully
-[2013-11-17T16:38:15+01:00] INFO: Processing execute[tar apache-tomcar.tar.gz] action run (tomcat7::default line 40)
-[2013-11-17T16:38:15+01:00] INFO: execute[tar apache-tomcar.tar.gz] ran successfully
-[2013-11-17T16:38:15+01:00] INFO: Processing execute[ls tomcat-current] action run (tomcat7::default line 47)
-[2013-11-17T16:38:15+01:00] INFO: execute[ls tomcat-current] ran successfully
-[2013-11-17T16:38:15+01:00] INFO: Processing execute[create user tomcat] action run (tomcat7::default line 54)
-[2013-11-17T16:38:15+01:00] INFO: execute[create user tomcat] ran successfully
-[2013-11-17T16:38:15+01:00] INFO: Processing execute[chown tomcat] action run (tomcat7::default line 61)
-[2013-11-17T16:38:15+01:00] INFO: execute[chown tomcat] ran successfully
-[2013-11-17T16:38:15+01:00] INFO: Processing execute[chkconfig tomcat] action run (tomcat7::default line 68)
-[2013-11-17T16:38:15+01:00] INFO: execute[chkconfig tomcat] ran successfully
-[2013-11-17T16:38:15+01:00] INFO: Processing execute[backup tomcat-users] action run (tomcat7::default line 76)
-[2013-11-17T16:38:15+01:00] INFO: execute[backup tomcat-users] ran successfully
-[2013-11-17T16:38:15+01:00] INFO: Processing execute[mv tomcat-users new] action run (tomcat7::default line 83)
-[2013-11-17T16:38:15+01:00] INFO: execute[mv tomcat-users new] ran successfully
-[2013-11-17T16:38:15+01:00] INFO: Processing execute[chown tomcat-user.xml] action run (tomcat7::default line 90)
-[2013-11-17T16:38:15+01:00] INFO: execute[chown tomcat-user.xml] ran successfully
-[2013-11-17T16:38:15+01:00] INFO: Processing execute[start tomcat] action run (tomcat7::default line 97)
-[2013-11-17T16:38:16+01:00] INFO: execute[start tomcat] ran successfully
-[2013-11-17T16:38:16+01:00] INFO: Chef Run complete in 183.713653 seconds
-[2013-11-17T16:38:16+01:00] INFO: Running report handlers
-[2013-11-17T16:38:16+01:00] INFO: Report handlers complete
+[2014-02-03T05:43:24+01:00] INFO: *** Chef 10.12.0 ***
+[2014-02-03T05:43:24+01:00] INFO: Setting the run_list to ["recipe[confighost::preinstall]", "recipe[confighost::hostname]", "recipe[confighost::hostconfiguremaster]", "recipe[chefInstall::install]", "recipe[preinstall]", "recipe[postgresql]", "recipe[postgresql::configure]", "recipe[apache]", "recipe[apache::configure]", "recipe[php]", "recipe[php::installdebug]", "recipe[java7-64]", "recipe[tomcat7]"] from JSON
+[2014-02-03T05:43:24+01:00] INFO: Run List is [recipe[confighost::preinstall], recipe[confighost::hostname], recipe[confighost::hostconfiguremaster], recipe[chefInstall::install], recipe[preinstall], recipe[postgresql], recipe[postgresql::configure], recipe[apache], recipe[apache::configure], recipe[php], recipe[php::installdebug], recipe[java7-64], recipe[tomcat7]]
+[2014-02-03T05:43:24+01:00] INFO: Run List expands to [confighost::preinstall, confighost::hostname, confighost::hostconfiguremaster, chefInstall::install, preinstall, postgresql, postgresql::configure, apache, apache::configure, php, php::installdebug, java7-64, tomcat7]
+[2014-02-03T05:43:24+01:00] INFO: Starting Chef Run for localhost
+[2014-02-03T05:43:24+01:00] INFO: Running start handlers
+[2014-02-03T05:43:24+01:00] INFO: Start handlers complete.
+[2014-02-03T05:43:25+01:00] INFO: Processing cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] action create (confighost::preinstall line 87)
+[2014-02-03T05:43:25+01:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] owner changed to 500
+[2014-02-03T05:43:25+01:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] mode changed to 644
+[2014-02-03T05:43:25+01:00] INFO: cookbook_file[/home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm] created file /home/vagrant/tcl-8.5.7-6.el6.x86_64.rpm
+[2014-02-03T05:43:25+01:00] INFO: Processing cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] action create (confighost::preinstall line 94)
+[2014-02-03T05:43:25+01:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] owner changed to 500
+[2014-02-03T05:43:25+01:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] mode changed to 644
+[2014-02-03T05:43:25+01:00] INFO: cookbook_file[/home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm] created file /home/vagrant/expect-5.44.1.15-4.el6.x86_64.rpm
+[2014-02-03T05:43:25+01:00] INFO: Processing cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] action create (confighost::preinstall line 101)
+[2014-02-03T05:43:25+01:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] owner changed to 500
+[2014-02-03T05:43:25+01:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] mode changed to 644
+[2014-02-03T05:43:25+01:00] INFO: cookbook_file[/home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm] created file /home/vagrant/rsync-3.0.6-9.el6.x86_64.rpm
+[2014-02-03T05:43:25+01:00] INFO: Processing cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] action create (confighost::preinstall line 108)
+[2014-02-03T05:43:25+01:00] INFO: cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] owner changed to 500
+[2014-02-03T05:43:25+01:00] INFO: cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] mode changed to 644
+[2014-02-03T05:43:25+01:00] INFO: cookbook_file[/home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm] created file /home/vagrant/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm
+[2014-02-03T05:43:25+01:00] INFO: Processing execute[install tlc] action run (confighost::preinstall line 117)
+[2014-02-03T05:43:27+01:00] INFO: execute[install tlc] ran successfully
+[2014-02-03T05:43:27+01:00] INFO: Processing execute[install expect] action run (confighost::preinstall line 124)
+[2014-02-03T05:43:27+01:00] INFO: execute[install expect] ran successfully
+[2014-02-03T05:43:27+01:00] INFO: Processing execute[install rsync] action run (confighost::preinstall line 131)
+[2014-02-03T05:43:27+01:00] INFO: execute[install rsync] ran successfully
+[2014-02-03T05:43:27+01:00] INFO: Processing execute[install yum-plugin-downloadonly] action run (confighost::preinstall line 138)
+[2014-02-03T05:43:27+01:00] INFO: execute[install yum-plugin-downloadonly] ran successfully
+[2014-02-03T05:43:27+01:00] INFO: Processing cookbook_file[/home/vagrant/configssh.exp] action create (confighost::preinstall line 147)
+[2014-02-03T05:43:27+01:00] INFO: cookbook_file[/home/vagrant/configssh.exp] owner changed to 500
+[2014-02-03T05:43:27+01:00] INFO: cookbook_file[/home/vagrant/configssh.exp] mode changed to 644
+[2014-02-03T05:43:27+01:00] INFO: cookbook_file[/home/vagrant/configssh.exp] created file /home/vagrant/configssh.exp
+[2014-02-03T05:43:27+01:00] INFO: Processing execute[backup /etc/sysconfig/network] action run (confighost::hostname line 39)
+[2014-02-03T05:43:27+01:00] INFO: execute[backup /etc/sysconfig/network] ran successfully
+[2014-02-03T05:43:27+01:00] INFO: Processing template[/tmp/network] action create (confighost::hostname line 46)
+[2014-02-03T05:43:27+01:00] INFO: template[/tmp/network] mode changed to 755
+[2014-02-03T05:43:27+01:00] INFO: template[/tmp/network] updated content
+[2014-02-03T05:43:27+01:00] INFO: Processing execute[move network] action run (confighost::hostname line 55)
+[2014-02-03T05:43:27+01:00] INFO: execute[move network] ran successfully
+[2014-02-03T05:43:27+01:00] INFO: Processing execute[hostname update] action run (confighost::hostname line 64)
+[2014-02-03T05:43:27+01:00] INFO: execute[hostname update] ran successfully
+[2014-02-03T05:43:27+01:00] INFO: Processing cookbook_file[/home/vagrant/hosts_nodes] action create (confighost::hostconfiguremaster line 3)
+[2014-02-03T05:43:27+01:00] INFO: cookbook_file[/home/vagrant/hosts_nodes] mode changed to 755
+[2014-02-03T05:43:27+01:00] INFO: cookbook_file[/home/vagrant/hosts_nodes] created file /home/vagrant/hosts_nodes
+[2014-02-03T05:43:27+01:00] INFO: Processing cookbook_file[/home/vagrant/hostsTemplate] action create (confighost::hostconfiguremaster line 10)
+[2014-02-03T05:43:27+01:00] INFO: cookbook_file[/home/vagrant/hostsTemplate] mode changed to 755
+[2014-02-03T05:43:27+01:00] INFO: cookbook_file[/home/vagrant/hostsTemplate] created file /home/vagrant/hostsTemplate
+[2014-02-03T05:43:27+01:00] INFO: Processing execute[add to templatehost] action run (confighost::hostconfiguremaster line 17)
+[2014-02-03T05:43:27+01:00] INFO: execute[add to templatehost] ran successfully
+[2014-02-03T05:43:27+01:00] INFO: Processing execute[get ip from ifconfig] action run (confighost::getipadd line 10)
+[2014-02-03T05:43:27+01:00] INFO: execute[get ip from ifconfig] ran successfully
+[2014-02-03T05:43:27+01:00] INFO: Processing execute[add ip] action run (confighost::getipadd line 18)
+[2014-02-03T05:43:27+01:00] INFO: execute[add ip] ran successfully
+[2014-02-03T05:43:27+01:00] INFO: Processing execute[add hostname alias] action run (confighost::getipadd line 25)
+[2014-02-03T05:43:27+01:00] INFO: execute[add hostname alias] ran successfully
+[2014-02-03T05:43:27+01:00] INFO: Processing execute[quitar salos de linea] action run (confighost::getipadd line 34)
+[2014-02-03T05:43:27+01:00] INFO: execute[quitar salos de linea] ran successfully
+[2014-02-03T05:43:27+01:00] INFO: Processing execute[add hosts] action run (confighost::hostconfiguremaster line 30)
+[2014-02-03T05:43:27+01:00] INFO: execute[add hosts] ran successfully
+[2014-02-03T05:43:27+01:00] INFO: Processing cookbook_file[/home/vagrant/sendhostsssh.exp] action create (confighost::hostconfiguremaster line 39)
+[2014-02-03T05:43:27+01:00] INFO: cookbook_file[/home/vagrant/sendhostsssh.exp] owner changed to 500
+[2014-02-03T05:43:27+01:00] INFO: cookbook_file[/home/vagrant/sendhostsssh.exp] mode changed to 755
+[2014-02-03T05:43:27+01:00] INFO: cookbook_file[/home/vagrant/sendhostsssh.exp] created file /home/vagrant/sendhostsssh.exp
+[2014-02-03T05:43:27+01:00] INFO: Processing execute[ssh access] action run (confighost::hostconfiguremaster line 47)
+[2014-02-03T05:43:28+01:00] INFO: execute[ssh access] ran successfully
+[2014-02-03T05:43:28+01:00] INFO: Processing execute[send hosts] action run (confighost::hostconfiguremaster line 57)
+[2014-02-03T05:44:08+01:00] INFO: execute[send hosts] ran successfully
+[2014-02-03T05:44:08+01:00] INFO: Processing cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] action create (chefInstall::install line 22)
+[2014-02-03T05:44:10+01:00] INFO: cookbook_file[/tmp/chef-10.16.6-1.el6.x86_64.rpm] created file /tmp/chef-10.16.6-1.el6.x86_64.rpm
+[2014-02-03T05:44:10+01:00] INFO: Processing execute[install chef] action run (chefInstall::install line 33)
+[2014-02-03T05:44:15+01:00] INFO: execute[install chef] ran successfully
+[2014-02-03T05:44:15+01:00] INFO: Processing cookbook_file[/tmp/reposPreinstall.tar.gz] action create (preinstall::default line 12)
+[2014-02-03T05:44:22+01:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] owner changed to 500
+[2014-02-03T05:44:22+01:00] INFO: cookbook_file[/tmp/reposPreinstall.tar.gz] created file /tmp/reposPreinstall.tar.gz
+[2014-02-03T05:44:22+01:00] INFO: Processing execute[unpack reposPreinstall] action run (preinstall::default line 17)
+[2014-02-03T05:44:24+01:00] INFO: execute[unpack reposPreinstall] ran successfully
+[2014-02-03T05:44:24+01:00] INFO: Processing execute[ls reposPreinstall] action run (preinstall::default line 24)
+[2014-02-03T05:44:24+01:00] INFO: execute[ls reposPreinstall] ran successfully
+[2014-02-03T05:44:24+01:00] INFO: Processing execute[install dependencies] action run (preinstall::default line 31)
+[2014-02-03T05:45:11+01:00] INFO: execute[install dependencies] ran successfully
+[2014-02-03T05:45:11+01:00] INFO: Processing cookbook_file[/tmp/postgresql.tar.gz] action create (postgresql::default line 10)
+[2014-02-03T05:45:12+01:00] INFO: cookbook_file[/tmp/postgresql.tar.gz] owner changed to 500
+[2014-02-03T05:45:12+01:00] INFO: cookbook_file[/tmp/postgresql.tar.gz] created file /tmp/postgresql.tar.gz
+[2014-02-03T05:45:12+01:00] INFO: Processing execute[unpack postgresql] action run (postgresql::default line 15)
+[2014-02-03T05:45:12+01:00] INFO: execute[unpack postgresql] ran successfully
+[2014-02-03T05:45:12+01:00] INFO: Processing execute[install postgresql] action run (postgresql::default line 22)
+[2014-02-03T05:45:17+01:00] INFO: execute[install postgresql] ran successfully
+[2014-02-03T05:45:17+01:00] INFO: Processing cookbook_file[/tmp/pass.sql] action create (postgresql::configure line 13)
+[2014-02-03T05:45:17+01:00] INFO: cookbook_file[/tmp/pass.sql] owner changed to 26
+[2014-02-03T05:45:17+01:00] INFO: cookbook_file[/tmp/pass.sql] created file /tmp/pass.sql
+[2014-02-03T05:45:17+01:00] INFO: Processing cookbook_file[/tmp/changepasspsql.exp] action create (postgresql::configure line 18)
+[2014-02-03T05:45:17+01:00] INFO: cookbook_file[/tmp/changepasspsql.exp] created file /tmp/changepasspsql.exp
+[2014-02-03T05:45:17+01:00] INFO: Processing execute[initdb psql] action run (postgresql::configure line 23)
+[2014-02-03T05:45:30+01:00] INFO: execute[initdb psql] ran successfully
+[2014-02-03T05:45:30+01:00] INFO: Processing execute[chkconfig postgresql] action run (postgresql::configure line 30)
+[2014-02-03T05:45:30+01:00] INFO: execute[chkconfig postgresql] ran successfully
+[2014-02-03T05:45:30+01:00] INFO: Processing execute[start psql] action run (postgresql::configure line 37)
+[2014-02-03T05:45:32+01:00] INFO: execute[start psql] ran successfully
+[2014-02-03T05:45:32+01:00] INFO: Processing execute[pass sql] action run (postgresql::configure line 44)
+[2014-02-03T05:45:32+01:00] INFO: execute[pass sql] ran successfully
+[2014-02-03T05:45:32+01:00] INFO: Processing execute[pass psql] action run (postgresql::configure line 51)
+[2014-02-03T05:45:38+01:00] INFO: execute[pass psql] ran successfully
+[2014-02-03T05:45:38+01:00] INFO: Processing execute[backups pg_hba.conf] action run (postgresql::configure line 58)
+[2014-02-03T05:45:38+01:00] INFO: execute[backups pg_hba.conf] ran successfully
+[2014-02-03T05:45:38+01:00] INFO: Processing execute[backups postgresql.conf] action run (postgresql::configure line 65)
+[2014-02-03T05:45:38+01:00] INFO: execute[backups postgresql.conf] ran successfully
+[2014-02-03T05:45:38+01:00] INFO: Processing cookbook_file[/var/lib/pgsql/data/postgresql.conf] action create (postgresql::configure line 72)
+[2014-02-03T05:45:38+01:00] INFO: cookbook_file[/var/lib/pgsql/data/postgresql.conf] owner changed to 26
+[2014-02-03T05:45:38+01:00] INFO: cookbook_file[/var/lib/pgsql/data/postgresql.conf] created file /var/lib/pgsql/data/postgresql.conf
+[2014-02-03T05:45:38+01:00] INFO: Processing cookbook_file[/var/lib/pgsql/data/pg_hba.conf] action create (postgresql::configure line 78)
+[2014-02-03T05:45:38+01:00] INFO: cookbook_file[/var/lib/pgsql/data/pg_hba.conf] owner changed to 26
+[2014-02-03T05:45:38+01:00] INFO: cookbook_file[/var/lib/pgsql/data/pg_hba.conf] created file /var/lib/pgsql/data/pg_hba.conf
+[2014-02-03T05:45:38+01:00] INFO: Processing execute[restart psql] action run (postgresql::configure line 84)
+[2014-02-03T05:45:41+01:00] INFO: execute[restart psql] ran successfully
+[2014-02-03T05:45:41+01:00] INFO: Processing cookbook_file[/tmp/apache.tar.gz] action create (apache::default line 10)
+[2014-02-03T05:45:41+01:00] INFO: cookbook_file[/tmp/apache.tar.gz] owner changed to 500
+[2014-02-03T05:45:41+01:00] INFO: cookbook_file[/tmp/apache.tar.gz] created file /tmp/apache.tar.gz
+[2014-02-03T05:45:41+01:00] INFO: Processing execute[unpack apache] action run (apache::default line 15)
+[2014-02-03T05:45:41+01:00] INFO: execute[unpack apache] ran successfully
+[2014-02-03T05:45:41+01:00] INFO: Processing execute[install apache] action run (apache::default line 22)
+[2014-02-03T05:45:42+01:00] INFO: execute[install apache] ran successfully
+[2014-02-03T05:45:42+01:00] INFO: Processing execute[start apache] action run (apache::configure line 10)
+[2014-02-03T05:45:42+01:00] INFO: execute[start apache] ran successfully
+[2014-02-03T05:45:42+01:00] INFO: Processing execute[chkconfig apache] action run (apache::configure line 17)
+[2014-02-03T05:45:42+01:00] INFO: execute[chkconfig apache] ran successfully
+[2014-02-03T05:45:42+01:00] INFO: Processing execute[stop iptables] action run (apache::configure line 26)
+[2014-02-03T05:45:43+01:00] INFO: execute[stop iptables] ran successfully
+[2014-02-03T05:45:43+01:00] INFO: Processing execute[chkconfig iptables] action run (apache::configure line 33)
+[2014-02-03T05:45:43+01:00] INFO: execute[chkconfig iptables] ran successfully
+[2014-02-03T05:45:43+01:00] INFO: Processing cookbook_file[/tmp/php.tar.gz] action create (php::default line 10)
+[2014-02-03T05:45:43+01:00] INFO: cookbook_file[/tmp/php.tar.gz] owner changed to 500
+[2014-02-03T05:45:43+01:00] INFO: cookbook_file[/tmp/php.tar.gz] created file /tmp/php.tar.gz
+[2014-02-03T05:45:43+01:00] INFO: Processing execute[unpack php] action run (php::default line 15)
+[2014-02-03T05:45:44+01:00] INFO: execute[unpack php] ran successfully
+[2014-02-03T05:45:44+01:00] INFO: Processing execute[install php] action run (php::default line 22)
+[2014-02-03T05:45:48+01:00] INFO: execute[install php] ran successfully
+[2014-02-03T05:45:48+01:00] INFO: Processing cookbook_file[/tmp/xdebug.tar.gz] action create (php::installdebug line 9)
+[2014-02-03T05:45:48+01:00] INFO: cookbook_file[/tmp/xdebug.tar.gz] owner changed to 500
+[2014-02-03T05:45:48+01:00] INFO: cookbook_file[/tmp/xdebug.tar.gz] created file /tmp/xdebug.tar.gz
+[2014-02-03T05:45:48+01:00] INFO: Processing cookbook_file[/tmp/xdebug_configure.txt] action create (php::installdebug line 14)
+[2014-02-03T05:45:48+01:00] INFO: cookbook_file[/tmp/xdebug_configure.txt] owner changed to 500
+[2014-02-03T05:45:48+01:00] INFO: cookbook_file[/tmp/xdebug_configure.txt] created file /tmp/xdebug_configure.txt
+[2014-02-03T05:45:48+01:00] INFO: Processing execute[unpack xdebug] action run (php::installdebug line 19)
+[2014-02-03T05:45:48+01:00] INFO: execute[unpack xdebug] ran successfully
+[2014-02-03T05:45:48+01:00] INFO: Processing execute[run phpize] action run (php::installdebug line 26)
+[2014-02-03T05:45:50+01:00] INFO: execute[run phpize] ran successfully
+[2014-02-03T05:45:50+01:00] INFO: Processing execute[run configure] action run (php::installdebug line 33)
+[2014-02-03T05:45:56+01:00] INFO: execute[run configure] ran successfully
+[2014-02-03T05:45:56+01:00] INFO: Processing execute[run make] action run (php::installdebug line 40)
+[2014-02-03T05:46:04+01:00] INFO: execute[run make] ran successfully
+[2014-02-03T05:46:04+01:00] INFO: Processing execute[run make install] action run (php::installdebug line 47)
+[2014-02-03T05:46:05+01:00] INFO: execute[run make install] ran successfully
+[2014-02-03T05:46:05+01:00] INFO: Processing execute[configure xdebug] action run (php::installdebug line 54)
+[2014-02-03T05:46:05+01:00] INFO: execute[configure xdebug] ran successfully
+[2014-02-03T05:46:05+01:00] INFO: Processing cookbook_file[/tmp/jdk-7u3-linux-x64.tar.gz] action create (java7-64::default line 1)
+[2014-02-03T05:46:10+01:00] INFO: cookbook_file[/tmp/jdk-7u3-linux-x64.tar.gz] created file /tmp/jdk-7u3-linux-x64.tar.gz
+[2014-02-03T05:46:10+01:00] INFO: Processing execute[uncompress jdk] action run (java7-64::default line 6)
+[2014-02-03T05:46:16+01:00] INFO: execute[uncompress jdk] ran successfully
+[2014-02-03T05:46:16+01:00] INFO: Processing cookbook_file[/tmp/append2profile] action create (java7-64::default line 12)
+[2014-02-03T05:46:16+01:00] INFO: cookbook_file[/tmp/append2profile] created file /tmp/append2profile
+[2014-02-03T05:46:16+01:00] INFO: Processing execute[cat profile] action run (java7-64::default line 17)
+[2014-02-03T05:46:17+01:00] INFO: execute[cat profile] ran successfully
+[2014-02-03T05:46:17+01:00] INFO: Processing execute[ln java] action run (java7-64::default line 23)
+[2014-02-03T05:46:17+01:00] INFO: execute[ln java] ran successfully
+[2014-02-03T05:46:17+01:00] INFO: Processing cookbook_file[/etc/init.d/tomcat-inst1] action create (tomcat7::default line 13)
+[2014-02-03T05:46:18+01:00] INFO: cookbook_file[/etc/init.d/tomcat-inst1] mode changed to 755
+[2014-02-03T05:46:18+01:00] INFO: cookbook_file[/etc/init.d/tomcat-inst1] created file /etc/init.d/tomcat-inst1
+[2014-02-03T05:46:18+01:00] INFO: Processing cookbook_file[/tmp/apache-tomcat-7.tar.gz] action create (tomcat7::default line 19)
+[2014-02-03T05:46:19+01:00] INFO: cookbook_file[/tmp/apache-tomcat-7.tar.gz] created file /tmp/apache-tomcat-7.tar.gz
+[2014-02-03T05:46:19+01:00] INFO: Processing cookbook_file[/tmp/tomcat-users.xml] action create (tomcat7::default line 25)
+[2014-02-03T05:46:19+01:00] INFO: cookbook_file[/tmp/tomcat-users.xml] created file /tmp/tomcat-users.xml
+[2014-02-03T05:46:19+01:00] INFO: Processing execute[mkdir /opt/tomcat/tomcat-inst1] action run (tomcat7::default line 32)
+[2014-02-03T05:46:19+01:00] INFO: execute[mkdir /opt/tomcat/tomcat-inst1] ran successfully
+[2014-02-03T05:46:19+01:00] INFO: Processing execute[tar apache-tomcar.tar.gz] action run (tomcat7::default line 40)
+[2014-02-03T05:46:19+01:00] INFO: execute[tar apache-tomcar.tar.gz] ran successfully
+[2014-02-03T05:46:19+01:00] INFO: Processing execute[ls tomcat-current] action run (tomcat7::default line 47)
+[2014-02-03T05:46:19+01:00] INFO: execute[ls tomcat-current] ran successfully
+[2014-02-03T05:46:19+01:00] INFO: Processing execute[create user tomcat] action run (tomcat7::default line 54)
+[2014-02-03T05:46:19+01:00] INFO: execute[create user tomcat] ran successfully
+[2014-02-03T05:46:19+01:00] INFO: Processing execute[chown tomcat] action run (tomcat7::default line 61)
+[2014-02-03T05:46:19+01:00] INFO: execute[chown tomcat] ran successfully
+[2014-02-03T05:46:19+01:00] INFO: Processing execute[chkconfig tomcat] action run (tomcat7::default line 68)
+[2014-02-03T05:46:19+01:00] INFO: execute[chkconfig tomcat] ran successfully
+[2014-02-03T05:46:19+01:00] INFO: Processing execute[backup tomcat-users] action run (tomcat7::default line 76)
+[2014-02-03T05:46:19+01:00] INFO: execute[backup tomcat-users] ran successfully
+[2014-02-03T05:46:19+01:00] INFO: Processing execute[mv tomcat-users new] action run (tomcat7::default line 83)
+[2014-02-03T05:46:19+01:00] INFO: execute[mv tomcat-users new] ran successfully
+[2014-02-03T05:46:19+01:00] INFO: Processing execute[chown tomcat-user.xml] action run (tomcat7::default line 90)
+[2014-02-03T05:46:19+01:00] INFO: execute[chown tomcat-user.xml] ran successfully
+[2014-02-03T05:46:19+01:00] INFO: Processing execute[start tomcat] action run (tomcat7::default line 97)
+[2014-02-03T05:46:19+01:00] INFO: execute[start tomcat] ran successfully
+[2014-02-03T05:46:19+01:00] INFO: Chef Run complete in 175.362127 seconds
+[2014-02-03T05:46:19+01:00] INFO: Running report handlers
+[2014-02-03T05:46:19+01:00] INFO: Report handlers complete
+./PrototipeGTKInterface/
+./PrototipeGTKInterface/css/
+./PrototipeGTKInterface/css/style.css
+./PrototipeGTKInterface/css/styleTooltip.css
+./PrototipeGTKInterface/css/styleTable.css
+./PrototipeGTKInterface/css/styleProfile.css
+./PrototipeGTKInterface/css/styleForm.css
+./PrototipeGTKInterface/css/styleMessages.css
+./PrototipeGTKInterface/css/styleLogin.css
+./PrototipeGTKInterface/css/styleDashBoard.css
+./PrototipeGTKInterface/css/styleMenu.css
+./PrototipeGTKInterface/index.php
+./PrototipeGTKInterface/info.php
+./PrototipeGTKInterface/model/
+./PrototipeGTKInterface/model/ModelJob.php
+./PrototipeGTKInterface/model/ModelRelationUserCert.php
+./PrototipeGTKInterface/model/ModelCert.php
+./PrototipeGTKInterface/model/ModelUser.php
+./PrototipeGTKInterface/logica/
+./PrototipeGTKInterface/logica/User.php
+./PrototipeGTKInterface/logica/Job.php
+./PrototipeGTKInterface/logica/RelationUserCert.php
+./PrototipeGTKInterface/logica/Cert.php
+./PrototipeGTKInterface/js/
+./PrototipeGTKInterface/js/jquery-1.11.0.min.js
+./PrototipeGTKInterface/js/scripts.js
+./PrototipeGTKInterface/js/oneSimpleTablePaging-1.0.js
+./PrototipeGTKInterface/web/
+./PrototipeGTKInterface/web/site/
+./PrototipeGTKInterface/web/site/index.php
+./PrototipeGTKInterface/web/site/prueba.php
+./PrototipeGTKInterface/web/site/personal/
+./PrototipeGTKInterface/web/site/personal/edit.php
+./PrototipeGTKInterface/web/site/personal/index.php
+./PrototipeGTKInterface/web/site/dashboard/
+./PrototipeGTKInterface/web/site/dashboard/index.php
+./PrototipeGTKInterface/web/index.php
+./PrototipeGTKInterface/web/login/
+./PrototipeGTKInterface/web/login/signout.php
+./PrototipeGTKInterface/web/login/signin.php
+./PrototipeGTKInterface/templates/
+./PrototipeGTKInterface/templates/error.tpl
+./PrototipeGTKInterface/templates/edit.tpl
+./PrototipeGTKInterface/templates/principal.tpl
+./PrototipeGTKInterface/templates/inicio.tpl
+./PrototipeGTKInterface/templates/dashboard.tpl
+./PrototipeGTKInterface/templates/signin.tpl
+./PrototipeGTKInterface/templates/profile.tpl
+./PrototipeGTKInterface/controlador/
+./PrototipeGTKInterface/controlador/phpseclib/
+./PrototipeGTKInterface/controlador/phpseclib/File/
+./PrototipeGTKInterface/controlador/phpseclib/File/X509.php
+./PrototipeGTKInterface/controlador/phpseclib/File/ANSI.php
+./PrototipeGTKInterface/controlador/phpseclib/File/ASN1.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/DES.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/Twofish.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/RSA.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/RC4.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/TripleDES.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/Rijndael.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/AES.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/Random.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/Blowfish.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/Hash.php
+./PrototipeGTKInterface/controlador/phpseclib/openssl.cnf
+./PrototipeGTKInterface/controlador/phpseclib/Net/
+./PrototipeGTKInterface/controlador/phpseclib/Net/SFTP/
+./PrototipeGTKInterface/controlador/phpseclib/Net/SFTP/Stream.php
+./PrototipeGTKInterface/controlador/phpseclib/Net/SFTP.php
+./PrototipeGTKInterface/controlador/phpseclib/Net/SCP.php
+./PrototipeGTKInterface/controlador/phpseclib/Net/SSH1.php
+./PrototipeGTKInterface/controlador/phpseclib/Net/SSH2.php
+./PrototipeGTKInterface/controlador/phpseclib/Math/
+./PrototipeGTKInterface/controlador/phpseclib/Math/BigInteger.php
+./PrototipeGTKInterface/controlador/fachada/
+./PrototipeGTKInterface/controlador/fachada/Fachada.php
+./PrototipeGTKInterface/controlador/personal/
+./PrototipeGTKInterface/controlador/personal/Edit.php
+./PrototipeGTKInterface/controlador/personal/TableUserCerts.php
+./PrototipeGTKInterface/controlador/config.php
+./PrototipeGTKInterface/controlador/login/
+./PrototipeGTKInterface/controlador/login/Signin.php
+./PrototipeGTKInterface/controlador/login/Login.php
+./PrototipeGTKInterface/controlador/templates/
+./PrototipeGTKInterface/controlador/templates/TemplateManager.php
+./PrototipeGTKInterface/controlador/jobSubmission/
+./PrototipeGTKInterface/controlador/jobSubmission/JobManager.php
+./PrototipeGTKInterface/controlador/utils/
+./PrototipeGTKInterface/controlador/utils/DateManager.php
+./PrototipeGTKInterface/controlador/dashboard/
+./PrototipeGTKInterface/controlador/dashboard/Dashboard.php
+./PrototipeGTKInterface/controlador/dashboard/TableUserJobs.php
+./PrototipeGTKInterface/resources/
+./PrototipeGTKInterface/resources/images/
+./PrototipeGTKInterface/resources/images/hover_sub.png
+./PrototipeGTKInterface/resources/images/seperator.gif
+./PrototipeGTKInterface/resources/images/sub_sep.gif
+./PrototipeGTKInterface/resources/images/hover.png
+./PrototipeGTKInterface/resources/images/profile/
+./PrototipeGTKInterface/resources/images/profile/profile_avatar.png
+./PrototipeGTKInterface/resources/images/messages-boxes/
+./PrototipeGTKInterface/resources/images/messages-boxes/warning.png
+./PrototipeGTKInterface/resources/images/messages-boxes/success.png
+./PrototipeGTKInterface/resources/images/messages-boxes/info.png
+./PrototipeGTKInterface/resources/images/messages-boxes/error.png
+./PrototipeGTKInterface/resources/.gitkeep
+./PrototipeGTKInterface/scripts/
+./PrototipeGTKInterface/scripts/send-job.sh
+./PrototipeGTKInterface/scripts/proxy-refresh.sh
+./PrototipeGTKInterface/scripts/run-grid-proxy-init.exp
+./PrototipeGTKInterface/scripts/inicializar-variables.sh
+./PrototipeGTKInterface/scripts/proxyValidacion.sh
+./PrototipeGTKInterface/scripts/cancel-job.sh
+./PrototipeGTKInterface/scripts/defaulInit.sh
+./PrototipeGTKInterface/scripts/parse-job.sh
+./PrototipeGTKInterface/scripts/status-job.sh
+
+Release salvado en prototipe.tar.gz
+
+Prototipo actualizado
 spawn ssh-keygen -t rsa
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/student/.ssh/id_rsa): /home/student/.ssh/id_rsa
@@ -363,45 +484,45 @@ pass enviado
 
 se realiza correctamente
 Checking Chef version...
-[2013-11-17T16:38:55+01:00] INFO: *** Chef 10.16.6 ***
-[2013-11-17T16:38:57+01:00] INFO: Setting the run_list to ["recipe[repositories]", "recipe[globususer]", "recipe[globuspackages]", "recipe[osgcacerts]", "recipe[security-cacerts::iptables]", "recipe[security-cacerts::services]"] from JSON
-[2013-11-17T16:38:57+01:00] INFO: Run List is [recipe[repositories], recipe[globususer], recipe[globuspackages], recipe[osgcacerts], recipe[security-cacerts::iptables], recipe[security-cacerts::services]]
-[2013-11-17T16:38:57+01:00] INFO: Run List expands to [repositories, globususer, globuspackages, osgcacerts, security-cacerts::iptables, security-cacerts::services]
-[2013-11-17T16:38:57+01:00] INFO: Starting Chef Run for mg2.globustest.org
-[2013-11-17T16:38:57+01:00] INFO: Running start handlers
-[2013-11-17T16:38:57+01:00] INFO: Start handlers complete.
-[2013-11-17T16:38:58+01:00] INFO: Processing cookbook_file[/tmp/epel-release-6-8.noarch.rpm] action create (repositories::default line 13)
-[2013-11-17T16:38:58+01:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] owner changed to 500
-[2013-11-17T16:38:58+01:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] created file /tmp/epel-release-6-8.noarch.rpm
-[2013-11-17T16:38:58+01:00] INFO: Processing cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] action create (repositories::default line 18)
-[2013-11-17T16:38:58+01:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] owner changed to 500
-[2013-11-17T16:38:58+01:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] created file /tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm
-[2013-11-17T16:38:58+01:00] INFO: Processing cookbook_file[/tmp/osg-el6-release-latest.rpm] action create (repositories::default line 23)
-[2013-11-17T16:38:59+01:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] owner changed to 500
-[2013-11-17T16:38:59+01:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] created file /tmp/osg-el6-release-latest.rpm
-[2013-11-17T16:38:59+01:00] INFO: Processing cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] action create (repositories::default line 28)
-[2013-11-17T16:38:59+01:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] owner changed to 500
-[2013-11-17T16:38:59+01:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] created file /tmp/Globus-repo-config.centos-6-1.noarch.rpm
-[2013-11-17T16:38:59+01:00] INFO: Processing execute[EPEL repository] action run (repositories::default line 33)
+[2014-02-03T05:46:53+01:00] INFO: *** Chef 10.16.6 ***
+[2014-02-03T05:46:54+01:00] INFO: Setting the run_list to ["recipe[repositories]", "recipe[globususer]", "recipe[globuspackages]", "recipe[osgcacerts]", "recipe[security-cacerts::iptables]", "recipe[security-cacerts::services]"] from JSON
+[2014-02-03T05:46:54+01:00] INFO: Run List is [recipe[repositories], recipe[globususer], recipe[globuspackages], recipe[osgcacerts], recipe[security-cacerts::iptables], recipe[security-cacerts::services]]
+[2014-02-03T05:46:54+01:00] INFO: Run List expands to [repositories, globususer, globuspackages, osgcacerts, security-cacerts::iptables, security-cacerts::services]
+[2014-02-03T05:46:54+01:00] INFO: Starting Chef Run for mg2.globustest.org
+[2014-02-03T05:46:54+01:00] INFO: Running start handlers
+[2014-02-03T05:46:54+01:00] INFO: Start handlers complete.
+[2014-02-03T05:46:55+01:00] INFO: Processing cookbook_file[/tmp/epel-release-6-8.noarch.rpm] action create (repositories::default line 13)
+[2014-02-03T05:46:55+01:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] owner changed to 500
+[2014-02-03T05:46:55+01:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] created file /tmp/epel-release-6-8.noarch.rpm
+[2014-02-03T05:46:55+01:00] INFO: Processing cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] action create (repositories::default line 18)
+[2014-02-03T05:46:55+01:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] owner changed to 500
+[2014-02-03T05:46:55+01:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] created file /tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm
+[2014-02-03T05:46:55+01:00] INFO: Processing cookbook_file[/tmp/osg-el6-release-latest.rpm] action create (repositories::default line 23)
+[2014-02-03T05:46:55+01:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] owner changed to 500
+[2014-02-03T05:46:55+01:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] created file /tmp/osg-el6-release-latest.rpm
+[2014-02-03T05:46:55+01:00] INFO: Processing cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] action create (repositories::default line 28)
+[2014-02-03T05:46:55+01:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] owner changed to 500
+[2014-02-03T05:46:55+01:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] created file /tmp/Globus-repo-config.centos-6-1.noarch.rpm
+[2014-02-03T05:46:55+01:00] INFO: Processing execute[EPEL repository] action run (repositories::default line 33)
 ##################################################
 ##################################################
-[2013-11-17T16:38:59+01:00] INFO: execute[EPEL repository] ran successfully
-[2013-11-17T16:38:59+01:00] INFO: Processing execute[yum-priorities] action run (repositories::default line 41)
+[2014-02-03T05:46:56+01:00] INFO: execute[EPEL repository] ran successfully
+[2014-02-03T05:46:56+01:00] INFO: Processing execute[yum-priorities] action run (repositories::default line 41)
 ##################################################
 ##################################################
-[2013-11-17T16:38:59+01:00] INFO: execute[yum-priorities] ran successfully
-[2013-11-17T16:38:59+01:00] INFO: Processing execute[OSG repository] action run (repositories::default line 51)
+[2014-02-03T05:46:56+01:00] INFO: execute[yum-priorities] ran successfully
+[2014-02-03T05:46:56+01:00] INFO: Processing execute[OSG repository] action run (repositories::default line 51)
 ##################################################
 ##################################################
-[2013-11-17T16:39:00+01:00] INFO: execute[OSG repository] ran successfully
-[2013-11-17T16:39:00+01:00] INFO: Processing execute[Globus repository] action run (repositories::default line 64)
-[2013-11-17T16:39:00+01:00] INFO: execute[Globus repository] ran successfully
-[2013-11-17T16:39:00+01:00] INFO: Processing user[globus] action create (globususer::default line 9)
-[2013-11-17T16:39:00+01:00] INFO: user[globus] created
-[2013-11-17T16:39:00+01:00] INFO: Processing cookbook_file[/tmp/globuspackages.tar.gz] action create (globuspackages::default line 27)
-[2013-11-17T16:39:00+01:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] owner changed to 500
-[2013-11-17T16:39:00+01:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] created file /tmp/globuspackages.tar.gz
-[2013-11-17T16:39:00+01:00] INFO: Processing execute[descomprimir globuspackages] action run (globuspackages::default line 32)
+[2014-02-03T05:46:56+01:00] INFO: execute[OSG repository] ran successfully
+[2014-02-03T05:46:56+01:00] INFO: Processing execute[Globus repository] action run (repositories::default line 64)
+[2014-02-03T05:46:56+01:00] INFO: execute[Globus repository] ran successfully
+[2014-02-03T05:46:56+01:00] INFO: Processing user[globus] action create (globususer::default line 9)
+[2014-02-03T05:46:56+01:00] INFO: user[globus] created
+[2014-02-03T05:46:56+01:00] INFO: Processing cookbook_file[/tmp/globuspackages.tar.gz] action create (globuspackages::default line 27)
+[2014-02-03T05:46:56+01:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] owner changed to 500
+[2014-02-03T05:46:56+01:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] created file /tmp/globuspackages.tar.gz
+[2014-02-03T05:46:56+01:00] INFO: Processing execute[descomprimir globuspackages] action run (globuspackages::default line 32)
 globuspackages/globus-gram-job-manager-13.45-1.3.osg.el6.x86_64.rpm
 globuspackages/globus-gram-job-manager-fork-setup-poll-1.0-8.osg.el6.noarch.rpm
 globuspackages/globus-gatekeeper-9.6-1.9.osg.el6.x86_64.rpm
@@ -456,8 +577,8 @@ globuspackages/globus-simple-ca-3.0-5.osg.el6.noarch.rpm
 globuspackages/globus-gss-assist-progs-8.1-4.osg.el6.x86_64.rpm
 globuspackages/globus-gsi-5.2.2-1.el6.x86_64.rpm
 globuspackages/
-[2013-11-17T16:39:00+01:00] INFO: execute[descomprimir globuspackages] ran successfully
-[2013-11-17T16:39:00+01:00] INFO: Processing execute[install gram5 gridftp gsi] action run (globuspackages::default line 39)
+[2014-02-03T05:46:56+01:00] INFO: execute[descomprimir globuspackages] ran successfully
+[2014-02-03T05:46:56+01:00] INFO: Processing execute[install gram5 gridftp gsi] action run (globuspackages::default line 39)
 ##################################################
 ##################################################
 ##################################################
@@ -512,81 +633,81 @@ globuspackages/
 ##################################################
 ##################################################
 ##################################################
-[2013-11-17T16:39:04+01:00] INFO: execute[install gram5 gridftp gsi] ran successfully
-[2013-11-17T16:39:04+01:00] INFO: Processing cookbook_file[/tmp/osgcacerts.tar.gz] action create (osgcacerts::default line 17)
-[2013-11-17T16:39:04+01:00] INFO: cookbook_file[/tmp/osgcacerts.tar.gz] owner changed to 500
-[2013-11-17T16:39:04+01:00] INFO: cookbook_file[/tmp/osgcacerts.tar.gz] created file /tmp/osgcacerts.tar.gz
-[2013-11-17T16:39:04+01:00] INFO: Processing execute[descomprimir osgcacerts] action run (osgcacerts::default line 22)
+[2014-02-03T05:46:59+01:00] INFO: execute[install gram5 gridftp gsi] ran successfully
+[2014-02-03T05:46:59+01:00] INFO: Processing cookbook_file[/tmp/osgcacerts.tar.gz] action create (osgcacerts::default line 17)
+[2014-02-03T05:46:59+01:00] INFO: cookbook_file[/tmp/osgcacerts.tar.gz] owner changed to 500
+[2014-02-03T05:46:59+01:00] INFO: cookbook_file[/tmp/osgcacerts.tar.gz] created file /tmp/osgcacerts.tar.gz
+[2014-02-03T05:46:59+01:00] INFO: Processing execute[descomprimir osgcacerts] action run (osgcacerts::default line 22)
 osgcacerts/osg-ca-certs-1.33-1.osg.el6.noarch.rpm
 osgcacerts/
-[2013-11-17T16:39:04+01:00] INFO: execute[descomprimir osgcacerts] ran successfully
-[2013-11-17T16:39:04+01:00] INFO: Processing execute[install osgcacerts] action run (osgcacerts::default line 29)
+[2014-02-03T05:46:59+01:00] INFO: execute[descomprimir osgcacerts] ran successfully
+[2014-02-03T05:46:59+01:00] INFO: Processing execute[install osgcacerts] action run (osgcacerts::default line 29)
 ##################################################
 ##################################################
-[2013-11-17T16:39:04+01:00] INFO: execute[install osgcacerts] ran successfully
-[2013-11-17T16:39:04+01:00] INFO: Processing execute[save iptables] action run (security-cacerts::iptables line 14)
-[2013-11-17T16:39:05+01:00] INFO: execute[save iptables] ran successfully
-[2013-11-17T16:39:05+01:00] INFO: Processing execute[stop iptables] action run (security-cacerts::iptables line 21)
-[2013-11-17T16:39:05+01:00] INFO: execute[stop iptables] ran successfully
-[2013-11-17T16:39:05+01:00] INFO: Processing execute[chkconfig iptables] action run (security-cacerts::iptables line 27)
-[2013-11-17T16:39:05+01:00] INFO: execute[chkconfig iptables] ran successfully
-[2013-11-17T16:39:05+01:00] INFO: Processing execute[save ip6tables] action run (security-cacerts::iptables line 34)
+[2014-02-03T05:47:00+01:00] INFO: execute[install osgcacerts] ran successfully
+[2014-02-03T05:47:00+01:00] INFO: Processing execute[save iptables] action run (security-cacerts::iptables line 14)
+[2014-02-03T05:47:00+01:00] INFO: execute[save iptables] ran successfully
+[2014-02-03T05:47:00+01:00] INFO: Processing execute[stop iptables] action run (security-cacerts::iptables line 21)
+[2014-02-03T05:47:00+01:00] INFO: execute[stop iptables] ran successfully
+[2014-02-03T05:47:00+01:00] INFO: Processing execute[chkconfig iptables] action run (security-cacerts::iptables line 27)
+[2014-02-03T05:47:00+01:00] INFO: execute[chkconfig iptables] ran successfully
+[2014-02-03T05:47:00+01:00] INFO: Processing execute[save ip6tables] action run (security-cacerts::iptables line 34)
 ip6tables: Saving firewall rules to /etc/sysconfig/ip6tables: [  OK  ]
-[2013-11-17T16:39:05+01:00] INFO: execute[save ip6tables] ran successfully
-[2013-11-17T16:39:05+01:00] INFO: Processing execute[stop ip6tables] action run (security-cacerts::iptables line 41)
+[2014-02-03T05:47:00+01:00] INFO: execute[save ip6tables] ran successfully
+[2014-02-03T05:47:00+01:00] INFO: Processing execute[stop ip6tables] action run (security-cacerts::iptables line 41)
 ip6tables: Flushing firewall rules: [  OK  ]
 ip6tables: Setting chains to policy ACCEPT: filter [  OK  ]
 ip6tables: Unloading modules: [  OK  ]
-[2013-11-17T16:39:05+01:00] INFO: execute[stop ip6tables] ran successfully
-[2013-11-17T16:39:05+01:00] INFO: Processing execute[chkconfig ip6tables] action run (security-cacerts::iptables line 48)
-[2013-11-17T16:39:05+01:00] INFO: execute[chkconfig ip6tables] ran successfully
-[2013-11-17T16:39:05+01:00] INFO: Processing execute[chkconfig gram5] action run (security-cacerts::services line 7)
-[2013-11-17T16:39:06+01:00] INFO: execute[chkconfig gram5] ran successfully
-[2013-11-17T16:39:06+01:00] INFO: Processing execute[chkconfig globus-gridftp-server] action run (security-cacerts::services line 14)
-[2013-11-17T16:39:06+01:00] INFO: execute[chkconfig globus-gridftp-server] ran successfully
-[2013-11-17T16:39:06+01:00] INFO: Chef Run complete in 8.365797208 seconds
-[2013-11-17T16:39:06+01:00] INFO: Running report handlers
-[2013-11-17T16:39:06+01:00] INFO: Report handlers complete
+[2014-02-03T05:47:01+01:00] INFO: execute[stop ip6tables] ran successfully
+[2014-02-03T05:47:01+01:00] INFO: Processing execute[chkconfig ip6tables] action run (security-cacerts::iptables line 48)
+[2014-02-03T05:47:01+01:00] INFO: execute[chkconfig ip6tables] ran successfully
+[2014-02-03T05:47:01+01:00] INFO: Processing execute[chkconfig gram5] action run (security-cacerts::services line 7)
+[2014-02-03T05:47:01+01:00] INFO: execute[chkconfig gram5] ran successfully
+[2014-02-03T05:47:01+01:00] INFO: Processing execute[chkconfig globus-gridftp-server] action run (security-cacerts::services line 14)
+[2014-02-03T05:47:01+01:00] INFO: execute[chkconfig globus-gridftp-server] ran successfully
+[2014-02-03T05:47:01+01:00] INFO: Chef Run complete in 6.773229328 seconds
+[2014-02-03T05:47:01+01:00] INFO: Running report handlers
+[2014-02-03T05:47:01+01:00] INFO: Report handlers complete
 Checking Chef version...
-[2013-11-17T16:40:14+01:00] INFO: *** Chef 10.16.6 ***
-[2013-11-17T16:40:16+01:00] INFO: Setting the run_list to ["recipe[repositories]", "recipe[globususer]", "recipe[globuspackages]", "recipe[security-cacerts::iptables]", "recipe[security-cacerts::servicessecondmachine]"] from JSON
-[2013-11-17T16:40:16+01:00] INFO: Run List is [recipe[repositories], recipe[globususer], recipe[globuspackages], recipe[security-cacerts::iptables], recipe[security-cacerts::servicessecondmachine]]
-[2013-11-17T16:40:16+01:00] INFO: Run List expands to [repositories, globususer, globuspackages, security-cacerts::iptables, security-cacerts::servicessecondmachine]
-[2013-11-17T16:40:16+01:00] INFO: Starting Chef Run for mgwn2.globustest.org
-[2013-11-17T16:40:16+01:00] INFO: Running start handlers
-[2013-11-17T16:40:16+01:00] INFO: Start handlers complete.
-[2013-11-17T16:40:17+01:00] INFO: Processing cookbook_file[/tmp/epel-release-6-8.noarch.rpm] action create (repositories::default line 13)
-[2013-11-17T16:40:17+01:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] owner changed to 500
-[2013-11-17T16:40:17+01:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] created file /tmp/epel-release-6-8.noarch.rpm
-[2013-11-17T16:40:17+01:00] INFO: Processing cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] action create (repositories::default line 18)
-[2013-11-17T16:40:17+01:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] owner changed to 500
-[2013-11-17T16:40:17+01:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] created file /tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm
-[2013-11-17T16:40:17+01:00] INFO: Processing cookbook_file[/tmp/osg-el6-release-latest.rpm] action create (repositories::default line 23)
-[2013-11-17T16:40:17+01:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] owner changed to 500
-[2013-11-17T16:40:17+01:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] created file /tmp/osg-el6-release-latest.rpm
-[2013-11-17T16:40:17+01:00] INFO: Processing cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] action create (repositories::default line 28)
-[2013-11-17T16:40:17+01:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] owner changed to 500
-[2013-11-17T16:40:17+01:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] created file /tmp/Globus-repo-config.centos-6-1.noarch.rpm
-[2013-11-17T16:40:17+01:00] INFO: Processing execute[EPEL repository] action run (repositories::default line 33)
+[2014-02-03T05:48:08+01:00] INFO: *** Chef 10.16.6 ***
+[2014-02-03T05:48:09+01:00] INFO: Setting the run_list to ["recipe[repositories]", "recipe[globususer]", "recipe[globuspackages]", "recipe[security-cacerts::iptables]", "recipe[security-cacerts::servicessecondmachine]"] from JSON
+[2014-02-03T05:48:09+01:00] INFO: Run List is [recipe[repositories], recipe[globususer], recipe[globuspackages], recipe[security-cacerts::iptables], recipe[security-cacerts::servicessecondmachine]]
+[2014-02-03T05:48:09+01:00] INFO: Run List expands to [repositories, globususer, globuspackages, security-cacerts::iptables, security-cacerts::servicessecondmachine]
+[2014-02-03T05:48:09+01:00] INFO: Starting Chef Run for mgwn2.globustest.org
+[2014-02-03T05:48:09+01:00] INFO: Running start handlers
+[2014-02-03T05:48:09+01:00] INFO: Start handlers complete.
+[2014-02-03T05:48:10+01:00] INFO: Processing cookbook_file[/tmp/epel-release-6-8.noarch.rpm] action create (repositories::default line 13)
+[2014-02-03T05:48:10+01:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] owner changed to 500
+[2014-02-03T05:48:10+01:00] INFO: cookbook_file[/tmp/epel-release-6-8.noarch.rpm] created file /tmp/epel-release-6-8.noarch.rpm
+[2014-02-03T05:48:10+01:00] INFO: Processing cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] action create (repositories::default line 18)
+[2014-02-03T05:48:10+01:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] owner changed to 500
+[2014-02-03T05:48:10+01:00] INFO: cookbook_file[/tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm] created file /tmp/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm
+[2014-02-03T05:48:10+01:00] INFO: Processing cookbook_file[/tmp/osg-el6-release-latest.rpm] action create (repositories::default line 23)
+[2014-02-03T05:48:10+01:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] owner changed to 500
+[2014-02-03T05:48:10+01:00] INFO: cookbook_file[/tmp/osg-el6-release-latest.rpm] created file /tmp/osg-el6-release-latest.rpm
+[2014-02-03T05:48:10+01:00] INFO: Processing cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] action create (repositories::default line 28)
+[2014-02-03T05:48:10+01:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] owner changed to 500
+[2014-02-03T05:48:10+01:00] INFO: cookbook_file[/tmp/Globus-repo-config.centos-6-1.noarch.rpm] created file /tmp/Globus-repo-config.centos-6-1.noarch.rpm
+[2014-02-03T05:48:10+01:00] INFO: Processing execute[EPEL repository] action run (repositories::default line 33)
 ##################################################
 ##################################################
-[2013-11-17T16:40:18+01:00] INFO: execute[EPEL repository] ran successfully
-[2013-11-17T16:40:18+01:00] INFO: Processing execute[yum-priorities] action run (repositories::default line 41)
+[2014-02-03T05:48:10+01:00] INFO: execute[EPEL repository] ran successfully
+[2014-02-03T05:48:10+01:00] INFO: Processing execute[yum-priorities] action run (repositories::default line 41)
 ##################################################
 ##################################################
-[2013-11-17T16:40:19+01:00] INFO: execute[yum-priorities] ran successfully
-[2013-11-17T16:40:19+01:00] INFO: Processing execute[OSG repository] action run (repositories::default line 51)
+[2014-02-03T05:48:10+01:00] INFO: execute[yum-priorities] ran successfully
+[2014-02-03T05:48:10+01:00] INFO: Processing execute[OSG repository] action run (repositories::default line 51)
 ##################################################
 ##################################################
-[2013-11-17T16:40:19+01:00] INFO: execute[OSG repository] ran successfully
-[2013-11-17T16:40:19+01:00] INFO: Processing execute[Globus repository] action run (repositories::default line 64)
-[2013-11-17T16:40:19+01:00] INFO: execute[Globus repository] ran successfully
-[2013-11-17T16:40:19+01:00] INFO: Processing user[globus] action create (globususer::default line 9)
-[2013-11-17T16:40:19+01:00] INFO: user[globus] created
-[2013-11-17T16:40:19+01:00] INFO: Processing cookbook_file[/tmp/globuspackages.tar.gz] action create (globuspackages::default line 27)
-[2013-11-17T16:40:19+01:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] owner changed to 500
-[2013-11-17T16:40:19+01:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] created file /tmp/globuspackages.tar.gz
-[2013-11-17T16:40:19+01:00] INFO: Processing execute[descomprimir globuspackages] action run (globuspackages::default line 32)
+[2014-02-03T05:48:10+01:00] INFO: execute[OSG repository] ran successfully
+[2014-02-03T05:48:10+01:00] INFO: Processing execute[Globus repository] action run (repositories::default line 64)
+[2014-02-03T05:48:11+01:00] INFO: execute[Globus repository] ran successfully
+[2014-02-03T05:48:11+01:00] INFO: Processing user[globus] action create (globususer::default line 9)
+[2014-02-03T05:48:11+01:00] INFO: user[globus] created
+[2014-02-03T05:48:11+01:00] INFO: Processing cookbook_file[/tmp/globuspackages.tar.gz] action create (globuspackages::default line 27)
+[2014-02-03T05:48:11+01:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] owner changed to 500
+[2014-02-03T05:48:11+01:00] INFO: cookbook_file[/tmp/globuspackages.tar.gz] created file /tmp/globuspackages.tar.gz
+[2014-02-03T05:48:11+01:00] INFO: Processing execute[descomprimir globuspackages] action run (globuspackages::default line 32)
 globuspackages/globus-gram-job-manager-13.45-1.3.osg.el6.x86_64.rpm
 globuspackages/globus-gram-job-manager-fork-setup-poll-1.0-8.osg.el6.noarch.rpm
 globuspackages/globus-gatekeeper-9.6-1.9.osg.el6.x86_64.rpm
@@ -641,8 +762,8 @@ globuspackages/globus-simple-ca-3.0-5.osg.el6.noarch.rpm
 globuspackages/globus-gss-assist-progs-8.1-4.osg.el6.x86_64.rpm
 globuspackages/globus-gsi-5.2.2-1.el6.x86_64.rpm
 globuspackages/
-[2013-11-17T16:40:19+01:00] INFO: execute[descomprimir globuspackages] ran successfully
-[2013-11-17T16:40:19+01:00] INFO: Processing execute[install gram5 gridftp gsi] action run (globuspackages::default line 39)
+[2014-02-03T05:48:11+01:00] INFO: execute[descomprimir globuspackages] ran successfully
+[2014-02-03T05:48:11+01:00] INFO: Processing execute[install gram5 gridftp gsi] action run (globuspackages::default line 39)
 ##################################################
 ##################################################
 ##################################################
@@ -697,61 +818,61 @@ globuspackages/
 ##################################################
 ##################################################
 ##################################################
-[2013-11-17T16:40:22+01:00] INFO: execute[install gram5 gridftp gsi] ran successfully
-[2013-11-17T16:40:22+01:00] INFO: Processing execute[save iptables] action run (security-cacerts::iptables line 14)
+[2014-02-03T05:48:14+01:00] INFO: execute[install gram5 gridftp gsi] ran successfully
+[2014-02-03T05:48:14+01:00] INFO: Processing execute[save iptables] action run (security-cacerts::iptables line 14)
 iptables: Saving firewall rules to /etc/sysconfig/iptables: [  OK  ]
-[2013-11-17T16:40:22+01:00] INFO: execute[save iptables] ran successfully
-[2013-11-17T16:40:22+01:00] INFO: Processing execute[stop iptables] action run (security-cacerts::iptables line 21)
+[2014-02-03T05:48:15+01:00] INFO: execute[save iptables] ran successfully
+[2014-02-03T05:48:15+01:00] INFO: Processing execute[stop iptables] action run (security-cacerts::iptables line 21)
 iptables: Flushing firewall rules: [  OK  ]
 iptables: Setting chains to policy ACCEPT: filter [  OK  ]
 iptables: Unloading modules: [  OK  ]
-[2013-11-17T16:40:23+01:00] INFO: execute[stop iptables] ran successfully
-[2013-11-17T16:40:23+01:00] INFO: Processing execute[chkconfig iptables] action run (security-cacerts::iptables line 27)
-[2013-11-17T16:40:23+01:00] INFO: execute[chkconfig iptables] ran successfully
-[2013-11-17T16:40:23+01:00] INFO: Processing execute[save ip6tables] action run (security-cacerts::iptables line 34)
+[2014-02-03T05:48:16+01:00] INFO: execute[stop iptables] ran successfully
+[2014-02-03T05:48:16+01:00] INFO: Processing execute[chkconfig iptables] action run (security-cacerts::iptables line 27)
+[2014-02-03T05:48:16+01:00] INFO: execute[chkconfig iptables] ran successfully
+[2014-02-03T05:48:16+01:00] INFO: Processing execute[save ip6tables] action run (security-cacerts::iptables line 34)
 ip6tables: Saving firewall rules to /etc/sysconfig/ip6tables: [  OK  ]
-[2013-11-17T16:40:23+01:00] INFO: execute[save ip6tables] ran successfully
-[2013-11-17T16:40:23+01:00] INFO: Processing execute[stop ip6tables] action run (security-cacerts::iptables line 41)
+[2014-02-03T05:48:16+01:00] INFO: execute[save ip6tables] ran successfully
+[2014-02-03T05:48:16+01:00] INFO: Processing execute[stop ip6tables] action run (security-cacerts::iptables line 41)
 ip6tables: Flushing firewall rules: [  OK  ]
 ip6tables: Setting chains to policy ACCEPT: filter [  OK  ]
 ip6tables: Unloading modules: [  OK  ]
-[2013-11-17T16:40:24+01:00] INFO: execute[stop ip6tables] ran successfully
-[2013-11-17T16:40:24+01:00] INFO: Processing execute[chkconfig ip6tables] action run (security-cacerts::iptables line 48)
-[2013-11-17T16:40:24+01:00] INFO: execute[chkconfig ip6tables] ran successfully
-[2013-11-17T16:40:24+01:00] INFO: Processing execute[chkconfig globus-gridftp-server] action run (security-cacerts::servicessecondmachine line 14)
-[2013-11-17T16:40:24+01:00] INFO: execute[chkconfig globus-gridftp-server] ran successfully
-[2013-11-17T16:40:24+01:00] INFO: Chef Run complete in 8.283991899 seconds
-[2013-11-17T16:40:24+01:00] INFO: Running report handlers
-[2013-11-17T16:40:24+01:00] INFO: Report handlers complete
+[2014-02-03T05:48:16+01:00] INFO: execute[stop ip6tables] ran successfully
+[2014-02-03T05:48:16+01:00] INFO: Processing execute[chkconfig ip6tables] action run (security-cacerts::iptables line 48)
+[2014-02-03T05:48:16+01:00] INFO: execute[chkconfig ip6tables] ran successfully
+[2014-02-03T05:48:16+01:00] INFO: Processing execute[chkconfig globus-gridftp-server] action run (security-cacerts::servicessecondmachine line 14)
+[2014-02-03T05:48:16+01:00] INFO: execute[chkconfig globus-gridftp-server] ran successfully
+[2014-02-03T05:48:16+01:00] INFO: Chef Run complete in 7.731559776 seconds
+[2014-02-03T05:48:16+01:00] INFO: Running report handlers
+[2014-02-03T05:48:16+01:00] INFO: Report handlers complete
 Checking Chef version...
-[2013-11-17T16:40:29+01:00] INFO: *** Chef 10.16.6 ***
-[2013-11-17T16:40:30+01:00] INFO: Setting the run_list to ["recipe[simpleca]"] from JSON
-[2013-11-17T16:40:30+01:00] INFO: Run List is [recipe[simpleca]]
-[2013-11-17T16:40:30+01:00] INFO: Run List expands to [simpleca]
-[2013-11-17T16:40:30+01:00] INFO: Starting Chef Run for mg2.globustest.org
-[2013-11-17T16:40:30+01:00] INFO: Running start handlers
-[2013-11-17T16:40:30+01:00] INFO: Start handlers complete.
-[2013-11-17T16:40:31+01:00] INFO: Processing cookbook_file[/tmp/run-grid-ca-create.exp] action create (simpleca::default line 10)
-[2013-11-17T16:40:31+01:00] INFO: cookbook_file[/tmp/run-grid-ca-create.exp] owner changed to 521
-[2013-11-17T16:40:31+01:00] INFO: cookbook_file[/tmp/run-grid-ca-create.exp] created file /tmp/run-grid-ca-create.exp
-[2013-11-17T16:40:31+01:00] INFO: Processing cookbook_file[/tmp/run-grid-ca-sign.exp] action create (simpleca::default line 15)
-[2013-11-17T16:40:31+01:00] INFO: cookbook_file[/tmp/run-grid-ca-sign.exp] owner changed to 521
-[2013-11-17T16:40:31+01:00] INFO: cookbook_file[/tmp/run-grid-ca-sign.exp] created file /tmp/run-grid-ca-sign.exp
-[2013-11-17T16:40:31+01:00] INFO: Processing cookbook_file[/tmp/run-user-request.exp] action create (simpleca::default line 20)
-[2013-11-17T16:40:31+01:00] INFO: cookbook_file[/tmp/run-user-request.exp] owner changed to 500
-[2013-11-17T16:40:31+01:00] INFO: cookbook_file[/tmp/run-user-request.exp] created file /tmp/run-user-request.exp
-[2013-11-17T16:40:31+01:00] INFO: Processing cookbook_file[/tmp/run-grid-proxy-init.exp] action create (simpleca::default line 25)
-[2013-11-17T16:40:31+01:00] INFO: cookbook_file[/tmp/run-grid-proxy-init.exp] owner changed to 500
-[2013-11-17T16:40:31+01:00] INFO: cookbook_file[/tmp/run-grid-proxy-init.exp] created file /tmp/run-grid-proxy-init.exp
-[2013-11-17T16:40:31+01:00] INFO: Processing cookbook_file[/tmp/configserver.conf] action create (simpleca::default line 30)
-[2013-11-17T16:40:31+01:00] INFO: cookbook_file[/tmp/configserver.conf] owner changed to 521
-[2013-11-17T16:40:31+01:00] INFO: cookbook_file[/tmp/configserver.conf] created file /tmp/configserver.conf
-[2013-11-17T16:40:31+01:00] INFO: Processing cookbook_file[/tmp/configuser.conf] action create (simpleca::default line 36)
-[2013-11-17T16:40:31+01:00] INFO: cookbook_file[/tmp/configuser.conf] owner changed to 521
-[2013-11-17T16:40:31+01:00] INFO: cookbook_file[/tmp/configuser.conf] created file /tmp/configuser.conf
-[2013-11-17T16:40:31+01:00] INFO: Processing execute[chown globus] action run (simpleca::default line 43)
-[2013-11-17T16:40:31+01:00] INFO: execute[chown globus] ran successfully
-[2013-11-17T16:40:31+01:00] INFO: Processing execute[install simplesa on globus] action run (simpleca::default line 52)
+[2014-02-03T05:48:22+01:00] INFO: *** Chef 10.16.6 ***
+[2014-02-03T05:48:22+01:00] INFO: Setting the run_list to ["recipe[simpleca]"] from JSON
+[2014-02-03T05:48:22+01:00] INFO: Run List is [recipe[simpleca]]
+[2014-02-03T05:48:22+01:00] INFO: Run List expands to [simpleca]
+[2014-02-03T05:48:22+01:00] INFO: Starting Chef Run for mg2.globustest.org
+[2014-02-03T05:48:22+01:00] INFO: Running start handlers
+[2014-02-03T05:48:22+01:00] INFO: Start handlers complete.
+[2014-02-03T05:48:23+01:00] INFO: Processing cookbook_file[/tmp/run-grid-ca-create.exp] action create (simpleca::default line 10)
+[2014-02-03T05:48:23+01:00] INFO: cookbook_file[/tmp/run-grid-ca-create.exp] owner changed to 521
+[2014-02-03T05:48:23+01:00] INFO: cookbook_file[/tmp/run-grid-ca-create.exp] created file /tmp/run-grid-ca-create.exp
+[2014-02-03T05:48:23+01:00] INFO: Processing cookbook_file[/tmp/run-grid-ca-sign.exp] action create (simpleca::default line 15)
+[2014-02-03T05:48:23+01:00] INFO: cookbook_file[/tmp/run-grid-ca-sign.exp] owner changed to 521
+[2014-02-03T05:48:23+01:00] INFO: cookbook_file[/tmp/run-grid-ca-sign.exp] created file /tmp/run-grid-ca-sign.exp
+[2014-02-03T05:48:23+01:00] INFO: Processing cookbook_file[/tmp/run-user-request.exp] action create (simpleca::default line 20)
+[2014-02-03T05:48:23+01:00] INFO: cookbook_file[/tmp/run-user-request.exp] owner changed to 500
+[2014-02-03T05:48:23+01:00] INFO: cookbook_file[/tmp/run-user-request.exp] created file /tmp/run-user-request.exp
+[2014-02-03T05:48:23+01:00] INFO: Processing cookbook_file[/tmp/run-grid-proxy-init.exp] action create (simpleca::default line 25)
+[2014-02-03T05:48:23+01:00] INFO: cookbook_file[/tmp/run-grid-proxy-init.exp] owner changed to 500
+[2014-02-03T05:48:23+01:00] INFO: cookbook_file[/tmp/run-grid-proxy-init.exp] created file /tmp/run-grid-proxy-init.exp
+[2014-02-03T05:48:23+01:00] INFO: Processing cookbook_file[/tmp/configserver.conf] action create (simpleca::default line 30)
+[2014-02-03T05:48:23+01:00] INFO: cookbook_file[/tmp/configserver.conf] owner changed to 521
+[2014-02-03T05:48:23+01:00] INFO: cookbook_file[/tmp/configserver.conf] created file /tmp/configserver.conf
+[2014-02-03T05:48:23+01:00] INFO: Processing cookbook_file[/tmp/configuser.conf] action create (simpleca::default line 36)
+[2014-02-03T05:48:24+01:00] INFO: cookbook_file[/tmp/configuser.conf] owner changed to 521
+[2014-02-03T05:48:24+01:00] INFO: cookbook_file[/tmp/configuser.conf] created file /tmp/configuser.conf
+[2014-02-03T05:48:24+01:00] INFO: Processing execute[chown globus] action run (simpleca::default line 43)
+[2014-02-03T05:48:24+01:00] INFO: execute[chown globus] ran successfully
+[2014-02-03T05:48:24+01:00] INFO: Processing execute[install simplesa on globus] action run (simpleca::default line 52)
 spawn grid-ca-create -noint
  
 
@@ -774,8 +895,8 @@ Installing new CA files to /etc/grid-security/certificates... done
 Creating RPM source tarball... done
 	globus_simple_ca_b83525ab.tar.gz
 create ca
-[2013-11-17T16:40:34+01:00] INFO: execute[install simplesa on globus] ran successfully
-[2013-11-17T16:40:34+01:00] INFO: Processing execute[certificados por defecto] action run (simpleca::default line 61)
+[2014-02-03T05:48:25+01:00] INFO: execute[install simplesa on globus] ran successfully
+[2014-02-03T05:48:25+01:00] INFO: Processing execute[certificados por defecto] action run (simpleca::default line 61)
 
 setting the default CA to: /O=Grid/OU=GlobusTest/OU=simpleCA-mg2.globustest.org/CN=Globus Simple CA
 
@@ -791,8 +912,8 @@ linking /etc/grid-security/certificates/globus-user-ssl.conf.b83525ab to
 
 ...done.
 
-[2013-11-17T16:40:34+01:00] INFO: execute[certificados por defecto] ran successfully
-[2013-11-17T16:40:34+01:00] INFO: Processing execute[request host] action run (simpleca::default line 74)
+[2014-02-03T05:48:25+01:00] INFO: execute[certificados por defecto] ran successfully
+[2014-02-03T05:48:25+01:00] INFO: Processing execute[request host] action run (simpleca::default line 74)
 [H[2J
 A private host key and a certificate request has been generated
 with the subject:
@@ -814,10 +935,10 @@ mail using some other method.
 
 Your certificate will be mailed to you within two working days.
 If you receive no response, contact Globus Simple CA at globus@mg2.globustest.org
-[2013-11-17T16:40:36+01:00] INFO: execute[request host] ran successfully
-[2013-11-17T16:40:36+01:00] INFO: Processing execute[enviar requesthost] action run (simpleca::default line 82)
-[2013-11-17T16:40:36+01:00] INFO: execute[enviar requesthost] ran successfully
-[2013-11-17T16:40:36+01:00] INFO: Processing execute[firmar request host] action run (simpleca::default line 90)
+[2014-02-03T05:48:25+01:00] INFO: execute[request host] ran successfully
+[2014-02-03T05:48:25+01:00] INFO: Processing execute[enviar requesthost] action run (simpleca::default line 82)
+[2014-02-03T05:48:25+01:00] INFO: execute[enviar requesthost] ran successfully
+[2014-02-03T05:48:25+01:00] INFO: Processing execute[firmar request host] action run (simpleca::default line 90)
 spawn grid-ca-sign -in hostcert_request.pem -out hostsigned.pem -extfile /tmp/configserver.conf
 expecting
 globus
@@ -829,12 +950,12 @@ The new signed certificate is at: /home/globus/.globus/simpleCA/newcerts/01.pem
 
 
 signed
-[2013-11-17T16:40:36+01:00] INFO: execute[firmar request host] ran successfully
-[2013-11-17T16:40:36+01:00] INFO: Processing execute[eliminar certificado host] action run (simpleca::default line 98)
-[2013-11-17T16:40:36+01:00] INFO: execute[eliminar certificado host] ran successfully
-[2013-11-17T16:40:36+01:00] INFO: Processing execute[copiar certificado host firmado] action run (simpleca::default line 106)
-[2013-11-17T16:40:36+01:00] INFO: execute[copiar certificado host firmado] ran successfully
-[2013-11-17T16:40:36+01:00] INFO: Processing execute[request user] action run (simpleca::default line 119)
+[2014-02-03T05:48:25+01:00] INFO: execute[firmar request host] ran successfully
+[2014-02-03T05:48:25+01:00] INFO: Processing execute[eliminar certificado host] action run (simpleca::default line 98)
+[2014-02-03T05:48:25+01:00] INFO: execute[eliminar certificado host] ran successfully
+[2014-02-03T05:48:25+01:00] INFO: Processing execute[copiar certificado host firmado] action run (simpleca::default line 106)
+[2014-02-03T05:48:26+01:00] INFO: execute[copiar certificado host firmado] ran successfully
+[2014-02-03T05:48:26+01:00] INFO: Processing execute[request user] action run (simpleca::default line 119)
 spawn grid-cert-request -prefix user -cn VagrantUser
 vagrant
 A certificate request and private key is being created.
@@ -845,8 +966,8 @@ If you forget your pass phrase, you will need to
 obtain a new certificate.
 
 Generating a 1024 bit RSA private key
-....................................................................................................++++++
-..++++++
+.++++++
+...............++++++
 writing new private key to '/home/vagrant/.globus/userkey.pem'
 Enter PEM pass phrase:
 Verifying - Enter PEM pass phrase:
@@ -880,12 +1001,12 @@ mail using some other method.
 Your certificate will be mailed to you within two working days.
 If you receive no response, contact Globus Simple CA at globus@mg2.globustest.org
 request user done
-[2013-11-17T16:40:38+01:00] INFO: execute[request user] ran successfully
-[2013-11-17T16:40:38+01:00] INFO: Processing execute[cp request tmp] action run (simpleca::default line 127)
-[2013-11-17T16:40:38+01:00] INFO: execute[cp request tmp] ran successfully
-[2013-11-17T16:40:38+01:00] INFO: Processing execute[chown globus] action run (simpleca::default line 134)
-[2013-11-17T16:40:38+01:00] INFO: execute[chown globus] ran successfully
-[2013-11-17T16:40:38+01:00] INFO: Processing execute[firmar request host] action run (simpleca::default line 142)
+[2014-02-03T05:48:28+01:00] INFO: execute[request user] ran successfully
+[2014-02-03T05:48:28+01:00] INFO: Processing execute[cp request tmp] action run (simpleca::default line 127)
+[2014-02-03T05:48:28+01:00] INFO: execute[cp request tmp] ran successfully
+[2014-02-03T05:48:28+01:00] INFO: Processing execute[chown globus] action run (simpleca::default line 134)
+[2014-02-03T05:48:28+01:00] INFO: execute[chown globus] ran successfully
+[2014-02-03T05:48:28+01:00] INFO: Processing execute[firmar request host] action run (simpleca::default line 142)
 spawn grid-ca-sign -in usercert_request.pem -out usersigned.pem -extfile /tmp/configuser.conf
 expecting
 globus
@@ -897,80 +1018,80 @@ The new signed certificate is at: /home/globus/.globus/simpleCA/newcerts/02.pem
 
 
 signed
-[2013-11-17T16:40:39+01:00] INFO: execute[firmar request host] ran successfully
-[2013-11-17T16:40:39+01:00] INFO: Processing execute[chown vagrant] action run (simpleca::default line 150)
-[2013-11-17T16:40:39+01:00] INFO: execute[chown vagrant] ran successfully
-[2013-11-17T16:40:39+01:00] INFO: Processing execute[rm usercert] action run (simpleca::default line 157)
-[2013-11-17T16:40:39+01:00] INFO: execute[rm usercert] ran successfully
-[2013-11-17T16:40:39+01:00] INFO: Processing execute[cp tmp signed] action run (simpleca::default line 164)
-[2013-11-17T16:40:39+01:00] INFO: execute[cp tmp signed] ran successfully
-[2013-11-17T16:40:39+01:00] INFO: Processing execute[gridmapfile vagrant] action run (simpleca::default line 173)
+[2014-02-03T05:48:28+01:00] INFO: execute[firmar request host] ran successfully
+[2014-02-03T05:48:28+01:00] INFO: Processing execute[chown vagrant] action run (simpleca::default line 150)
+[2014-02-03T05:48:28+01:00] INFO: execute[chown vagrant] ran successfully
+[2014-02-03T05:48:28+01:00] INFO: Processing execute[rm usercert] action run (simpleca::default line 157)
+[2014-02-03T05:48:28+01:00] INFO: execute[rm usercert] ran successfully
+[2014-02-03T05:48:28+01:00] INFO: Processing execute[cp tmp signed] action run (simpleca::default line 164)
+[2014-02-03T05:48:28+01:00] INFO: execute[cp tmp signed] ran successfully
+[2014-02-03T05:48:28+01:00] INFO: Processing execute[gridmapfile vagrant] action run (simpleca::default line 173)
 Modifying /etc/grid-security/grid-mapfile ...
 /etc/grid-security/grid-mapfile does not exist... Attempting to create /etc/grid-security/grid-mapfile
 New entry:
 "/O=Grid/OU=GlobusTest/OU=simpleCA-mg2.globustest.org/OU=local/CN=VagrantUser" vagrant
 (1) entry added
-[2013-11-17T16:40:39+01:00] INFO: execute[gridmapfile vagrant] ran successfully
-[2013-11-17T16:40:39+01:00] INFO: Processing execute[package certs] action run (simpleca::default line 185)
+[2014-02-03T05:48:28+01:00] INFO: execute[gridmapfile vagrant] ran successfully
+[2014-02-03T05:48:28+01:00] INFO: Processing execute[package certs] action run (simpleca::default line 185)
 Creating RPM source tarball... done
 	globus_simple_ca_b83525ab.tar.gz
-Creating RPM binary...Executing(%prep): /bin/sh -e /tmp/globus_simple_ca.TbfF7pGp/tmp/rpm-tmp.9J5fpy
-Executing(%build): /bin/sh -e /tmp/globus_simple_ca.TbfF7pGp/tmp/rpm-tmp.b6xEKs
+Creating RPM binary...Executing(%prep): /bin/sh -e /tmp/globus_simple_ca.gln8pN4W/tmp/rpm-tmp.FQR9WD
+Executing(%build): /bin/sh -e /tmp/globus_simple_ca.gln8pN4W/tmp/rpm-tmp.bRW7SN
 Processing files: globus-simple-ca-b83525ab-1.0-1.el6.noarch
 Requires(interp): /bin/sh
 Requires(rpmlib): rpmlib(CompressedFileNames) <= 3.0.4-1 rpmlib(PayloadFilesHavePrefix) <= 4.0-1
 Requires(preun): /bin/sh
-Checking for unpackaged file(s): /usr/lib/rpm/check-files /tmp/globus_simple_ca.TbfF7pGp/rpmbuild/BUILDROOT/globus-simple-ca-b83525ab-1.0-1.el6.x86_64
-Wrote: /tmp/globus_simple_ca.TbfF7pGp/rpmbuild/RPMS/noarch/globus-simple-ca-b83525ab-1.0-1.el6.noarch.rpm
-Executing(%clean): /bin/sh -e /tmp/globus_simple_ca.TbfF7pGp/tmp/rpm-tmp.SvIT2m
+Checking for unpackaged file(s): /usr/lib/rpm/check-files /tmp/globus_simple_ca.gln8pN4W/rpmbuild/BUILDROOT/globus-simple-ca-b83525ab-1.0-1.el6.x86_64
+Wrote: /tmp/globus_simple_ca.gln8pN4W/rpmbuild/RPMS/noarch/globus-simple-ca-b83525ab-1.0-1.el6.noarch.rpm
+Executing(%clean): /bin/sh -e /tmp/globus_simple_ca.gln8pN4W/tmp/rpm-tmp.CyC1vb
 /home/globus
-[2013-11-17T16:40:41+01:00] INFO: execute[package certs] ran successfully
-[2013-11-17T16:40:41+01:00] INFO: Processing execute[cp rpm certs] action run (simpleca::default line 192)
-[2013-11-17T16:40:41+01:00] INFO: execute[cp rpm certs] ran successfully
-[2013-11-17T16:40:41+01:00] INFO: Processing execute[chown vagrant] action run (simpleca::default line 199)
-[2013-11-17T16:40:41+01:00] INFO: execute[chown vagrant] ran successfully
-[2013-11-17T16:40:41+01:00] INFO: Processing execute[scp rpm certs mgwn2] action run (simpleca::default line 208)
-[2013-11-17T16:40:41+01:00] INFO: execute[scp rpm certs mgwn2] ran successfully
-[2013-11-17T16:40:41+01:00] INFO: Processing execute[scp pem certs mgwn2] action run (simpleca::default line 218)
-[2013-11-17T16:40:42+01:00] INFO: execute[scp pem certs mgwn2] ran successfully
-[2013-11-17T16:40:42+01:00] INFO: Chef Run complete in 11.813204191 seconds
-[2013-11-17T16:40:42+01:00] INFO: Running report handlers
-[2013-11-17T16:40:42+01:00] INFO: Report handlers complete
+[2014-02-03T05:48:30+01:00] INFO: execute[package certs] ran successfully
+[2014-02-03T05:48:30+01:00] INFO: Processing execute[cp rpm certs] action run (simpleca::default line 192)
+[2014-02-03T05:48:30+01:00] INFO: execute[cp rpm certs] ran successfully
+[2014-02-03T05:48:30+01:00] INFO: Processing execute[chown vagrant] action run (simpleca::default line 199)
+[2014-02-03T05:48:30+01:00] INFO: execute[chown vagrant] ran successfully
+[2014-02-03T05:48:30+01:00] INFO: Processing execute[scp rpm certs mgwn2] action run (simpleca::default line 208)
+[2014-02-03T05:48:30+01:00] INFO: execute[scp rpm certs mgwn2] ran successfully
+[2014-02-03T05:48:30+01:00] INFO: Processing execute[scp pem certs mgwn2] action run (simpleca::default line 218)
+[2014-02-03T05:48:30+01:00] INFO: execute[scp pem certs mgwn2] ran successfully
+[2014-02-03T05:48:30+01:00] INFO: Chef Run complete in 7.840931006 seconds
+[2014-02-03T05:48:30+01:00] INFO: Running report handlers
+[2014-02-03T05:48:30+01:00] INFO: Report handlers complete
 Checking Chef version...
-[2013-11-17T16:41:46+01:00] INFO: *** Chef 10.16.6 ***
-[2013-11-17T16:41:46+01:00] INFO: Setting the run_list to ["recipe[simpleca::secondmachine]"] from JSON
-[2013-11-17T16:41:46+01:00] INFO: Run List is [recipe[simpleca::secondmachine]]
-[2013-11-17T16:41:46+01:00] INFO: Run List expands to [simpleca::secondmachine]
-[2013-11-17T16:41:46+01:00] INFO: Starting Chef Run for mgwn2.globustest.org
-[2013-11-17T16:41:46+01:00] INFO: Running start handlers
-[2013-11-17T16:41:46+01:00] INFO: Start handlers complete.
-[2013-11-17T16:41:47+01:00] INFO: Processing cookbook_file[/tmp/run-grid-ca-create.exp] action create (simpleca::secondmachine line 10)
-[2013-11-17T16:41:47+01:00] INFO: cookbook_file[/tmp/run-grid-ca-create.exp] owner changed to 501
-[2013-11-17T16:41:47+01:00] INFO: cookbook_file[/tmp/run-grid-ca-create.exp] created file /tmp/run-grid-ca-create.exp
-[2013-11-17T16:41:47+01:00] INFO: Processing cookbook_file[/tmp/run-grid-ca-sign.exp] action create (simpleca::secondmachine line 15)
-[2013-11-17T16:41:47+01:00] INFO: cookbook_file[/tmp/run-grid-ca-sign.exp] owner changed to 501
-[2013-11-17T16:41:47+01:00] INFO: cookbook_file[/tmp/run-grid-ca-sign.exp] created file /tmp/run-grid-ca-sign.exp
-[2013-11-17T16:41:47+01:00] INFO: Processing cookbook_file[/tmp/run-user-request.exp] action create (simpleca::secondmachine line 20)
-[2013-11-17T16:41:47+01:00] INFO: cookbook_file[/tmp/run-user-request.exp] owner changed to 500
-[2013-11-17T16:41:47+01:00] INFO: cookbook_file[/tmp/run-user-request.exp] created file /tmp/run-user-request.exp
-[2013-11-17T16:41:47+01:00] INFO: Processing cookbook_file[/tmp/run-grid-proxy-init.exp] action create (simpleca::secondmachine line 25)
-[2013-11-17T16:41:48+01:00] INFO: cookbook_file[/tmp/run-grid-proxy-init.exp] owner changed to 500
-[2013-11-17T16:41:48+01:00] INFO: cookbook_file[/tmp/run-grid-proxy-init.exp] created file /tmp/run-grid-proxy-init.exp
-[2013-11-17T16:41:48+01:00] INFO: Processing template[/home/vagrant/a.rsl] action create (simpleca::secondmachine line 32)
-[2013-11-17T16:41:48+01:00] INFO: template[/home/vagrant/a.rsl] updated content
-[2013-11-17T16:41:48+01:00] INFO: template[/home/vagrant/a.rsl] owner changed to 500
-[2013-11-17T16:41:48+01:00] INFO: template[/home/vagrant/a.rsl] mode changed to 755
-[2013-11-17T16:41:48+01:00] INFO: Processing execute[mkdir .globus] action run (simpleca::secondmachine line 44)
-[2013-11-17T16:41:48+01:00] INFO: execute[mkdir .globus] ran successfully
-[2013-11-17T16:41:48+01:00] INFO: Processing execute[mv usercert] action run (simpleca::secondmachine line 51)
-[2013-11-17T16:41:48+01:00] INFO: execute[mv usercert] ran successfully
-[2013-11-17T16:41:48+01:00] INFO: Processing execute[chwon usercert] action run (simpleca::secondmachine line 58)
-[2013-11-17T16:41:48+01:00] INFO: execute[chwon usercert] ran successfully
-[2013-11-17T16:41:48+01:00] INFO: Processing execute[install certificates] action run (simpleca::secondmachine line 69)
+[2014-02-03T05:49:35+01:00] INFO: *** Chef 10.16.6 ***
+[2014-02-03T05:49:36+01:00] INFO: Setting the run_list to ["recipe[simpleca::secondmachine]"] from JSON
+[2014-02-03T05:49:36+01:00] INFO: Run List is [recipe[simpleca::secondmachine]]
+[2014-02-03T05:49:36+01:00] INFO: Run List expands to [simpleca::secondmachine]
+[2014-02-03T05:49:36+01:00] INFO: Starting Chef Run for mgwn2.globustest.org
+[2014-02-03T05:49:36+01:00] INFO: Running start handlers
+[2014-02-03T05:49:36+01:00] INFO: Start handlers complete.
+[2014-02-03T05:49:37+01:00] INFO: Processing cookbook_file[/tmp/run-grid-ca-create.exp] action create (simpleca::secondmachine line 10)
+[2014-02-03T05:49:37+01:00] INFO: cookbook_file[/tmp/run-grid-ca-create.exp] owner changed to 501
+[2014-02-03T05:49:37+01:00] INFO: cookbook_file[/tmp/run-grid-ca-create.exp] created file /tmp/run-grid-ca-create.exp
+[2014-02-03T05:49:37+01:00] INFO: Processing cookbook_file[/tmp/run-grid-ca-sign.exp] action create (simpleca::secondmachine line 15)
+[2014-02-03T05:49:37+01:00] INFO: cookbook_file[/tmp/run-grid-ca-sign.exp] owner changed to 501
+[2014-02-03T05:49:37+01:00] INFO: cookbook_file[/tmp/run-grid-ca-sign.exp] created file /tmp/run-grid-ca-sign.exp
+[2014-02-03T05:49:37+01:00] INFO: Processing cookbook_file[/tmp/run-user-request.exp] action create (simpleca::secondmachine line 20)
+[2014-02-03T05:49:37+01:00] INFO: cookbook_file[/tmp/run-user-request.exp] owner changed to 500
+[2014-02-03T05:49:37+01:00] INFO: cookbook_file[/tmp/run-user-request.exp] created file /tmp/run-user-request.exp
+[2014-02-03T05:49:37+01:00] INFO: Processing cookbook_file[/tmp/run-grid-proxy-init.exp] action create (simpleca::secondmachine line 25)
+[2014-02-03T05:49:37+01:00] INFO: cookbook_file[/tmp/run-grid-proxy-init.exp] owner changed to 500
+[2014-02-03T05:49:37+01:00] INFO: cookbook_file[/tmp/run-grid-proxy-init.exp] created file /tmp/run-grid-proxy-init.exp
+[2014-02-03T05:49:37+01:00] INFO: Processing template[/home/vagrant/a.rsl] action create (simpleca::secondmachine line 32)
+[2014-02-03T05:49:37+01:00] INFO: template[/home/vagrant/a.rsl] updated content
+[2014-02-03T05:49:37+01:00] INFO: template[/home/vagrant/a.rsl] owner changed to 500
+[2014-02-03T05:49:37+01:00] INFO: template[/home/vagrant/a.rsl] mode changed to 755
+[2014-02-03T05:49:37+01:00] INFO: Processing execute[mkdir .globus] action run (simpleca::secondmachine line 44)
+[2014-02-03T05:49:37+01:00] INFO: execute[mkdir .globus] ran successfully
+[2014-02-03T05:49:37+01:00] INFO: Processing execute[mv usercert] action run (simpleca::secondmachine line 51)
+[2014-02-03T05:49:37+01:00] INFO: execute[mv usercert] ran successfully
+[2014-02-03T05:49:37+01:00] INFO: Processing execute[chwon usercert] action run (simpleca::secondmachine line 58)
+[2014-02-03T05:49:37+01:00] INFO: execute[chwon usercert] ran successfully
+[2014-02-03T05:49:37+01:00] INFO: Processing execute[install certificates] action run (simpleca::secondmachine line 69)
 Preparing...                ##################################################
 globus-simple-ca-b83525ab   ##################################################
-[2013-11-17T16:41:48+01:00] INFO: execute[install certificates] ran successfully
-[2013-11-17T16:41:48+01:00] INFO: Processing execute[certificados por defecto] action run (simpleca::secondmachine line 77)
+[2014-02-03T05:49:37+01:00] INFO: execute[install certificates] ran successfully
+[2014-02-03T05:49:37+01:00] INFO: Processing execute[certificados por defecto] action run (simpleca::secondmachine line 77)
 
 setting the default CA to: /O=Grid/OU=GlobusTest/OU=simpleCA-mg2.globustest.org/CN=Globus Simple CA
 
@@ -986,8 +1107,8 @@ linking /etc/grid-security/certificates/globus-user-ssl.conf.b83525ab to
 
 ...done.
 
-[2013-11-17T16:41:48+01:00] INFO: execute[certificados por defecto] ran successfully
-[2013-11-17T16:41:48+01:00] INFO: Processing execute[request host] action run (simpleca::secondmachine line 88)
+[2014-02-03T05:49:38+01:00] INFO: execute[certificados por defecto] ran successfully
+[2014-02-03T05:49:38+01:00] INFO: Processing execute[request host] action run (simpleca::secondmachine line 88)
 [H[2J
 A private host key and a certificate request has been generated
 with the subject:
@@ -1009,23 +1130,23 @@ mail using some other method.
 
 Your certificate will be mailed to you within two working days.
 If you receive no response, contact Globus Simple CA at globus@mg2.globustest.org
-[2013-11-17T16:41:48+01:00] INFO: execute[request host] ran successfully
-[2013-11-17T16:41:48+01:00] INFO: Processing execute[enviar requesthost] action run (simpleca::secondmachine line 96)
-[2013-11-17T16:41:48+01:00] INFO: execute[enviar requesthost] ran successfully
-[2013-11-17T16:41:48+01:00] INFO: Chef Run complete in 2.006242737 seconds
-[2013-11-17T16:41:48+01:00] INFO: Running report handlers
-[2013-11-17T16:41:48+01:00] INFO: Report handlers complete
+[2014-02-03T05:49:38+01:00] INFO: execute[request host] ran successfully
+[2014-02-03T05:49:38+01:00] INFO: Processing execute[enviar requesthost] action run (simpleca::secondmachine line 96)
+[2014-02-03T05:49:38+01:00] INFO: execute[enviar requesthost] ran successfully
+[2014-02-03T05:49:38+01:00] INFO: Chef Run complete in 2.41165866 seconds
+[2014-02-03T05:49:38+01:00] INFO: Running report handlers
+[2014-02-03T05:49:38+01:00] INFO: Report handlers complete
 Checking Chef version...
-[2013-11-17T16:41:53+01:00] INFO: *** Chef 10.16.6 ***
-[2013-11-17T16:41:54+01:00] INFO: Setting the run_list to ["recipe[simpleca::signcerts]"] from JSON
-[2013-11-17T16:41:54+01:00] INFO: Run List is [recipe[simpleca::signcerts]]
-[2013-11-17T16:41:54+01:00] INFO: Run List expands to [simpleca::signcerts]
-[2013-11-17T16:41:54+01:00] INFO: Starting Chef Run for mg2.globustest.org
-[2013-11-17T16:41:54+01:00] INFO: Running start handlers
-[2013-11-17T16:41:54+01:00] INFO: Start handlers complete.
-[2013-11-17T16:41:54+01:00] INFO: Processing execute[enviar requesthost] action run (simpleca::signcerts line 4)
-[2013-11-17T16:41:55+01:00] INFO: execute[enviar requesthost] ran successfully
-[2013-11-17T16:41:55+01:00] INFO: Processing execute[sign cert mgwn2] action run (simpleca::signcerts line 14)
+[2014-02-03T05:49:43+01:00] INFO: *** Chef 10.16.6 ***
+[2014-02-03T05:49:44+01:00] INFO: Setting the run_list to ["recipe[simpleca::signcerts]"] from JSON
+[2014-02-03T05:49:44+01:00] INFO: Run List is [recipe[simpleca::signcerts]]
+[2014-02-03T05:49:44+01:00] INFO: Run List expands to [simpleca::signcerts]
+[2014-02-03T05:49:44+01:00] INFO: Starting Chef Run for mg2.globustest.org
+[2014-02-03T05:49:44+01:00] INFO: Running start handlers
+[2014-02-03T05:49:44+01:00] INFO: Start handlers complete.
+[2014-02-03T05:49:45+01:00] INFO: Processing execute[enviar requesthost] action run (simpleca::signcerts line 4)
+[2014-02-03T05:49:45+01:00] INFO: execute[enviar requesthost] ran successfully
+[2014-02-03T05:49:45+01:00] INFO: Processing execute[sign cert mgwn2] action run (simpleca::signcerts line 14)
 spawn grid-ca-sign -in mgwn2-hostcert_request.pem -out mgwn2-hostsigned.pem -extfile /tmp/configserver.conf
 expecting
 globus
@@ -1037,109 +1158,109 @@ The new signed certificate is at: /home/globus/.globus/simpleCA/newcerts/03.pem
 
 
 signed
-[2013-11-17T16:41:55+01:00] INFO: execute[sign cert mgwn2] ran successfully
-[2013-11-17T16:41:55+01:00] INFO: Processing execute[scp cert mgwn2] action run (simpleca::signcerts line 24)
-[2013-11-17T16:41:55+01:00] INFO: execute[scp cert mgwn2] ran successfully
-[2013-11-17T16:41:55+01:00] INFO: Chef Run complete in 1.473873184 seconds
-[2013-11-17T16:41:55+01:00] INFO: Running report handlers
-[2013-11-17T16:41:55+01:00] INFO: Report handlers complete
+[2014-02-03T05:49:45+01:00] INFO: execute[sign cert mgwn2] ran successfully
+[2014-02-03T05:49:45+01:00] INFO: Processing execute[scp cert mgwn2] action run (simpleca::signcerts line 24)
+[2014-02-03T05:49:45+01:00] INFO: execute[scp cert mgwn2] ran successfully
+[2014-02-03T05:49:45+01:00] INFO: Chef Run complete in 1.321186592 seconds
+[2014-02-03T05:49:45+01:00] INFO: Running report handlers
+[2014-02-03T05:49:45+01:00] INFO: Report handlers complete
 Checking Chef version...
-[2013-11-17T16:43:05+01:00] INFO: *** Chef 10.16.6 ***
-[2013-11-17T16:43:05+01:00] INFO: Setting the run_list to ["recipe[simpleca::configsecondmachine]"] from JSON
-[2013-11-17T16:43:05+01:00] INFO: Run List is [recipe[simpleca::configsecondmachine]]
-[2013-11-17T16:43:05+01:00] INFO: Run List expands to [simpleca::configsecondmachine]
-[2013-11-17T16:43:05+01:00] INFO: Starting Chef Run for mgwn2.globustest.org
-[2013-11-17T16:43:05+01:00] INFO: Running start handlers
-[2013-11-17T16:43:05+01:00] INFO: Start handlers complete.
-[2013-11-17T16:43:06+01:00] INFO: Processing execute[eliminar certificado host] action run (simpleca::configsecondmachine line 4)
-[2013-11-17T16:43:06+01:00] INFO: execute[eliminar certificado host] ran successfully
-[2013-11-17T16:43:06+01:00] INFO: Processing execute[copiar certificado host firmado] action run (simpleca::configsecondmachine line 12)
-[2013-11-17T16:43:06+01:00] INFO: execute[copiar certificado host firmado] ran successfully
-[2013-11-17T16:43:06+01:00] INFO: Processing execute[gridmapfile vagrant] action run (simpleca::configsecondmachine line 21)
+[2014-02-03T05:50:50+01:00] INFO: *** Chef 10.16.6 ***
+[2014-02-03T05:50:51+01:00] INFO: Setting the run_list to ["recipe[simpleca::configsecondmachine]"] from JSON
+[2014-02-03T05:50:51+01:00] INFO: Run List is [recipe[simpleca::configsecondmachine]]
+[2014-02-03T05:50:51+01:00] INFO: Run List expands to [simpleca::configsecondmachine]
+[2014-02-03T05:50:51+01:00] INFO: Starting Chef Run for mgwn2.globustest.org
+[2014-02-03T05:50:51+01:00] INFO: Running start handlers
+[2014-02-03T05:50:51+01:00] INFO: Start handlers complete.
+[2014-02-03T05:50:52+01:00] INFO: Processing execute[eliminar certificado host] action run (simpleca::configsecondmachine line 4)
+[2014-02-03T05:50:52+01:00] INFO: execute[eliminar certificado host] ran successfully
+[2014-02-03T05:50:52+01:00] INFO: Processing execute[copiar certificado host firmado] action run (simpleca::configsecondmachine line 12)
+[2014-02-03T05:50:52+01:00] INFO: execute[copiar certificado host firmado] ran successfully
+[2014-02-03T05:50:52+01:00] INFO: Processing execute[gridmapfile vagrant] action run (simpleca::configsecondmachine line 21)
 Modifying /etc/grid-security/grid-mapfile ...
 /etc/grid-security/grid-mapfile does not exist... Attempting to create /etc/grid-security/grid-mapfile
 New entry:
 "/O=Grid/OU=GlobusTest/OU=simpleCA-mg2.globustest.org/OU=local/CN=VagrantUser" vagrant
 (1) entry added
-[2013-11-17T16:43:06+01:00] INFO: execute[gridmapfile vagrant] ran successfully
-[2013-11-17T16:43:06+01:00] INFO: Chef Run complete in 0.92483771 seconds
-[2013-11-17T16:43:06+01:00] INFO: Running report handlers
-[2013-11-17T16:43:06+01:00] INFO: Report handlers complete
+[2014-02-03T05:50:52+01:00] INFO: execute[gridmapfile vagrant] ran successfully
+[2014-02-03T05:50:52+01:00] INFO: Chef Run complete in 0.871336872 seconds
+[2014-02-03T05:50:52+01:00] INFO: Running report handlers
+[2014-02-03T05:50:52+01:00] INFO: Report handlers complete
 Checking Chef version...
-[2013-11-17T16:43:12+01:00] INFO: *** Chef 10.16.6 ***
-[2013-11-17T16:43:13+01:00] INFO: Setting the run_list to ["recipe[configSSL]"] from JSON
-[2013-11-17T16:43:13+01:00] INFO: Run List is [recipe[configSSL]]
-[2013-11-17T16:43:13+01:00] INFO: Run List expands to [configSSL]
-[2013-11-17T16:43:13+01:00] INFO: Starting Chef Run for mg2.globustest.org
-[2013-11-17T16:43:13+01:00] INFO: Running start handlers
-[2013-11-17T16:43:13+01:00] INFO: Start handlers complete.
-[2013-11-17T16:43:14+01:00] INFO: Processing cookbook_file[/tmp/httpd.conf] action create (configSSL::default line 12)
-[2013-11-17T16:43:14+01:00] INFO: cookbook_file[/tmp/httpd.conf] owner changed to 0
-[2013-11-17T16:43:14+01:00] INFO: cookbook_file[/tmp/httpd.conf] mode changed to 644
-[2013-11-17T16:43:14+01:00] INFO: cookbook_file[/tmp/httpd.conf] created file /tmp/httpd.conf
-[2013-11-17T16:43:14+01:00] INFO: Processing cookbook_file[/tmp/ssl.conf] action create (configSSL::default line 18)
-[2013-11-17T16:43:14+01:00] INFO: cookbook_file[/tmp/ssl.conf] owner changed to 0
-[2013-11-17T16:43:14+01:00] INFO: cookbook_file[/tmp/ssl.conf] mode changed to 644
-[2013-11-17T16:43:14+01:00] INFO: cookbook_file[/tmp/ssl.conf] created file /tmp/ssl.conf
-[2013-11-17T16:43:14+01:00] INFO: Processing cookbook_file[/tmp/generatep12.exp] action create (configSSL::default line 24)
-[2013-11-17T16:43:14+01:00] INFO: cookbook_file[/tmp/generatep12.exp] owner changed to 0
-[2013-11-17T16:43:14+01:00] INFO: cookbook_file[/tmp/generatep12.exp] created file /tmp/generatep12.exp
-[2013-11-17T16:43:14+01:00] INFO: Processing execute[back up httpd conf] action run (configSSL::default line 29)
-[2013-11-17T16:43:14+01:00] INFO: execute[back up httpd conf] ran successfully
-[2013-11-17T16:43:14+01:00] INFO: Processing execute[back up ssl conf] action run (configSSL::default line 36)
-[2013-11-17T16:43:14+01:00] INFO: execute[back up ssl conf] ran successfully
-[2013-11-17T16:43:14+01:00] INFO: Processing execute[mv httpd conf] action run (configSSL::default line 43)
-[2013-11-17T16:43:14+01:00] INFO: execute[mv httpd conf] ran successfully
-[2013-11-17T16:43:14+01:00] INFO: Processing execute[mv ssl conf] action run (configSSL::default line 50)
-[2013-11-17T16:43:14+01:00] INFO: execute[mv ssl conf] ran successfully
-[2013-11-17T16:43:14+01:00] INFO: Processing execute[restart httpd] action run (configSSL::default line 57)
+[2014-02-03T05:50:57+01:00] INFO: *** Chef 10.16.6 ***
+[2014-02-03T05:50:58+01:00] INFO: Setting the run_list to ["recipe[configSSL]"] from JSON
+[2014-02-03T05:50:58+01:00] INFO: Run List is [recipe[configSSL]]
+[2014-02-03T05:50:58+01:00] INFO: Run List expands to [configSSL]
+[2014-02-03T05:50:58+01:00] INFO: Starting Chef Run for mg2.globustest.org
+[2014-02-03T05:50:58+01:00] INFO: Running start handlers
+[2014-02-03T05:50:58+01:00] INFO: Start handlers complete.
+[2014-02-03T05:50:58+01:00] INFO: Processing cookbook_file[/tmp/httpd.conf] action create (configSSL::default line 12)
+[2014-02-03T05:50:59+01:00] INFO: cookbook_file[/tmp/httpd.conf] owner changed to 0
+[2014-02-03T05:50:59+01:00] INFO: cookbook_file[/tmp/httpd.conf] mode changed to 644
+[2014-02-03T05:50:59+01:00] INFO: cookbook_file[/tmp/httpd.conf] created file /tmp/httpd.conf
+[2014-02-03T05:50:59+01:00] INFO: Processing cookbook_file[/tmp/ssl.conf] action create (configSSL::default line 18)
+[2014-02-03T05:50:59+01:00] INFO: cookbook_file[/tmp/ssl.conf] owner changed to 0
+[2014-02-03T05:50:59+01:00] INFO: cookbook_file[/tmp/ssl.conf] mode changed to 644
+[2014-02-03T05:50:59+01:00] INFO: cookbook_file[/tmp/ssl.conf] created file /tmp/ssl.conf
+[2014-02-03T05:50:59+01:00] INFO: Processing cookbook_file[/tmp/generatep12.exp] action create (configSSL::default line 24)
+[2014-02-03T05:50:59+01:00] INFO: cookbook_file[/tmp/generatep12.exp] owner changed to 0
+[2014-02-03T05:50:59+01:00] INFO: cookbook_file[/tmp/generatep12.exp] created file /tmp/generatep12.exp
+[2014-02-03T05:50:59+01:00] INFO: Processing execute[back up httpd conf] action run (configSSL::default line 29)
+[2014-02-03T05:50:59+01:00] INFO: execute[back up httpd conf] ran successfully
+[2014-02-03T05:50:59+01:00] INFO: Processing execute[back up ssl conf] action run (configSSL::default line 36)
+[2014-02-03T05:50:59+01:00] INFO: execute[back up ssl conf] ran successfully
+[2014-02-03T05:50:59+01:00] INFO: Processing execute[mv httpd conf] action run (configSSL::default line 43)
+[2014-02-03T05:50:59+01:00] INFO: execute[mv httpd conf] ran successfully
+[2014-02-03T05:50:59+01:00] INFO: Processing execute[mv ssl conf] action run (configSSL::default line 50)
+[2014-02-03T05:50:59+01:00] INFO: execute[mv ssl conf] ran successfully
+[2014-02-03T05:50:59+01:00] INFO: Processing execute[restart httpd] action run (configSSL::default line 57)
 Stopping httpd: [  OK  ]
 Starting httpd: [  OK  ]
-[2013-11-17T16:43:16+01:00] INFO: execute[restart httpd] ran successfully
-[2013-11-17T16:43:16+01:00] INFO: Processing execute[run generatep12] action run (configSSL::default line 68)
+[2014-02-03T05:51:00+01:00] INFO: execute[restart httpd] ran successfully
+[2014-02-03T05:51:00+01:00] INFO: Processing execute[run generatep12] action run (configSSL::default line 68)
 spawn openssl pkcs12 -export -in /home/vagrant/.globus/usercert.pem -inkey /home/vagrant/.globus/userkey.pem -out /home/vagrant/.globus/usercred.p12
 Enter pass phrase for /home/vagrant/.globus/userkey.pem:
 Enter Export Password:
 Verifying - Enter Export Password:
 
 se realiza correctamente
-[2013-11-17T16:43:16+01:00] INFO: execute[run generatep12] ran successfully
-[2013-11-17T16:43:16+01:00] INFO: Processing execute[chown vagrant] action run (configSSL::default line 75)
-[2013-11-17T16:43:16+01:00] INFO: execute[chown vagrant] ran successfully
-[2013-11-17T16:43:16+01:00] INFO: Processing execute[cp usercred] action run (configSSL::default line 82)
-[2013-11-17T16:43:16+01:00] INFO: execute[cp usercred] ran successfully
-[2013-11-17T16:43:16+01:00] INFO: Processing execute[chmod vagrant] action run (configSSL::default line 89)
-[2013-11-17T16:43:16+01:00] INFO: execute[chmod vagrant] ran successfully
-[2013-11-17T16:43:16+01:00] INFO: Chef Run complete in 2.97654972 seconds
-[2013-11-17T16:43:16+01:00] INFO: Running report handlers
-[2013-11-17T16:43:16+01:00] INFO: Report handlers complete
+[2014-02-03T05:51:00+01:00] INFO: execute[run generatep12] ran successfully
+[2014-02-03T05:51:00+01:00] INFO: Processing execute[chown vagrant] action run (configSSL::default line 75)
+[2014-02-03T05:51:00+01:00] INFO: execute[chown vagrant] ran successfully
+[2014-02-03T05:51:00+01:00] INFO: Processing execute[cp usercred] action run (configSSL::default line 82)
+[2014-02-03T05:51:00+01:00] INFO: execute[cp usercred] ran successfully
+[2014-02-03T05:51:00+01:00] INFO: Processing execute[chmod vagrant] action run (configSSL::default line 89)
+[2014-02-03T05:51:00+01:00] INFO: execute[chmod vagrant] ran successfully
+[2014-02-03T05:51:00+01:00] INFO: Chef Run complete in 2.745492178 seconds
+[2014-02-03T05:51:00+01:00] INFO: Running report handlers
+[2014-02-03T05:51:00+01:00] INFO: Report handlers complete
 Checking Chef version...
-[2013-11-17T16:43:26+01:00] INFO: *** Chef 10.16.6 ***
-[2013-11-17T16:43:26+01:00] INFO: Setting the run_list to ["recipe[database]"] from JSON
-[2013-11-17T16:43:26+01:00] INFO: Run List is [recipe[database]]
-[2013-11-17T16:43:26+01:00] INFO: Run List expands to [database]
-[2013-11-17T16:43:26+01:00] INFO: Starting Chef Run for mg2.globustest.org
-[2013-11-17T16:43:26+01:00] INFO: Running start handlers
-[2013-11-17T16:43:26+01:00] INFO: Start handlers complete.
-[2013-11-17T16:43:27+01:00] INFO: Processing execute[mkdir database] action run (database::default line 10)
-[2013-11-17T16:43:27+01:00] INFO: execute[mkdir database] ran successfully
-[2013-11-17T16:43:27+01:00] INFO: Processing cookbook_file[/tmp/database/basedatos.sql] action create (database::default line 17)
-[2013-11-17T16:43:27+01:00] INFO: cookbook_file[/tmp/database/basedatos.sql] owner changed to 26
-[2013-11-17T16:43:27+01:00] INFO: cookbook_file[/tmp/database/basedatos.sql] mode changed to 666
-[2013-11-17T16:43:27+01:00] INFO: cookbook_file[/tmp/database/basedatos.sql] created file /tmp/database/basedatos.sql
-[2013-11-17T16:43:27+01:00] INFO: Processing cookbook_file[/tmp/database/datamodel.sql] action create (database::default line 23)
-[2013-11-17T16:43:28+01:00] INFO: cookbook_file[/tmp/database/datamodel.sql] owner changed to 26
-[2013-11-17T16:43:28+01:00] INFO: cookbook_file[/tmp/database/datamodel.sql] mode changed to 666
-[2013-11-17T16:43:28+01:00] INFO: cookbook_file[/tmp/database/datamodel.sql] created file /tmp/database/datamodel.sql
-[2013-11-17T16:43:28+01:00] INFO: Processing cookbook_file[/tmp/database/registros.sql] action create (database::default line 29)
-[2013-11-17T16:43:28+01:00] INFO: cookbook_file[/tmp/database/registros.sql] owner changed to 26
-[2013-11-17T16:43:28+01:00] INFO: cookbook_file[/tmp/database/registros.sql] mode changed to 666
-[2013-11-17T16:43:28+01:00] INFO: cookbook_file[/tmp/database/registros.sql] created file /tmp/database/registros.sql
-[2013-11-17T16:43:28+01:00] INFO: Processing cookbook_file[/tmp/database/run-inicializardb.exp] action create (database::default line 35)
-[2013-11-17T16:43:28+01:00] INFO: cookbook_file[/tmp/database/run-inicializardb.exp] owner changed to 500
-[2013-11-17T16:43:28+01:00] INFO: cookbook_file[/tmp/database/run-inicializardb.exp] mode changed to 666
-[2013-11-17T16:43:28+01:00] INFO: cookbook_file[/tmp/database/run-inicializardb.exp] created file /tmp/database/run-inicializardb.exp
-[2013-11-17T16:43:28+01:00] INFO: Processing execute[run inicializardb] action run (database::default line 41)
+[2014-02-03T05:51:05+01:00] INFO: *** Chef 10.16.6 ***
+[2014-02-03T05:51:06+01:00] INFO: Setting the run_list to ["recipe[database]"] from JSON
+[2014-02-03T05:51:06+01:00] INFO: Run List is [recipe[database]]
+[2014-02-03T05:51:06+01:00] INFO: Run List expands to [database]
+[2014-02-03T05:51:06+01:00] INFO: Starting Chef Run for mg2.globustest.org
+[2014-02-03T05:51:06+01:00] INFO: Running start handlers
+[2014-02-03T05:51:06+01:00] INFO: Start handlers complete.
+[2014-02-03T05:51:07+01:00] INFO: Processing execute[mkdir database] action run (database::default line 10)
+[2014-02-03T05:51:07+01:00] INFO: execute[mkdir database] ran successfully
+[2014-02-03T05:51:07+01:00] INFO: Processing cookbook_file[/tmp/database/basedatos.sql] action create (database::default line 17)
+[2014-02-03T05:51:07+01:00] INFO: cookbook_file[/tmp/database/basedatos.sql] owner changed to 26
+[2014-02-03T05:51:07+01:00] INFO: cookbook_file[/tmp/database/basedatos.sql] mode changed to 666
+[2014-02-03T05:51:07+01:00] INFO: cookbook_file[/tmp/database/basedatos.sql] created file /tmp/database/basedatos.sql
+[2014-02-03T05:51:07+01:00] INFO: Processing cookbook_file[/tmp/database/datamodel.sql] action create (database::default line 23)
+[2014-02-03T05:51:08+01:00] INFO: cookbook_file[/tmp/database/datamodel.sql] owner changed to 26
+[2014-02-03T05:51:08+01:00] INFO: cookbook_file[/tmp/database/datamodel.sql] mode changed to 666
+[2014-02-03T05:51:08+01:00] INFO: cookbook_file[/tmp/database/datamodel.sql] created file /tmp/database/datamodel.sql
+[2014-02-03T05:51:08+01:00] INFO: Processing cookbook_file[/tmp/database/registros.sql] action create (database::default line 29)
+[2014-02-03T05:51:08+01:00] INFO: cookbook_file[/tmp/database/registros.sql] owner changed to 26
+[2014-02-03T05:51:08+01:00] INFO: cookbook_file[/tmp/database/registros.sql] mode changed to 666
+[2014-02-03T05:51:08+01:00] INFO: cookbook_file[/tmp/database/registros.sql] created file /tmp/database/registros.sql
+[2014-02-03T05:51:08+01:00] INFO: Processing cookbook_file[/tmp/database/run-inicializardb.exp] action create (database::default line 35)
+[2014-02-03T05:51:08+01:00] INFO: cookbook_file[/tmp/database/run-inicializardb.exp] owner changed to 500
+[2014-02-03T05:51:08+01:00] INFO: cookbook_file[/tmp/database/run-inicializardb.exp] mode changed to 666
+[2014-02-03T05:51:08+01:00] INFO: cookbook_file[/tmp/database/run-inicializardb.exp] created file /tmp/database/run-inicializardb.exp
+[2014-02-03T05:51:08+01:00] INFO: Processing execute[run inicializardb] action run (database::default line 41)
 spawn psql -U postgres -h localhost -d template1 -f /tmp/database/basedatos.sql
 Password for user postgres: 
 psql:/tmp/database/basedatos.sql:1: NOTICE:  database "globusdatabase" does not exist, skipping
@@ -1152,7 +1273,7 @@ spawn psql -U globus -h localhost -d globusdatabase -f /tmp/database/datamodel.s
 Password for user globus: 
 psql:/tmp/database/datamodel.sql:5: NOTICE:  table "usr_user" does not exist, skipping
 DROP TABLE
-psql:/tmp/database/datamodel.sql:6: NOTICE:  sequence "usr_user_id_seq" does not exist, skipping
+psql:/tmp/database/datamodel.sql:6: NOTICE:  sequence "usr_user_usr_id_seq" does not exist, skipping
 DROP SEQUENCE
 CREATE SEQUENCE
 CREATE TABLE
@@ -1162,11 +1283,20 @@ psql:/tmp/database/datamodel.sql:23: NOTICE:  ALTER TABLE / ADD UNIQUE will crea
 ALTER TABLE
 psql:/tmp/database/datamodel.sql:30: NOTICE:  table "crt_cert" does not exist, skipping
 DROP TABLE
-psql:/tmp/database/datamodel.sql:31: NOTICE:  sequence "crt_cert_id_seq" does not exist, skipping
+psql:/tmp/database/datamodel.sql:31: NOTICE:  sequence "crt_cert_crt_id_seq" does not exist, skipping
 DROP SEQUENCE
 CREATE SEQUENCE
 CREATE TABLE
-psql:/tmp/database/datamodel.sql:46: NOTICE:  ALTER TABLE / ADD PRIMARY KEY will create implicit index "pk_crt_cert" for table "crt_cert"
+psql:/tmp/database/datamodel.sql:47: NOTICE:  ALTER TABLE / ADD PRIMARY KEY will create implicit index "pk_crt_cert" for table "crt_cert"
+ALTER TABLE
+ALTER TABLE
+psql:/tmp/database/datamodel.sql:77: NOTICE:  table "job_job" does not exist, skipping
+DROP TABLE
+psql:/tmp/database/datamodel.sql:78: NOTICE:  sequence "job_job_job_id_seq" does not exist, skipping
+DROP SEQUENCE
+CREATE SEQUENCE
+CREATE TABLE
+psql:/tmp/database/datamodel.sql:92: NOTICE:  ALTER TABLE / ADD PRIMARY KEY will create implicit index "pk_job_job" for table "job_job"
 ALTER TABLE
 ALTER TABLE
 spawn psql -U globus -h localhost -d globusdatabase -f /tmp/database/registros.sql
@@ -1175,10 +1305,150 @@ INSERT 0 1
 INSERT 0 1
 
 se realiza correctamente
-[2013-11-17T16:43:30+01:00] INFO: execute[run inicializardb] ran successfully
-[2013-11-17T16:43:30+01:00] INFO: Chef Run complete in 3.323032123 seconds
-[2013-11-17T16:43:30+01:00] INFO: Running report handlers
-[2013-11-17T16:43:30+01:00] INFO: Report handlers complete
+[2014-02-03T05:51:09+01:00] INFO: execute[run inicializardb] ran successfully
+[2014-02-03T05:51:09+01:00] INFO: Chef Run complete in 2.308191062 seconds
+[2014-02-03T05:51:09+01:00] INFO: Running report handlers
+[2014-02-03T05:51:09+01:00] INFO: Report handlers complete
+Checking Chef version...
+[2014-02-03T05:51:14+01:00] INFO: *** Chef 10.16.6 ***
+[2014-02-03T05:51:14+01:00] INFO: Setting the run_list to ["recipe[prototipe]"] from JSON
+[2014-02-03T05:51:14+01:00] INFO: Run List is [recipe[prototipe]]
+[2014-02-03T05:51:14+01:00] INFO: Run List expands to [prototipe]
+[2014-02-03T05:51:14+01:00] INFO: Starting Chef Run for mg2.globustest.org
+[2014-02-03T05:51:14+01:00] INFO: Running start handlers
+[2014-02-03T05:51:14+01:00] INFO: Start handlers complete.
+[2014-02-03T05:51:15+01:00] INFO: Processing cookbook_file[/tmp/prototipe.tar.gz] action create (prototipe::default line 10)
+[2014-02-03T05:51:15+01:00] INFO: cookbook_file[/tmp/prototipe.tar.gz] owner changed to 500
+[2014-02-03T05:51:15+01:00] INFO: cookbook_file[/tmp/prototipe.tar.gz] mode changed to 644
+[2014-02-03T05:51:15+01:00] INFO: cookbook_file[/tmp/prototipe.tar.gz] created file /tmp/prototipe.tar.gz
+[2014-02-03T05:51:15+01:00] INFO: Processing execute[crear carpeta html] action run (prototipe::default line 16)
+[2014-02-03T05:51:15+01:00] INFO: execute[crear carpeta html] ran successfully
+[2014-02-03T05:51:15+01:00] INFO: Processing execute[descomprimir carpeta html] action run (prototipe::default line 23)
+./PrototipeGTKInterface/
+./PrototipeGTKInterface/css/
+./PrototipeGTKInterface/css/style.css
+./PrototipeGTKInterface/css/styleTooltip.css
+./PrototipeGTKInterface/css/styleTable.css
+./PrototipeGTKInterface/css/styleProfile.css
+./PrototipeGTKInterface/css/styleForm.css
+./PrototipeGTKInterface/css/styleMessages.css
+./PrototipeGTKInterface/css/styleLogin.css
+./PrototipeGTKInterface/css/styleDashBoard.css
+./PrototipeGTKInterface/css/styleMenu.css
+./PrototipeGTKInterface/index.php
+./PrototipeGTKInterface/info.php
+./PrototipeGTKInterface/model/
+./PrototipeGTKInterface/model/ModelJob.php
+./PrototipeGTKInterface/model/ModelRelationUserCert.php
+./PrototipeGTKInterface/model/ModelCert.php
+./PrototipeGTKInterface/model/ModelUser.php
+./PrototipeGTKInterface/logica/
+./PrototipeGTKInterface/logica/User.php
+./PrototipeGTKInterface/logica/Job.php
+./PrototipeGTKInterface/logica/RelationUserCert.php
+./PrototipeGTKInterface/logica/Cert.php
+./PrototipeGTKInterface/js/
+./PrototipeGTKInterface/js/jquery-1.11.0.min.js
+./PrototipeGTKInterface/js/scripts.js
+./PrototipeGTKInterface/js/oneSimpleTablePaging-1.0.js
+./PrototipeGTKInterface/web/
+./PrototipeGTKInterface/web/site/
+./PrototipeGTKInterface/web/site/index.php
+./PrototipeGTKInterface/web/site/prueba.php
+./PrototipeGTKInterface/web/site/personal/
+./PrototipeGTKInterface/web/site/personal/edit.php
+./PrototipeGTKInterface/web/site/personal/index.php
+./PrototipeGTKInterface/web/site/dashboard/
+./PrototipeGTKInterface/web/site/dashboard/index.php
+./PrototipeGTKInterface/web/index.php
+./PrototipeGTKInterface/web/login/
+./PrototipeGTKInterface/web/login/signout.php
+./PrototipeGTKInterface/web/login/signin.php
+./PrototipeGTKInterface/templates/
+./PrototipeGTKInterface/templates/error.tpl
+./PrototipeGTKInterface/templates/edit.tpl
+./PrototipeGTKInterface/templates/principal.tpl
+./PrototipeGTKInterface/templates/inicio.tpl
+./PrototipeGTKInterface/templates/dashboard.tpl
+./PrototipeGTKInterface/templates/signin.tpl
+./PrototipeGTKInterface/templates/profile.tpl
+./PrototipeGTKInterface/controlador/
+./PrototipeGTKInterface/controlador/phpseclib/
+./PrototipeGTKInterface/controlador/phpseclib/File/
+./PrototipeGTKInterface/controlador/phpseclib/File/X509.php
+./PrototipeGTKInterface/controlador/phpseclib/File/ANSI.php
+./PrototipeGTKInterface/controlador/phpseclib/File/ASN1.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/DES.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/Twofish.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/RSA.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/RC4.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/TripleDES.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/Rijndael.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/AES.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/Random.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/Blowfish.php
+./PrototipeGTKInterface/controlador/phpseclib/Crypt/Hash.php
+./PrototipeGTKInterface/controlador/phpseclib/openssl.cnf
+./PrototipeGTKInterface/controlador/phpseclib/Net/
+./PrototipeGTKInterface/controlador/phpseclib/Net/SFTP/
+./PrototipeGTKInterface/controlador/phpseclib/Net/SFTP/Stream.php
+./PrototipeGTKInterface/controlador/phpseclib/Net/SFTP.php
+./PrototipeGTKInterface/controlador/phpseclib/Net/SCP.php
+./PrototipeGTKInterface/controlador/phpseclib/Net/SSH1.php
+./PrototipeGTKInterface/controlador/phpseclib/Net/SSH2.php
+./PrototipeGTKInterface/controlador/phpseclib/Math/
+./PrototipeGTKInterface/controlador/phpseclib/Math/BigInteger.php
+./PrototipeGTKInterface/controlador/fachada/
+./PrototipeGTKInterface/controlador/fachada/Fachada.php
+./PrototipeGTKInterface/controlador/personal/
+./PrototipeGTKInterface/controlador/personal/Edit.php
+./PrototipeGTKInterface/controlador/personal/TableUserCerts.php
+./PrototipeGTKInterface/controlador/config.php
+./PrototipeGTKInterface/controlador/login/
+./PrototipeGTKInterface/controlador/login/Signin.php
+./PrototipeGTKInterface/controlador/login/Login.php
+./PrototipeGTKInterface/controlador/templates/
+./PrototipeGTKInterface/controlador/templates/TemplateManager.php
+./PrototipeGTKInterface/controlador/jobSubmission/
+./PrototipeGTKInterface/controlador/jobSubmission/JobManager.php
+./PrototipeGTKInterface/controlador/utils/
+./PrototipeGTKInterface/controlador/utils/DateManager.php
+./PrototipeGTKInterface/controlador/dashboard/
+./PrototipeGTKInterface/controlador/dashboard/Dashboard.php
+./PrototipeGTKInterface/controlador/dashboard/TableUserJobs.php
+./PrototipeGTKInterface/resources/
+./PrototipeGTKInterface/resources/images/
+./PrototipeGTKInterface/resources/images/hover_sub.png
+./PrototipeGTKInterface/resources/images/seperator.gif
+./PrototipeGTKInterface/resources/images/sub_sep.gif
+./PrototipeGTKInterface/resources/images/hover.png
+./PrototipeGTKInterface/resources/images/profile/
+./PrototipeGTKInterface/resources/images/profile/profile_avatar.png
+./PrototipeGTKInterface/resources/images/messages-boxes/
+./PrototipeGTKInterface/resources/images/messages-boxes/warning.png
+./PrototipeGTKInterface/resources/images/messages-boxes/success.png
+./PrototipeGTKInterface/resources/images/messages-boxes/info.png
+./PrototipeGTKInterface/resources/images/messages-boxes/error.png
+./PrototipeGTKInterface/resources/.gitkeep
+./PrototipeGTKInterface/scripts/
+./PrototipeGTKInterface/scripts/send-job.sh
+./PrototipeGTKInterface/scripts/proxy-refresh.sh
+./PrototipeGTKInterface/scripts/run-grid-proxy-init.exp
+./PrototipeGTKInterface/scripts/inicializar-variables.sh
+./PrototipeGTKInterface/scripts/proxyValidacion.sh
+./PrototipeGTKInterface/scripts/cancel-job.sh
+./PrototipeGTKInterface/scripts/defaulInit.sh
+./PrototipeGTKInterface/scripts/parse-job.sh
+./PrototipeGTKInterface/scripts/status-job.sh
+[2014-02-03T05:51:16+01:00] INFO: execute[descomprimir carpeta html] ran successfully
+[2014-02-03T05:51:16+01:00] INFO: Processing execute[chown apache] action run (prototipe::default line 30)
+[2014-02-03T05:51:16+01:00] INFO: execute[chown apache] ran successfully
+[2014-02-03T05:51:16+01:00] INFO: Processing execute[permisos de scripts globus] action run (prototipe::default line 37)
+[2014-02-03T05:51:16+01:00] INFO: execute[permisos de scripts globus] ran successfully
+[2014-02-03T05:51:16+01:00] INFO: Chef Run complete in 1.298641901 seconds
+[2014-02-03T05:51:16+01:00] INFO: Running report handlers
+[2014-02-03T05:51:16+01:00] INFO: Report handlers complete
 certificado usercred.p12 de vagrant obtenido, importar al navegador para acceder
 Apagando las maquinas
 [mg2] Attempting graceful shutdown of VM...

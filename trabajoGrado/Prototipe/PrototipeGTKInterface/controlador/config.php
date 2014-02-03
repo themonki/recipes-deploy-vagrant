@@ -29,6 +29,8 @@ define('SITE_FACHADA', SITE_CONTROLADOR . '/fachada');
 
 define('SITE_TEMPLEATE', SITE_PROTOTIPE . '/templates');
 
+define('SITE_BASH_SCRIPTS', SITE_PROTOTIPE . '/scripts');
+
 /**
  * PATH EN EL SERVIDOR PARA IMPORTACIONES ENTRE OTRAS
  */
@@ -45,4 +47,16 @@ define('PWD_TEMPLEATE', PWD_PROTOTIPE . '/templates');
 define('PWD_LOGICA', PWD_PROTOTIPE . '/logica');
 
 define('PWD_MODEL', PWD_PROTOTIPE . '/model');
+
+define('PWD_BASH_SCRIPTS', PWD_PROTOTIPE . '/scripts');
+
+/**
+ * Define variables para la zona horaria
+ * En el servidor:
+ * mv /etc/localtime /etc/localtime.bak
+ * sudo ln -s /usr/share/zoneinfo/America/Bogota /etc/localtime
+ */
+//date('d \d\e F \d\e Y h:i:s A');
+date_default_timezone_set('America/Bogota');
+setlocale(LC_ALL, "es_ES");
 ?>

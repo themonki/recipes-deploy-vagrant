@@ -26,9 +26,10 @@ class ModelCert {
     private $col2 = "usr_id";
     private $col3 = "crt_serial";
     private $col4 = "crt_issue";
-    private $col5 = "crt_keypath";
-    private $col6 = "crt_certpath";
-    private $col7 = "crt_proxypath";
+    private $col5 = "crt_keypass";
+    private $col6 = "crt_keypath";
+    private $col7 = "crt_certpath";
+    private $col8 = "crt_proxypath";
 
     /**
      * Constructor por defecto.
@@ -50,6 +51,7 @@ class ModelCert {
                 . "" . $obj->getIdUser() . ", "
                 . "'" . $obj->getSerial() . "', "
                 . "'" . $obj->getIssue() . "', "
+                . "'" . $obj->getKeyPass() . "', "
                 . "'" . $obj->getKeyPath() . "', "
                 . "'" . $obj->getCertPath() . "', "
                 . "'" . $obj->getProxyPath() . "'"
@@ -70,6 +72,7 @@ class ModelCert {
                 . "" . $obj->getIdUser() . ", "
                 . "'" . $obj->getSerial() . "', "
                 . "'" . $obj->getIssue() . "', "
+                . "'" . $obj->getKeyPass() . "', "
                 . "'" . $obj->getKeyPath() . "', "
                 . "'" . $obj->getCertPath() . "', "
                 . "'" . $obj->getProxyPath() . "'"
@@ -89,9 +92,10 @@ class ModelCert {
                 . $this->col2 . " = " . $obj->getIdUser() . ", "
                 . $this->col3 . " = '" . $obj->getSerial() . "', "
                 . $this->col4 . " = '" . $obj->getIssue() . "', "
-                . $this->col5 . " = '" . $obj->getKeyPath() . "', "
-                . $this->col6 . " = '" . $obj->getCertPath() . "', "
-                . $this->col7 . " = '" . $obj->getProxyPath() . "' "
+                . $this->col5 . " = '" . $obj->getKeyPass() . "', "
+                . $this->col6 . " = '" . $obj->getKeyPath() . "', "
+                . $this->col7 . " = '" . $obj->getCertPath() . "', "
+                . $this->col8 . " = '" . $obj->getProxyPath() . "' "
                 . "WHERE " . $this->col1 . " = " . $obj->getId() . ""
                 . ";";
         $result = $this->fachada->db_update_pg($sql);
@@ -113,6 +117,22 @@ class ModelCert {
     }
 
     /**
+     * Método que devuelve el siguiente id de la secuencia.
+     * 
+     * @return \Cert con el id
+     */
+    function selectNextId() {
+        $sql = "SELECT nextval(('crt_cert_crt_id_seq'::text)::regclass);";
+
+        $result = $this->fachada->db_query_select_pg($sql);
+        $objTmp = new Cert();
+        while ($row = pg_fetch_array($result)) {
+            $objTmp->setId($row[0]);
+        }
+        return $objTmp;
+    }
+
+    /**
      * Método para consultar en la tabla crt_cert.
      * @param Cert $obj de la logica con los datos encapsulados.
      * @return Cert el objeto que corresponde con la consulta.
@@ -125,7 +145,8 @@ class ModelCert {
                 . $this->col4 . ", "
                 . $this->col5 . ", "
                 . $this->col6 . ", "
-                . $this->col7 . " "
+                . $this->col7 . ", "
+                . $this->col8 . " "
                 . "FROM " . $this->tablename . " "
                 . "WHERE " . $this->col1 . " = " . $obj->getId() . ""
                 . ";";
@@ -136,9 +157,10 @@ class ModelCert {
             $objTmp->setIdUser($row[$this->col2]);
             $objTmp->setSerial($row[$this->col3]);
             $objTmp->setIssue($row[$this->col4]);
-            $objTmp->setKeyPath($row[$this->col5]);
-            $objTmp->setCertPath($row[$this->col6]);
-            $objTmp->setProxyPath($row[$this->col7]);
+            $objTmp->setKeyPass($row[$this->col5]);
+            $objTmp->setKeyPath($row[$this->col6]);
+            $objTmp->setCertPath($row[$this->col7]);
+            $objTmp->setProxyPath($row[$this->col8]);
             break;
         }
         return $objTmp;
@@ -156,7 +178,8 @@ class ModelCert {
                 . $this->col4 . ", "
                 . $this->col5 . ", "
                 . $this->col6 . ", "
-                . $this->col7 . " "
+                . $this->col7 . ", "
+                . $this->col8 . " "
                 . "FROM " . $this->tablename . ""
                 . ";";
         $result = $this->fachada->db_query_select_pg($sql);
@@ -168,9 +191,10 @@ class ModelCert {
             $objTmp->setIdUser($row[$this->col2]);
             $objTmp->setSerial($row[$this->col3]);
             $objTmp->setIssue($row[$this->col4]);
-            $objTmp->setKeyPath($row[$this->col5]);
-            $objTmp->setCertPath($row[$this->col6]);
-            $objTmp->setProxyPath($row[$this->col7]);
+            $objTmp->setKeyPass($row[$this->col5]);
+            $objTmp->setKeyPath($row[$this->col6]);
+            $objTmp->setCertPath($row[$this->col7]);
+            $objTmp->setProxyPath($row[$this->col8]);
             $objArray[] = $objTmp;
         }
         return $objArray;
@@ -189,7 +213,8 @@ class ModelCert {
                 . $this->col4 . ", "
                 . $this->col5 . ", "
                 . $this->col6 . ", "
-                . $this->col7 . " "
+                . $this->col7 . ", "
+                . $this->col8 . " "
                 . "FROM " . $this->tablename . " "
                 . "WHERE " . $this->col3 . " = '" . $obj->getSerial() . "' AND "
                 . "" . $this->col4 . " = '" . $obj->getIssue() . "'"
@@ -201,9 +226,10 @@ class ModelCert {
             $objTmp->setIdUser($row[$this->col2]);
             $objTmp->setSerial($row[$this->col3]);
             $objTmp->setIssue($row[$this->col4]);
-            $objTmp->setKeyPath($row[$this->col5]);
-            $objTmp->setCertPath($row[$this->col6]);
-            $objTmp->setProxyPath($row[$this->col7]);
+            $objTmp->setKeyPass($row[$this->col5]);
+            $objTmp->setKeyPath($row[$this->col6]);
+            $objTmp->setCertPath($row[$this->col7]);
+            $objTmp->setProxyPath($row[$this->col8]);
             break;
         }
         return $objTmp;
@@ -223,7 +249,8 @@ class ModelCert {
                 . $this->col4 . ", "
                 . $this->col5 . ", "
                 . $this->col6 . ", "
-                . $this->col7 . " "
+                . $this->col7 . ", "
+                . $this->col8 . " "
                 . "FROM " . $this->tablename . " "
                 . "WHERE " . $this->col2 . " = " . $obj->getIdUser() . ""
                 . ";";
@@ -236,9 +263,10 @@ class ModelCert {
             $objTmp->setIdUser($row[$this->col2]);
             $objTmp->setSerial($row[$this->col3]);
             $objTmp->setIssue($row[$this->col4]);
-            $objTmp->setKeyPath($row[$this->col5]);
-            $objTmp->setCertPath($row[$this->col6]);
-            $objTmp->setProxyPath($row[$this->col7]);
+            $objTmp->setKeyPass($row[$this->col5]);
+            $objTmp->setKeyPath($row[$this->col6]);
+            $objTmp->setCertPath($row[$this->col7]);
+            $objTmp->setProxyPath($row[$this->col8]);
             $objArray[] = $objTmp;
         }
         return $objArray;
@@ -257,7 +285,8 @@ class ModelCert {
                 . $this->col4 . ", "
                 . $this->col5 . ", "
                 . $this->col6 . ", "
-                . $this->col7 . " "
+                . $this->col7 . ", "
+                . $this->col8 . " "
                 . "FROM " . $this->tablename . " "
                 . "WHERE " . $this->col2 . " = " . $obj->getIdUser() . " AND "
                 . "" . $this->col3 . " = '" . $obj->getSerial() . "' AND "
@@ -270,9 +299,10 @@ class ModelCert {
             $objTmp->setIdUser($row[$this->col2]);
             $objTmp->setSerial($row[$this->col3]);
             $objTmp->setIssue($row[$this->col4]);
-            $objTmp->setKeyPath($row[$this->col5]);
-            $objTmp->setCertPath($row[$this->col6]);
-            $objTmp->setProxyPath($row[$this->col7]);
+            $objTmp->setKeyPass($row[$this->col5]);
+            $objTmp->setKeyPath($row[$this->col6]);
+            $objTmp->setCertPath($row[$this->col7]);
+            $objTmp->setProxyPath($row[$this->col8]);
             break;
         }
         return $objTmp;

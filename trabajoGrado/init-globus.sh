@@ -40,6 +40,17 @@ echo "maquinas levantadas"
 
 cd ..
 
+
+echo "Preparando el prototipo"
+
+cd Prototipe
+
+./update-prototipe.sh >> ../log2.txt
+
+cd ..
+
+echo "Prototipo preparado"
+
 cd globus
 
 expect configssh.exp -u vagrant -p vagrant -h 172.18.0.21 -l ${pathSSH} >> ../log2.txt
@@ -59,10 +70,12 @@ knife cook vagrant@172.18.0.22 nodes/configcertnodes.json >> ../log2.txt
 
 echo "globus instalado"
 
-echo "Preparando aplicación"
+echo "Preparando configuracion de aplicacion"
 
 knife cook vagrant@172.18.0.21 nodes/configSSL.json >> ../log2.txt
 knife cook vagrant@172.18.0.21 nodes/database.json >> ../log2.txt
+
+knife cook vagrant@172.18.0.21 nodes/prototipe.json >> ../log2.txt
 
 echo "Aplicación generada"
 
@@ -72,7 +85,7 @@ cd ..
 
 ./restart-globus.sh >>  log2.txt
 
-echo "Importe al navegador el archivo usercred.p12."
+echo "Importe al navegador el archivo usercred.p12 (no tiene contraseña)."
 echo "Ingrese al Grid: https://172.18.0.21/PrototipeGTKInterface/"
 echo "email: vagrant@gmail.com"
 echo "Contraseña: Vagrant123"

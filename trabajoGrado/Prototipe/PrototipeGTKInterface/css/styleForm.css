@@ -29,12 +29,12 @@
 }
 
 
-.forms .field{
+.forms .field, .field{
     display: flex;
 }
 
 
-.forms .field *{
+.forms .field *, .field *{
     width: 100%;
 }
 
@@ -75,31 +75,23 @@
     margin-left:50%;
     font-weight: bold;
     line-height: 1;
-    cursor:pointer;
-    color: #fff;
-
     text-align: center;
-    text-shadow: 0 -1px 1px #787878;
 
     /* Background gradient */
     background: linear-gradient(bottom, #3c3c3c 0%, #787878 100%);
     background: -o-linear-gradient(bottom, #3c3c3c 0%, #787878 100%);
     background: -moz-linear-gradient(bottom, #3c3c3c 0%, #787878 100%);
     background: -webkit-linear-gradient(bottom, #3c3c3c 0%, #787878 100%);
-    background: -ms-linear-gradient(bottom, #3c3c3c 0%, #787878 100%); 
-
+    background: -ms-linear-gradient(bottom, #3c3c3c 0%, #787878 100%);
     border-radius: 3px;
     border: 2px solid #787878;
     box-shadow: inset 0 1px 0 #787878;
     width: 80px;
     height: 40px;
     margin-top: 20px;
-
     cursor: pointer;
     color: white;
-    font-weight: bold;
     text-shadow: 0 -1px 0 #336895;
-
     font-size: 13px;
 }
 
@@ -155,3 +147,42 @@ input:focus:valid {
     font-size: 15px;
 }
 
+.formBorder {    
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0,0,0, .4); 
+}
+
+
+/*http://cssdeck.com/labs/styling-select-box-with-css3*/
+
+.forms .input-select {
+    height: 40px!important;
+    min-height: 20px;
+    width: 100%;
+    padding:5px!important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    -webkit-border-radius:4px!important;
+    -moz-border-radius:4px!important;
+    border-radius:4px!important;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset!important;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset!important;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset!important;
+    background: linear-gradient(bottom, #3c3c3c 0%, #787878 100%)!important;
+    background: -o-linear-gradient(bottom, #3c3c3c 0%, #787878 100%)!important;
+    background: -moz-linear-gradient(bottom, #3c3c3c 0%, #787878 100%)!important;
+    background: -webkit-linear-gradient(bottom, #3c3c3c 0%, #787878 100%)!important;
+    background: -ms-linear-gradient(bottom, #3c3c3c 0%, #787878 100%)!important; 
+    border:none!important;
+    outline:none!important;
+    display: inline-block!important;
+    cursor: pointer!important;
+    color: white!important;
+    font-weight: bold!important;
+    font-family: Arial, Verdana;
+    font-size: 15px;
+}
+
+.forms .input-select option {
+    color: black;
+}

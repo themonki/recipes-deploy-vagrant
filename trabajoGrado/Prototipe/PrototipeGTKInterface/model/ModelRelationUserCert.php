@@ -96,7 +96,7 @@ class ModelRelationUserCert {
         $result = $this->fachada->db_delete_pg($sql);
         return $result;
     }
-
+    
     /**
      * Método para consultar en la tabla ruc_relationusercert.
      * @param RelationUserCert $obj de la logica con los datos encapsulados.

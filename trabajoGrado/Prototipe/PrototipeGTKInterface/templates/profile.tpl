@@ -1,3 +1,6 @@
+                    <div class="forms">
+                        <h1>Perfil</h1>
+                    </div>
                     <div class="profile">
                         <div class="photo">
                             <img src="{SITE_PROTOTIPE}/resources/images/profile/profile_avatar.png">        
@@ -18,3 +21,6 @@
                             </div>
                         </div>
                     </div>
+                            <script>
+                                $("#main-table").oneSimpleTablePagination({rowsPerPage: 5});
+                            </script>

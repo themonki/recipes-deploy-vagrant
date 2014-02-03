@@ -6,14 +6,21 @@ include_once( PWD_CONTROLADOR . '/login/Login.php' );
 is_logged_in();
 include_once(PWD_CONTROLADOR . '/templates/TemplateManager.php');
 include_once(PWD_CONTROLADOR . '/dashboard/Dashboard.php');
+include_once( PWD_CONTROLADOR . '/dashboard/TableUserJobs.php' );
 
+
+$contenidoTableUserJobs = buildTableUserJobs(unserialize($_SESSION['user']));
 
 $contenidoDashboard = new TemplateManager();
 $contenidoDashboard->plantilla("dashboard");
 $contenidoDashboard->asigna_variables(array(
+    "SITE_PROTOTIPE" => SITE_PROTOTIPE,
     "MESSAGE_CLASS" => $message_class,
     "MESSAGE" => $message,
-    "VALUE" => 'value'
+    "NAME_FILE" => $file,
+    "TABLEJOBS" => $contenidoTableUserJobs,
+    "FILE_CLASS" => $showFileForm,
+    "JOB_CLASS" => $showJobForm
 ));
 
 $contenidoEditarString = $contenidoDashboard->muestra();

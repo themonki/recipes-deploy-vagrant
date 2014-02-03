@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Carga la tabla que muestra los certificados del usuario y se indica cual es 
+ * el certificado que esta usando actualmente el usuario en esta sesión.
+ */
 session_start();
 require_once( $_SERVER['DOCUMENT_ROOT'] . '/PrototipeGTKInterface/controlador/config.php' );
 //include_once( PWD_MODEL . '/ModelRelationUserCert.php' );
@@ -39,7 +43,7 @@ function buildTableUserCerts($user) {
 //        $certFind->setId($ruc->getIdCert());
 //        $cert = $modelCert->selectById($certFind);
         $certsData = array(
-            isCertUsed($cert),
+            isCertUsed($cert), //Es el css clase para dar formatos especiales a la row
             array(
                 $cert->getId(),
                 $cert->getSerial(),
@@ -50,18 +54,24 @@ function buildTableUserCerts($user) {
         $data[] = $certsData;
     }
 
-    $content = "\n<table>\n";
+    $content = "\n<table id='main-table'>\n";
     $count = 0;
     foreach ($data as $row) {
-        $content.= "\t<tr class='$row[0]'>\n";
         if ($count == 0) {
-            foreach ($row[1] as $d) {
+            $content .= "<thead>";
+        } else if ($count == 1) {
+            $content .= "<tbody>";
+        }
+        $styleLast = ($count != 0 && ($count % 5 == 0)) ? 'lastTableData' : ''; //número de paginas
+        $content.= "\t<tr class='$row[0] $styleLast'>\n";
+        if ($count == 0) {
+            foreach ($row[1] as $d) {//carga los headers
                 $content.= "\t\t<th>\n";
                 $content.= "\t\t\t$d\n";
                 $content.= "\t\t</th>\n";
             }
             $count++;
-        } else if ($count < (count($data))) {
+        } else if ($count < (count($data))) {//carga los datos
             foreach ($row[1] as $d) {
                 $content.= "\t\t<td>\n";
                 $content.= "\t\t\t$d\n";
@@ -70,10 +80,16 @@ function buildTableUserCerts($user) {
             $count++;
         }
         $content.= "\t</tr>\n";
+        if ($count-1 == 0) {
+            $content .= "</thead>";
+        } else if ($count == sizeof($data)) {
+            $content .= "</tbody>";
+        }
     }
     if (count($result) <= 0) {
+        $numCols = count($data[0][1]);
         $content.= "\t<tr class='noFound'>\n";
-        $content.= "\t\t<td colspan='4'>\n";
+        $content.= "\t\t<td colspan='" . $numCols . "'>\n";
         $content.= "\t\t\tNo se encontraron registros.\n";
         $content.= "\t\t</td>\n";
         $content.= "\t</tr>\n";
