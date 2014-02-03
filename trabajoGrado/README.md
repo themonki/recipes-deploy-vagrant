@@ -40,25 +40,31 @@ Los archivos se encuentran en el siguiente enlace:
 Los archivos necesarios para ejecutar y la ubicación son las siguientes:
 
 #####tar.gz files
-* machineglobus/cookbooks/postgresql/files/default/`postgresql.tar.gz`
-* machineglobus/cookbooks/preinstall/files/default/`reposPreinstall.tar.gz`
-* machineglobus/cookbooks/apache/files/default/`apache.tar.gz`
-* machineglobus/cookbooks/php/files/default/`php.tar.gz`
-* globus/cookbooks/globuspackages/files/default/`globuspackages.tar.gz`
-* globus/cookbooks/osgcacerts/files/default/`osgcacerts.tar.gz`
-* globus/cookbooks/security-cacerts/files/default/`security-cacerts.tar.gz`
+* globus/cookbooks/globuspackages/files/default/globuspackages.tar.gz
+* globus/cookbooks/osgcacerts/files/default/osgcacerts.tar.gz
+* globus/cookbooks/prototipe/files/default/prototipe.tar.gz
+* globus/cookbooks/security-cacerts/files/default/security-cacerts.tar.gz
+* machineglobus/cookbooks/tomcat7/files/default/apache-tomcat-7.tar.gz
+* machineglobus/cookbooks/apache/files/default/apache.tar.gz
+* machineglobus/cookbooks/java7-64/files/default/jdk-7u3-linux-x64.tar.gz
+* machineglobus/cookbooks/preinstall/files/default/reposPreinstall.tar.gz
+* machineglobus/cookbooks/mysql/files/default/mysql.tar.gz
+* machineglobus/cookbooks/php/files/default/xdebug.tar.gz
+* machineglobus/cookbooks/php/files/default/php.tar.gz
+* machineglobus/cookbooks/postgresql/files/default/postgresql.tar.gz
+
 
 #####rpm files
-* machineglobus/cookbooks/confighost/files/default/`tcl-8.5.7-6.el6.x86_64.rpm`
-* machineglobus/cookbooks/confighost/files/default/`rsync-3.0.6-9.el6.x86_64.rpm`
-* machineglobus/cookbooks/confighost/files/default/`expect-5.44.1.15-4.el6.x86_64.rpm`
-* machineglobus/cookbooks/chefInstall/files/default/`chef-10.16.6-1.el6.x86_64.rpm`
-* globus/cookbooks/repositories/files/default/`epel-release-6-8.noarch.rpm`
-* globus/cookbooks/repositories/files/default/`Globus-repo-config.centos-6-1.noarch.rpm`
-* globus/cookbooks/repositories/files/default/`osg-el6-release-latest.rpm`
-* globus/cookbooks/repositories/files/default/`yum-plugin-priorities-1.1.30-14.el6.noarch.rpm`
 
-(actualizando ...)
+* globus/cookbooks/repositories/files/default/yum-plugin-priorities-1.1.30-14.el6.noarch.rpm
+* globus/cookbooks/repositories/files/default/osg-el6-release-latest.rpm
+* globus/cookbooks/repositories/files/default/Globus-repo-config.centos-6-1.noarch.rpm
+* globus/cookbooks/repositories/files/default/epel-release-6-8.noarch.rpm
+* machineglobus/cookbooks/confighost/files/default/yum-plugin-downloadonly-1.1.30-14.el6.noarch.rpm
+* machineglobus/cookbooks/confighost/files/default/tcl-8.5.7-6.el6.x86_64.rpm
+* machineglobus/cookbooks/confighost/files/default/expect-5.44.1.15-4.el6.x86_64.rpm
+* machineglobus/cookbooks/confighost/files/default/rsync-3.0.6-9.el6.x86_64.rpm
+* machineglobus/cookbooks/chefInstall/files/default/chef-10.16.6-1.el6.x86_64.rpm
 
 Tambien es necesario tener en cuenta el archivo machineglobus/cookbooks/confighost/attributes/default.rb
 que contiene la información necesaria para poder acceder a una maquina que permite enviar el archivo /etc/hosts de los esclavos 
@@ -92,6 +98,13 @@ una seccion en mega para los releases:
 [globus clean proyect] (https://mega.co.nz/#F!DZMg2YaT!es9-nHVGO4FqybeCF7gcLA "")
 
 Información de los releases.
+
+`Release v.0.1.1` Corrección en el script de init ya que en los release se tiene el prototipo en tar.gz y no en otra subcarpeta
+llamada Prototipe. Actualización del README.
+
+`Release v.0.1.0` Adición del prototipo de interfaz a la automatización de la instalación,
+ el prototipo permite enviar, cancelar y ver ele stado de los jobs. Se mejora el scrip del manejo de perfiles y se
+ adiciona la validacion necesaria para que no inicie si no se tiene un perfil adecuado.
 
 `Release v.0.0.2` corrigiendo errores en scripts de expect, agregando a los json las variables para correr los scripts 
 de expect con otros parametros, actualizando readme. Agregando script para crear release.tar.gz con lo importante y 
@@ -176,6 +189,9 @@ Para ello se disponene de 2 tipos de scripts, aquellos terminados en -myproxy se
  y se autentica a los recursos del grid de la manera en como se muestra en el tutorial: `myproxy-logon -s servidor`, 
  para las otras máquinas basta con utilizar el comando `grid-proxy-init`, para el usuario vagrant.
 
+ATENCIóN: El script que utiliza el servidor proxy ya no se continuara utilizando desde el release v.0.1.0 
+dado es dificil parametrizar la generacion de los certificados.
+
 ##Configuración ip
 
 Para configurar las ips de las máquinas es necesario ver el archivo `Vagrantfile` en la carpeta `machineglobus`,
@@ -190,9 +206,9 @@ Para configurar las ips de las máquinas es necesario ver el archivo `Vagrantfil
 ##Recetas
 
 Inicialmente se instalan y actualizan programas necesarios (dependencias) para instalar globus, y se intalán los programas
- apache, php, postgres, expect y chef, y se configuran los hostnames de las máquinas (receta confighost).
-
-(actualizando ...)
+apache, php, postgres, expect y chef, y se configuran los hostnames de las máquinas (receta confighost).
+ 
+Adicionalmente se agregan otros paquetes de programas como MySQL, servidor Tomcat, xdebug para Netbeans y el jdk 7. 
  
 Posteriormente se garantiza acceso ssh a las máquinas virtuales utilizando un script en expect `globus/configssh.exp`, 
 es necesario haber generado las claves públicas en `$HOME/.ssh/id_rsa`, de esta manera se puede acceder utilizando el 
@@ -206,13 +222,25 @@ Luego se dispone a instalar los servicios de gram5, gridftp y gsi utilizando la 
 solicita la contraseña del usuario vagrant varias veces. Una vez terminado se reinician las máquinas y !están listas para acceder y disfrutar
 de los servicios de globus!
 
+Ahora tambien se adiciona el codigo para acceder al prototipo que permite el envio de jobs desde el navegador web.
+En la automatización se crean unas credenciales de usuario .p12 para agregar al navegador y acceder al prototipo de interfaz.
+El enlace es https://172.18.0.21/PrototipeGTKInterface/ y el usuario y contraseña que se tienen son vagrant@gmail.com y  Vagrant123 respectivamente.
+Es necesario adicionar nuevos usuarios a la base datos de postgres y crear los certificados para adicionar nuevos usuarios, 
+la configuración de la base de datos en la maquina virtual es la siguiente:
+
+* Base de datos: globusdatabase
+* Usuario: globus
+* Password: globus
+
 Recordar:
 
 El usuario `globus` es quien realiza la firma de los certificados y el password que pide para realizarlo es "globus", 
-este password no puede ser modificado. Proximamente se realizaria receta para poder hacerlo.
+este password no puede ser modificado.
 
 El usuario por defecto quien tiene certificados autenticados por globus es el usuario `vagrant` y cuando se solicite acceso a los recursos 
 el password es "vagrant". Se puede modificar este usuario y su password en los archivos .json ubicados en `globus/nodes`.
+
+
 
 ##Run Scripts
 
@@ -220,15 +248,15 @@ Para iniciar la instalación se utiliza el script:
 
 `./init-globus.sh` ó `./init-globus-myproxy.sh`
 
-Para apagar las máquinas virtuales:
+Para apagar las máquinas virtuales (se puede indicar como parámetro el nombre de la máquina):
 
 `./shutdown-globus.sh` ó `./shutdown-globus-myproxy.sh`
 
-Para iniciar las máquinas virtuales una vez apagadas:
+Para iniciar las máquinas virtuales una vez apagadas (se puede indicar como parámetro el nombre de la máquina):
 
 `./up-globus.sh` ó `./up-globus-myproxy.sh`
 
-Para reiniciar las máquinas virtuales:
+Para reiniciar las máquinas virtuales (se puede indicar como parámetro el nombre de la máquina):
 
 `./restart-globus.sh` ó `./restart-globus-myproxy.sh`
 
@@ -237,6 +265,21 @@ Para ver el estado de las máquinas:
 `./status-globus.sh`
 
 Para ver la información del levantamiento con los scripts `init` se generan dos archivos log.txt y log2.txt, para los scripts
- `./init-globus-myproxy.sh` ó `./init-globus.sh`
+ `./init-globus-myproxy.sh` ó `./init-globus.sh` respectivamente.
+
+Se cuenta con un script llamado `manage-user-profile` importante que maneja una configuración de acceso a su máquina 
+en donde se guardara la contraseña, es necesario que usted mismo elimine el perfil para que no accedan a su contraseña.
+Para mas información ejecute manage-user-profile.sh -h para ver la ayuda. A partir del tag v.0.1.0 no se permite correr
+init-globus.sh sin acomodar la configuración.
+
+Una vez configurado basta con ejecutar:
+
+./init-globus.sh
+
+Ver que el log2.txt resulte bien. Puede ver uno en el repositorio de esta manera se asegura que este bien.
+
+Y se adiciona el archivo .p12 que se encuentra en el directorio, una vez corrido el script, al navegador.
+
+
 
 

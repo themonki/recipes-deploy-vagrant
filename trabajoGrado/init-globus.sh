@@ -40,16 +40,21 @@ echo "maquinas levantadas"
 
 cd ..
 
+##Se actualiza el prototipo
+prototipePath=./Prototipe
+if [ -e $prototipePath ]; then
+	
+	echo "Preparando el prototipo"
+	
+	cd Prototipe
+	
+	./update-prototipe.sh >> ../log2.txt
+	
+	cd ..
 
-echo "Preparando el prototipo"
-
-cd Prototipe
-
-./update-prototipe.sh >> ../log2.txt
-
-cd ..
-
-echo "Prototipo preparado"
+	echo "Prototipo actualizado"
+	
+fi
 
 cd globus
 
