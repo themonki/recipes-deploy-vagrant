@@ -50,4 +50,4 @@ if { $pass == 0 } {
 
 expect eof
 
-send_user "proxy recive\n"
+#send_user "proxy recive\n"

@@ -37,10 +37,12 @@ function generar_proxy {
 				printf '%s\n' "Proxy ya no es valido. Generando nuevo ...";
 			fi
 		fi
-	fi
-	$PATH_PROXY_INIT -p $USER_PASS;
+	fi	
 	if quiet_mode ; then
+		$PATH_PROXY_INIT -p $USER_PASS
 		printf '%s\n' "Proxy generado correctamente.";
+	else
+		$PATH_PROXY_INIT -p $USER_PASS 2>&1 >/dev/null
 	fi
 }
 
@@ -65,6 +67,7 @@ function destruir_proxy {
 			printf '%s\n' "Proxy no existe.";
 		fi
 	fi
+	exit 0
 }
 
 function info_proxy {
@@ -75,6 +78,7 @@ function info_proxy {
 			printf '%s\n' "Proxy no existe.";
 		fi
 	fi
+	exit 0
 }
 
 while getopts 'p: d i q' option;
@@ -82,8 +86,8 @@ do
 	case "$option"
 		in
 			p) USER_PASS="$OPTARG";;
-			d) destruir_proxy;exit 0;;
-			i) info_proxy;exit 0;;
+			d) destruir_proxy;;
+			i) info_proxy;;
 			q) QUIET_MODE=0;;
 			*) print_error; exit 2;;
 	esac
