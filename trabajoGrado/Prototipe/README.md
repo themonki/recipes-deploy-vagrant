@@ -1,4 +1,4 @@
-El grid levantado por defecto no tiene el prototipo de interfaz integrado.
+El grid ya integra el prototipo pero si realiza modificaciones en estos archivos debe actualizar.
 
 Para ello simplemente copiar la carpeta PrototipeGTKInterface en el directorio del servidor con SSL:
 

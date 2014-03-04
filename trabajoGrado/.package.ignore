@@ -13,4 +13,8 @@
 ./machineglobus/cookbooks/confighost/attributes/monki.rb
 ./machineglobus/cookbooks/confighost/attributes/student.rb
 ./ssl
-./Prototipe
+./Prototipe/PrototipeGTKInterface/nbproject
+./Prototipe/v.*.tar.gz
+./Prototipe/package-prototipe.sh
+./Prototipe/package.ignore
+./Prototipe/API
