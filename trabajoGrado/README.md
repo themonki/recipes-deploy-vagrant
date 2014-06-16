@@ -3,29 +3,29 @@ Ver en Github https://github.com/themonki/recipes-deploy-vagrant/tree/master/tra
 #Índice
 
 
-[Pre-Configuración] (#pre-configuraci%C3%B3n "")
+[Pre-Configuración](#pre-configuraci%C3%B3n)
 
-- [tar.gz files] (#targz-files "")
+- [tar.gz files](#targz-files)
 
-- [rpm files] (#rpm-files "")
+- [rpm files](#rpm-files)
 
-[Releases] (#releases "")
+[Releases](#releases)
 
-[Testing on Ubuntu 12.10 (quantal) 64 bits] (#testing-on-ubuntu-1210-quantal-64-bits "")
+[Testing on Ubuntu 12.10 (quantal) 64 bits](#testing-on-ubuntu-1210-quantal-64-bits)
 
-[Testing on Ubuntu 12.04 (precise) 64 bits] (#testing-on-ubuntu-1204-precise-64-bits "")
+[Testing on Ubuntu 12.04 (precise) 64 bits](#testing-on-ubuntu-1204-precise-64-bits)
 
-[Getting Started] (#getting-started "")
+[Getting Started](#getting-started)
 
-- [Pre-requisitos] (#pre-requisitos "")
+- [Pre-requisitos](#pre-requisitos)
 
-- [Tipos de Script] (#tipos-de-script "")
+- [Tipos de Script](#tipos-de-script)
 
-- [Configuración ip] (#configuraci%C3%B3n-ip "")
+- [Configuración ip](#configuraci%C3%B3n-ip)
 
-- [Recetas] (#recetas "")
+- [Recetas](#recetas)
 
-- [Run Scripts] (#run-scripts "")
+- [Run Scripts](#run-scripts)
 
 Pre-Configuración
 =========================================
@@ -35,7 +35,7 @@ que se muestran en las secciónes mas abajo y los archivos tar.gz que contienen 
 de conectarse a internet.
 
 Los archivos se encuentran en el siguiente enlace:
-[reciples-deploy-vagrant on mega] (https://mega.co.nz/#F!GY8UGIpC!WQvIVHM43vsiw1iPZK681Q "Archivos")
+[reciples-deploy-vagrant on mega](https://mega.co.nz/#F!GY8UGIpC!WQvIVHM43vsiw1iPZK681Q "Archivos")
 
 Los archivos necesarios para ejecutar y la ubicación son las siguientes:
 
@@ -95,7 +95,7 @@ y seleccionar el que por defecto correra la receta de confighost.  Para mas info
 Para descargar solamente esta sección del proyecto (trabajoGrado) con los archivos realmente requeridos se creo
 una seccion en mega para los releases:
 
-[globus clean proyect] (https://mega.co.nz/#F!DZMg2YaT!es9-nHVGO4FqybeCF7gcLA "")
+[globus clean proyect](https://mega.co.nz/#F!DZMg2YaT!es9-nHVGO4FqybeCF7gcLA)
 
 Información de los releases.
 
@@ -116,10 +116,10 @@ levantamiento de globus con certificados utilizando myproxy y automatizada.
 Testing on Ubuntu 12.10 (quantal) 64 bits
 =========================================
 
-[vagrant version 1.0.5 (64 bits)] (http://files.vagrantup.com/packages/be0bc66efc0c5919e92d8b79e973d9911f2a511f/vagrant_1.0.5_x86_64.deb "")
+[vagrant version 1.0.5 (64 bits)](http://files.vagrantup.com/packages/be0bc66efc0c5919e92d8b79e973d9911f2a511f/vagrant_1.0.5_x86_64.deb)
 
-[VirtualBox version 4.2.4 (64 bits)] (http://download.virtualbox.org/virtualbox/4.2.4/virtualbox-4.2_4.2.4-81684~Ubuntu~precise_amd64.deb "")
-and [extension 4.2.6] (http://download.virtualbox.org/virtualbox/4.2.6/Oracle_VM_VirtualBox_Extension_Pack-4.2.6-82870.vbox-extpack "")
+[VirtualBox version 4.2.4 (64 bits)](http://download.virtualbox.org/virtualbox/4.2.4/virtualbox-4.2_4.2.4-81684~Ubuntu~precise_amd64.deb)
+and [extension 4.2.6](http://download.virtualbox.org/virtualbox/4.2.6/Oracle_VM_VirtualBox_Extension_Pack-4.2.6-82870.vbox-extpack)
 
 ruby version 1.9.3
 
@@ -131,19 +131,19 @@ chef version 10.16.2 (see with `knife --version`)
 
 expect 5.45 
 
-box [Centos] (https://mega.co.nz/#!OZ8iEAII!dwhEhHwfWg3nqqxoRFkeixK0DxhtkoC0sgKKqQAW_aI "centos64")
+box [Centos](https://mega.co.nz/#!OZ8iEAII!dwhEhHwfWg3nqqxoRFkeixK0DxhtkoC0sgKKqQAW_aI "centos64")
 La box debe ser almacenada con el nombre de "centos64"
 
 Testing on Ubuntu 12.04 (precise) 64 bits
 =========================================
 
-[vagrant version 1.0.1 (64 bits)] (http://files.vagrantup.com/packages/5bc27e46d3cd5246e0fa2141e52127066407c2b5/vagrant_1.0.1_x86_64.deb "")
+[vagrant version 1.0.1 (64 bits)](http://files.vagrantup.com/packages/5bc27e46d3cd5246e0fa2141e52127066407c2b5/vagrant_1.0.1_x86_64.deb)
 
-Y [vagrant version 1.1.5 (64 bits)] (http://files.vagrantup.com/packages/64e360814c3ad960d810456add977fd4c7d47ce6/vagrant_x86_64.deb "") se muestra simplemente
+Y [vagrant version 1.1.5 (64 bits)](http://files.vagrantup.com/packages/64e360814c3ad960d810456add977fd4c7d47ce6/vagrant_x86_64.deb) se muestra simplemente
 un warning sobre el provedor a utilizar ya que las nuevas versiones buscan compatibilidad con VMWARE. Por defecto usara VirtualBox.
 
-[VirtualBox version 4.1.12 (64 bits)] (http://download.virtualbox.org/virtualbox/4.1.12/virtualbox-4.1_4.1.12-77245~Ubuntu~precise_amd64.deb "")
-and [extension 4.1.12] (http://download.virtualbox.org/virtualbox/4.1.12/Oracle_VM_VirtualBox_Extension_Pack-4.1.12-77245.vbox-extpack "")
+[VirtualBox version 4.1.12 (64 bits)](http://download.virtualbox.org/virtualbox/4.1.12/virtualbox-4.1_4.1.12-77245~Ubuntu~precise_amd64.deb)
+and [extension 4.1.12](http://download.virtualbox.org/virtualbox/4.1.12/Oracle_VM_VirtualBox_Extension_Pack-4.1.12-77245.vbox-extpack)
 
 ruby version 1.8.7
 
@@ -155,7 +155,7 @@ chef version 10.16.2 (see with `knife --version`)
 
 expect 5.45
 
-box [Centos] (https://mega.co.nz/#!OZ8iEAII!dwhEhHwfWg3nqqxoRFkeixK0DxhtkoC0sgKKqQAW_aI "centos64")
+box [Centos](https://mega.co.nz/#!OZ8iEAII!dwhEhHwfWg3nqqxoRFkeixK0DxhtkoC0sgKKqQAW_aI "centos64")
 La box debe ser almacenada con el nombre de "centos64"
 
 Getting Started
@@ -164,7 +164,7 @@ Getting Started
 ##Pre-requisitos
 
 La infraestructura que se va a levantar esta basado en el tutorial de globus 
-[Quick Start] (http://www.globus.org/toolkit/docs/5.2/5.2.2/admin/quickstart/#quickstart "GTK 5.2.2 Quick Start"),
+[Quick Start](http://www.globus.org/toolkit/docs/5.2/5.2.2/admin/quickstart/#quickstart "GTK 5.2.2 Quick Start"),
 donde se tienen las siguientes modificaciones:
 
 * `quser` será el usuario `vagrant`
