@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		end
 	end
 	config.vm.define :ws do |node|
-		node.vm.box = "precise64" #editar a precise32
+		node.vm.box = "precise32"
 		node.vm.network "private_network", ip: "172.18.0.3"
 		node.vm.provider "virtualbox" do |vb|
     			vb.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 1, "--name", "web-server" ]

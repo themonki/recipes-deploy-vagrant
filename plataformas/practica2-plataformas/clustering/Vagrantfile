@@ -1,12 +1,20 @@
-Vagrant::Config.run do |config|
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.require_version ">= 1.6.5"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.define :node1 do |node|
 		node.vm.box = "precise64"
-		#node_1.vm.boot_mode = :gui
-		node.vm.network :hostonly, "172.18.100.2", :netmask => "255.255.0.0"
-		node.vm.customize ["modifyvm", :id, "--memory", 512, "--name", "pj-master-monki", "--cpus", 2]
+		#node.vm.boot_mode = :gui
+		node.vm.network "private_network", ip: "172.18.100.2", netmask: "255.255.0.0"
+		node.vm.provider "virtualbox" do |vb|
+    			vb.customize [ "modifyvm", :id, "--memory", 512, "--name", "pj-master-monki", "--cpus", 2 ]
+  		end
 		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
-			chef.add_recipe "test::java-64"
 			chef.json.merge!({
 				:run_list => [ "recipe[test::java-64]", "recipe[test::hostname]", "recipe[test::pj]", "recipe[test::rsakeys-ms]", "recipe[test::clustercode-ms]" ],
 				:host_name => "pj-master.cluster.org",
@@ -15,24 +23,26 @@ Vagrant::Config.run do |config|
 	end
 	config.vm.define :node2 do |node|
 		node.vm.box = "precise64"
-		node.vm.network :hostonly, "172.18.100.3", :netmask => "255.255.0.0"
-		node.vm.customize ["modifyvm", :id, "--memory", 896, "--name", "pj-wn1-monki", "--cpus", 2]
+		node.vm.network "private_network", ip: "172.18.100.3", netmask: "255.255.0.0"
+		node.vm.provider "virtualbox" do |vb|
+    			vb.customize [ "modifyvm", :id, "--memory", 896, "--name", "pj-wn1-monki", "--cpus", 2 ]
+  		end
 		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
-			chef.add_recipe "test::java-64"
 			chef.json.merge!({
 				:run_list => [ "recipe[test::java-64]", "recipe[test::hostname]", "recipe[test::pj]", "recipe[test::rsakeys-wn]" ],
 				:host_name => "pj-wn1.cluster.org",
 			})
 		end
 	end
-	config.vm.define :node3 do |node_2|
-		node_2.vm.box = "precise64"
-		node_2.vm.network :hostonly, "172.18.100.4", :netmask => "255.255.0.0"
-		node_2.vm.customize ["modifyvm", :id, "--memory", 896, "--name", "pj-wn2-monki", "--cpus", 2]
-		node_2.vm.provision :chef_solo do |chef|
+	config.vm.define :node3 do |node|
+		node.vm.box = "precise64"
+		node.vm.network "private_network", ip: "172.18.100.4", netmask: "255.255.0.0"
+		node.vm.provider "virtualbox" do |vb|
+    			vb.customize [ "modifyvm", :id, "--memory", 896, "--name", "pj-wn2-monki", "--cpus", 2 ]
+  		end
+		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
-			chef.add_recipe "test::java-64"
 			chef.json.merge!({
 				:run_list => [ "recipe[test::java-64]", "recipe[test::hostname]", "recipe[test::pj]", "recipe[test::rsakeys-wn]" ],
 				:host_name => "pj-wn2.cluster.org",
