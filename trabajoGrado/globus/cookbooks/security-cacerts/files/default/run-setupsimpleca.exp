@@ -1,13 +1,14 @@
 #!/usr/bin/expect
+# -*- mode: tcl -*-
+# vi: set ft=tcl :
 
 set timeout 50
-set sizeargv	[llength $argv]
+set sizeargv [llength $argv]
 set pass "globus"
 set pathsetupsimpleca ""
 set name "setup-simpleca"
 
 if { $sizeargv != 0} {
-
 	if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 } {
 		for {set i 0} {$i < [llength $argv]} {incr i 2} {
 			set argvtmp [lindex $argv $i];
@@ -15,10 +16,10 @@ if { $sizeargv != 0} {
 				set index [expr $i+1];
 				set name [lindex $argv $index];
 			} elseif {$argvtmp == "-p"} {#pass
-				set index  [expr $i+1];
-				set pass  [lindex $argv $index];
+				set index [expr $i+1];
+				set pass [lindex $argv $index];
 			} elseif {$argvtmp == "-l"} {#pathsetupsimpleca
-				set index  [expr $i+1];
+				set index [expr $i+1];
 				set pathsetupsimpleca [lindex $argv $index];
 			}
 		}
@@ -37,12 +38,12 @@ expect {
 		exp_continue
 	}
 	"Confirm password:" {
-		send "$pass\r"		
+		send "$pass\r"
 		exp_continue
 	}
 	"The hostcert is located at /etc/grid-security/myproxy/hostcert.pem" {
-	  send_user "certificado creado\n"
-	}	
+		send_user "certificado creado\n"
+	}
 }
 expect eof
 send_user "\nse realiza correctamente\n"

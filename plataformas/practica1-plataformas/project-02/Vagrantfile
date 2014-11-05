@@ -10,12 +10,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		node.vm.box = "precise64"
 		node.vm.network "private_network", ip: "172.18.0.2"
 		node.vm.provider "virtualbox" do |vb|
-    			vb.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 1, "--name", "database-server" ]
-  		end
+			vb.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 1, "--name", "database-server" ]
+		end
 		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
 			chef.json.merge!({
-				:run_list => [ "recipe[test::users]", "recipe[test::localapt]", "recipe[test::installmysql]" ]
+				:run_list => [ "recipe[test::users]",
+				"recipe[test::localapt]",
+				"recipe[test::installmysql]" ]
 			})
 		end
 	end
@@ -23,12 +25,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		node.vm.box = "precise32"
 		node.vm.network "private_network", ip: "172.18.0.3"
 		node.vm.provider "virtualbox" do |vb|
-    			vb.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 1, "--name", "web-server" ]
-  		end
+			vb.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 1, "--name", "web-server" ]
+		end
 		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
 			chef.json.merge!({
-				:run_list => [ "recipe[test::users]", "recipe[test::localapt]", "recipe[test::installapache2]" ]
+				:run_list => [ "recipe[test::users]",
+				"recipe[test::localapt]",
+				"recipe[test::installapache2]" ]
 			})
 		end
 	end

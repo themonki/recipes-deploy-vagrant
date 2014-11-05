@@ -1,6 +1,9 @@
 #!/usr/bin/expect
+# -*- mode: tcl -*-
+# vi: set ft=tcl :
+
 #expect para grid-cert-request
-set sizeargv	[llength $argv]
+set sizeargv [llength $argv]
 set pass "vagrant"
 set name "VagrantUser"
 set prefix "user"
@@ -11,14 +14,14 @@ if { $sizeargv != 0} {
 		for {set i 0} {$i < [llength $argv]} {incr i 2} {
 			set argvtmp [lindex $argv $i];
 			if {$argvtmp == "-p"} { #pass
-				      set index [expr $i+1];
-					    set pass [lindex $argv $index];
+				set index [expr $i+1];
+				set pass [lindex $argv $index];
 			} elseif {$argvtmp == "-n"} {#name
-				      set index  [expr $i+1];
-					    set name  [lindex $argv $index];
+				set index [expr $i+1];
+				set name [lindex $argv $index];
 			} elseif {$argvtmp == "-f"} {#prefix
-				      set index  [expr $i+1];
-					    set prefix  [lindex $argv $index];
+				set index [expr $i+1];
+				set prefix [lindex $argv $index];
 			}
 		}
 	} else {
@@ -26,7 +29,6 @@ if { $sizeargv != 0} {
 		send_user "Uso: run-grid-cert-request -n name -p password -f prefix"
 		exit 1
 	}
-
 }
 
 #expect dont work

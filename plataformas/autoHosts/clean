@@ -1,8 +1,0 @@
-#!/bin/bash
-
-path=/home/monki/recipes/plataformas/autoHosts/cookbooks/confighost/files/default
-
-rm -rf ${path}/hosts
-rm -rf ${path}/tmp
-
-touch ${path}/hosts

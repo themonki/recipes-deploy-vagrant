@@ -1,9 +1,10 @@
 #!/usr/bin/expect
+# -*- mode: tcl -*-
+# vi: set ft=tcl :
 
 #expect para grid-proxy-init
 
-
-set sizeargv	[llength $argv]
+set sizeargv [llength $argv]
 set pass 0
 set userkey $env(X509_USER_KEY)
 set usercert $env(X509_USER_CERT)
@@ -13,21 +14,21 @@ log_user 0
 #para que no muestre la salidas del expect en pantalla
 
 if { $sizeargv != 0} {
-	if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 }	{
+	if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 } {
 			for {set i 0} {$i < [llength $argv]} {incr i 2} {
 			set argvtmp [lindex $argv $i];
 			if {$argvtmp == "-p"} { #pass
-				      set index [expr $i+1];
-					    set pass [lindex $argv $index];
+				set index [expr $i+1];
+					set pass [lindex $argv $index];
 			} elseif {$argvtmp == "-c"} { #usercert
-				      set index [expr $i+1];
-					    set usercert [lindex $argv $index];
+				set index [expr $i+1];
+					set usercert [lindex $argv $index];
 			} elseif {$argvtmp == "-k"} { #userkey
-				      set index [expr $i+1];
-					    set userkey [lindex $argv $index];
+				set index [expr $i+1];
+					set userkey [lindex $argv $index];
 			} elseif {$argvtmp == "-o"} { #outproxy
-				      set index [expr $i+1];
-					    set outproxy [lindex $argv $index];
+				set index [expr $i+1];
+					set outproxy [lindex $argv $index];
 			}
 		}
 	} else {
@@ -44,7 +45,7 @@ spawn grid-proxy-init -q -key $userkey -cert $usercert -out $outproxy
 if { $pass == 0 } {
 	send "\r"
 } else {
-	send	"$pass\r"
+	send "$pass\r"
 }
 
 

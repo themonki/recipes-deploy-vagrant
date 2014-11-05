@@ -1,50 +1,64 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant::Config.run do |config|
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.require_version ">= 1.6.5"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.define :wn1 do |node|
 		node.vm.box = "precise64"
-    node.vm.network :bridged, :bridge => "eth0"
-		node.vm.customize [ "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "worker1" ]
+		node.vm.network "public_network", bridge: "wlan0" #"eth0" #quitar bridge para que vagrant pregunte cual interfaz utilizar
+		node.vm.provider "virtualbox" do |vb|
+    			vb.customize [  "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "worker1" ]
+  		end
 		node.vm.provision :chef_solo do |chef|
-		  chef.cookbooks_path = "cookbooks"
-		  chef.add_recipe "confighost::preinstall"
-		  chef.json.merge!({
-		            :run_list => [ "recipe[confighost::preinstall]" , "recipe[confighost::hostname]" , "recipe[confighost::hostconfigurenode]" ],
-																:host_name => "wn1.cluster.org" ,
-																:alias => "wn1"
-                        })
-      end
+			chef.cookbooks_path = "cookbooks"
+			chef.json.merge!({
+				:run_list => [ "recipe[confighost::preinstall]" , 
+				"recipe[confighost::hostname]" , 
+				"recipe[confighost::hostconfigurenode]" ],
+				:host_name => "wn1.cluster.org" ,
+				:alias => "wn1"
+			})
+		end
 	end
 	
 	config.vm.define :wn2 do |node|
 		node.vm.box = "centos64"
-    node.vm.network :bridged, :bridge => "eth0"
-		node.vm.customize [ "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "worker2" ]
-    node.vm.provision :chef_solo do |chef|
-		  chef.cookbooks_path = "cookbooks"
-		  chef.add_recipe "confighost::preinstall"
-		  chef.json.merge!({
-		            :run_list => [ "recipe[confighost::preinstall]" , "recipe[confighost::hostname]" , "recipe[confighost::hostconfigurenode]" ],
-																:host_name => "wn2.cluster.org" ,
-																:alias => "wn2"																
-                        })
-      end
-	end
-
-	config.vm.define :master, :primary => true do |node_1|
-		node_1.vm.box = "precise64"
-		node_1.vm.network :bridged, :bridge => "eth0"
-		node_1.vm.customize [ "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "master" ]
-		node_1.vm.provision :chef_solo do |chef|
+		node.vm.network "public_network", bridge: "wlan0" #"eth0" #quitar bridge para que vagrant pregunte cual interfaz utilizar
+		node.vm.provider "virtualbox" do |vb|
+    			vb.customize [  "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "worker2" ]
+  		end
+		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
-			chef.add_recipe "confighost::preinstall"
 			chef.json.merge!({
-				:run_list => [ "recipe[confighost::preinstall]" , "recipe[confighost::hostname]" , "recipe[confighost::hostconfiguremaster]" ],
-				:host_name => "master.cluster.org" ,				
+				:run_list => [ "recipe[confighost::preinstall]" , 
+				"recipe[confighost::hostname]" , 
+				"recipe[confighost::hostconfigurenode]" ],
+				:host_name => "wn2.cluster.org" ,
+				:alias => "wn2"
+			})
+		end
+	end
+	
+	config.vm.define :master, :primary => true do |node|
+		node.vm.box = "precise64"
+		node.vm.network "public_network", bridge: "wlan0" #"eth0" #quitar bridge para que vagrant pregunte cual interfaz utilizar
+		node.vm.provider "virtualbox" do |vb|
+			vb.vm.customize [ "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "master" ]
+  		end
+		node.vm.provision :chef_solo do |chef|
+			chef.cookbooks_path = "cookbooks"
+			chef.json.merge!({
+				:run_list => [ "recipe[confighost::preinstall]" , 
+				"recipe[confighost::hostname]" , 
+				"recipe[confighost::hostconfiguremaster]" ],
+				:host_name => "master.cluster.org" ,
 				:alias => "master" ,
 				:hostslaves => ["wn1", "wn2" ]#lista de todos los nodos
 			})
 		end
 	end
 end
+

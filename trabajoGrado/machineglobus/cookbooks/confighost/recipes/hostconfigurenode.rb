@@ -16,10 +16,10 @@ end
 
 #enviar los host a la maquina local
 execute "send hosts local" do
-        user "vagrant"
-        #group "admin"
-        cwd "/home/vagrant"
-        command "expect send_host_local.exp"
-        action :run
+	user "vagrant"
+	#group "admin"
+	cwd "/home/vagrant"
+	command "expect send_host_local.exp"
+	action :run
 end
 

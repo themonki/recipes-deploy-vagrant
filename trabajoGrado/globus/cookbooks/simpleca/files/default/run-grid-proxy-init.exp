@@ -1,9 +1,10 @@
 #!/usr/bin/expect
+# -*- mode: tcl -*-
+# vi: set ft=tcl :
 
 #expect para grid-proxy-init
 
-
-set sizeargv	[llength $argv]
+set sizeargv [llength $argv]
 set pass "vagrant"
 set userkey "/home/vagrant/.globus/userkey.pem"
 set usercert "/home/vagrant/.globus/usercert.pem"
@@ -11,21 +12,21 @@ set outproxy "/tmp/x509up_u500"
 set timeout 2
 
 if { $sizeargv != 0} {
-	if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 }	{
-			for {set i 0} {$i < [llength $argv]} {incr i 2} {
+	if { $sizeargv == 2 || $sizeargv == 4 || $sizeargv == 6 || $sizeargv == 8 } {
+		for {set i 0} {$i < [llength $argv]} {incr i 2} {
 			set argvtmp [lindex $argv $i];
 			if {$argvtmp == "-p"} { #pass
-				      set index [expr $i+1];
-					    set pass [lindex $argv $index];
+				set index [expr $i+1];
+				set pass [lindex $argv $index];
 			} elseif {$argvtmp == "-c"} { #usercert
-				      set index [expr $i+1];
-					    set usercert [lindex $argv $index];
+				set index [expr $i+1];
+				set usercert [lindex $argv $index];
 			} elseif {$argvtmp == "-k"} { #userkey
-				      set index [expr $i+1];
-					    set userkey [lindex $argv $index];
+				set index [expr $i+1];
+				set userkey [lindex $argv $index];
 			} elseif {$argvtmp == "-o"} { #outproxy
-				      set index [expr $i+1];
-					    set outproxy [lindex $argv $index];
+				set index [expr $i+1];
+				set outproxy [lindex $argv $index];
 			}
 		}
 	} else {
@@ -33,14 +34,13 @@ if { $sizeargv != 0} {
 		send_user "Uso: run-grid-proxy-init -p password -c usercert -k userkey -o outproxy"
 		exit 1
 	}
-
 }
 
 #Enter PEM pass phrase:
 
 spawn grid-proxy-init -debug -verify -key $userkey -cert $usercert -out $outproxy
 
-send	"$pass\r"
+send "$pass\r"
 
 expect eof
 

@@ -1,6 +1,8 @@
 #!/usr/bin/expect
+# -*- mode: tcl -*-
+# vi: set ft=tcl :
 
-set sizeargv	[llength $argv]
+set sizeargv [llength $argv]
 set passUser "vagrant"
 set userName "vagrant"
 set hostnameClient "mgwn1.globustest.org"
@@ -13,25 +15,25 @@ if { $sizeargv != 0} {
 		for {set i 0} {$i < [llength $argv]} {incr i 2} {
 			set argvtmp [lindex $argv $i];
 			if {$argvtmp == "-u"} { #userName
-				      set index [expr $i+1];
-					    set userName [lindex $argv $index];
+				set index [expr $i+1];
+				set userName [lindex $argv $index];
 			} elseif {$argvtmp == "-pu"} {#passUser
-				      set index  [expr $i+1];
-					    set passUser  [lindex $argv $index];
+				set index [expr $i+1];
+				set passUser [lindex $argv $index];
 			} elseif {$argvtmp == "-hc"} {#hostnameClient FQDN
-				      set index  [expr $i+1];
-					    set hostnameClient [lindex $argv $index];
+				set index [expr $i+1];
+				set hostnameClient [lindex $argv $index];
 			} elseif {$argvtmp == "-hs"} {#hostnameServer FQDN
-				      set index  [expr $i+1];
-					    set hostnameServer [lindex $argv $index];
+				set index [expr $i+1];
+				set hostnameServer [lindex $argv $index];
 			} elseif {$argvtmp == "-n"} {#name
-				      set index  [expr $i+1];
-					    set name [lindex $argv $index];
+				set index [expr $i+1];
+				set name [lindex $argv $index];
 			}
 		}
 	} else {
 		send_user "Error parametros incompletos\n"
-		send_user "Uso: run-setupsecondmachine -u userName -pu passUser  -hs hostnameServer_FQDN -hc hostnameClient_FQDN"
+		send_user "Uso: run-setupsecondmachine -u userName -pu passUser -hs hostnameServer_FQDN -hc hostnameClient_FQDN"
 		exit 1
 	}
 }
@@ -56,9 +58,9 @@ expect {
 spawn sudo myproxy-destroy -s $hostnameServer -k $hostnameClient -l $userName
 
 expect {
-  "successfully removed."{
-    send_user  "Se removio la credencial\n"
-  }
+	"successfully removed."{
+		send_user "Se removio la credencial\n"
+	}
 }
 
 #Modifying /etc/grid-security/grid-mapfile ...
@@ -70,9 +72,9 @@ expect {
 spawn sudo grid-mapfile-add-entry -dn /O=Grid/OU=GlobusTest/OU=simpleCA-$hostnameServer/OU=local/CN=$name -ln $userName
 
 expect {
-  "entry added" {
-    send_user "se adiciona correctamente al mapfile\n"
-  }
+	"entry added" {
+		send_user "se adiciona correctamente al mapfile\n"
+	}
 }
 
 send_user "correctamente realizado"

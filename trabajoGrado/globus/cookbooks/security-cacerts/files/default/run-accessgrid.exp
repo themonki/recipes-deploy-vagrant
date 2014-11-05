@@ -1,6 +1,8 @@
 #!/usr/bin/expect
+# -*- mode: tcl -*-
+# vi: set ft=tcl :
 
-set sizeargv	[llength $argv]
+set sizeargv [llength $argv]
 set pass "vagrant"
 set hostname "mg.globustest.org"
 
@@ -10,10 +12,10 @@ if { $sizeargv != 0} {
 		for {set i 0} {$i < [llength $argv]} {incr i 2} {
 			set argvtmp [lindex $argv $i];
 			if {$argvtmp == "-p"} {#pass
-				      set index  [expr $i+1];
-				set pass  [lindex $argv $index];
+				set index [expr $i+1];
+				set pass [lindex $argv $index];
 			} elseif {$argvtmp == "-h"} {#hostname
-				      set index  [expr $i+1];
+				set index [expr $i+1];
 				set hostname [lindex $argv $index];
 			}
 		}
