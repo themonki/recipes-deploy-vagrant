@@ -1,9 +1,22 @@
+execute "apt-get update" do
+	user "root"
+	group "admin"
+	cwd "/tmp"
+	command "apt-get update"
+	action :run
+end
+
+
 #
 # https://help.ubuntu.com/community/ApacheMySQLPHP
 #
+# se adiciona la version porque intentaba descargar un paquete que ya no existe
+#
 package "mysql-server" do
+	version '5.5.40-0ubuntu0.12.04.1'
 	action :install
 end
+
 
 #
 # https://help.ubuntu.com/8.04/serverguide/C/mysql.html
