@@ -66,7 +66,7 @@ function print_list	{
     for f in `ls $PATH_PROFILE/*.rb`; do 
     filename=$(basename "$f");
     filename="${filename%.*}";
-    if [ $filename != "default" ] && [ $filename != "default-release" ]; then
+    if [ $filename != "default" ] && [ $filename != "default-release" ] && [ $filename != "share-folder" ]; then
       echo $filename;
     fi
   done
@@ -85,7 +85,7 @@ function print_show	{
 }
 
 function delete_profile {
-	if [ $NAME = "default" ] || [ $NAME = "default-release" ]; then
+	if [ $NAME = "default" ] || [ $NAME = "default-release" ] || [ $NAME = "share-folder" ]; then
 		printf '%s\n' "";
 		printf '%s\n' "No se puede borrar el perfil \"$NAME\".";
 		printf '%s\n' "";
@@ -105,7 +105,7 @@ function delete_profile {
 }
 
 function election_profile {
-  if [ $NAME = "default" ] || [ $NAME = "default-release" ]; then
+  if [ $NAME = "default" ] || [ $NAME = "default-release" ] || [ $NAME = "share-folder" ]; then
       printf '%s\n' "";
 	    printf '%s\n' "No es posible elegir el perfil \"$NAME\" como el default.";
 	    printf '%s\n' "Utilice manage-user-profile.sh -l para listar los perfiles habilitados.";
@@ -132,6 +132,13 @@ function election_profile {
 
 
 function create_profile {
+	if [ $NAME = "default" ] || [ $NAME = "default-release" ] || [ $NAME = "share-folder" ]; then
+		printf '%s\n' "";
+		printf '%s\n' "No se puede crear el perfil con el nombre \"$NAME\".";
+		printf '%s\n' "Este nombre esta reservado.";
+		printf '%s\n' "";
+		exit 0;
+	fi
 	if [ ! -z "$NAME" ] && [ ! -z "$PASS" ]; then
 		if file_exists "$PATH_PROFILE/$NAME.rb" ; then
 			printf '%s\n' "Actualizando perfil \"$NAME\" ...";
