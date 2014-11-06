@@ -1,17 +1,23 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant::Config.run do |config|
-	config.vm.define :master do |node_1|
-		node_1.vm.box = "precise64"
-		node_1.vm.network :hostonly, "172.18.0.2", :netmask => "255.255.0.0"
-                node_1.vm.network :bridged, :bridge => "eth0"
-		node_1.vm.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 2, "--name", "master" ]
-		node_1.vm.provision :chef_solo do |chef|
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.require_version ">= 1.6.5"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+	config.vm.define :master do |node|
+		node.vm.box = "precise64"
+		node.vm.network "private_network", ip: "172.18.0.2", netmask: "255.255.0.0"
+		node.vm.provider "virtualbox" do |vb|
+			vb.customize [ "modifyvm", :id, "--memory", 512, "--cpus", 2, "--name", "master" ]
+		end
+		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
-			chef.add_recipe "test::users"
 			chef.json.merge!({
-				:run_list => [ "recipe[test::users]", "recipe[test::java-64]", "recipe[test::installingmaster]" ],
+				:run_list => [ "recipe[test::users]",
+				"recipe[test::java-64]",
+				"recipe[test::installingmaster]" ],
 				:host_name => "master.cluster.org"
 			})
 		end
@@ -19,14 +25,16 @@ Vagrant::Config.run do |config|
 
 	config.vm.define :wn1 do |node|
 		node.vm.box = "precise64"
-		node.vm.network :hostonly, "172.18.0.3", :netmask => "255.255.0.0"
-                node.vm.network :bridged, :bridge => "eth0"
-		node.vm.customize [ "modifyvm", :id, "--memory", 839, "--cpus", 2, "--name", "worker1"]
+		node.vm.network "private_network", ip: "172.18.0.3", netmask: "255.255.0.0"
+		node.vm.provider "virtualbox" do |vb|
+			vb.customize [ "modifyvm", :id, "--memory", 839, "--cpus", 2, "--name", "worker1"]
+		end
                 node.vm.provision :chef_solo do |chef|
                         chef.cookbooks_path = "cookbooks"
-                        chef.add_recipe "test::users"
                         chef.json.merge!({
-                                :run_list => [ "recipe[test::users]", "recipe[test::java-64]", "recipe[test::installingwn]" ],
+                                :run_list => [ "recipe[test::users]",
+                                "recipe[test::java-64]",
+                                "recipe[test::installingwn]" ],
 				:host_name => "wn1.cluster.org"
                         })
                 end
@@ -34,14 +42,16 @@ Vagrant::Config.run do |config|
 
 	config.vm.define :wn2 do |node|
                 node.vm.box = "precise64"
-                node.vm.network :hostonly, "172.18.0.4", :netmask => "255.255.0.0"
-                node.vm.network :bridged, :bridge => "eth0"
-                node.vm.customize [ "modifyvm", :id, "--memory", 839, "--cpus", 2, "--name", "worker2" ]
+                node.vm.network "private_network", ip: "172.18.0.4", netmask: "255.255.0.0"
+                node.vm.provider "virtualbox" do |vb|
+			vb.customize [ "modifyvm", :id, "--memory", 839, "--cpus", 2, "--name", "worker2" ]
+		end
                 node.vm.provision :chef_solo do |chef|
                         chef.cookbooks_path = "cookbooks"
-                        chef.add_recipe "test::users"
                         chef.json.merge!({
-                                :run_list => [ "recipe[test::users]", "recipe[test::java-64]", "recipe[test::installingwn]" ],
+                                :run_list => [ "recipe[test::users]",
+                                "recipe[test::java-64]",
+                                "recipe[test::installingwn]" ],
 				:host_name => "wn2.cluster.org"
                         })
                 end
@@ -54,7 +64,7 @@ Vagrant::Config.run do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "base"
+  #config.vm.box = "base"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.

@@ -1,4 +1,4 @@
-include_recipe	 "test::settingupfiles"
+include_recipe "test::settingupfiles"
 
 execute "install worker" do
 	user "root"

@@ -5,6 +5,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.require_version ">= 1.6.5"
 
+USE_SHARE_FOLDER = true
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.define :wn1 do |node|
 		node.vm.box = "precise64"
@@ -19,7 +21,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 				"recipe[confighost::hostname]" ,
 				"recipe[confighost::hostconfigurenode]" ],
 				:host_name => "wn1.cluster.org" ,
-				:alias => "wn1"
+				:alias => "wn1",
+				:use_share_folder => USE_SHARE_FOLDER
 			})
 		end
 	end
@@ -36,7 +39,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 				"recipe[confighost::hostname]" ,
 				"recipe[confighost::hostconfigurenode]" ],
 				:host_name => "wn2.cluster.org" ,
-				:alias => "wn2"
+				:alias => "wn2",
+				:use_share_folder => USE_SHARE_FOLDER
 			})
 		end
 	end
@@ -54,7 +58,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 				"recipe[confighost::hostconfiguremaster]" ],
 				:host_name => "master.cluster.org" ,
 				:alias => "master" ,
-				:hostslaves => ["wn1", "wn2" ]#lista de todos los nodos
+				:hostslaves => ["wn1", "wn2" ], #lista de todos los nodos
+				:use_share_folder => USE_SHARE_FOLDER
 			})
 		end
 	end
