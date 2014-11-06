@@ -15,6 +15,8 @@ Ver en Github https://github.com/themonki/recipes-deploy-vagrant/tree/master/tra
 
 [Testing on Ubuntu 12.04 (precise) 64 bits](#testing-on-ubuntu-1204-precise-64-bits)
 
+[Paquetes adicionales](#paquetes-adicionales)
+
 [Getting Started](#getting-started)
 
 - [Pre-requisitos](#pre-requisitos)
@@ -158,6 +160,18 @@ expect 5.45
 box [Centos](https://mega.co.nz/#!OZ8iEAII!dwhEhHwfWg3nqqxoRFkeixK0DxhtkoC0sgKKqQAW_aI "centos64")
 La box debe ser almacenada con el nombre de "centos64"
 
+Paquetes adicionales
+=========================================
+
+Tambien es necesario tener instalado los siguientes paquetes: 
+```	
+openssl
+libck-connector0
+openssh-server
+openssh-sftp-server
+ssh-import-id
+```
+
 Getting Started
 ===============
 
@@ -171,7 +185,7 @@ donde se tienen las siguientes modificaciones:
 
 * `elephant` será la máquina `mg` o `mg2`
 
-*	`donkey` será la máquina `mgwn1` o `mgwn2`
+* `donkey` será la máquina `mgwn1` o `mgwn2`
 
 * el dominio `globus.org` será `globustest.org`
 

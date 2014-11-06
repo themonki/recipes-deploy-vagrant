@@ -10,49 +10,47 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		node.vm.box = "precise64"
 		node.vm.network "public_network", bridge: "wlan0" #"eth0" #quitar bridge para que vagrant pregunte cual interfaz utilizar
 		node.vm.provider "virtualbox" do |vb|
-    			vb.customize [  "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "worker1" ]
-  		end
+			vb.customize [  "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "worker1" ]
+		end
 		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
 			chef.json.merge!({
-				:run_list => [ "recipe[confighost::preinstall]" , 
-				"recipe[confighost::hostname]" , 
+				:run_list => [ "recipe[confighost::preinstall]" ,
+				"recipe[confighost::hostname]" ,
 				"recipe[confighost::hostconfigurenode]" ],
 				:host_name => "wn1.cluster.org" ,
 				:alias => "wn1"
 			})
 		end
 	end
-	
 	config.vm.define :wn2 do |node|
 		node.vm.box = "centos64"
 		node.vm.network "public_network", bridge: "wlan0" #"eth0" #quitar bridge para que vagrant pregunte cual interfaz utilizar
 		node.vm.provider "virtualbox" do |vb|
-    			vb.customize [  "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "worker2" ]
-  		end
+			vb.customize [  "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "worker2" ]
+		end
 		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
 			chef.json.merge!({
-				:run_list => [ "recipe[confighost::preinstall]" , 
-				"recipe[confighost::hostname]" , 
+				:run_list => [ "recipe[confighost::preinstall]" ,
+				"recipe[confighost::hostname]" ,
 				"recipe[confighost::hostconfigurenode]" ],
 				:host_name => "wn2.cluster.org" ,
 				:alias => "wn2"
 			})
 		end
 	end
-	
 	config.vm.define :master, :primary => true do |node|
 		node.vm.box = "precise64"
 		node.vm.network "public_network", bridge: "wlan0" #"eth0" #quitar bridge para que vagrant pregunte cual interfaz utilizar
 		node.vm.provider "virtualbox" do |vb|
-			vb.vm.customize [ "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "master" ]
-  		end
+			vb.customize [ "modifyvm", :id, "--memory", 325, "--cpus", 1, "--name", "master" ]
+		end
 		node.vm.provision :chef_solo do |chef|
 			chef.cookbooks_path = "cookbooks"
 			chef.json.merge!({
-				:run_list => [ "recipe[confighost::preinstall]" , 
-				"recipe[confighost::hostname]" , 
+				:run_list => [ "recipe[confighost::preinstall]" ,
+				"recipe[confighost::hostname]" ,
 				"recipe[confighost::hostconfiguremaster]" ],
 				:host_name => "master.cluster.org" ,
 				:alias => "master" ,

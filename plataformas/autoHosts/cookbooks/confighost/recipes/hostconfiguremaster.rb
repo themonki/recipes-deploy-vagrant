@@ -44,21 +44,21 @@ cookbook_file "/home/vagrant/sendhostsssh.exp" do
 end
 
 node[:hostslaves].each do |slave|
-		execute "ssh access" do
-				user "vagrant"
-				#group "admin"
-				cwd "/home/vagrant"
-				command "expect configssh.exp -u vagrant -p vagrant -h #{slave} -l /home/vagrant/.ssh/id_rsa -o n"
-				action :run
-		end
+	execute "ssh access" do
+		user "vagrant"
+		#group "admin"
+		cwd "/home/vagrant"
+		command "expect configssh.exp -u vagrant -p vagrant -h #{slave} -l /home/vagrant/.ssh/id_rsa -o n"
+		action :run
+	end
 end
 
 node[:hostslaves].each do |slave|
-		execute "send hosts" do
-				user "vagrant"
-				#group "admin"
-				cwd "/home/vagrant"
-				command "expect sendhostsssh.exp -u vagrant -p vagrant -h #{slave}"
-				action :run
-		end
+	execute "send hosts" do
+		user "vagrant"
+		#group "admin"
+		cwd "/home/vagrant"
+		command "expect sendhostsssh.exp -u vagrant -p vagrant -h #{slave}"
+		action :run
+	end
 end
