@@ -1,3 +1,6 @@
+**/.vagrant/
+##################
+
 # Paquetes de instalacion #
 *.gem
 *.deb

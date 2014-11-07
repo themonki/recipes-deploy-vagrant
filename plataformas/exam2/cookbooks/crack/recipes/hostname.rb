@@ -10,7 +10,7 @@ execute "hostname-stop" do
 	group "admin"
 	command "service hostname stop"
 	action :run
-        # http://help.opscode.com/discussions/problems/732-bash-non-zero-exit-status
+	# http://help.opscode.com/discussions/problems/732-bash-non-zero-exit-status
 	returns 1
 end
 

@@ -10,5 +10,5 @@ end
 cookbook_file "/home/condor/mpd.hosts" do
 	source "mpd.hosts"
 	mode 0644
-	owner "condor"	
+	owner "condor"
 end

@@ -14,5 +14,5 @@ execute "configure user" do
 	group "admin"
 	cwd "/tmp"
 	command 'sudo su - condor -c "mkdir /home/condor/bin;export PATH=/home/condor/bin:$PATH"'
-	action :run	
+	action :run
 end
