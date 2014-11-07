@@ -20,7 +20,7 @@ alias hls="fs -ls"
 # Requires installed 'lzop' command.
 #
 lzohead () {
-    hadoop fs -cat $1 | lzop -dc | head -1000 | less
+	hadoop fs -cat $1 | lzop -dc | head -1000 | less
 }
 
 # Add Hadoop bin/ directory to PATH

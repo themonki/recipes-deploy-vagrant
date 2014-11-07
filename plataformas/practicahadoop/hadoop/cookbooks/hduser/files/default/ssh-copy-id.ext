@@ -1,4 +1,7 @@
 #!/usr/bin/expect -f
+# -*- mode: tcl -*-
+# vi: set ft=tcl :
+
 # Code from:
 # 	http://ubuntuforums.org/showthread.php?t=220139
 #
@@ -15,30 +18,30 @@ send_user "connecting to $server\n"
 spawn ssh-copy-id -i /home/hduser/.ssh/id_rsa.pub $user@$server
 
 #login handles cases:
-#   login with keys (no user/pass)
-#   user/pass
-#   login with keys (first time verification)
+#	 login with keys (no user/pass)
+#	 user/pass
+#	 login with keys (first time verification)
 expect {
-  "> " { }
-  "$ " { }
-  "assword: " { 
-        send "$pass\n" 
-        expect {
-          "> " { }
-          "$ " { }
-        }
-  }
-  "(yes/no)? " { 
-        send "yes\n"
-        expect "assword: " { 
-        	send "$pass\n" 
-		expect " expecting." { }
-  	}
-  }
-  default {
-        send_user "Login failed\n"
-        exit
-  }
+	"> " { }
+	"$ " { }
+	"assword: " { 
+		send "$pass\n" 
+		expect {
+			"> " { }
+			"$ " { }
+		}
+	}
+	"(yes/no)? " { 
+		send "yes\n"
+		expect "assword: " { 
+			send "$pass\n" 
+			expect " expecting." { }
+		}
+	}
+	default {
+		send_user "Login failed\n"
+		exit
+	}
 }
 
 send_user "finished\n"
