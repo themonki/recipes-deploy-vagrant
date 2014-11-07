@@ -3,7 +3,7 @@
 ##esta receta se aplica solo al mg
 
 class Chef
- 	include Extensions::Platform
+	include Extensions::Platform
 end
 
 if platform?("redhat", "centos", "fedora")
@@ -19,7 +19,7 @@ if platform?("redhat", "centos", "fedora")
 			user "vagrant"
 			cwd "/tmp"
 			action :run  
-		end		
+		end
 		
 		execute "ls reposPreinstall" do
 			command "ls reposPreinstall"

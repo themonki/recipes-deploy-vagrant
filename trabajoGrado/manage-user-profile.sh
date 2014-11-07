@@ -1,4 +1,6 @@
 #!/bin/bash
+# -*- mode: sh -*-
+# vi: set ft=sh :
 
 PATH_PROFILE=machineglobus/cookbooks/confighost/attributes
 #echo $PATH_PROFILE

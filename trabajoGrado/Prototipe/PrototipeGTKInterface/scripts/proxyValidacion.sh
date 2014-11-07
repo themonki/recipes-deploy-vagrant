@@ -1,4 +1,7 @@
 #!/bin/bash
+# -*- mode: sh -*-
+# vi: set ft=sh :
+
 ##inicia el proxy con los valores por defecto o de las variables de entorono del
 ##certificado y del proxy si hace falta.
 

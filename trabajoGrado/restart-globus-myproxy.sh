@@ -1,4 +1,7 @@
 #!/bin/bash
+# -*- mode: sh -*-
+# vi: set ft=sh :
+
 ./shutdown-globus-myproxy.sh $1
 
 

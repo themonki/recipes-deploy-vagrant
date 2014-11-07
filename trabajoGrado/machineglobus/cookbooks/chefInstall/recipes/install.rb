@@ -14,7 +14,7 @@
 #http://www.opscode.com/chef/download?v=&prerelease=false&p=ubuntu&pv=12.04&m=x86_64 para ubuntu 12.04 de 64
 
 class Chef
- 	include Extensions::Platform
+	include Extensions::Platform
 end
 
 if platform?("redhat", "centos", "fedora")
@@ -22,7 +22,7 @@ if platform?("redhat", "centos", "fedora")
 		cookbook_file "/tmp/chef-10.16.6-1.el6.x86_64.rpm" do
 			source "chef-10.16.6-1.el6.x86_64.rpm"
 			owner "root"
-		end		
+		end
 	end
 	if Extensions::Platform.i386?
 		cookbook_file "/tmp/chef-10.16.6-1.el6.i686.rpm" do
@@ -43,14 +43,14 @@ if platform?("ubuntu")
 		cookbook_file "/tmp/chef_11.4.0-1.ubuntu.11.04_x86_64.deb" do
 			source "chef_11.4.0-1.ubuntu.11.04_x86_64.deb"
 			owner "root"
-		end		
+		end
 	end
 	if Extensions::Platform.i386?
 		cookbook_file "/tmp/chef_11.4.0-1.ubuntu.11.04_i386.deb" do
 			source "chef_11.4.0-1.ubuntu.11.04_i386.deb"
 			owner "root"
 		end
-	end	
+	end
 	execute "install chef" do
 		user "root"
 		cwd "/tmp"

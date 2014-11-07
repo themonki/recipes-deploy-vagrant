@@ -1,4 +1,6 @@
 #!/bin/bash
+# -*- mode: sh -*-
+# vi: set ft=sh :
 
 ./package-prototipe.sh
 

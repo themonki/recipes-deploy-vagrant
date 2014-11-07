@@ -1,4 +1,7 @@
 #!/bin/bash
+# -*- mode: sh -*-
+# vi: set ft=sh :
+
 ##Script que comprueba la sintaxys del rsl y que se pueda ejecutar
 
 USER_PASS=""

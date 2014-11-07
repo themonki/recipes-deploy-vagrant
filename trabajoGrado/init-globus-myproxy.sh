@@ -1,24 +1,29 @@
 #!/bin/bash
+# -*- mode: sh -*-
+# vi: set ft=sh :
 
-FILE=./machineglobus/cookbooks/confighost/attributes/default.rb
+#Si se emplea el share folder no se necesesita confirgurar
+SHARE_FOLDER_ACTIVE="$(grep -lir 'USE_SHARE_FOLDER = true' machineglobus/Vagrantfile)"
 
-profile=false;
-if [ -e $FILE ]; then
-
-  while read line
-  do
-    if [[ "$line" == *"$HOME"* ]]
-      then
-        profile=true;       
+if [ -z "$SHARE_FOLDER_ACTIVE" ]; then
+  FILE=./machineglobus/cookbooks/confighost/attributes/default.rb
+  profile=false;
+  if [ -e $FILE ]; then
+    while read line
+    do
+      if [[ "$line" == *"$HOME"* ]]
+        then
+          profile=true;       
+      fi
+    done < $FILE
+    if [ $profile == false ]; then
+      echo "El perfil por defecto no corresponde al usuario actual, actualice con manage-user-profile.sh";
+      exit;
     fi
-  done < $FILE
-  if [ $profile == false ]; then
-    echo "El perfil por defecto no corresponde al usuario actual, actualice con manage-user-profile.sh";
+  else
+    echo "Debe generar primero el perfil por defecto del usuario con manage-user-profile.sh";
     exit;
   fi
-else
-  echo "Debe generar primero el perfil por defecto del usuario con manage-user-profile.sh";
-  exit;
 fi
 
 pathSSH=$HOME/.ssh/id_rsa

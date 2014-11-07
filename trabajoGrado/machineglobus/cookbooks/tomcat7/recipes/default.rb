@@ -3,10 +3,6 @@
 # http://seriousbirder.com/blogs/how-to-install-tomcat-7-on-centos-6/
 # Install Tomcat 7 on /opt
 #
-#
-#
-#
-#
 #############################
 
 

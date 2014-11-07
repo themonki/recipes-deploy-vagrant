@@ -1,4 +1,7 @@
 #!/bin/bash
+# -*- mode: sh -*-
+# vi: set ft=sh :
+
 ##Script que ejecuta un job
 
 USER_PASS=""

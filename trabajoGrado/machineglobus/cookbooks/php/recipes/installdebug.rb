@@ -1,6 +1,6 @@
 #instalacion offline de xdebug-2.2.3
 class Chef
- 	include Extensions::Platform
+	include Extensions::Platform
 end
 
 if platform?("redhat", "centos", "fedora")
@@ -21,7 +21,7 @@ if platform?("redhat", "centos", "fedora")
 			user "vagrant"
 			cwd "/tmp"
 			action :run  
-		end		
+		end
 
 		execute "run phpize" do
 			command "phpize"

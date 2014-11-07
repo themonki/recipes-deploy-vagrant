@@ -1,7 +1,7 @@
 #instalacion offline de php
 
 class Chef
- 	include Extensions::Platform
+	include Extensions::Platform
 end
 
 if platform?("redhat", "centos", "fedora")
@@ -17,7 +17,7 @@ if platform?("redhat", "centos", "fedora")
 			user "vagrant"
 			cwd "/tmp"
 			action :run  
-		end		
+		end
 
 		execute "install php" do
 			command "rpm -Uvh --force *.rpm"
