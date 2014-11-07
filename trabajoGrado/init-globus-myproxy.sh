@@ -51,16 +51,16 @@ expect configssh.exp -u vagrant -p vagrant -h 172.18.0.12 -l ${pathSSH} >> ../lo
 
 echo "garantizado acceso ssh a las maquinas virtuales"
 
-knife cook vagrant@172.18.0.11 >> ../log.txt
-knife cook vagrant@172.18.0.12 >> ../log.txt
+knife solo cook vagrant@172.18.0.11 >> ../log.txt
+knife solo cook vagrant@172.18.0.12 >> ../log.txt
 
 echo "addservice"
 
-knife cook vagrant@172.18.0.11 nodes/addservice.json >> ../log.txt
+knife solo cook vagrant@172.18.0.11 nodes/addservice.json >> ../log.txt
 
 echo "setupsecondmachine"
 
-knife cook vagrant@172.18.0.12 nodes/setupsecondmachine.json >> ../log.txt
+knife solo cook vagrant@172.18.0.12 nodes/setupsecondmachine.json >> ../log.txt
 
 echo "globus instalado y configurado con myproxy"
 
