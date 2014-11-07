@@ -1,3 +1,3 @@
 package "expect" do
-  action :install
+	action :install
 end
