@@ -34,9 +34,9 @@ touch log.txt
 
 cd machineglobus
 
-vagrant up mgwn1 >> ../log.txt
+vagrant up mgwn1 --color >> ../log.txt
 
-vagrant up mg >> ../log.txt
+vagrant up mg --color >> ../log.txt
 
 ./clean.sh
 

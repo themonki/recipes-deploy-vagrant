@@ -34,9 +34,9 @@ touch log2.txt
 
 cd machineglobus
 
-vagrant up mgwn2 >> ../log2.txt
+vagrant up mgwn2 --color >> ../log2.txt
 
-vagrant up mg2 >> ../log2.txt
+vagrant up mg2 --color >> ../log2.txt
 
 ./clean.sh
 
@@ -67,24 +67,24 @@ expect configssh.exp -u vagrant -p vagrant -h 172.18.0.22 -l ${pathSSH} >> ../lo
 
 echo "garantizado acceso ssh a las maquinas virtuales"
 
-knife cook vagrant@172.18.0.21 >> ../log2.txt
-knife cook vagrant@172.18.0.22 >> ../log2.txt
+knife solo cook vagrant@172.18.0.21 >> ../log2.txt
+knife solo cook vagrant@172.18.0.22 >> ../log2.txt
 
 echo "setup simpleca, hostcert y usercert for vagrant"
 
-knife cook vagrant@172.18.0.21 nodes/initsimpleca.json >> ../log2.txt
-knife cook vagrant@172.18.0.22 nodes/initsimplecasecondmachine.json >> ../log2.txt
-knife cook vagrant@172.18.0.21 nodes/signsimpleca.json >> ../log2.txt
-knife cook vagrant@172.18.0.22 nodes/configcertnodes.json >> ../log2.txt
+knife solo cook vagrant@172.18.0.21 nodes/initsimpleca.json >> ../log2.txt
+knife solo cook vagrant@172.18.0.22 nodes/initsimplecasecondmachine.json >> ../log2.txt
+knife solo cook vagrant@172.18.0.21 nodes/signsimpleca.json >> ../log2.txt
+knife solo cook vagrant@172.18.0.22 nodes/configcertnodes.json >> ../log2.txt
 
 echo "globus instalado"
 
 echo "Preparando configuracion de aplicacion"
 
-knife cook vagrant@172.18.0.21 nodes/configSSL.json >> ../log2.txt
-knife cook vagrant@172.18.0.21 nodes/database.json >> ../log2.txt
+knife solo cook vagrant@172.18.0.21 nodes/configSSL.json >> ../log2.txt
+knife solo cook vagrant@172.18.0.21 nodes/database.json >> ../log2.txt
 
-knife cook vagrant@172.18.0.21 nodes/prototipe.json >> ../log2.txt
+knife solo cook vagrant@172.18.0.21 nodes/prototipe.json >> ../log2.txt
 
 echo "Aplicación generada"
 

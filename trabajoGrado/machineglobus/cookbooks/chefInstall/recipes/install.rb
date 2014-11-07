@@ -19,14 +19,22 @@ end
 
 if platform?("redhat", "centos", "fedora")
 	if Extensions::Platform.amd64?
-		cookbook_file "/tmp/chef-10.16.6-1.el6.x86_64.rpm" do
-			source "chef-10.16.6-1.el6.x86_64.rpm"
+		#cookbook_file "/tmp/chef-10.16.6-1.el6.x86_64.rpm" do
+		#	source "chef-10.16.6-1.el6.x86_64.rpm"
+		#	owner "root"
+		#end
+		cookbook_file "/tmp/chef-11.16.4-1.el6.x86_64.rpm" do
+			source "chef-11.16.4-1.el6.x86_64.rpm"
 			owner "root"
 		end
 	end
 	if Extensions::Platform.i386?
-		cookbook_file "/tmp/chef-10.16.6-1.el6.i686.rpm" do
-			source "chef-10.16.6-1.el6.i686.rpm"
+		#cookbook_file "/tmp/chef-10.16.6-1.el6.i686.rpm" do
+		#	source "chef-10.16.6-1.el6.i686.rpm"
+		#	owner "root"
+		#end
+		cookbook_file "/tmp/chef-11.16.4-1.el6.i686.rpm" do
+			source "chef-11.16.4-1.el6.i686.rpm"
 			owner "root"
 		end
 	end
@@ -40,14 +48,22 @@ end
 
 if platform?("ubuntu")
 	if Extensions::Platform.amd64?
-		cookbook_file "/tmp/chef_11.4.0-1.ubuntu.11.04_x86_64.deb" do
-			source "chef_11.4.0-1.ubuntu.11.04_x86_64.deb"
+		#cookbook_file "/tmp/chef_11.4.0-1.ubuntu.11.04_x86_64.deb" do
+		#	source "chef_11.4.0-1.ubuntu.11.04_x86_64.deb"
+		#	owner "root"
+		#end
+		cookbook_file "/tmp/chef_11.16.4-1_amd64.deb" do
+			source "chef_11.16.4-1_amd64.deb"
 			owner "root"
 		end
 	end
 	if Extensions::Platform.i386?
-		cookbook_file "/tmp/chef_11.4.0-1.ubuntu.11.04_i386.deb" do
-			source "chef_11.4.0-1.ubuntu.11.04_i386.deb"
+		#cookbook_file "/tmp/chef_11.4.0-1.ubuntu.11.04_i386.deb" do
+		#	source "chef_11.4.0-1.ubuntu.11.04_i386.deb"
+		#	owner "root"
+		#end
+		cookbook_file "/tmp/chef_11.16.4-1_i386.deb" do
+			source "chef_11.16.4-1_i386.deb"
 			owner "root"
 		end
 	end
