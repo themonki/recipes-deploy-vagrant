@@ -1,5 +1,14 @@
 Ver en Github https://github.com/themonki/recipes-deploy-vagrant/tree/master/trabajoGrado#%C3%8Dndice
 
+Proyecto Movido
+===============
+
+Las Modificaciónes para este proyecto se continuan en un nuevo repositorio:
+
+[En Github: globus-grid-app](https://github.com/themonki/globus-grid-app)
+
+[En Bitbucket: globus-grid-app](https://bitbucket.org/themonki/globus-grid-app)
+
 #Índice
 
 
@@ -101,19 +110,52 @@ una seccion en mega para los releases:
 
 Información de los releases.
 
-`Release v.0.1.1` Corrección en el script de init ya que en los release se tiene el prototipo en tar.gz y no en otra subcarpeta
-llamada Prototipe. Actualización del README.
+`Release v.0.2.0` Actualización de las recetas para las nuevas versiones de 
+Vagrant y Knife.
 
-`Release v.0.1.0` Adición del prototipo de interfaz a la automatización de la instalación,
- el prototipo permite enviar, cancelar y ver ele stado de los jobs. Se mejora el scrip del manejo de perfiles y se
- adiciona la validacion necesaria para que no inicie si no se tiene un perfil adecuado.
+`Release v.0.1.1` Corrección en el script de init ya que en los release se tiene
+ el prototipo en tar.gz y no en otra subcarpeta llamada Prototipe. Actualización
+  del README.
 
-`Release v.0.0.2` corrigiendo errores en scripts de expect, agregando a los json las variables para correr los scripts 
-de expect con otros parametros, actualizando readme. Agregando script para crear release.tar.gz con lo importante y 
-creando script para manejar el archivo de configuracion de la receta confighost.
+`Release v.0.1.0` Adición del prototipo de interfaz a la automatización de la 
+instalación, el prototipo permite enviar, cancelar y ver ele stado de los jobs. 
+Se mejora el scrip del manejo de perfiles y se adiciona la validacion necesaria 
+para que no inicie si no se tiene un perfil adecuado.
 
-`Release v.0.0.1` recetas de plataformas corriendo y recetas de trabajo de grado con scripts, instalacion offline y 
-levantamiento de globus con certificados utilizando myproxy y automatizada.
+`Release v.0.0.2` corrigiendo errores en scripts de expect, agregando a los json
+ las variables para correr los scripts de expect con otros parametros, 
+ actualizando readme. Agregando script para crear release.tar.gz con lo 
+ importante y creando script para manejar el archivo de configuracion de la 
+ receta confighost.
+
+`Release v.0.0.1` recetas de plataformas corriendo y recetas de trabajo de 
+grado con scripts, instalacion offline y levantamiento de globus con 
+certificados utilizando myproxy y automatizada.
+
+Testing on Ubuntu 14.04 (trusty) 64 bits
+=========================================
+
+[vagrant version 1.6.5 (64 bits)](https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.5_x86_64.deb)
+
+[VirtualBox version 4.3.18 (64 bits)](http://download.virtualbox.org/virtualbox/4.3.18/virtualbox-4.3_4.3.18-96516~Ubuntu~raring_amd64.deb)
+and [extension 4.2.6](http://download.virtualbox.org/virtualbox/4.3.18/Oracle_VM_VirtualBox_Extension_Pack-4.3.18-96516.vbox-extpack)
+
+ruby version 1.9.3p484
+
+gem version 1.8.23
+
+knife-solo  version 0.4.2 (see with `gem list --local`)
+
+chef version 11.16.4 (see with `knife --version`)
+
+expect 5.45 
+
+box [Centos](https://mega.co.nz/#!OZ8iEAII!dwhEhHwfWg3nqqxoRFkeixK0DxhtkoC0sgKKqQAW_aI "centos64")
+La box debe ser almacenada con el nombre de "centos64"
+
+NOTA: ya no sirven para los entornos anteriores Ubuntu 12.10 y Ubuntu 12.04, 
+es necesario retomar desde el `Release v.0.1.1`.
+
 
 Testing on Ubuntu 12.10 (quantal) 64 bits
 =========================================
@@ -253,8 +295,6 @@ este password no puede ser modificado.
 
 El usuario por defecto quien tiene certificados autenticados por globus es el usuario `vagrant` y cuando se solicite acceso a los recursos 
 el password es "vagrant". Se puede modificar este usuario y su password en los archivos .json ubicados en `globus/nodes`.
-
-
 
 ##Run Scripts
 
