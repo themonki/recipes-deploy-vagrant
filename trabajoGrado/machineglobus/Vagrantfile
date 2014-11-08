@@ -99,7 +99,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 				"recipe[chefInstall::install]",
 				"recipe[preinstall]" ],
 				:host_name => "mgwn2.globustest.org",
-				:alias => "mgwn2" 
+				:alias => "mgwn2",
+				:use_share_folder => USE_SHARE_FOLDER
 			})
 		end
 	end
